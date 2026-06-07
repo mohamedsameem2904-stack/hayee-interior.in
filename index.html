@@ -498,7 +498,7 @@ nav > * { pointer-events:all; }
 }
 
 /* ═══════════════════════════════════════════
-   §5 FOOTER / CONTACT
+   §5 FOOTER / CONTACT (REFACTORED - NO MAP)
    ═══════════════════════════════════════════ */
 #s-foot {
   background:var(--c0); flex-direction:column;
@@ -506,17 +506,15 @@ nav > * { pointer-events:all; }
 }
 
 .foot-main {
-  display:grid; grid-template-columns:1fr 1fr;
+  max-width:1320px; width:100%; margin:0 auto;
+  padding:88px 56px;
+  display:grid; grid-template-columns:1.2fr 1fr;
+  gap:80px;
 }
 
-/* ---- Left panel ---- */
-.foot-l {
-  padding:88px 72px;
-  display:flex; flex-direction:column;
-  justify-content:space-between; gap:52px;
-  background:var(--c0);
+.foot-l-header {
+  margin-bottom:44px;
 }
-
 .foot-logo {
   font-family:var(--f-disp); font-size:clamp(44px,5.5vw,74px);
   font-weight:300; color:var(--w2); letter-spacing:-.03em; line-height:1;
@@ -528,12 +526,12 @@ nav > * { pointer-events:all; }
   color:var(--w5); margin-top:8px;
 }
 
-/* Contact info rows */
-.foot-contacts { display:flex; flex-direction:column; gap:0; }
+/* Contact info stack */
+.foot-contacts { display:flex; flex-direction:column; gap:4px; }
 
 .fc-row {
-  display:flex; align-items:flex-start; gap:18px;
-  padding:18px 0; border-bottom:1px solid rgba(255,255,255,.06);
+  display:flex; align-items:flex-start; gap:20px;
+  padding:20px 0; border-bottom:1px solid rgba(255,255,255,.06);
 }
 .fc-row:first-child { padding-top:0; }
 .fc-icon {
@@ -546,24 +544,28 @@ nav > * { pointer-events:all; }
 .fc-lbl {
   font-family:var(--f-sans); font-size:8px; font-weight:300;
   letter-spacing:.38em; text-transform:uppercase;
-  color:var(--w5); margin-bottom:3px;
+  color:var(--w5); margin-bottom:4px;
 }
 .fc-val {
   font-family:var(--f-disp); font-size:16px; font-weight:300;
   color:var(--w3); letter-spacing:.02em;
 }
 
-/* Gold rule */
-.g-rule { width:44px; height:1px; background:var(--gold); margin:28px 0; }
+/* Gold layout divider */
+.g-rule { width:44px; height:1px; background:var(--gold); margin:36px 0; }
 
-/* CTA Buttons */
+/* Actions & Buttons Panel */
+.foot-r-actions {
+  display:flex; flex-direction:column; justify-content:flex-end;
+}
+
 .cta-group {
-  display:flex; flex-direction:column; gap:11px;
+  display:flex; flex-direction:column; gap:12px;
 }
 
 .cta {
-  display:inline-flex; align-items:center; gap:13px;
-  padding:15px 26px; border-radius:2px; text-decoration:none; cursor:none;
+  display:inline-flex; align-items:center; gap:14px;
+  padding:16px 28px; border-radius:2px; text-decoration:none; cursor:none;
   font-family:var(--f-sans); font-size:10px; font-weight:300;
   letter-spacing:.24em; text-transform:uppercase;
   transition:transform .35s var(--expo), box-shadow .35s, background .3s, border-color .3s, color .3s;
@@ -572,14 +574,12 @@ nav > * { pointer-events:all; }
 .cta svg { flex-shrink:0; }
 .cta-svg-stroke svg { fill:none; stroke:currentColor; stroke-width:1.7; width:15px; height:15px; }
 
-/* Call Now — Gold */
 .cta-call {
   background:var(--gold); color:var(--c0);
   box-shadow:0 4px 28px rgba(200,169,106,.28);
 }
 .cta-call:hover { background:var(--goldl); box-shadow:0 8px 36px rgba(200,169,106,.38); }
 
-/* WhatsApp — Green */
 .cta-wa {
   background:var(--greenl); color:var(--green);
   border:1px solid rgba(61,171,110,.22);
@@ -587,19 +587,17 @@ nav > * { pointer-events:all; }
 .cta-wa svg { fill:var(--green); width:15px; height:15px; }
 .cta-wa:hover { background:rgba(61,171,110,.22); border-color:rgba(61,171,110,.45); box-shadow:0 6px 24px rgba(61,171,110,.12); }
 
-/* Gmail — Outline */
 .cta-mail {
   background:transparent; color:var(--w5);
   border:1px solid rgba(191,176,156,.25);
 }
 .cta-mail:hover { color:var(--w2); border-color:rgba(191,176,156,.55); background:rgba(191,176,156,.07); }
 
-/* Social Container Upgrades */
+/* Instagram Component */
 .foot-soc-block {
   display: flex;
   flex-direction: column;
   gap:12px;
-  margin-top: 10px;
 }
 .insta-label {
   font-family: var(--f-sans);
@@ -628,43 +626,18 @@ nav > * { pointer-events:all; }
   background: rgba(200,169,106,0.06);
   transform: translateY(-3px);
 }
-.insta-anchor svg {
-  width: 20px;
-  height: 20px;
-  fill: currentColor;
-}
+.insta-anchor svg { width: 20px; height: 20px; fill: currentColor; }
 
-/* ---- Right panel ---- */
-.foot-r { position:relative; overflow:hidden; min-height:640px; background:#151412; }
-.foot-r iframe {
-  width:100%; height:100%; position:absolute; inset:0; border:0; display:block;
-  filter: sepia(40%) saturate(60%) brightness(85%) contrast(110%) invert(90%);
-  mix-blend-mode: lighten; opacity: 0.75; transition:all .6s var(--expo);
-}
-.foot-r:hover iframe {
-  filter: sepia(10%) saturate(90%) brightness(95%) contrast(100%);
-  mix-blend-mode: normal; opacity: 1;
-}
-
-.map-badge {
-  position:absolute; top:32px; left:32px; z-index: 10;
-  background:var(--w0); padding:14px 22px;
-  border-radius:2px; box-shadow:0 8px 44px rgba(0,0,0,.16);
-}
-.map-badge .mb-ey {
-  font-family:var(--f-sans); font-size:7px; font-weight:300;
-  letter-spacing:.44em; text-transform:uppercase; color:var(--gold); margin-bottom:4px;
-}
-.map-badge .mb-name {
-  font-family:var(--f-disp); font-size:15px; font-weight:400; color:var(--c0);
-}
-
-/* ---- Footer bottom strip ---- */
+/* Footer bottom strip */
 .foot-bot {
   background:#111009;
-  padding:22px 72px;
-  display:flex; align-items:center; justify-content:space-between;
+  padding:26px 56px;
+  display:flex; align-items:center; justify-content:between;
   border-top:1px solid rgba(255,255,255,.04);
+}
+.foot-bot-container {
+  max-width:1320px; width:100%; margin:0 auto;
+  display:flex; align-items:center; justify-content:space-between;
 }
 .foot-bot p {
   font-family:var(--f-sans); font-size:8px; font-weight:300;
@@ -697,8 +670,7 @@ nav > * { pointer-events:all; }
   }
   .pi { grid-column:span 1 !important; }
   .pi .pi-in { height:340px !important; }
-  .foot-main { grid-template-columns:1fr; }
-  .foot-r { min-height:450px; }
+  .foot-main { grid-template-columns:1fr; gap:40px; }
 }
 
 @media (max-width:768px) {
@@ -715,9 +687,8 @@ nav > * { pointer-events:all; }
   #s-port { padding:80px 22px 100px; }
   .port-hd { grid-template-columns:1fr; gap:28px; }
   .port-grid { grid-template-columns:1fr; }
-  .foot-l { padding:56px 28px; }
-  .foot-bot { padding:18px 28px; flex-direction:column; gap:10px; text-align:center; }
-  .cta { padding:13px 20px; }
+  .foot-main { padding:56px 24px; }
+  .foot-bot-container { flex-direction:column; gap:12px; text-align:center; }
 }
 @media (max-width:480px) {
   .hero-h1 { font-size:58px; }
@@ -949,8 +920,7 @@ nav > * { pointer-events:all; }
     <div class="foot-main">
 
       <div class="foot-l">
-
-        <div>
+        <div class="foot-l-header">
           <div class="foot-logo">Hayee <em>Furn</em></div>
           <div class="foot-tag">Luxury Interior Design Studio</div>
         </div>
@@ -983,12 +953,20 @@ nav > * { pointer-events:all; }
               <div class="fc-val" style="font-size:13px;">Residential · Commercial · Bespoke</div>
             </div>
           </div>
+          <div class="fc-row">
+            <div class="fc-icon">
+              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="fc-text">
+              <div class="fc-lbl">Studio Location</div>
+              <div class="fc-val" style="font-size:14px;">Chennai, Tamil Nadu, India</div>
+            </div>
+          </div>
         </div>
+      </div>
 
-        <div class="g-rule"></div>
-
+      <div class="foot-r-actions">
         <div class="cta-group">
-
           <a href="tel:+917299030406" class="cta cta-call cta-svg-stroke">
             <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
             Call Now
@@ -1003,10 +981,9 @@ nav > * { pointer-events:all; }
             <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             Send Email
           </a>
-
         </div>
 
-        <div class="g-rule" style="margin:20px 0 10px;"></div>
+        <div class="g-rule" style="margin:24px 0 16px;"></div>
 
         <div class="foot-soc-block">
           <div class="insta-label">Instagram</div>
@@ -1016,10 +993,16 @@ nav > * { pointer-events:all; }
             </svg>
           </a>
         </div>
-    </div><div class="foot-bot">
-      <p>© 2026 Hayee Furn. All Rights Reserved.</p>
-      <p>Crafted with intention — Designed to endure.</p>
-      <p>Privacy · Terms · Credits</p>
+      </div>
+
+    </div>
+
+    <div class="foot-bot">
+      <div class="foot-bot-container">
+        <p>© 2026 Hayee Furn. All Rights Reserved.</p>
+        <p>Crafted with intention — Designed to endure.</p>
+        <p>Privacy · Terms · Credits</p>
+      </div>
     </div>
 
   </section>
