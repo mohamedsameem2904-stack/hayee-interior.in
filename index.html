@@ -168,7 +168,6 @@ nav > * { pointer-events:all; }
   overflow:hidden;
 }
 
-/* Section fades for cinematic transitions */
 .sec::after {
   content:''; position:absolute; bottom:0; left:0; right:0;
   height:130px; pointer-events:none; z-index:5;
@@ -357,7 +356,6 @@ nav > * { pointer-events:all; }
 }
 .show-h2 em { font-style:italic; }
 
-/* 3-D tilt cards */
 .cards {
   display:grid; grid-template-columns:repeat(3,1fr);
   gap:24px; max-width:1320px; width:100%; margin:0 auto;
@@ -544,7 +542,7 @@ nav > * { pointer-events:all; }
   display:flex; align-items:center; justify-content:center; flex-shrink:0;
 }
 .fc-icon svg { width:14px; height:14px; fill:none; stroke:var(--gold); stroke-width:1.6; }
-.fc-text {}
+
 .fc-lbl {
   font-family:var(--f-sans); font-size:8px; font-weight:300;
   letter-spacing:.38em; text-transform:uppercase;
@@ -596,29 +594,60 @@ nav > * { pointer-events:all; }
 }
 .cta-mail:hover { color:var(--w2); border-color:rgba(191,176,156,.55); background:rgba(191,176,156,.07); }
 
-/* Socials */
-.foot-soc { display:flex; gap:22px; }
-.foot-soc a {
-  font-family:var(--f-sans); font-size:9px; font-weight:300;
-  letter-spacing:.28em; text-transform:uppercase;
-  color:var(--w5); text-decoration:none;
-  transition:color .3s; cursor:none;
+/* Social Container Upgrades */
+.foot-soc-block {
+  display: flex;
+  flex-direction: column;
+  gap:12px;
+  margin-top: 10px;
 }
-.foot-soc a:hover { color:var(--gold); }
+.insta-label {
+  font-family: var(--f-sans);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: .35em;
+  text-transform: uppercase;
+  color: var(--w5);
+}
+.insta-anchor {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(200,169,106,.2);
+  background: rgba(255,255,255,.02);
+  color: var(--w5);
+  transition: all 0.3s var(--expo);
+  cursor: none;
+}
+.insta-anchor:hover {
+  color: var(--gold);
+  border-color: var(--gold);
+  background: rgba(200,169,106,0.06);
+  transform: translateY(-3px);
+}
+.insta-anchor svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
 
-/* ---- Right panel (Map) ---- */
-.foot-r { position:relative; overflow:hidden; }
+/* ---- Right panel (Map Container Fix) ---- */
+.foot-r { position:relative; overflow:hidden; min-height:640px; background:#151412; }
 .foot-r iframe {
-  width:100%; height:100%; min-height:640px; border:0; display:block;
-  filter:sepia(35%) saturate(75%) brightness(102%) contrast(95%);
-  transition:filter .5s;
+  width:100%; height:100%; position:absolute; inset:0; border:0; display:block;
+  filter: sepia(40%) saturate(60%) brightness(85%) contrast(110%) invert(90%);
+  mix-blend-mode: lighten; opacity: 0.75; transition:all .6s var(--expo);
 }
 .foot-r:hover iframe {
-  filter:sepia(10%) saturate(100%) brightness(108%) contrast(100%);
+  filter: sepia(10%) saturate(90%) brightness(95%) contrast(100%);
+  mix-blend-mode: normal; opacity: 1;
 }
 
 .map-badge {
-  position:absolute; top:32px; left:32px;
+  position:absolute; top:32px; left:32px; z-index: 10;
   background:var(--w0); padding:14px 22px;
   border-radius:2px; box-shadow:0 8px 44px rgba(0,0,0,.16);
 }
@@ -669,7 +698,7 @@ nav > * { pointer-events:all; }
   .pi { grid-column:span 1 !important; }
   .pi .pi-in { height:340px !important; }
   .foot-main { grid-template-columns:1fr; }
-  .foot-r iframe { min-height:420px; }
+  .foot-r { min-height:450px; }
 }
 
 @media (max-width:768px) {
@@ -699,24 +728,19 @@ nav > * { pointer-events:all; }
 </head>
 <body>
 
-<!-- ════ LOADER ════ -->
 <div id="loader">
   <div class="ld-title">HAYEE <i>Furn</i></div>
   <div class="ld-bar"><div class="ld-fill"></div></div>
   <div class="ld-sub">Luxury Interior Design Studio</div>
 </div>
 
-<!-- ════ GRAIN ════ -->
 <div id="grain"></div>
 
-<!-- ════ CURSOR ════ -->
 <div id="cur-dot"></div>
 <div id="cur-ring"></div>
 
-<!-- ════ PROGRESS ════ -->
 <div id="prog"></div>
 
-<!-- ════ NAV ════ -->
 <nav>
   <a class="n-logo" href="#">Hayee Furn</a>
   <ul class="n-links">
@@ -728,13 +752,9 @@ nav > * { pointer-events:all; }
   <span class="n-est">Est. 2018</span>
 </nav>
 
-<!-- ════ SCROLL WRAPPER ════ -->
 <div id="s-wrap">
  <div id="s-content">
 
-  <!-- ══════════════════════════════
-       §1  HERO
-       ══════════════════════════════ -->
   <section class="sec" id="s-hero">
     <div class="hero-bg" id="heroBg"></div>
     <div class="hero-body">
@@ -752,9 +772,6 @@ nav > * { pointer-events:all; }
     </div>
   </section>
 
-  <!-- ══════════════════════════════
-       §2  PHILOSOPHY
-       ══════════════════════════════ -->
   <section class="sec" id="s-phil">
     <div class="phil-texture"></div>
     <div class="phil-grid">
@@ -800,9 +817,6 @@ nav > * { pointer-events:all; }
     </div>
   </section>
 
-  <!-- ══════════════════════════════
-       §3  SHOWROOM
-       ══════════════════════════════ -->
   <section class="sec" id="s-show">
     <div class="show-hd rv">
       <p class="show-ey">Our Expertise</p>
@@ -811,7 +825,6 @@ nav > * { pointer-events:all; }
 
     <div class="cards">
 
-      <!-- Card 1 -->
       <div class="card" data-card>
         <div class="card-img">
           <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=82&auto=format&fit=crop" alt="Residential Sanctuaries" loading="lazy">
@@ -828,7 +841,6 @@ nav > * { pointer-events:all; }
         </div>
       </div>
 
-      <!-- Card 2 -->
       <div class="card" data-card>
         <div class="card-img">
           <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=82&auto=format&fit=crop" alt="Commercial Environments" loading="lazy">
@@ -845,7 +857,6 @@ nav > * { pointer-events:all; }
         </div>
       </div>
 
-      <!-- Card 3 -->
       <div class="card" data-card>
         <div class="card-img">
           <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=82&auto=format&fit=crop" alt="Bespoke Furniture" loading="lazy">
@@ -865,19 +876,12 @@ nav > * { pointer-events:all; }
     </div>
   </section>
 
-  <!-- ══════════════════════════════
-       §4  PORTFOLIO
-       ══════════════════════════════ -->
   <section class="sec" id="s-port">
 
     <div class="port-hd">
       <h2 class="port-h2 rv">Selected<br><em>Works</em></h2>
       <div class="port-hd-r rv d1">
         <p>A curated selection of residential and commercial projects — each a unique response to site, client, and context.</p>
-        <a href="#" class="all-btn">
-          View All Projects
-          <svg viewBox="0 0 18 10"><path d="M0 5h16M12 1l4 4-4 4"/></svg>
-        </a>
       </div>
     </div>
 
@@ -936,14 +940,10 @@ nav > * { pointer-events:all; }
 
   </section>
 
-  <!-- ══════════════════════════════
-       §5  FOOTER & CONTACT
-       ══════════════════════════════ -->
   <section class="sec" id="s-foot">
 
     <div class="foot-main">
 
-      <!-- ---- LEFT: Info + CTAs ---- -->
       <div class="foot-l">
 
         <div>
@@ -951,9 +951,7 @@ nav > * { pointer-events:all; }
           <div class="foot-tag">Luxury Interior Design Studio</div>
         </div>
 
-        <!-- Contact info -->
         <div class="foot-contacts">
-          <!-- Phone -->
           <div class="fc-row">
             <div class="fc-icon">
               <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
@@ -963,7 +961,6 @@ nav > * { pointer-events:all; }
               <div class="fc-val">+91 72990 30406</div>
             </div>
           </div>
-          <!-- Email -->
           <div class="fc-row">
             <div class="fc-icon">
               <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
@@ -973,7 +970,6 @@ nav > * { pointer-events:all; }
               <div class="fc-val">hayeefurn@gmail.com</div>
             </div>
           </div>
-          <!-- Services -->
           <div class="fc-row">
             <div class="fc-icon">
               <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
@@ -987,18 +983,18 @@ nav > * { pointer-events:all; }
 
         <div class="g-rule"></div>
 
-        <!-- ★ CTA BUTTONS ★ -->
         <div class="cta-group">
 
-          <!-- Call Now -->
-          <a href="tel:+9172990 30406" class="cta cta-call cta-svg-stroke">
+          <a href="tel:+91 72990 30406" class="cta cta-call cta-svg-stroke">
             <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
             Call Now
           </a>
 
-          <!-- WhatsApp Enquiry -->
-          <a href="https://wa.me/9172990 30406?text=Hello%20Hayee%20Furn%2C%20I%20am%20interested%20in%20your%20luxury%20interior%20design%20services.%20Please%20guide%20me." target="_blank" rel="noopener" class="cta cta-wa">
-            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52 -.075-.149-.669-1.612-.916-2.207 -.242-.579 -.487 -.5 -.669 -.51 -.173 -.008 -.371 -.01 -.57 -.01 -.198 0 -.52 .074 -.79２ .3７２ -.２７２ .２９７ -１．０４ １．０１６ -１．０４ ２．４７９ ０ １．４６２ １．０６５ ２．８７５ １．２１３ ３．０７４ .１４９ .１９８ ２．０９６ ３．２ ５．０７７ ４．４８７ .７０９ .３０６ １．２６２ .４８９ １．６９４ .６２５ .７１２ .２２７ １．３６ .１９５ １．８７１ .１１８ .５７１ -.０８５ １．７５８ -.７１９ ２．００６ -₁.₄₁₃ .₂₄₈ -.₆₉₄ .₂₄₈ -₁.₂₈₉ .₁₇₃ -₁.₄₁₃ -.₀₇₄ -․₁₂⁴ -․₂⁷² -․₁⁹⁸ -․⁵⁷ -․⁴⁸⁷ -․⁵ -․⁶⁶⁹ -․⁵¹ -․¹⁷³ -․₀₀⁸ -․³⁷¹ -․₀¹ -․⁵⁷ -․₀¹ -․¹⁹⁸ ₀ -․⁵² .₀⁷⁴ -․⁷٩٢ .³٧٢ -․²٧٢ .²٩٧ -₁٫٠٤ ١٫٠١٦ -₁٫٠٤ ٢٫٤٧٩ ₀ ١٫٤٦٢ ١٫٠٦٥ ٢٫٨۷۵ ۱٫۲۱۳ ۳٫۰۷۴ .۱۴۹ .۱۹۸ ۲٫۰۹۶ ۳٫ʹ                             
+          <a href="https://wa.me/917299030406?text=Hello%20Hayee%20Furn%2C%20I%20am%20interested%20in%20your%20luxury%20interior%20design%20services.%20Please%20guide%20me." target="_blank" rel="noopener" class="cta cta-wa">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp Enquiry
+          </a>
+
           <a href="mailto:hayeefurn@gmail.com?subject=Interior%20Design%20Enquiry&body=Hello%20Hayee%20Furn%2C%0A%0AI%20would%20like%20to%20enquire%20about%20your%20services.%0A%0APlease%20get%20back%20to%20me%20at%20your%20earliest%20convenience." class="cta cta-mail cta-svg-stroke">
             <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             Send Email
@@ -1006,62 +1002,51 @@ nav > * { pointer-events:all; }
 
         </div>
 
-        <div class="g-rule" style="margin:8px 0 16px;"></div>
+        <div class="g-rule" style="margin:20px 0 10px;"></div>
 
-        <div class="foot-soc">
-          <a href="https://www.instagram.com/hayeefurn/" target="_blank" rel="noopener noreferrer">Instagram</a>
-        </div>
+        <div class="foot-soc-block">
+          <div class="insta-label">Instagram</div>
+          <a href="https://instagram.com/hayeefurn" target="_blank" rel="noopener" class="insta-anchor" title="Follow Hayee Furn on Instagram">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4。
 
-      </div><!-- /foot-l -->
-
-      <!-- ---- RIGHT: Map ---- -->
-      <div class="foot-r">
+      </div><div class="foot-r">
         <div class="map-badge">
           <div class="mb-ey">Find Us</div>
           <div class="mb-name">Hayee Furn Studio</div>
         </div>
-        <iframe
-          src="https://maps.app.goo.gl/JEMSp1iYrzonTgUV9"
-          allowfullscreen=""
-          loading="lazy"
+        <iframe 
+          src="https://maps.app.goo.gl/JEMSp1iYrzonTgUV9?utm_source=share"
+          allowfullscreen="" 
+          loading="lazy" 
           referrerpolicy="no-referrer-when-downgrade"
-          title="Hayee Furn Location — Karachi">
+          title="Hayee Furn Location">
         </iframe>
       </div>
 
-    </div><!-- /foot-main -->
-
-    <div class="foot-bot">
-      <p>© 2024 Hayee Furn. All Rights Reserved.</p>
+    </div><div class="foot-bot">
+      <p>© 2026 Hayee Furn. All Rights Reserved.</p>
       <p>Crafted with intention — Designed to endure.</p>
       <p>Privacy · Terms · Credits</p>
     </div>
 
   </section>
 
- </div><!-- /s-content -->
-</div><!-- /s-wrap -->
+ </div></div><div id="s-ghost"></div>
 
-<!-- Ghost scroll height -->
-<div id="s-ghost"></div>
-
-<!-- ════════════════════════════════════════════════
-     JAVASCRIPT ENGINE
-     60fps lerp scroll · 3D hero · card tilt · reveal
-     ════════════════════════════════════════════════ -->
 <script>
 (function(){
 'use strict';
 
 /* ─── Config ─── */
-const LERP       = 0.072;   // scroll smoothing (lower = more cinematic drag)
-const HERO_SCALE = 0.11;    // max scale multiplier on hero bg
-const HERO_FADE  = 1.35;    // how fast hero fades (>1 = faster)
+const LERP       = 0.072;
+const HERO_SCALE = 0.11;
+const HERO_FADE  = 1.35;
 
 /* ─── State ─── */
-let sY  = 0;  // current (lerped) scroll y
-let tY  = 0;  // target scroll y
-let tot = 0;  // total scrollable height
+let sY  = 0;
+let tY  = 0;
+let tot = 0;
 let raf = null;
 
 /* ─── DOM ─── */
@@ -1090,13 +1075,9 @@ function render(){
   sY = lerp(sY, tY, LERP);
   if(Math.abs(tY - sY) < 0.04) sY = tY;
 
-  // Translate scroll content
   content.style.transform = `translate3d(0,${-sY}px,0)`;
-
-  // Progress bar
   prog.style.width = clamp(sY/tot*100,0,100) + '%';
 
-  // Hero bg parallax + z-scale
   if(heroBg){
     const heroEl = document.getElementById('s-hero');
     const heroH  = heroEl ? heroEl.offsetHeight : window.innerHeight;
@@ -1109,7 +1090,6 @@ function render(){
     heroBg.style.opacity   = op;
   }
 
-  // Portfolio z-parallax
   pItems.forEach(el => {
     const d    = parseFloat(el.dataset.z)||1;
     const rect = el.getBoundingClientRect();
@@ -1117,9 +1097,7 @@ function render(){
     el.style.transform = `translate3d(0,${mid*0.038*d}px,0)`;
   });
 
-  // Reveals
   checkReveals();
-
   raf = requestAnimationFrame(render);
 }
 
@@ -1168,11 +1146,9 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   });
 });
 
-/* ─── Portfolio parallax items ─── */
 const pItems = document.querySelectorAll('.pi[data-z]');
-
-/* ─── Reveal on scroll ─── */
 const rvEls = document.querySelectorAll('.rv');
+
 function checkReveals(){
   const h = window.innerHeight;
   rvEls.forEach(el=>{
@@ -1191,7 +1167,7 @@ document.addEventListener('mousemove', e=>{ cx=e.clientX; cy=e.clientY; });
   ringEl.style.left = rx+'px'; ringEl.style.top = ry+'px';
   requestAnimationFrame(curLoop);
 })();
-document.querySelectorAll('a,button,.card,.cta').forEach(el=>{
+document.querySelectorAll('a,button,.card,.cta,.insta-anchor').forEach(el=>{
   el.addEventListener('mouseenter',()=>document.body.classList.add('cur-grow'));
   el.addEventListener('mouseleave',()=>document.body.classList.remove('cur-grow'));
 });
