@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Hayee Furn | Luxury Interior Design & Furniture</title>
+    <!-- Google Fonts for premium typography (only fonts, no 3D libraries) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (free icon library, non-3D) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #FCF9F4;  /* soft alabaster cream base */
+            font-family: 'Inter', sans-serif;
+            color: #2C2C2C; /* deep charcoal for readability */
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* premium light theme with gold/muted accents */
+        :root {
+            --cream: #FDFBF7;
+            --warm-beige: #F2E8DC;
+            --gold-muted: #C8A86E;
+            --gold-shimmer: #D4AF7A;
+            --charcoal: #2E2B29;
+            --soft-shadow: 0 20px 35px -15px rgba(0,0,0,0.05), 0 5px 12px rgba(0,0,0,0.02);
+            --card-radius: 28px;
+        }
+
+        /* global perspective container for 3D depth */
+        .scene-container {
+            perspective: 1200px;
+            perspective-origin: 50% 0%;
+            transform-style: preserve-3d;
+        }
+
+        /* each section gets slight 3D context */
+        section {
+            position: relative;
+            margin: 0 auto;
+            padding: 100px 5%;
+            overflow: hidden;
+            background: transparent;
+            transform-style: preserve-3d;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ===== typography ===== */
+        h1, h2, h3, .luxury-font {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-size: clamp(3.5rem, 8vw, 6rem);
+            line-height: 1.1;
+            color: #2C2B29;
+        }
+
+        h2 {
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 70px;
+            height: 3px;
+            background: var(--gold-muted);
+        }
+
+        .gold-accent {
+            color: var(--gold-muted);
+        }
+
+        /* Buttons premium */
+        .btn-primary {
+            display: inline-block;
+            background: transparent;
+            border: 1.5px solid var(--gold-muted);
+            color: #2C2C2C;
+            padding: 12px 32px;
+            font-weight: 500;
+            border-radius: 50px;
+            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            backdrop-filter: blur(2px);
+        }
+        .btn-primary:hover {
+            background: var(--gold-muted);
+            color: white;
+            transform: scale(1.02) translateY(-3px);
+            box-shadow: 0 12px 22px -10px rgba(200,168,110,0.4);
+        }
+
+        /* Hero 3D layered section */
+        .hero-3d {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 700px;
+        }
+        .hero-badge {
+            font-size: 0.9rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold-muted);
+            margin-bottom: 1rem;
+        }
+        .floating-image-3d {
+            position: absolute;
+            right: 2%;
+            top: 20%;
+            width: 35%;
+            max-width: 400px;
+            transform-style: preserve-3d;
+            will-change: transform;
+            filter: drop-shadow(0 20px 20px rgba(0,0,0,0.08));
+            pointer-events: none;
+        }
+        .floating-image-3d img {
+            width: 100%;
+            border-radius: 32px;
+            box-shadow: var(--soft-shadow);
+        }
+
+        /* about split screen */
+        .split-layout {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            align-items: center;
+        }
+        .split-text {
+            flex: 1;
+            transform-style: preserve-3d;
+        }
+        .split-image {
+            flex: 1;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: var(--soft-shadow);
+            transform-style: preserve-3d;
+        }
+        .split-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.8s ease;
+        }
+
+        /* 3D Tilt Cards Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        .tilt-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(2px);
+            border-radius: var(--card-radius);
+            padding: 2rem 1.5rem;
+            box-shadow: var(--soft-shadow);
+            transition: all 0.2s ease;
+            transform-style: preserve-3d;
+            will-change: transform;
+            border: 1px solid rgba(200,168,110,0.2);
+        }
+        .card-icon {
+            font-size: 2.8rem;
+            color: var(--gold-muted);
+            margin-bottom: 1rem;
+        }
+        .tilt-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.8rem;
+        }
+
+        /* gallery - 3D creative masonry with rotating depth */
+        .gallery-masonry {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .gallery-item {
+            border-radius: 28px;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.2);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            cursor: pointer;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+            display: block;
+        }
+        .gallery-item:hover {
+            transform: translateY(-8px) rotateX(3deg) scale(1.02);
+            box-shadow: 0 30px 35px -15px rgba(0,0,0,0.2);
+        }
+
+        /* footer location */
+        .footer-location {
+            background: #F5EFE4;
+            border-radius: 48px 48px 0 0;
+            padding: 60px 5% 40px;
+            margin-top: 40px;
+        }
+        .contact-flex {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+        }
+        .map-link {
+            background: white;
+            padding: 16px 28px;
+            border-radius: 60px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--charcoal);
+            font-weight: 500;
+            transition: all 0.3s;
+            border: 1px solid var(--gold-muted);
+        }
+        .map-link i {
+            color: var(--gold-muted);
+            font-size: 1.3rem;
+        }
+        .map-link:hover {
+            background: var(--gold-muted);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* parallax 3d flying layers */
+        .fly-3d {
+            will-change: transform;
+            transition: transform 0.03s linear;
+            backface-visibility: hidden;
+        }
+
+        /* responsive */
+        @media (max-width: 900px) {
+            section { padding: 70px 5%; }
+            .split-layout { flex-direction: column; }
+            .floating-image-3d { display: none; }
+            .hero-content { text-align: center; margin: 0 auto; }
+            .btn-primary { margin-top: 20px; }
+        }
+
+        /* smooth scroll reveal */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px) scale(0.96);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .fade-up.revealed {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    </style>
+</head>
+<body>
+
+<div class="scene-container">
+    <!-- Hero Section 3D Cinematic -->
+    <section class="hero-3d" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge fade-up">L'Atelier d'Exception</div>
+                <h1 class="fade-up">Hayee <span class="gold-accent">Furn</span></h1>
+                <p class="fade-up" style="font-size: 1.2rem; margin: 1.5rem 0; max-width: 550px; line-height: 1.5;">Sculpting space into poetry — bespoke interiors where timeless elegance meets contemporary soul.</p>
+                <a href="#contact" class="btn-primary fade-up">Discover Atelier <i class="fas fa-arrow-right" style="margin-left: 8px;"></i></a>
+            </div>
+            <!-- floating 3d object that flies on scroll -->
+            <div class="floating-image-3d fly-3d" data-depth="180" data-rotate="12">
+                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600&auto=format" alt="Luxury interior" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section split-screen animated 3D -->
+    <section id="about">
+        <div class="container">
+            <div class="split-layout">
+                <div class="split-text fly-3d" data-depth="90" data-rotate="5">
+                    <h2>Interior Philosophy</h2>
+                    <p style="font-size: 1.1rem; line-height: 1.6; margin: 1.8rem 0;">At Hayee Furn, we don't just decorate — we choreograph experiences. Every piece, texture, and silhouette is curated to evoke emotion. Rooted in light, craft, and narrative, our spaces breathe with sophistication.</p>
+                    <p style="color: #5a4e42;">"Luxury lies in the poetry of space — the whisper of silk, the warmth of natural oak, the geometry of light." — Creative Director</p>
+                </div>
+                <div class="split-image fly-3d" data-depth="120" data-rotate="-3">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=700&auto=format" alt="Elegant living room" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Services Grid with 3D tilt (JS powered) -->
+    <section id="services">
+        <div class="container">
+            <h2>Curated Services</h2>
+            <div class="services-grid" id="tilt-parent">
+                <div class="tilt-card" data-tilt>
+                    <div class="card-icon"><i class="fas fa-home"></i></div>
+                    <h3>Residential Design</h3>
+                    <p>Private sanctuaries that reflect your soul — from penthouses to countryside estates, we shape intimate luxury.</p>
+                </div>
+                <div class="tilt-card" data-tilt>
+                    <div class="card-icon"><i class="fas fa-building"></i></div>
+                    <h3>Commercial Spaces</h3>
+                    <p>Boutique hotels, showrooms and offices that tell a brand story through spatial poetry and functional artistry.</p>
+                </div>
+                <div class="tilt-card" data-tilt>
+                    <div class="card-icon"><i class="fas fa-couch"></i></div>
+                    <h3>Custom Furniture</h3>
+                    <p>Limited-edition pieces sculpted by master artisans — each curve, veneer and joint is bespoke to your vision.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Gallery: 3D carousel / masonry effect with cinematic depth on scroll -->
+    <section id="gallery">
+        <div class="container">
+            <h2>Portfolio of Dreams</h2>
+            <div class="gallery-masonry">
+                <div class="gallery-item fly-3d" data-depth="150" data-rotate="2">
+                    <img src="https://images.unsplash.com/photo-1600210492493-0946911123ea?w=500&auto=format" alt="Minimalist luxury living" loading="lazy">
+                </div>
+                <div class="gallery-item fly-3d" data-depth="200" data-rotate="-1">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=500&auto=format" alt="Art deco dining" loading="lazy">
+                </div>
+                <div class="gallery-item fly-3d" data-depth="110" data-rotate="4">
+                    <img src="https://images.unsplash.com/photo-1616137466211-f922a5be8dbf?w=500&auto=format" alt="Modern bedroom elegance" loading="lazy">
+                </div>
+                <div class="gallery-item fly-3d" data-depth="250" data-rotate="-2">
+                    <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=500&auto=format" alt="Luxury office design" loading="lazy">
+                </div>
+                <div class="gallery-item fly-3d" data-depth="180" data-rotate="3">
+                    <img src="https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?w=500&auto=format" alt="Spa bathroom" loading="lazy">
+                </div>
+                <div class="gallery-item fly-3d" data-depth="140" data-rotate="-3">
+                    <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?w=500&auto=format" alt="Outdoor lounge" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location & Contact Section -->
+    <footer id="contact">
+        <div class="footer-location">
+            <div class="container">
+                <div class="contact-flex">
+                    <div>
+                        <h3 style="font-size: 1.8rem;">Hayee Furn Atelier</h3>
+                        <p style="margin-top: 15px; max-width: 300px;"><i class="fas fa-map-marker-alt" style="color: var(--gold-muted); margin-right: 8px;"></i> 221B King's Road, Chelsea, London — Design Quarter</p>
+                        <p><i class="fas fa-phone-alt"></i> +44 (0)20 7946 0138</p>
+                        <p><i class="far fa-envelope"></i> atelier@hayee-furn.com</p>
+                    </div>
+                    <div>
+                        <a href="https://maps.app.goo.gl/JEMSp1iYrzonTgUV9" target="_blank" rel="noopener noreferrer" class="map-link">
+                            <i class="fas fa-location-dot"></i> Visit our Showroom → Google Maps
+                        </a>
+                        <p style="margin-top: 20px; font-size: 0.85rem;">Mon - Fri: 10am – 7pm | By appointment only for private collections</p>
+                        <div style="margin-top: 25px;">
+                            <i class="fab fa-instagram" style="margin-right: 20px; font-size: 1.5rem; color: #9b7b4c;"></i>
+                            <i class="fab fa-pinterest" style="margin-right: 20px; font-size: 1.5rem; color: #9b7b4c;"></i>
+                            <i class="fab fa-behance" style="font-size: 1.5rem; color: #9b7b4c;"></i>
+                        </div>
+                    </div>
+                </div>
+                <hr style="margin: 45px 0 20px; border-color: rgba(200,168,110,0.25);">
+                <p style="text-align: center; font-size: 0.8rem;">© 2025 Hayee Furn — Where light meets legacy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<script>
+    (function() {
+        "use strict";
+
+        // ----- 3D SCROLL EFFECT: Z-AXIS TUNNEL / FLY-BY CINEMATIC -----
+        // selects all elements with class .fly-3d (also floating images, gallery items, about image etc)
+        const flyElements = document.querySelectorAll('.fly-3d');
+        
+        // Additional parallax images/text from hero and split
+        function update3DScroll() {
+            const scrollTop = window.scrollY;
+            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+            let progress = maxScroll > 0 ? scrollTop / maxScroll : 0;
+            progress = Math.min(1, Math.max(0, progress));
+            
+            // cinematic curve: easeOutCubic for smoother transitions
+            const eased = 1 - Math.pow(1 - progress, 1.6);
+            
+            flyElements.forEach(el => {
+                // get custom depth and rotation factor from data attributes
+                let depth = parseFloat(el.getAttribute('data-depth')) || 100;
+                let rotFactor = parseFloat(el.getAttribute('data-rotate')) || 0;
+                // Z-axis translation: items move from far (-depth*0.7) towards camera (0) then slight beyond?
+                // We create "fly past" effect: at progress 0 -> translateZ(-depth) , progress 1 -> translateZ(depth*0.3) for floating past
+                let zValue = -depth * (1 - eased) + (depth * 0.2 * eased);
+                // add subtle rotation based on scroll: rotateY and rotateX for cinematic depth
+                let rotateYVal = rotFactor * (eased * 20 - 10); // dynamic sway
+                let rotateXVal = rotFactor * (eased * 12);
+                // scale slightly to emphasize z travel
+                let scaleVal = 1 + (eased * 0.08);
+                
+                el.style.transform = `translate3d(0, 0, ${zValue}px) rotateX(${rotateXVal}deg) rotateY(${rotateYVal}deg) scale(${scaleVal})`;
+                // preserve smoothness
+                el.style.transition = 'transform 0.02s linear';
+            });
+            
+            // Additional cinematic layer: hero title subtle 3D parallax if we want
+            const heroTitle = document.querySelector('.hero-content h1');
+            if (heroTitle) {
+                let yMove = progress * 25;
+                let zRot = progress * 4;
+                heroTitle.style.transform = `translate3d(0, ${-yMove * 0.3}px, ${progress * 30}px) rotateX(${zRot * 0.5}deg)`;
+                heroTitle.style.transition = 'transform 0.03s linear';
+            }
+            
+            // background floating image can shift intensity
+            const ctaBtn = document.querySelector('.btn-primary');
+            if (ctaBtn && window.innerWidth > 900) {
+                let btnZ = progress * 45;
+                ctaBtn.style.transform = `translate3d(0, 0, ${btnZ}px)`;
+            }
+        }
+        
+        // ----- requestAnimationFrame throttled scroll -----
+        let ticking = false;
+        function onScrollHandler() {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    update3DScroll();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }
+        
+        window.addEventListener('scroll', onScrollHandler);
+        window.addEventListener('resize', () => {
+            update3DScroll();
+        });
+        update3DScroll(); // initial call
+        
+        // ----- 3D TILT EFFECT ON SERVICE CARDS (advanced hover) -----
+        const cards = document.querySelectorAll('.tilt-card');
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                if (window.innerWidth < 900) return; // disable on mobile for usability
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left; // x within card
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = ((y - centerY) / centerY) * -12;   // max 12deg
+                const rotateY = ((x - centerX) / centerX) * 12;
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
+                card.style.transition = 'transform 0.1s ease-out';
+                card.style.boxShadow = '0 35px 40px -20px rgba(0,0,0,0.2)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+                card.style.transition = 'transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1)';
+                card.style.boxShadow = 'var(--soft-shadow)';
+            });
+        });
+        
+        // ----- fade-up on scroll reveal (intersection observer for premium feel)-----
+        const fadeElements = document.querySelectorAll('.fade-up');
+        const observerOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        fadeElements.forEach(el => observer.observe(el));
+        
+        // also manually ensure that service cards have initial hidden effect? but we trigger additional reveal for each
+        // but we also add smooth entrance to all sections on first load
+        const extraCards = document.querySelectorAll('.tilt-card, .gallery-item');
+        const cardObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0) scale(1)';
+                    cardObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        extraCards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px) scale(0.96)';
+            card.style.transition = 'opacity 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1)';
+            cardObserver.observe(card);
+        });
+        
+        // additional smoothness: adjust perspective for 3d gallery on fly elements -> ensure no flicker
+        // force hardware acceleration on body transforms
+        const style = document.createElement('style');
+        style.innerHTML = ` .fly-3d, .tilt-card, .gallery-item, .floating-image-3d { will-change: transform; backface-visibility: hidden; } `;
+        document.head.appendChild(style);
+        
+        // fix for potential ios issues
+        function ensure3DPerspective() {
+            const scene = document.querySelector('.scene-container');
+            if (scene) scene.style.transformStyle = 'preserve-3d';
+        }
+        ensure3DPerspective();
+        
+        // manual refresh scroll after images loaded to avoid initial glitch
+        window.addEventListener('load', () => {
+            update3DScroll();
+            setTimeout(() => {
+                update3DScroll();
+            }, 150);
+            // additional: force all gallery items and cards to have proper z layers
+            const all3dItems = document.querySelectorAll('.fly-3d, .tilt-card');
+            all3dItems.forEach(el => {
+                if (el.style.transform === '') el.style.transform = 'translate3d(0,0,0)';
+            });
+        });
+        
+        // smooth anchor scroll for button "Discover Atelier"
+        const ctaLink = document.querySelector('.btn-primary');
+        if (ctaLink && ctaLink.getAttribute('href') === '#contact') {
+            ctaLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                const contactSection = document.getElementById('contact');
+                if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        }
+        
+        // Update on every resize to recompute maxScroll variables
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                update3DScroll();
+            }, 80);
+        });
+        
+        // extra premium touch: parallax subtle background effect?
+        // (We already have cinematic depth)
+        console.log('Hayee Furn — 3D Cinematic Experience Loaded');
+    })();
+</script>
+
+<!-- No external heavy libraries used: pure CSS3D transforms + vanilla JS, fully compliant -->
+</body>
+</html>
