@@ -1,592 +1,1649 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Hayee Furn | Luxury Interior Design & Furniture</title>
-    <!-- Google Fonts for premium typography (only fonts, no 3D libraries) -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-    <!-- Font Awesome 6 (free icon library, non-3D) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HAYEE FURN — Luxury Interior Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Didact+Gothic&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
-        body {
-            background-color: #FCF9F4;  /* soft alabaster cream base */
-            font-family: 'Inter', sans-serif;
-            color: #2C2C2C; /* deep charcoal for readability */
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
+<style>
+/* ===== RESET & ROOT ===== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* premium light theme with gold/muted accents */
-        :root {
-            --cream: #FDFBF7;
-            --warm-beige: #F2E8DC;
-            --gold-muted: #C8A86E;
-            --gold-shimmer: #D4AF7A;
-            --charcoal: #2E2B29;
-            --soft-shadow: 0 20px 35px -15px rgba(0,0,0,0.05), 0 5px 12px rgba(0,0,0,0.02);
-            --card-radius: 28px;
-        }
+:root {
+  --alabaster:    #F8F5F0;
+  --linen:        #F2EDE4;
+  --cream:        #EDE5D8;
+  --warm-white:   #FDFAF6;
+  --sand:         #D9CEBF;
+  --taupe:        #B8AA98;
+  --charcoal:     #1C1A17;
+  --charcoal-mid: #3A3732;
+  --charcoal-soft:#6B6560;
+  --gold:         #C9A96E;
+  --gold-light:   #E8D5A3;
+  --gold-pale:    #F5EDD8;
+  --champagne:    #D4B896;
 
-        /* global perspective container for 3D depth */
-        .scene-container {
-            perspective: 1200px;
-            perspective-origin: 50% 0%;
-            transform-style: preserve-3d;
-        }
+  --serif-display: 'Cormorant Garamond', Georgia, serif;
+  --serif-editorial: 'Playfair Display', Georgia, serif;
+  --sans: 'Didact Gothic', sans-serif;
 
-        /* each section gets slight 3D context */
-        section {
-            position: relative;
-            margin: 0 auto;
-            padding: 100px 5%;
-            overflow: hidden;
-            background: transparent;
-            transform-style: preserve-3d;
-        }
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+}
 
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
+html {
+  background: var(--alabaster);
+  overflow-x: hidden;
+  scroll-behavior: auto; /* We handle scroll ourselves */
+}
 
-        /* ===== typography ===== */
-        h1, h2, h3, .luxury-font {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 500;
-            letter-spacing: -0.02em;
-        }
+body {
+  font-family: var(--sans);
+  background: var(--alabaster);
+  color: var(--charcoal);
+  overflow-x: hidden;
+  cursor: none;
+}
 
-        h1 {
-            font-size: clamp(3.5rem, 8vw, 6rem);
-            line-height: 1.1;
-            color: #2C2B29;
-        }
+/* ===== CUSTOM CURSOR ===== */
+#cursor {
+  position: fixed;
+  width: 10px; height: 10px;
+  background: var(--gold);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s, background 0.3s, width 0.3s, height 0.3s;
+  mix-blend-mode: multiply;
+}
+#cursor-ring {
+  position: fixed;
+  width: 36px; height: 36px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: width 0.4s var(--ease-out-expo), height 0.4s var(--ease-out-expo), border-color 0.3s;
+  opacity: 0.7;
+}
+body:hover #cursor { opacity: 1; }
 
-        h2 {
-            font-size: clamp(2.2rem, 5vw, 3.5rem);
-            margin-bottom: 1rem;
-            position: relative;
-            display: inline-block;
-        }
-        h2:after {
-            content: '';
-            position: absolute;
-            bottom: -12px;
-            left: 0;
-            width: 70px;
-            height: 3px;
-            background: var(--gold-muted);
-        }
+/* ===== NAV ===== */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 52px;
+  mix-blend-mode: multiply;
+}
+.nav-logo {
+  font-family: var(--serif-display);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  color: var(--charcoal);
+  text-transform: uppercase;
+}
+.nav-links {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+}
+.nav-links a {
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--charcoal-soft);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-year {
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  color: var(--taupe);
+}
 
-        .gold-accent {
-            color: var(--gold-muted);
-        }
+/* ===== SCROLL CONTAINER ===== */
+#scroll-container {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  overflow: hidden;
+}
 
-        /* Buttons premium */
-        .btn-primary {
-            display: inline-block;
-            background: transparent;
-            border: 1.5px solid var(--gold-muted);
-            color: #2C2C2C;
-            padding: 12px 32px;
-            font-weight: 500;
-            border-radius: 50px;
-            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-            text-decoration: none;
-            letter-spacing: 0.5px;
-            backdrop-filter: blur(2px);
-        }
-        .btn-primary:hover {
-            background: var(--gold-muted);
-            color: white;
-            transform: scale(1.02) translateY(-3px);
-            box-shadow: 0 12px 22px -10px rgba(200,168,110,0.4);
-        }
+#scroll-content {
+  will-change: transform;
+}
 
-        /* Hero 3D layered section */
-        .hero-3d {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-        }
-        .hero-content {
-            position: relative;
-            z-index: 10;
-            max-width: 700px;
-        }
-        .hero-badge {
-            font-size: 0.9rem;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: var(--gold-muted);
-            margin-bottom: 1rem;
-        }
-        .floating-image-3d {
-            position: absolute;
-            right: 2%;
-            top: 20%;
-            width: 35%;
-            max-width: 400px;
-            transform-style: preserve-3d;
-            will-change: transform;
-            filter: drop-shadow(0 20px 20px rgba(0,0,0,0.08));
-            pointer-events: none;
-        }
-        .floating-image-3d img {
-            width: 100%;
-            border-radius: 32px;
-            box-shadow: var(--soft-shadow);
-        }
+/* ===== FAKE SCROLL HEIGHT ===== */
+#scroll-height {
+  position: fixed;
+  top: 0; left: 0;
+  width: 1px;
+  pointer-events: none;
+  opacity: 0;
+}
 
-        /* about split screen */
-        .split-layout {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 50px;
-            align-items: center;
-        }
-        .split-text {
-            flex: 1;
-            transform-style: preserve-3d;
-        }
-        .split-image {
-            flex: 1;
-            border-radius: 32px;
-            overflow: hidden;
-            box-shadow: var(--soft-shadow);
-            transform-style: preserve-3d;
-        }
-        .split-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.8s ease;
-        }
+/* ===== SECTION BASE ===== */
+.scene-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
 
-        /* 3D Tilt Cards Grid */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            margin-top: 50px;
-        }
-        .tilt-card {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(2px);
-            border-radius: var(--card-radius);
-            padding: 2rem 1.5rem;
-            box-shadow: var(--soft-shadow);
-            transition: all 0.2s ease;
-            transform-style: preserve-3d;
-            will-change: transform;
-            border: 1px solid rgba(200,168,110,0.2);
-        }
-        .card-icon {
-            font-size: 2.8rem;
-            color: var(--gold-muted);
-            margin-bottom: 1rem;
-        }
-        .tilt-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 0.8rem;
-        }
+/* ===== GRAIN OVERLAY ===== */
+.grain {
+  position: fixed;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  pointer-events: none;
+  z-index: 200;
+  opacity: 0.028;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain-move 8s steps(10) infinite;
+}
+@keyframes grain-move {
+  0%,100%{transform:translate(0,0)}
+  10%{transform:translate(-2%,-3%)}
+  20%{transform:translate(3%,2%)}
+  30%{transform:translate(-1%,4%)}
+  40%{transform:translate(2%,-2%)}
+  50%{transform:translate(-3%,1%)}
+  60%{transform:translate(1%,-4%)}
+  70%{transform:translate(-2%,3%)}
+  80%{transform:translate(3%,-1%)}
+  90%{transform:translate(-1%,2%)}
+}
 
-        /* gallery - 3D creative masonry with rotating depth */
-        .gallery-masonry {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-        .gallery-item {
-            border-radius: 28px;
-            overflow: hidden;
-            transform-style: preserve-3d;
-            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.2);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            cursor: pointer;
-        }
-        .gallery-item img {
-            width: 100%;
-            height: 320px;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-            display: block;
-        }
-        .gallery-item:hover {
-            transform: translateY(-8px) rotateX(3deg) scale(1.02);
-            box-shadow: 0 30px 35px -15px rgba(0,0,0,0.2);
-        }
+/* ===========================
+   SECTION 1: HERO
+   =========================== */
+#hero {
+  min-height: 100vh;
+  background: var(--warm-white);
+  display: grid;
+  place-items: center;
+  position: relative;
+}
 
-        /* footer location */
-        .footer-location {
-            background: #F5EFE4;
-            border-radius: 48px 48px 0 0;
-            padding: 60px 5% 40px;
-            margin-top: 40px;
-        }
-        .contact-flex {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 40px;
-        }
-        .map-link {
-            background: white;
-            padding: 16px 28px;
-            border-radius: 60px;
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-            color: var(--charcoal);
-            font-weight: 500;
-            transition: all 0.3s;
-            border: 1px solid var(--gold-muted);
-        }
-        .map-link i {
-            color: var(--gold-muted);
-            font-size: 1.3rem;
-        }
-        .map-link:hover {
-            background: var(--gold-muted);
-            color: white;
-            transform: translateY(-3px);
-        }
+.hero-bg-img {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(253,250,246,0.92) 0%, rgba(253,250,246,0.6) 50%, rgba(253,250,246,0.92) 100%),
+    url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1600&q=85&auto=format') center/cover no-repeat;
+  transform-origin: center center;
+  will-change: transform;
+}
 
-        /* parallax 3d flying layers */
-        .fly-3d {
-            will-change: transform;
-            transition: transform 0.03s linear;
-            backface-visibility: hidden;
-        }
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 40px;
+}
 
-        /* responsive */
-        @media (max-width: 900px) {
-            section { padding: 70px 5%; }
-            .split-layout { flex-direction: column; }
-            .floating-image-3d { display: none; }
-            .hero-content { text-align: center; margin: 0 auto; }
-            .btn-primary { margin-top: 20px; }
-        }
+.hero-eyebrow {
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 28px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1.2s var(--ease-out-expo) 0.3s forwards;
+}
 
-        /* smooth scroll reveal */
-        .fade-up {
-            opacity: 0;
-            transform: translateY(30px) scale(0.96);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-        .fade-up.revealed {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
-    </style>
+.hero-title {
+  font-family: var(--serif-display);
+  font-size: clamp(72px, 14vw, 200px);
+  font-weight: 300;
+  line-height: 0.88;
+  letter-spacing: -0.02em;
+  color: var(--charcoal);
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 1.4s var(--ease-out-expo) 0.5s forwards;
+  margin-bottom: 12px;
+}
+
+.hero-title span {
+  font-style: italic;
+  color: var(--charcoal-mid);
+}
+
+.hero-subtitle-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1.2s var(--ease-out-expo) 0.9s forwards;
+  margin-top: 32px;
+}
+.hero-subtitle-line .rule {
+  width: 40px; height: 1px;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+.hero-subtitle-line p {
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--charcoal-soft);
+}
+
+.hero-scroll-hint {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+  animation: fadeUp 1s var(--ease-out-expo) 1.8s forwards;
+}
+.hero-scroll-hint span {
+  font-family: var(--sans);
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--taupe);
+}
+.scroll-line {
+  width: 1px; height: 60px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse {
+  0%,100%{ transform: scaleY(1); opacity: 1; }
+  50%{ transform: scaleY(0.6); opacity: 0.4; }
+}
+
+/* ===========================
+   SECTION 2: PHILOSOPHY
+   =========================== */
+#philosophy {
+  min-height: 100vh;
+  background: var(--linen);
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 120px 60px;
+}
+
+.philosophy-texture {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 50%, rgba(201,169,110,0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 80% at 80% 30%, rgba(180,160,130,0.04) 0%, transparent 60%),
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 80px,
+      rgba(180,160,130,0.02) 80px,
+      rgba(180,160,130,0.02) 81px
+    );
+  pointer-events: none;
+}
+
+.philosophy-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 80px;
+  max-width: 1200px;
+  width: 100%;
+  align-items: start;
+}
+
+.philosophy-label {
+  position: sticky;
+  top: 40vh;
+}
+
+.phil-label-text {
+  font-family: var(--sans);
+  font-size: 9px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  margin-bottom: 20px;
+}
+
+.phil-number {
+  font-family: var(--serif-display);
+  font-size: 80px;
+  font-weight: 300;
+  color: var(--sand);
+  line-height: 1;
+}
+
+.philosophy-body {}
+
+.phil-heading {
+  font-family: var(--serif-display);
+  font-size: clamp(40px, 5vw, 72px);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--charcoal);
+  margin-bottom: 48px;
+  letter-spacing: -0.01em;
+}
+.phil-heading em {
+  font-style: italic;
+  color: var(--charcoal-mid);
+}
+
+.phil-text-block {
+  font-family: var(--serif-display);
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.9;
+  color: var(--charcoal-soft);
+  margin-bottom: 32px;
+  letter-spacing: 0.01em;
+}
+
+.phil-quote {
+  border-left: 2px solid var(--gold);
+  padding: 24px 0 24px 40px;
+  margin: 48px 0;
+}
+.phil-quote p {
+  font-family: var(--serif-editorial);
+  font-size: 24px;
+  font-style: italic;
+  color: var(--charcoal-mid);
+  line-height: 1.6;
+}
+.phil-quote cite {
+  display: block;
+  margin-top: 14px;
+  font-family: var(--sans);
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-style: normal;
+}
+
+.phil-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 60px;
+  padding-top: 60px;
+  border-top: 1px solid var(--sand);
+}
+.stat-item {}
+.stat-number {
+  font-family: var(--serif-display);
+  font-size: 52px;
+  font-weight: 300;
+  color: var(--charcoal);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.stat-number sup {
+  font-size: 22px;
+  color: var(--gold);
+  vertical-align: super;
+}
+.stat-label {
+  font-family: var(--sans);
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--taupe);
+  margin-top: 8px;
+}
+
+/* ===========================
+   SECTION 3: SHOWROOM (3D CARDS)
+   =========================== */
+#showroom {
+  min-height: 100vh;
+  background: var(--cream);
+  position: relative;
+  padding: 120px 60px;
+}
+
+.showroom-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+.showroom-header .section-eyebrow {
+  font-family: var(--sans);
+  font-size: 9px;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+.showroom-header h2 {
+  font-family: var(--serif-display);
+  font-size: clamp(44px, 6vw, 88px);
+  font-weight: 300;
+  color: var(--charcoal);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.showroom-header h2 em { font-style: italic; }
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.service-card {
+  position: relative;
+  border-radius: 3px;
+  overflow: hidden;
+  cursor: none;
+  transform-style: preserve-3d;
+  transform: perspective(1000px) rotateX(0) rotateY(0);
+  transition: box-shadow 0.5s var(--ease-out-expo);
+  box-shadow: 0 4px 30px rgba(28,26,23,0.06);
+  will-change: transform;
+}
+
+.card-img-wrap {
+  position: relative;
+  height: 520px;
+  overflow: hidden;
+}
+
+.card-img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--ease-out-expo);
+  display: block;
+}
+
+.service-card:hover .card-img-wrap img {
+  transform: scale(1.04);
+}
+
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 30%,
+    rgba(28,26,23,0.55) 100%
+  );
+  transition: opacity 0.4s;
+}
+
+.card-content {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 40px 36px;
+  transform: translateZ(30px);
+}
+
+.card-number {
+  font-family: var(--serif-display);
+  font-size: 12px;
+  color: var(--gold-light);
+  letter-spacing: 0.3em;
+  margin-bottom: 10px;
+  font-weight: 300;
+}
+
+.card-title {
+  font-family: var(--serif-display);
+  font-size: 32px;
+  font-weight: 300;
+  color: #FAF7F2;
+  line-height: 1.1;
+  margin-bottom: 14px;
+  letter-spacing: -0.01em;
+}
+.card-title em { font-style: italic; }
+
+.card-desc {
+  font-family: var(--sans);
+  font-size: 11px;
+  color: rgba(250,247,242,0.7);
+  line-height: 1.8;
+  letter-spacing: 0.05em;
+  max-width: 280px;
+}
+
+.card-arrow {
+  position: absolute;
+  top: 36px; right: 36px;
+  width: 44px; height: 44px;
+  border: 1px solid rgba(250,247,242,0.3);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  transform: translateZ(20px);
+  transition: border-color 0.3s, background 0.3s;
+}
+.card-arrow svg {
+  width: 16px; height: 16px;
+  fill: none;
+  stroke: rgba(250,247,242,0.7);
+  stroke-width: 1.5;
+}
+.service-card:hover .card-arrow {
+  border-color: var(--gold);
+  background: var(--gold);
+}
+.service-card:hover .card-arrow svg {
+  stroke: var(--charcoal);
+}
+
+/* Card shine effect */
+.card-shine {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.12) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  mix-blend-mode: screen;
+}
+.service-card:hover .card-shine { opacity: 1; }
+
+/* ===========================
+   SECTION 4: PORTFOLIO
+   =========================== */
+#portfolio {
+  min-height: 100vh;
+  background: var(--warm-white);
+  position: relative;
+  padding: 120px 60px 160px;
+}
+
+.portfolio-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: end;
+  max-width: 1300px;
+  margin: 0 auto 100px;
+}
+.portfolio-header h2 {
+  font-family: var(--serif-display);
+  font-size: clamp(48px, 6.5vw, 96px);
+  font-weight: 300;
+  color: var(--charcoal);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+.portfolio-header h2 em { font-style: italic; }
+
+.portfolio-header-right {
+  padding-bottom: 12px;
+}
+.portfolio-header-right p {
+  font-family: var(--serif-display);
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--charcoal-soft);
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+.view-all-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 4px;
+  transition: color 0.3s, gap 0.3s;
+  cursor: none;
+}
+.view-all-btn:hover { color: var(--gold); gap: 22px; }
+
+/* Portfolio masonry-style grid */
+.portfolio-masonry {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+  gap: 20px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.p-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+  will-change: transform;
+}
+
+.p-item:nth-child(1) { grid-column: 1 / 8; grid-row: 1 / 2; }
+.p-item:nth-child(2) { grid-column: 8 / 13; grid-row: 1 / 2; }
+.p-item:nth-child(3) { grid-column: 1 / 5; grid-row: 2 / 3; }
+.p-item:nth-child(4) { grid-column: 5 / 10; grid-row: 2 / 3; }
+.p-item:nth-child(5) { grid-column: 10 / 13; grid-row: 2 / 3; }
+
+.p-item-inner {
+  position: relative;
+  height: 100%;
+}
+
+.p-item:nth-child(1) .p-item-inner { height: 560px; }
+.p-item:nth-child(2) .p-item-inner { height: 560px; }
+.p-item:nth-child(3) .p-item-inner { height: 380px; }
+.p-item:nth-child(4) .p-item-inner { height: 380px; }
+.p-item:nth-child(5) .p-item-inner { height: 380px; }
+
+.p-item-inner img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transform: scale(1.05);
+  transition: transform 1.2s var(--ease-out-expo);
+  display: block;
+}
+.p-item:hover .p-item-inner img { transform: scale(1.0); }
+
+.p-item-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 40%, rgba(28,26,23,0.6) 100%);
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.p-item:hover .p-item-overlay { opacity: 1; }
+
+.p-item-meta {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 28px 28px;
+  transform: translateY(10px);
+  opacity: 0;
+  transition: transform 0.5s var(--ease-out-expo), opacity 0.5s;
+}
+.p-item:hover .p-item-meta { transform: translateY(0); opacity: 1; }
+
+.p-item-category {
+  font-family: var(--sans);
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 6px;
+}
+.p-item-title {
+  font-family: var(--serif-display);
+  font-size: 22px;
+  font-weight: 300;
+  color: #FAF7F2;
+  letter-spacing: -0.01em;
+}
+
+/* Portfolio Z-depth parallax markers */
+.p-item[data-depth="1"] { --z-factor: 1; }
+.p-item[data-depth="2"] { --z-factor: 1.8; }
+.p-item[data-depth="3"] { --z-factor: 0.6; }
+
+/* ===========================
+   SECTION 5: FOOTER
+   =========================== */
+#footer-section {
+  min-height: 100vh;
+  background: var(--charcoal);
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+
+.footer-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  max-width: 100%;
+}
+
+.footer-info {
+  padding: 100px 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--charcoal);
+}
+
+.footer-logo {
+  font-family: var(--serif-display);
+  font-size: clamp(48px, 6vw, 80px);
+  font-weight: 300;
+  color: var(--cream);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.footer-logo span { font-style: italic; color: var(--gold); }
+
+.footer-tagline {
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--taupe);
+  margin-bottom: 60px;
+}
+
+.footer-contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.footer-contact-item {}
+.footer-contact-label {
+  font-family: var(--sans);
+  font-size: 8px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--taupe);
+  margin-bottom: 6px;
+}
+.footer-contact-value {
+  font-family: var(--serif-display);
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--cream);
+  letter-spacing: 0.02em;
+}
+
+.footer-divider-gold {
+  width: 40px; height: 1px;
+  background: var(--gold);
+  margin: 40px 0;
+}
+
+.footer-social {
+  display: flex;
+  gap: 24px;
+}
+.footer-social a {
+  font-family: var(--sans);
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--taupe);
+  text-decoration: none;
+  transition: color 0.3s;
+  cursor: none;
+}
+.footer-social a:hover { color: var(--gold); }
+
+/* Map side */
+.footer-map-side {
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-map-side iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 600px;
+  border: 0;
+  display: block;
+  filter: sepia(30%) saturate(80%) brightness(105%);
+  transition: filter 0.5s;
+}
+.footer-map-side:hover iframe {
+  filter: sepia(10%) saturate(100%) brightness(110%);
+}
+
+.map-overlay-label {
+  position: absolute;
+  top: 40px; left: 40px;
+  background: var(--warm-white);
+  padding: 16px 24px;
+  border-radius: 2px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+}
+.map-overlay-label .mol-eyebrow {
+  font-family: var(--sans);
+  font-size: 8px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+.map-overlay-label p {
+  font-family: var(--serif-display);
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--charcoal);
+}
+
+/* Footer bottom bar */
+.footer-bottom {
+  background: #141210;
+  padding: 24px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+.footer-bottom p {
+  font-family: var(--sans);
+  font-size: 9px;
+  letter-spacing: 0.25em;
+  color: var(--taupe);
+}
+
+/* ===========================
+   ANIMATIONS
+   =========================== */
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Reveal on scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s var(--ease-out-expo), transform 0.9s var(--ease-out-expo);
+}
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.45s; }
+
+/* Z-depth parallax items */
+.z-item {
+  will-change: transform;
+  transition: transform 0.05s linear;
+}
+
+/* Gold line separator */
+.gold-rule {
+  width: 60px; height: 1px;
+  background: var(--gold);
+  margin: 0 auto 32px;
+}
+
+/* ===========================
+   PROGRESS BAR
+   =========================== */
+#progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--gold-light), var(--gold));
+  z-index: 200;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+/* ===========================
+   SECTION TRANSITIONS
+   =========================== */
+.section-transition {
+  position: relative;
+}
+.section-transition::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 120px;
+  pointer-events: none;
+  z-index: 5;
+}
+#hero.section-transition::after {
+  background: linear-gradient(to bottom, transparent, var(--linen));
+}
+#philosophy.section-transition::after {
+  background: linear-gradient(to bottom, transparent, var(--cream));
+}
+#showroom.section-transition::after {
+  background: linear-gradient(to bottom, transparent, var(--warm-white));
+}
+#portfolio.section-transition::after {
+  background: linear-gradient(to bottom, transparent, var(--charcoal));
+}
+
+/* ===========================
+   RESPONSIVE
+   =========================== */
+@media (max-width: 1100px) {
+  .cards-grid { grid-template-columns: 1fr 1fr; }
+  .service-card:nth-child(3) { grid-column: 1 / -1; }
+  .portfolio-masonry {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+  .p-item:nth-child(1) { grid-column: 1 / 2; }
+  .p-item:nth-child(2) { grid-column: 2 / 3; }
+  .p-item:nth-child(3) { grid-column: 1 / 2; }
+  .p-item:nth-child(4) { grid-column: 2 / 3; }
+  .p-item:nth-child(5) { grid-column: 1 / -1; }
+  .p-item .p-item-inner { height: 380px !important; }
+  .footer-main { grid-template-columns: 1fr; }
+  .footer-map-side iframe { min-height: 400px; }
+}
+
+@media (max-width: 768px) {
+  nav { padding: 20px 24px; }
+  .nav-links { display: none; }
+  .hero-title { font-size: clamp(56px, 16vw, 120px); }
+  .philosophy-grid { grid-template-columns: 1fr; gap: 40px; }
+  .philosophy-label { position: static; display: flex; align-items: center; gap: 20px; }
+  .phil-label-text { writing-mode: horizontal-tb; transform: none; }
+  .phil-stats { grid-template-columns: 1fr 1fr; }
+  .cards-grid { grid-template-columns: 1fr; }
+  #showroom { padding: 80px 24px; }
+  #portfolio { padding: 80px 24px 100px; }
+  .portfolio-header { grid-template-columns: 1fr; gap: 32px; }
+  .portfolio-masonry { grid-template-columns: 1fr; }
+  .p-item { grid-column: 1 / -1 !important; }
+  .p-item .p-item-inner { height: 300px !important; }
+  .footer-info { padding: 60px 32px; }
+  .footer-bottom { padding: 20px 32px; flex-direction: column; gap: 12px; text-align: center; }
+  #philosophy { padding: 80px 24px; }
+}
+
+@media (max-width: 480px) {
+  .hero-title { font-size: 56px; }
+  .phil-stats { grid-template-columns: 1fr; }
+}
+
+/* ===========================
+   HOVER EFFECTS
+   =========================== */
+a, button, .service-card { cursor: none; }
+
+/* Loading screen */
+#loader {
+  position: fixed;
+  inset: 0;
+  background: var(--warm-white);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+}
+#loader.done {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-20px);
+}
+.loader-text {
+  font-family: var(--serif-display);
+  font-size: 48px;
+  font-weight: 300;
+  color: var(--charcoal);
+  letter-spacing: 0.1em;
+}
+.loader-text span { color: var(--gold); font-style: italic; }
+.loader-line-wrap {
+  width: 200px;
+  height: 1px;
+  background: var(--sand);
+  overflow: hidden;
+}
+.loader-line {
+  height: 100%;
+  background: var(--gold);
+  width: 0%;
+  animation: loadLine 1.4s var(--ease-out-expo) 0.2s forwards;
+}
+@keyframes loadLine {
+  to { width: 100%; }
+}
+
+/* Horizontal accent line decoration */
+.accent-h-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.accent-h-line .line { width: 32px; height: 1px; background: var(--gold); }
+.accent-h-line span {
+  font-family: var(--sans);
+  font-size: 9px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+</style>
 </head>
 <body>
 
-<div class="scene-container">
-    <!-- Hero Section 3D Cinematic -->
-    <section class="hero-3d" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge fade-up">L'Atelier d'Exception</div>
-                <h1 class="fade-up">Hayee <span class="gold-accent">Furn</span></h1>
-                <p class="fade-up" style="font-size: 1.2rem; margin: 1.5rem 0; max-width: 550px; line-height: 1.5;">Sculpting space into poetry — bespoke interiors where timeless elegance meets contemporary soul.</p>
-                <a href="#contact" class="btn-primary fade-up">Discover Atelier <i class="fas fa-arrow-right" style="margin-left: 8px;"></i></a>
-            </div>
-            <!-- floating 3d object that flies on scroll -->
-            <div class="floating-image-3d fly-3d" data-depth="180" data-rotate="12">
-                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600&auto=format" alt="Luxury interior" loading="lazy">
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section split-screen animated 3D -->
-    <section id="about">
-        <div class="container">
-            <div class="split-layout">
-                <div class="split-text fly-3d" data-depth="90" data-rotate="5">
-                    <h2>Interior Philosophy</h2>
-                    <p style="font-size: 1.1rem; line-height: 1.6; margin: 1.8rem 0;">At Hayee Furn, we don't just decorate — we choreograph experiences. Every piece, texture, and silhouette is curated to evoke emotion. Rooted in light, craft, and narrative, our spaces breathe with sophistication.</p>
-                    <p style="color: #5a4e42;">"Luxury lies in the poetry of space — the whisper of silk, the warmth of natural oak, the geometry of light." — Creative Director</p>
-                </div>
-                <div class="split-image fly-3d" data-depth="120" data-rotate="-3">
-                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=700&auto=format" alt="Elegant living room" loading="lazy">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Interactive Services Grid with 3D tilt (JS powered) -->
-    <section id="services">
-        <div class="container">
-            <h2>Curated Services</h2>
-            <div class="services-grid" id="tilt-parent">
-                <div class="tilt-card" data-tilt>
-                    <div class="card-icon"><i class="fas fa-home"></i></div>
-                    <h3>Residential Design</h3>
-                    <p>Private sanctuaries that reflect your soul — from penthouses to countryside estates, we shape intimate luxury.</p>
-                </div>
-                <div class="tilt-card" data-tilt>
-                    <div class="card-icon"><i class="fas fa-building"></i></div>
-                    <h3>Commercial Spaces</h3>
-                    <p>Boutique hotels, showrooms and offices that tell a brand story through spatial poetry and functional artistry.</p>
-                </div>
-                <div class="tilt-card" data-tilt>
-                    <div class="card-icon"><i class="fas fa-couch"></i></div>
-                    <h3>Custom Furniture</h3>
-                    <p>Limited-edition pieces sculpted by master artisans — each curve, veneer and joint is bespoke to your vision.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Featured Gallery: 3D carousel / masonry effect with cinematic depth on scroll -->
-    <section id="gallery">
-        <div class="container">
-            <h2>Portfolio of Dreams</h2>
-            <div class="gallery-masonry">
-                <div class="gallery-item fly-3d" data-depth="150" data-rotate="2">
-                    <img src="https://images.unsplash.com/photo-1600210492493-0946911123ea?w=500&auto=format" alt="Minimalist luxury living" loading="lazy">
-                </div>
-                <div class="gallery-item fly-3d" data-depth="200" data-rotate="-1">
-                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=500&auto=format" alt="Art deco dining" loading="lazy">
-                </div>
-                <div class="gallery-item fly-3d" data-depth="110" data-rotate="4">
-                    <img src="https://images.unsplash.com/photo-1616137466211-f922a5be8dbf?w=500&auto=format" alt="Modern bedroom elegance" loading="lazy">
-                </div>
-                <div class="gallery-item fly-3d" data-depth="250" data-rotate="-2">
-                    <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=500&auto=format" alt="Luxury office design" loading="lazy">
-                </div>
-                <div class="gallery-item fly-3d" data-depth="180" data-rotate="3">
-                    <img src="https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?w=500&auto=format" alt="Spa bathroom" loading="lazy">
-                </div>
-                <div class="gallery-item fly-3d" data-depth="140" data-rotate="-3">
-                    <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?w=500&auto=format" alt="Outdoor lounge" loading="lazy">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Location & Contact Section -->
-    <footer id="contact">
-        <div class="footer-location">
-            <div class="container">
-                <div class="contact-flex">
-                    <div>
-                        <h3 style="font-size: 1.8rem;">Hayee Furn Atelier</h3>
-                        <p style="margin-top: 15px; max-width: 300px;"><i class="fas fa-map-marker-alt" style="color: var(--gold-muted); margin-right: 8px;"></i> 221B King's Road, Chelsea, London — Design Quarter</p>
-                        <p><i class="fas fa-phone-alt"></i> +44 (0)20 7946 0138</p>
-                        <p><i class="far fa-envelope"></i> atelier@hayee-furn.com</p>
-                    </div>
-                    <div>
-                        <a href="https://maps.app.goo.gl/JEMSp1iYrzonTgUV9" target="_blank" rel="noopener noreferrer" class="map-link">
-                            <i class="fas fa-location-dot"></i> Visit our Showroom → Google Maps
-                        </a>
-                        <p style="margin-top: 20px; font-size: 0.85rem;">Mon - Fri: 10am – 7pm | By appointment only for private collections</p>
-                        <div style="margin-top: 25px;">
-                            <i class="fab fa-instagram" style="margin-right: 20px; font-size: 1.5rem; color: #9b7b4c;"></i>
-                            <i class="fab fa-pinterest" style="margin-right: 20px; font-size: 1.5rem; color: #9b7b4c;"></i>
-                            <i class="fab fa-behance" style="font-size: 1.5rem; color: #9b7b4c;"></i>
-                        </div>
-                    </div>
-                </div>
-                <hr style="margin: 45px 0 20px; border-color: rgba(200,168,110,0.25);">
-                <p style="text-align: center; font-size: 0.8rem;">© 2025 Hayee Furn — Where light meets legacy. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+<!-- Loader -->
+<div id="loader">
+  <div class="loader-text">HAYEE <span>FURN</span></div>
+  <div class="loader-line-wrap"><div class="loader-line"></div></div>
 </div>
 
+<!-- Grain overlay -->
+<div class="grain"></div>
+
+<!-- Cursor -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- Progress bar -->
+<div id="progress-bar"></div>
+
+<!-- Navigation -->
+<nav>
+  <div class="nav-logo">Hayee Furn</div>
+  <ul class="nav-links">
+    <li><a href="#philosophy">Philosophy</a></li>
+    <li><a href="#showroom">Showroom</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#footer-section">Contact</a></li>
+  </ul>
+  <div class="nav-year">Est. 2018</div>
+</nav>
+
+<!-- Scroll container for smooth lerp scroll -->
+<div id="scroll-container">
+  <div id="scroll-content">
+
+    <!-- ===================== SECTION 1: HERO ===================== -->
+    <section id="hero" class="scene-section section-transition">
+      <div class="hero-bg-img" id="hero-bg"></div>
+      <div class="hero-content">
+        <div class="hero-eyebrow">Luxury Interior Design Studio</div>
+        <h1 class="hero-title">HAYEE <span>Furn</span></h1>
+        <div class="hero-subtitle-line">
+          <div class="rule"></div>
+          <p>Where Spaces Become Timeless</p>
+          <div class="rule"></div>
+        </div>
+      </div>
+      <div class="hero-scroll-hint">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ===================== SECTION 2: PHILOSOPHY ===================== -->
+    <section id="philosophy" class="scene-section section-transition" style="align-items:flex-start;">
+      <div class="philosophy-texture"></div>
+      <div class="philosophy-grid">
+        <div class="philosophy-label reveal">
+          <div class="phil-label-text">Philosophy</div>
+          <div class="phil-number">02</div>
+        </div>
+        <div class="philosophy-body">
+          <h2 class="phil-heading reveal">
+            The Art of <em>Considered</em><br>Living Spaces
+          </h2>
+          <p class="phil-text-block reveal reveal-delay-1">
+            At Hayee Furn, we believe that a home is not merely a structure — it is a living portrait of the people within it. Every material selected, every proportion calibrated, every texture juxtaposed is a deliberate act of storytelling.
+          </p>
+          <div class="phil-quote reveal reveal-delay-2">
+            <p>"Design is not just what it looks like. Design is how it makes you feel when you inhabit it — every single morning."</p>
+            <cite>— Hayee Furn Creative Director</cite>
+          </div>
+          <p class="phil-text-block reveal reveal-delay-3">
+            Our process begins with silence — with deep listening to understand how you truly live, how light moves through your rooms at golden hour, and what quiet moments matter most. From this foundation, we craft environments that transcend trend and exist beyond time.
+          </p>
+          <div class="phil-stats reveal reveal-delay-4">
+            <div class="stat-item">
+              <div class="stat-number">240<sup>+</sup></div>
+              <div class="stat-label">Projects Completed</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">18<sup>+</sup></div>
+              <div class="stat-label">Years of Craft</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">12<sup></sup></div>
+              <div class="stat-label">Design Awards</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SECTION 3: SHOWROOM ===================== -->
+    <section id="showroom" class="scene-section section-transition" style="flex-direction:column;">
+      <div class="showroom-header reveal">
+        <div class="section-eyebrow">Our Expertise</div>
+        <h2>The <em>Showroom</em></h2>
+      </div>
+      <div class="cards-grid">
+
+        <!-- Card 1: Residential -->
+        <div class="service-card" data-card>
+          <div class="card-shine"></div>
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80&auto=format" alt="Residential Interior" loading="lazy">
+          </div>
+          <div class="card-overlay"></div>
+          <div class="card-arrow">
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+          <div class="card-content">
+            <div class="card-number">01 —</div>
+            <h3 class="card-title"><em>Residential</em><br>Sanctuaries</h3>
+            <p class="card-desc">Private residences crafted with meticulous attention to proportion, light, and the quiet luxury of natural materials.</p>
+          </div>
+        </div>
+
+        <!-- Card 2: Commercial -->
+        <div class="service-card" data-card>
+          <div class="card-shine"></div>
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80&auto=format" alt="Commercial Interior" loading="lazy">
+          </div>
+          <div class="card-overlay"></div>
+          <div class="card-arrow">
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+          <div class="card-content">
+            <div class="card-number">02 —</div>
+            <h3 class="card-title"><em>Commercial</em><br>Environments</h3>
+            <p class="card-desc">Hospitality and corporate spaces engineered to evoke emotion, drive productivity, and command presence.</p>
+          </div>
+        </div>
+
+        <!-- Card 3: Bespoke Furniture -->
+        <div class="service-card" data-card>
+          <div class="card-shine"></div>
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80&auto=format" alt="Bespoke Furniture" loading="lazy">
+          </div>
+          <div class="card-overlay"></div>
+          <div class="card-arrow">
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+          <div class="card-content">
+            <div class="card-number">03 —</div>
+            <h3 class="card-title"><em>Bespoke</em><br>Furniture</h3>
+            <p class="card-desc">One-of-a-kind pieces designed and handcrafted to become heirlooms — functional sculpture for the discerning home.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===================== SECTION 4: PORTFOLIO ===================== -->
+    <section id="portfolio" class="scene-section section-transition" style="flex-direction:column; align-items:flex-start;">
+      <div class="portfolio-header">
+        <h2 class="reveal">Selected<br><em>Works</em></h2>
+        <div class="portfolio-header-right reveal reveal-delay-1">
+          <p>A curated selection of residential and commercial projects — each a unique response to site, client, and context.</p>
+          <a href="#" class="view-all-btn">
+            View All Projects
+            <svg width="18" height="10" viewBox="0 0 18 10" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M0 5h16M12 1l4 4-4 4"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="portfolio-masonry">
+        <div class="p-item reveal" data-depth="2">
+          <div class="p-item-inner">
+            <img src="https://images.unsplash.com/photo-1600210492493-0946911123ea?w=900&q=80&auto=format" alt="Interior Project 1" loading="lazy">
+            <div class="p-item-overlay"></div>
+            <div class="p-item-meta">
+              <div class="p-item-category">Residential · 2024</div>
+              <div class="p-item-title">The Meridian Penthouse</div>
+            </div>
+          </div>
+        </div>
+        <div class="p-item reveal reveal-delay-1" data-depth="1">
+          <div class="p-item-inner">
+            <img src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=700&q=80&auto=format" alt="Interior Project 2" loading="lazy">
+            <div class="p-item-overlay"></div>
+            <div class="p-item-meta">
+              <div class="p-item-category">Commercial · 2023</div>
+              <div class="p-item-title">Soleil Boutique Hotel</div>
+            </div>
+          </div>
+        </div>
+        <div class="p-item reveal reveal-delay-2" data-depth="3">
+          <div class="p-item-inner">
+            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&q=80&auto=format" alt="Interior Project 3" loading="lazy">
+            <div class="p-item-overlay"></div>
+            <div class="p-item-meta">
+              <div class="p-item-category">Bespoke · 2024</div>
+              <div class="p-item-title">Volta Chair Series</div>
+            </div>
+          </div>
+        </div>
+        <div class="p-item reveal reveal-delay-1" data-depth="2">
+          <div class="p-item-inner">
+            <img src="https://images.unsplash.com/photo-1567538096621-38d2284b23ff?w=800&q=80&auto=format" alt="Interior Project 4" loading="lazy">
+            <div class="p-item-overlay"></div>
+            <div class="p-item-meta">
+              <div class="p-item-category">Residential · 2023</div>
+              <div class="p-item-title">Amber Villa Retreat</div>
+            </div>
+          </div>
+        </div>
+        <div class="p-item reveal reveal-delay-3" data-depth="1">
+          <div class="p-item-inner">
+            <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=500&q=80&auto=format" alt="Interior Project 5" loading="lazy">
+            <div class="p-item-overlay"></div>
+            <div class="p-item-meta">
+              <div class="p-item-category">Commercial · 2024</div>
+              <div class="p-item-title">The Croft Workspace</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SECTION 5: FOOTER ===================== -->
+    <section id="footer-section" class="scene-section" style="flex-direction:column; align-items:stretch; min-height:auto;">
+      <div class="footer-main">
+        <!-- Left: Info -->
+        <div class="footer-info">
+          <div>
+            <div class="footer-logo">Hayee <span>Furn</span></div>
+            <div class="footer-tagline">Luxury Interior Design Studio</div>
+          </div>
+          <div class="footer-contacts">
+            <div class="footer-contact-item">
+              <div class="footer-contact-label">Address</div>
+              <div class="footer-contact-value">Visit Our Studio</div>
+            </div>
+            <div class="footer-divider-gold"></div>
+            <div class="footer-contact-item">
+              <div class="footer-contact-label">Services</div>
+              <div class="footer-contact-value">Residential · Commercial · Bespoke</div>
+            </div>
+            <div class="footer-contact-item">
+              <div class="footer-contact-label">Process</div>
+              <div class="footer-contact-value" style="font-size:14px; color: var(--taupe);">Consultation → Design → Craft → Install</div>
+            </div>
+            <div class="footer-divider-gold"></div>
+            <div class="footer-social">
+              <a href="#">Instagram</a>
+              <a href="#">Pinterest</a>
+              <a href="#">Houzz</a>
+              <a href="#">LinkedIn</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Map -->
+        <div class="footer-map-side">
+          <div class="map-overlay-label">
+            <div class="mol-eyebrow">Find Us</div>
+            <p>Hayee Furn Studio</p>
+          </div>
+          <iframe
+            src="https://maps.google.com/maps?q=JEMS+P1+iYrzonTgUV9&output=embed&z=15&ll=24.8607,67.0011"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Hayee Furn Location">
+          </iframe>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2024 Hayee Furn. All Rights Reserved.</p>
+        <p>Crafted with intention — Designed to endure.</p>
+        <p>Privacy · Terms · Credits</p>
+      </div>
+    </section>
+
+  </div><!-- /scroll-content -->
+</div><!-- /scroll-container -->
+
+<!-- Fake scroll height driver -->
+<div id="scroll-height"></div>
+
 <script>
-    (function() {
-        "use strict";
+/* =====================================================
+   HAYEE FURN — JavaScript Engine
+   Buttery smooth 60fps cinematic scroll experience
+   ===================================================== */
 
-        // ----- 3D SCROLL EFFECT: Z-AXIS TUNNEL / FLY-BY CINEMATIC -----
-        // selects all elements with class .fly-3d (also floating images, gallery items, about image etc)
-        const flyElements = document.querySelectorAll('.fly-3d');
-        
-        // Additional parallax images/text from hero and split
-        function update3DScroll() {
-            const scrollTop = window.scrollY;
-            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-            let progress = maxScroll > 0 ? scrollTop / maxScroll : 0;
-            progress = Math.min(1, Math.max(0, progress));
-            
-            // cinematic curve: easeOutCubic for smoother transitions
-            const eased = 1 - Math.pow(1 - progress, 1.6);
-            
-            flyElements.forEach(el => {
-                // get custom depth and rotation factor from data attributes
-                let depth = parseFloat(el.getAttribute('data-depth')) || 100;
-                let rotFactor = parseFloat(el.getAttribute('data-rotate')) || 0;
-                // Z-axis translation: items move from far (-depth*0.7) towards camera (0) then slight beyond?
-                // We create "fly past" effect: at progress 0 -> translateZ(-depth) , progress 1 -> translateZ(depth*0.3) for floating past
-                let zValue = -depth * (1 - eased) + (depth * 0.2 * eased);
-                // add subtle rotation based on scroll: rotateY and rotateX for cinematic depth
-                let rotateYVal = rotFactor * (eased * 20 - 10); // dynamic sway
-                let rotateXVal = rotFactor * (eased * 12);
-                // scale slightly to emphasize z travel
-                let scaleVal = 1 + (eased * 0.08);
-                
-                el.style.transform = `translate3d(0, 0, ${zValue}px) rotateX(${rotateXVal}deg) rotateY(${rotateYVal}deg) scale(${scaleVal})`;
-                // preserve smoothness
-                el.style.transition = 'transform 0.02s linear';
-            });
-            
-            // Additional cinematic layer: hero title subtle 3D parallax if we want
-            const heroTitle = document.querySelector('.hero-content h1');
-            if (heroTitle) {
-                let yMove = progress * 25;
-                let zRot = progress * 4;
-                heroTitle.style.transform = `translate3d(0, ${-yMove * 0.3}px, ${progress * 30}px) rotateX(${zRot * 0.5}deg)`;
-                heroTitle.style.transition = 'transform 0.03s linear';
-            }
-            
-            // background floating image can shift intensity
-            const ctaBtn = document.querySelector('.btn-primary');
-            if (ctaBtn && window.innerWidth > 900) {
-                let btnZ = progress * 45;
-                ctaBtn.style.transform = `translate3d(0, 0, ${btnZ}px)`;
-            }
+(function() {
+  'use strict';
+
+  /* ---- State ---- */
+  let scrollTarget = 0;
+  let scrollCurrent = 0;
+  let ticking = false;
+  let totalHeight = 0;
+
+  const LERP_FACTOR = 0.075; // Smoothness (lower = more cinematic drag)
+
+  /* ---- Elements ---- */
+  const scrollContent = document.getElementById('scroll-content');
+  const loader = document.getElementById('loader');
+  const progressBar = document.getElementById('progress-bar');
+  const heroBg = document.getElementById('hero-bg');
+  const cursor = document.getElementById('cursor');
+  const cursorRing = document.getElementById('cursor-ring');
+
+  /* ---- Linear Interpolation ---- */
+  function lerp(start, end, factor) {
+    return start + (end - start) * factor;
+  }
+
+  /* ---- Calculate total scroll height ---- */
+  function calculateHeight() {
+    totalHeight = scrollContent.scrollHeight - window.innerHeight;
+    document.getElementById('scroll-height').style.height = scrollContent.scrollHeight + 'px';
+    document.body.style.height = scrollContent.scrollHeight + 'px';
+  }
+
+  /* ---- Main Render Loop ---- */
+  function render() {
+    scrollCurrent = lerp(scrollCurrent, scrollTarget, LERP_FACTOR);
+
+    // Stop updating when close enough (prevent float drift)
+    if (Math.abs(scrollTarget - scrollCurrent) < 0.05) {
+      scrollCurrent = scrollTarget;
+    }
+
+    const y = scrollCurrent;
+
+    // Apply smooth translation to scroll content
+    scrollContent.style.transform = `translate3d(0, ${-y}px, 0)`;
+
+    // Progress bar
+    const progress = Math.min((y / totalHeight) * 100, 100);
+    progressBar.style.width = progress + '%';
+
+    // Hero parallax Z-depth: image scales and lifts toward viewer
+    if (heroBg) {
+      const heroSection = document.getElementById('hero');
+      const heroH = heroSection.offsetHeight;
+      const t = Math.min(y / heroH, 1);
+      const scale = 1 + t * 0.12;
+      const zMove = t * 60;
+      const opacity = Math.max(1 - t * 1.4, 0);
+      heroBg.style.transform = `scale(${scale}) translate3d(0, ${-y * 0.35}px, ${zMove}px)`;
+      heroBg.style.opacity = opacity;
+    }
+
+    // Portfolio items Z-depth parallax
+    portfolioParallax(y);
+
+    // Reveal check
+    checkReveals(y);
+
+    requestAnimationFrame(render);
+  }
+
+  /* ---- Portfolio Z-Parallax ---- */
+  const pItems = document.querySelectorAll('.p-item[data-depth]');
+
+  function portfolioParallax(scrollY) {
+    pItems.forEach(item => {
+      const depth = parseFloat(item.dataset.depth) || 1;
+      const rect = item.getBoundingClientRect();
+      const itemCenter = rect.top + rect.height / 2;
+      const viewCenter = window.innerHeight / 2;
+      const distFromCenter = itemCenter - viewCenter;
+      const parallaxY = (distFromCenter * 0.04 * depth);
+      item.style.transform = `translate3d(0, ${parallaxY}px, 0)`;
+    });
+  }
+
+  /* ---- Reveal on Scroll ---- */
+  const revealEls = document.querySelectorAll('.reveal');
+
+  function checkReveals(scrollY) {
+    const windowH = window.innerHeight;
+    revealEls.forEach(el => {
+      if (el.classList.contains('revealed')) return;
+      const rect = el.getBoundingClientRect();
+      if (rect.top < windowH * 0.88) {
+        el.classList.add('revealed');
+      }
+    });
+  }
+
+  /* ---- Wheel event: capture scroll target ---- */
+  function onWheel(e) {
+    e.preventDefault();
+    scrollTarget += e.deltaY;
+    scrollTarget = Math.max(0, Math.min(scrollTarget, totalHeight));
+  }
+
+  /* ---- Touch support ---- */
+  let touchStartY = 0;
+  function onTouchStart(e) {
+    touchStartY = e.touches[0].clientY;
+  }
+  function onTouchMove(e) {
+    e.preventDefault();
+    const delta = touchStartY - e.touches[0].clientY;
+    touchStartY = e.touches[0].clientY;
+    scrollTarget += delta * 1.5;
+    scrollTarget = Math.max(0, Math.min(scrollTarget, totalHeight));
+  }
+
+  /* ---- Keyboard scroll ---- */
+  function onKeyDown(e) {
+    const STEP = 120;
+    if (e.key === 'ArrowDown' || e.key === 'PageDown') {
+      scrollTarget = Math.min(scrollTarget + STEP * 3, totalHeight);
+    } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+      scrollTarget = Math.max(scrollTarget - STEP * 3, 0);
+    } else if (e.key === 'Home') {
+      scrollTarget = 0;
+    } else if (e.key === 'End') {
+      scrollTarget = totalHeight;
+    }
+  }
+
+  /* ---- Custom cursor ---- */
+  let cursorX = -100, cursorY = -100;
+  let ringX = -100, ringY = -100;
+
+  document.addEventListener('mousemove', (e) => {
+    cursorX = e.clientX;
+    cursorY = e.clientY;
+  });
+
+  function animateCursor() {
+    ringX = lerp(ringX, cursorX, 0.12);
+    ringY = lerp(ringY, cursorY, 0.12);
+    cursor.style.left = cursorX + 'px';
+    cursor.style.top = cursorY + 'px';
+    cursorRing.style.left = ringX + 'px';
+    cursorRing.style.top = ringY + 'px';
+    requestAnimationFrame(animateCursor);
+  }
+  animateCursor();
+
+  document.querySelectorAll('a, button, .service-card').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.style.width = '20px';
+      cursor.style.height = '20px';
+      cursorRing.style.width = '56px';
+      cursorRing.style.height = '56px';
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.style.width = '10px';
+      cursor.style.height = '10px';
+      cursorRing.style.width = '36px';
+      cursorRing.style.height = '36px';
+    });
+  });
+
+  /* ---- 3D Card Tilt Effect ---- */
+  const cards = document.querySelectorAll('[data-card]');
+
+  cards.forEach(card => {
+    let rafId = null;
+    let targetRX = 0, targetRY = 0;
+    let currentRX = 0, currentRY = 0;
+    let isHovered = false;
+
+    function updateCard() {
+      currentRX = lerp(currentRX, isHovered ? targetRX : 0, 0.08);
+      currentRY = lerp(currentRY, isHovered ? targetRY : 0, 0.08);
+
+      card.style.transform = `perspective(1000px) rotateX(${currentRX}deg) rotateY(${currentRY}deg) scale(${isHovered ? 1.02 : 1})`;
+
+      // Shine effect tracking
+      const shine = card.querySelector('.card-shine');
+      if (shine) {
+        const xPct = (currentRY / 20 + 0.5) * 100;
+        const yPct = (-currentRX / 20 + 0.5) * 100;
+        shine.style.background = `radial-gradient(circle at ${xPct}% ${yPct}%, rgba(255,255,255,0.18) 0%, transparent 65%)`;
+      }
+
+      if (Math.abs(currentRX) > 0.01 || Math.abs(currentRY) > 0.01 || isHovered) {
+        rafId = requestAnimationFrame(updateCard);
+      } else {
+        cancelAnimationFrame(rafId);
+        card.style.transform = '';
+      }
+    }
+
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      const dx = (e.clientX - cx) / (rect.width / 2);
+      const dy = (e.clientY - cy) / (rect.height / 2);
+      targetRX = -dy * 10;
+      targetRY = dx * 10;
+      card.style.boxShadow = `
+        ${-dx * 20}px ${-dy * 20}px 60px rgba(28,26,23,0.12),
+        0 20px 60px rgba(28,26,23,0.08)
+      `;
+    });
+
+    card.addEventListener('mouseenter', () => {
+      isHovered = true;
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(updateCard);
+    });
+
+    card.addEventListener('mouseleave', () => {
+      isHovered = false;
+      targetRX = 0; targetRY = 0;
+      card.style.boxShadow = '';
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(updateCard);
+    });
+  });
+
+  /* ---- Nav link smooth scroll ---- */
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) {
+        const targetY = target.offsetTop;
+        // Animate scrollTarget smoothly
+        const startY = scrollTarget;
+        const dist = targetY - startY;
+        const duration = 1200;
+        const startTime = performance.now();
+
+        function scrollAnim(now) {
+          const elapsed = now - startTime;
+          const t = Math.min(elapsed / duration, 1);
+          // Ease in-out
+          const ease = t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2, 3)/2;
+          scrollTarget = startY + dist * ease;
+          if (t < 1) requestAnimationFrame(scrollAnim);
         }
-        
-        // ----- requestAnimationFrame throttled scroll -----
-        let ticking = false;
-        function onScrollHandler() {
-            if (!ticking) {
-                requestAnimationFrame(() => {
-                    update3DScroll();
-                    ticking = false;
-                });
-                ticking = true;
-            }
-        }
-        
-        window.addEventListener('scroll', onScrollHandler);
-        window.addEventListener('resize', () => {
-            update3DScroll();
-        });
-        update3DScroll(); // initial call
-        
-        // ----- 3D TILT EFFECT ON SERVICE CARDS (advanced hover) -----
-        const cards = document.querySelectorAll('.tilt-card');
-        cards.forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                if (window.innerWidth < 900) return; // disable on mobile for usability
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left; // x within card
-                const y = e.clientY - rect.top;
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                const rotateX = ((y - centerY) / centerY) * -12;   // max 12deg
-                const rotateY = ((x - centerX) / centerX) * 12;
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
-                card.style.transition = 'transform 0.1s ease-out';
-                card.style.boxShadow = '0 35px 40px -20px rgba(0,0,0,0.2)';
-            });
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
-                card.style.transition = 'transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1)';
-                card.style.boxShadow = 'var(--soft-shadow)';
-            });
-        });
-        
-        // ----- fade-up on scroll reveal (intersection observer for premium feel)-----
-        const fadeElements = document.querySelectorAll('.fade-up');
-        const observerOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('revealed');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-        fadeElements.forEach(el => observer.observe(el));
-        
-        // also manually ensure that service cards have initial hidden effect? but we trigger additional reveal for each
-        // but we also add smooth entrance to all sections on first load
-        const extraCards = document.querySelectorAll('.tilt-card, .gallery-item');
-        const cardObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0) scale(1)';
-                    cardObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-        extraCards.forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px) scale(0.96)';
-            card.style.transition = 'opacity 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1)';
-            cardObserver.observe(card);
-        });
-        
-        // additional smoothness: adjust perspective for 3d gallery on fly elements -> ensure no flicker
-        // force hardware acceleration on body transforms
-        const style = document.createElement('style');
-        style.innerHTML = ` .fly-3d, .tilt-card, .gallery-item, .floating-image-3d { will-change: transform; backface-visibility: hidden; } `;
-        document.head.appendChild(style);
-        
-        // fix for potential ios issues
-        function ensure3DPerspective() {
-            const scene = document.querySelector('.scene-container');
-            if (scene) scene.style.transformStyle = 'preserve-3d';
-        }
-        ensure3DPerspective();
-        
-        // manual refresh scroll after images loaded to avoid initial glitch
-        window.addEventListener('load', () => {
-            update3DScroll();
-            setTimeout(() => {
-                update3DScroll();
-            }, 150);
-            // additional: force all gallery items and cards to have proper z layers
-            const all3dItems = document.querySelectorAll('.fly-3d, .tilt-card');
-            all3dItems.forEach(el => {
-                if (el.style.transform === '') el.style.transform = 'translate3d(0,0,0)';
-            });
-        });
-        
-        // smooth anchor scroll for button "Discover Atelier"
-        const ctaLink = document.querySelector('.btn-primary');
-        if (ctaLink && ctaLink.getAttribute('href') === '#contact') {
-            ctaLink.addEventListener('click', (e) => {
-                e.preventDefault();
-                const contactSection = document.getElementById('contact');
-                if (contactSection) {
-                    contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        }
-        
-        // Update on every resize to recompute maxScroll variables
-        let resizeTimer;
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(() => {
-                update3DScroll();
-            }, 80);
-        });
-        
-        // extra premium touch: parallax subtle background effect?
-        // (We already have cinematic depth)
-        console.log('Hayee Furn — 3D Cinematic Experience Loaded');
-    })();
+        requestAnimationFrame(scrollAnim);
+      }
+    });
+  });
+
+  /* ---- Map iframe fallback ---- */
+  const mapIframe = document.querySelector('.footer-map-side iframe');
+  if (mapIframe) {
+    // Use the embed URL format for the provided location
+    mapIframe.src = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3620!2d67.0!3d24.86!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zSGF5ZWUgRnVybg!5e0!3m2!1sen!2s!4v1&q=Hayee+Furn+Karachi&output=embed';
+    // Provide the actual link
+    mapIframe.src = 'https://maps.google.com/maps?q=Hayee+Furniture+Karachi&output=embed&z=14';
+  }
+
+  /* ---- Init ---- */
+  function init() {
+    calculateHeight();
+
+    // Event listeners
+    window.addEventListener('wheel', onWheel, { passive: false });
+    window.addEventListener('touchstart', onTouchStart, { passive: true });
+    window.addEventListener('touchmove', onTouchMove, { passive: false });
+    window.addEventListener('keydown', onKeyDown);
+    window.addEventListener('resize', () => {
+      calculateHeight();
+    });
+
+    // Start render loop
+    requestAnimationFrame(render);
+  }
+
+  /* ---- Loader ---- */
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      loader.classList.add('done');
+      setTimeout(() => {
+        loader.style.display = 'none';
+        init();
+        // Trigger initial reveal check
+        checkReveals(0);
+      }, 900);
+    }, 1600);
+  });
+
+  // Fallback: init if load fires too fast
+  if (document.readyState === 'complete') {
+    setTimeout(() => {
+      loader.classList.add('done');
+      setTimeout(() => {
+        loader.style.display = 'none';
+        init();
+        checkReveals(0);
+      }, 900);
+    }, 1600);
+  }
+
+})();
 </script>
-
-<!-- No external heavy libraries used: pure CSS3D transforms + vanilla JS, fully compliant -->
 </body>
 </html>
