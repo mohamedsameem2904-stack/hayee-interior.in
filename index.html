@@ -843,7 +843,21 @@
     /* Fix 3: Keep the testimonials slider arrows from being covered by the green WhatsApp floating button */
     /* Replace '.testimonial-slider-controls' with your actual testimonial button container class */
     .testimonial-slider-controls {
-        margin-bottom: 80px !important; /* Pushes the arrows up safely away from the button */
+    position: relative !important;
+    z-index: 100 !important;      /* Forces buttons over everything else */
+    margin-bottom: 90px !important; /* Pushes them up away from the WhatsApp ball */
+}
+}
+@media (max-width: 768px) {
+    /* Target your action buttons */
+    .explore-btn, .whatsapp-btn, 
+    a[href*="whatsapp"], button {
+        width: 90% !important;        /* Restricts it from hitting screen edges */
+        max-width: 320px !important;  /* Stops it from becoming overly wide */
+        margin: 8px auto !important;   /* Centers them nicely with balanced gaps */
+        padding: 12px 20px !important; /* Makes the button height professional */
+        font-size: 1rem !important;    /* Reduces text bulkiness */
+        display: block !important;
     }
 }
   </style>
@@ -928,8 +942,8 @@
         </div>
         <div class="stat-divider"></div>
         <div class="stat-item">
-          <div><span class="stat-num" data-target="98">0</span><span class="stat-num">%</span></div>
-          <span class="stat-label">Happy Clients</span>
+          <h2 class="stat-number">98%</h2>
+          <p class="stat-label">Happy Clients</p>
         </div>
       </div>
     </div>
@@ -1167,6 +1181,10 @@
       </div>
 
       <div class="testimonial-slider">
+        <div class="testimonial-slider-controls">
+    <button class="prev-btn" onclick="moveSlide(-1)">←</button>
+    <button class="next-btn" onclick="moveSlide(1)">→</button>
+</div>
         <div class="testimonial-track" id="testimonialTrack">
           <div class="testimonial-card">
             <div class="testi-quote">"</div>
@@ -1269,21 +1287,6 @@
           </form>
         </div>
       </div>
-
-      <div class="map-area">
-        <div class="map-label">Find Us</div>
-        <div class="map-container" style="width: 100%; margin-top: 20px;">
-    <iframe 
-        src="https://maps.google.com/maps?q=Trichy%20Road,%20Near%20Anu%20Hospital,%20Trichy&t=&z=15&ie=UTF8&iwloc=&output=embed" 
-        width="100%" 
-        height="300" 
-        style="border:0; border-radius: 8px;" 
-        allowfullscreen="" 
-        loading="lazy">
-    </iframe>
-</div>
-      </div>
-    </div>
   </section>
 
   <footer class="footer">
@@ -1445,6 +1448,6 @@
         });
       }
     });
-  </script>
+      </script>
 </body>
 </html>
