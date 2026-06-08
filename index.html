@@ -83,12 +83,12 @@
     /* --- IMPROVED MOBILE MENU --- */
     .mobile-menu {
       position: fixed; inset: 0; z-index: 5000;
-      background: rgba(0, 0, 0, 0.6); /* Darker overlay */
+      background: rgba(0, 0, 0, 0.6);
       backdrop-filter: blur(8px);
-      display: none; /* Hidden by default */
-      justify-content: center; align-items: center;
+      display: none;
       opacity: 0;
       transition: opacity 0.3s ease;
+      justify-content: center; align-items: center;
     }
     .mobile-menu.active { display: flex; opacity: 1; }
     
@@ -481,7 +481,7 @@
     </div>
   </section>
 
-  <!-- ===================== TESTIMONIALS (UPDATED WITH MORE REVIEWS) ===================== -->
+  <!-- ===================== TESTIMONIALS (UPDATED WITH MORE REVIEWS & WORKING BUTTONS) ===================== -->
   <section id="testimonials" class="testimonials section-pad">
     <div class="container">
       <div class="section-header">
@@ -670,7 +670,7 @@
     });
 
     // ============================================
-    // 3. NAVBAR & MOBILE MENU (UPDATED)
+    // 3. NAVBAR & MOBILE MENU
     // ============================================
     const navbar = document.getElementById('navbar');
     const navBurger = document.getElementById('navBurger');
@@ -735,7 +735,7 @@
     });
 
     // ============================================
-    // 6. TESTIMONIAL SLIDER (UPDATED WITH MORE REVIEWS)
+    // 6. TESTIMONIAL SLIDER (FIXED & UPDATED)
     // ============================================
     const track = document.getElementById('testimonialTrack');
     const cards = track.querySelectorAll('.testimonial-card');
@@ -744,22 +744,31 @@
     const dotsContainer = document.getElementById('testiDots');
     let currentIdx = 0;
 
-    // Create dots based on updated number of cards
-    cards.forEach((_, i) => {
-      const dot = document.createElement('div');
-      dot.className = 'testi-dot' + (i === 0 ? ' active' : '');
-      dot.addEventListener('click', () => goToSlide(i));
-      dotsContainer.appendChild(dot);
-    });
-
-    function goToSlide(idx) {
-      currentIdx = (idx + cards.length) % cards.length;
-      track.style.transform = `translateX(-${currentIdx * 100}%)`;
-      dotsContainer.querySelectorAll('.testi-dot').forEach((d, i) => d.classList.toggle('active', i === currentIdx));
+    // Create dots based on total number of cards
+    if (cards.length > 0 && dotsContainer) {
+      cards.forEach((_, i) => {
+        const dot = document.createElement('div');
+        dot.className = 'testi-dot' + (i === 0 ? ' active' : '');
+        dot.addEventListener('click', () => goToSlide(i));
+        dotsContainer.appendChild(dot);
+      });
     }
 
-    prevBtn.addEventListener('click', () => goToSlide(currentIdx - 1));
-    nextBtn.addEventListener('click', () => goToSlide(currentIdx + 1));
+    function goToSlide(idx) {
+      // Wrapping logic: if idx is -1, go to last slide. If idx is total, go to first.
+      currentIdx = (idx + cards.length) % cards.length;
+      track.style.transform = `translateX(-${currentIdx * 100}%)`;
+      
+      // Update dots
+      const dots = dotsContainer.querySelectorAll('.testi-dot');
+      dots.forEach((d, i) => d.classList.toggle('active', i === currentIdx));
+    }
+
+    // Attach Click Event Listeners
+    if (prevBtn && nextBtn) {
+      prevBtn.addEventListener('click', () => goToSlide(currentIdx - 1));
+      nextBtn.addEventListener('click', () => goToSlide(currentIdx + 1));
+    }
 
     // ============================================
     // 7. FORM HANDLING
