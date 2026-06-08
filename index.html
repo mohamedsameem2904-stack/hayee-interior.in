@@ -813,6 +813,39 @@
     .mobile-menu ul { list-style: none; display: flex; flex-direction: column; gap: 24px; margin-bottom: auto; }
     .mob-link { font-family: var(--font-display); font-size: 36px; font-weight: 600; }
     .mob-contact { display: flex; flex-direction: column; gap: 10px; font-weight: 600; }
+    /* ==========================================
+   MOBILE RESPONSIVE FIXES (Add at the bottom)
+   ========================================== */
+@media (max-width: 768px) {
+    
+    /* Fix 1: Scale down the oversized text and hero spacing */
+    h1, .hero-heading {
+        font-size: 2rem !important; /* Forces a reasonable mobile size */
+        line-height: 1.3 !important;
+    }
+
+    /* Shrink the huge 500+ and 12+ stat numbers */
+    h2, .stat-number { 
+        font-size: 2.2rem !important;
+        margin-bottom: 5px !important;
+    }
+
+    /* Fix 2: Prevent the scrolling category text from getting overlapped */
+    /* Replace '.category-ticker-container' with whatever class name you used for that text row */
+    .category-ticker-container {
+        padding: 15px 0 !important;
+        overflow: hidden !important;
+        white-space: nowrap !important;
+        position: relative !important;
+        z-index: 10 !important; /* Keeps it strictly above background layers */
+    }
+
+    /* Fix 3: Keep the testimonials slider arrows from being covered by the green WhatsApp floating button */
+    /* Replace '.testimonial-slider-controls' with your actual testimonial button container class */
+    .testimonial-slider-controls {
+        margin-bottom: 80px !important; /* Pushes the arrows up safely away from the button */
+    }
+}
   </style>
 </head>
 
@@ -865,7 +898,7 @@
     <canvas id="heroCanvas"></canvas>
 
     <div class="hero-content">
-      <div class="hero-tag">Trichy's Premier Interior Studio</div>
+      <div class="hero-tag">Tanjai's Premier Interior Studio</div>
       <h1 class="hero-title">
         <div class="hero-line">Craft Your</div>
         <div class="hero-line hero-italic">Perfect Space</div>
@@ -1187,7 +1220,7 @@
               <div class="info-icon">📍</div>
               <div>
                 <strong>Location</strong>
-                <span>Trichy Road, Near Anu Hospital, Trichy</span>
+                <span>Trichy Road, Near Anu Hospital, Thanjavur</span>
               </div>
             </div>
             <div class="info-item">
@@ -1239,17 +1272,16 @@
 
       <div class="map-area">
         <div class="map-label">Find Us</div>
-        <div class="map-embed">
-          <iframe
-            title="Hayee Interior Location"
-            src="https://maps.google.com/maps?q=Trichy%20Road,%20Near%20Anu%20Hospital,%20Trichy&t=&z=14&ie=UTF8&iwloc=&output=embed"
-            width="100%"
-            height="400"
-            style="border:0;"
-            allowfullscreen=""
-            loading="lazy">
-          </iframe>
-        </div>
+        <div class="map-container" style="width: 100%; margin-top: 20px;">
+    <iframe 
+        src="https://maps.google.com/maps?q=Trichy%20Road,%20Near%20Anu%20Hospital,%20Trichy&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+        width="100%" 
+        height="300" 
+        style="border:0; border-radius: 8px;" 
+        allowfullscreen="" 
+        loading="lazy">
+    </iframe>
+</div>
       </div>
     </div>
   </section>
@@ -1416,4 +1448,3 @@
   </script>
 </body>
 </html>
-
