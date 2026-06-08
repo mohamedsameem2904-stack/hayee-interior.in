@@ -1,1202 +1,754 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HAYEE INTERIOR — Luxury Interior Design</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@200;300;400&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-<style>
-/* ═══════════════════════════════════════════
-   HAYEE FURN — DESIGN SYSTEM
-   ═══════════════════════════════════════════ */
-*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hayee Interior | Luxury Furniture & Interior Design</title>
+  <meta name="description" content="Hayee Interior — Premium furniture and interior design in Trichy. Discover curated collections that transform living spaces." />
 
-:root {
-  /* Palette */
-  --w0: #FDFAF5;          /* warm white */
-  --w1: #F8F4EE;          /* alabaster */
-  --w2: #F1EAE0;          /* linen */
-  --w3: #E8DDD0;          /* cream */
-  --w4: #D6C9B8;          /* sand */
-  --w5: #BFB09C;          /* taupe */
-  --c0: #1A1814;          /* deepest charcoal */
-  --c1: #2E2B27;          /* charcoal */
-  --c2: #504D48;          /* charcoal mid */
-  --c3: #7A756E;          /* charcoal soft */
-  --gold:  #C8A96A;
-  --goldl: #DFC38A;
-  --goldf: #F0E4C4;
-  --green: #3DAB6E;        /* whatsapp */
-  --greenl:rgba(61,171,110,.13);
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
-  /* Type */
-  --f-disp: 'Cormorant Garamond', Georgia, serif;
-  --f-edit: 'Playfair Display', Georgia, serif;
-  --f-sans: 'Jost', sans-serif;
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 
-  /* Easing */
-  --expo: cubic-bezier(.16,1,.3,1);
-  --quart: cubic-bezier(.76,0,.24,1);
-}
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js" defer></script>
 
-html { background:var(--w0); overflow-x:hidden; }
-
-body {
-  font-family:var(--f-sans);
-  background:var(--w0);
-  color:var(--c0);
-  overflow-x:hidden;
-  cursor:none;
-}
-
-/* ═══════════════════════════════════════════
-   CURSOR
-   ═══════════════════════════════════════════ */
-#cur-dot {
-  position:fixed; width:8px; height:8px;
-  background:var(--gold); border-radius:50%;
-  pointer-events:none; z-index:9999;
-  transform:translate(-50%,-50%);
-  transition:width .25s, height .25s;
-}
-#cur-ring {
-  position:fixed; width:34px; height:34px;
-  border:1px solid var(--gold); border-radius:50%;
-  pointer-events:none; z-index:9998;
-  transform:translate(-50%,-50%);
-  transition:width .4s var(--expo), height .4s var(--expo), opacity .3s;
-  opacity:.65;
-}
-.cur-grow #cur-dot  { width:18px; height:18px; }
-.cur-grow #cur-ring { width:56px; height:56px; opacity:.4; }
-
-/* ═══════════════════════════════════════════
-   PROGRESS BAR
-   ═══════════════════════════════════════════ */
-#prog {
-  position:fixed; top:0; left:0; height:2px;
-  background:linear-gradient(90deg,var(--goldl),var(--gold));
-  width:0%; z-index:300; pointer-events:none;
-  transition:width .08s linear;
-}
-
-/* ═══════════════════════════════════════════
-   NAV
-   ═══════════════════════════════════════════ */
-nav {
-  position:fixed; top:0; left:0; right:0; z-index:200;
-  display:flex; align-items:center; justify-content:space-between;
-  padding:26px 56px;
-  pointer-events:none;
-}
-nav > * { pointer-events:all; }
-.n-logo {
-  font-family:var(--f-disp); font-size:12px; font-weight:500;
-  letter-spacing:.38em; text-transform:uppercase; color:var(--c0);
-  text-decoration:none;
-}
-.n-links { display:flex; gap:36px; list-style:none; }
-.n-links a {
-  font-family:var(--f-sans); font-size:10px; font-weight:300;
-  letter-spacing:.22em; text-transform:uppercase; color:var(--c3);
-  text-decoration:none; transition:color .3s; cursor:none;
-}
-.n-links a:hover { color:var(--gold); }
-.n-est {
-  font-family:var(--f-sans); font-size:10px; font-weight:200;
-  letter-spacing:.18em; color:var(--w5);
-}
-
-/* ═══════════════════════════════════════════
-   LOADER
-   ═══════════════════════════════════════════ */
-#loader {
-  position:fixed; inset:0; background:var(--w0);
-  z-index:1000; display:flex; flex-direction:column;
-  align-items:center; justify-content:center; gap:20px;
-  transition:opacity .9s var(--expo), transform .9s var(--expo);
-}
-#loader.out { opacity:0; transform:translateY(-24px); pointer-events:none; }
-.ld-title {
-  font-family:var(--f-disp); font-size:52px; font-weight:300;
-  color:var(--c0); letter-spacing:.14em;
-}
-.ld-title i { font-style:italic; color:var(--gold); }
-.ld-bar { width:180px; height:1px; background:var(--w4); overflow:hidden; }
-.ld-fill { height:100%; background:var(--gold); width:0%;
-  animation:ldFill 1.5s var(--expo) .2s forwards; }
-@keyframes ldFill { to { width:100%; } }
-.ld-sub {
-  font-family:var(--f-sans); font-size:9px; font-weight:300;
-  letter-spacing:.38em; text-transform:uppercase; color:var(--w5);
-}
-
-/* ═══════════════════════════════════════════
-   GRAIN
-   ═══════════════════════════════════════════ */
-#grain {
-  position:fixed; inset:-50%; width:200%; height:200%;
-  pointer-events:none; z-index:199; opacity:.025;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23g)'/%3E%3C/svg%3E");
-  animation:grainAnim 7s steps(9) infinite;
-}
-@keyframes grainAnim {
-  0%,100%{transform:translate(0,0)}10%{transform:translate(-2%,-3%)}
-  20%{transform:translate(3%,2%)}30%{transform:translate(-1%,4%)}
-  40%{transform:translate(2%,-2%)}50%{transform:translate(-3%,1%)}
-  60%{transform:translate(1%,-3%)}70%{transform:translate(-2%,3%)}
-  80%{transform:translate(3%,-1%)}90%{transform:translate(-1%,2%)}
-}
-
-/* ═══════════════════════════════════════════
-   SMOOTH SCROLL WRAPPER
-   ═══════════════════════════════════════════ */
-#s-wrap {
-  position:fixed; top:0; left:0; width:100%; height:100%; overflow:hidden;
-}
-#s-content { will-change:transform; }
-#s-ghost   { position:fixed; top:0; left:0; width:1px; opacity:0; pointer-events:none; }
-
-/* ═══════════════════════════════════════════
-   SECTION BASE
-   ═══════════════════════════════════════════ */
-.sec {
-  position:relative; width:100%;
-  display:flex; align-items:center; justify-content:center;
-  overflow:hidden;
-}
-
-.sec::after {
-  content:''; position:absolute; bottom:0; left:0; right:0;
-  height:130px; pointer-events:none; z-index:5;
-}
-
-/* ═══════════════════════════════════════════
-   §1 HERO
-   ═══════════════════════════════════════════ */
-#s-hero {
-  min-height:100vh;
-  background:var(--w0);
-  perspective:1200px;
-  perspective-origin:50% 50%;
-}
-#s-hero::after { background:linear-gradient(to bottom,transparent,var(--w2)); }
-
-.hero-bg {
-  position:absolute; inset:0;
-  background:
-    linear-gradient(to bottom, rgba(253,250,245,.88) 0%, rgba(253,250,245,.52) 50%, rgba(253,250,245,.88) 100%),
-    url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1800&q=85&auto=format&fit=crop')
-    center/cover no-repeat;
-  transform-origin:50% 50%;
-  will-change:transform, opacity;
-  transition:none;
-}
-
-.hero-body {
-  position:relative; z-index:2;
-  text-align:center; padding:0 40px;
-}
-
-.hero-eyebrow {
-  font-family:var(--f-sans); font-size:9px; font-weight:300;
-  letter-spacing:.5em; text-transform:uppercase; color:var(--gold);
-  margin-bottom:26px;
-  opacity:0; transform:translateY(18px);
-  animation:fadeUp 1.2s var(--expo) .4s forwards;
-}
-
-.hero-h1 {
-  font-family:var(--f-disp); font-weight:300;
-  font-size:clamp(70px,13vw,196px);
-  line-height:.9; letter-spacing:-.02em; color:var(--c0);
-  opacity:0; transform:translateY(36px);
-  animation:fadeUp 1.4s var(--expo) .6s forwards;
-}
-.hero-h1 em { font-style:italic; color:var(--c1); }
-
-.hero-rule {
-  display:flex; align-items:center; justify-content:center;
-  gap:18px; margin-top:30px;
-  opacity:0; transform:translateY(16px);
-  animation:fadeUp 1.2s var(--expo) 1s forwards;
-}
-.hero-rule .r { width:38px; height:1px; background:var(--gold); }
-.hero-rule p {
-  font-family:var(--f-sans); font-size:9px; font-weight:300;
-  letter-spacing:.32em; text-transform:uppercase; color:var(--c3);
-}
-
-.hero-scroll {
-  position:absolute; bottom:40px; left:50%;
-  transform:translateX(-50%);
-  display:flex; flex-direction:column; align-items:center; gap:10px;
-  opacity:0; animation:fadeUp 1s var(--expo) 1.9s forwards;
-}
-.hero-scroll span {
-  font-family:var(--f-sans); font-size:8px; letter-spacing:.36em;
-  text-transform:uppercase; color:var(--w5);
-}
-.scroll-rod {
-  width:1px; height:62px;
-  background:linear-gradient(to bottom,var(--gold),transparent);
-  animation:rodPulse 2s ease-in-out infinite;
-}
-@keyframes rodPulse { 0%,100%{opacity:1}50%{opacity:.3} }
-@keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
-
-/* ═══════════════════════════════════════════
-   §2 PHILOSOPHY
-   ═══════════════════════════════════════════ */
-#s-phil {
-  min-height:100vh; background:var(--w2);
-  align-items:flex-start;
-  padding:130px 60px 160px;
-}
-#s-phil::after { background:linear-gradient(to bottom,transparent,var(--w3)); }
-
-.phil-texture {
-  position:absolute; inset:0; pointer-events:none;
-  background:
-    radial-gradient(ellipse 70% 60% at 15% 50%, rgba(200,169,106,.07) 0%, transparent 65%),
-    radial-gradient(ellipse 55% 70% at 85% 25%, rgba(180,158,120,.04) 0%, transparent 60%),
-    repeating-linear-gradient(47deg,transparent,transparent 90px,rgba(180,158,120,.018) 90px,rgba(180,158,120,.018) 91px);
-}
-
-.phil-grid {
-  position:relative; z-index:2;
-  display:grid; grid-template-columns:80px 1fr;
-  gap:80px; max-width:1240px; width:100%; margin:0 auto;
-}
-
-.phil-sidebar {
-  display:flex; flex-direction:column; align-items:center;
-  padding-top:6px; position:sticky; top:30vh;
-}
-.phil-vert {
-  font-family:var(--f-sans); font-size:8px; font-weight:300;
-  letter-spacing:.44em; text-transform:uppercase; color:var(--gold);
-  writing-mode:vertical-rl; transform:rotate(180deg); margin-bottom:16px;
-}
-.phil-num {
-  font-family:var(--f-disp); font-size:72px; font-weight:300;
-  color:var(--w4); line-height:1; letter-spacing:-.02em;
-}
-
-.phil-body {}
-
-.phil-h2 {
-  font-family:var(--f-disp); font-weight:300;
-  font-size:clamp(38px,4.8vw,68px);
-  line-height:1.08; letter-spacing:-.015em; color:var(--c0);
-  margin-bottom:44px;
-}
-.phil-h2 em { font-style:italic; }
-
-.phil-p {
-  font-family:var(--f-disp); font-size:18px; font-weight:300;
-  line-height:1.95; color:var(--c3); margin-bottom:30px;
-  letter-spacing:.01em;
-}
-
-.phil-bq {
-  border-left:2px solid var(--gold);
-  padding:22px 0 22px 36px; margin:48px 0;
-}
-.phil-bq p {
-  font-family:var(--f-edit); font-size:22px; font-style:italic;
-  color:var(--c1); line-height:1.65;
-}
-.phil-bq cite {
-  display:block; margin-top:14px;
-  font-family:var(--f-sans); font-size:8px; font-weight:300;
-  letter-spacing:.36em; text-transform:uppercase;
-  color:var(--gold); font-style:normal;
-}
-
-.phil-stats {
-  display:grid; grid-template-columns:repeat(3,1fr);
-  gap:40px; margin-top:64px; padding-top:56px;
-  border-top:1px solid var(--w4);
-}
-.stat-n {
-  font-family:var(--f-disp); font-size:52px; font-weight:300;
-  color:var(--c0); line-height:1; letter-spacing:-.02em;
-}
-.stat-n sup { font-size:20px; color:var(--gold); vertical-align:super; }
-.stat-l {
-  font-family:var(--f-sans); font-size:8px; font-weight:300;
-  letter-spacing:.32em; text-transform:uppercase; color:var(--w5);
-  margin-top:7px;
-}
-
-/* ═══════════════════════════════════════════
-   §3 SHOWROOM
-   ═══════════════════════════════════════════ */
-#s-show {
-  min-height:100vh; background:var(--w3);
-  flex-direction:column; padding:120px 56px 160px;
-}
-#s-show::after { background:linear-gradient(to bottom,transparent,var(--w0)); }
-
-.show-hd {
-  text-align:center; margin-bottom:72px;
-}
-.show-ey {
-  font-family:var(--f-sans); font-size:8px; font-weight:300;
-  letter-spacing:.48em; text-transform:uppercase; color:var(--gold);
-  margin-bottom:18px;
-}
-.show-h2 {
-  font-family:var(--f-disp); font-weight:300;
-  font-size:clamp(40px,5.5vw,82px);
-  color:var(--c0); letter-spacing:-.02em; line-height:.95;
-}
-.show-h2 em { font-style:italic; }
-
-.cards {
-  display:grid; grid-template-columns:repeat(3,1fr);
-  gap:24px; max-width:1320px; width:100%; margin:0 auto;
-}
-
-.card {
-  position:relative; border-radius:2px; overflow:hidden;
-  cursor:none; transform-style:preserve-3d;
-  transform:perspective(1000px) rotateX(0) rotateY(0);
-  box-shadow:0 6px 40px rgba(26,24,20,.07);
-  transition:box-shadow .5s var(--expo);
-  will-change:transform;
-}
-.card-img { position:relative; height:510px; overflow:hidden; }
-.card-img img {
-  width:100%; height:100%; object-fit:cover; display:block;
-  transition:transform .8s var(--expo);
-}
-.card:hover .card-img img { transform:scale(1.05); }
-.card-veil {
-  position:absolute; inset:0;
-  background:linear-gradient(to bottom,transparent 28%,rgba(26,24,20,.58) 100%);
-}
-.card-shine {
-  position:absolute; inset:0; pointer-events:none; z-index:3;
-  background:radial-gradient(circle at 50% 50%,rgba(255,255,255,.1) 0%,transparent 70%);
-  opacity:0; transition:opacity .3s; mix-blend-mode:screen;
-}
-.card:hover .card-shine { opacity:1; }
-.card-body {
-  position:absolute; bottom:0; left:0; right:0;
-  padding:36px 32px; transform:translateZ(28px);
-}
-.card-no {
-  font-family:var(--f-disp); font-size:11px; font-weight:300;
-  color:var(--goldl); letter-spacing:.32em; margin-bottom:9px;
-}
-.card-title {
-  font-family:var(--f-disp); font-size:30px; font-weight:300;
-  color:#FAF7F1; line-height:1.1; letter-spacing:-.01em; margin-bottom:12px;
-}
-.card-title em { font-style:italic; }
-.card-desc {
-  font-family:var(--f-sans); font-size:11px; font-weight:300;
-  color:rgba(250,247,241,.68); line-height:1.8; letter-spacing:.04em;
-}
-.card-arrow {
-  position:absolute; top:32px; right:32px;
-  width:42px; height:42px; border-radius:50%;
-  border:1px solid rgba(250,247,241,.28);
-  display:flex; align-items:center; justify-content:center;
-  transform:translateZ(18px);
-  transition:background .3s, border-color .3s;
-}
-.card-arrow svg { width:15px; height:15px; fill:none; stroke:rgba(250,247,241,.65); stroke-width:1.5; }
-.card:hover .card-arrow { background:var(--gold); border-color:var(--gold); }
-.card:hover .card-arrow svg { stroke:var(--c0); }
-
-/* ═══════════════════════════════════════════
-   §4 PORTFOLIO
-   ═══════════════════════════════════════════ */
-#s-port {
-  min-height:100vh; background:var(--w0);
-  flex-direction:column; align-items:flex-start;
-  padding:120px 56px 160px;
-}
-#s-port::after { background:linear-gradient(to bottom,transparent,var(--c0)); }
-
-.port-hd {
-  display:grid; grid-template-columns:1fr 1fr;
-  gap:60px; align-items:end;
-  max-width:1320px; width:100%; margin:0 auto 88px;
-}
-.port-h2 {
-  font-family:var(--f-disp); font-weight:300;
-  font-size:clamp(44px,6vw,92px);
-  color:var(--c0); line-height:.92; letter-spacing:-.03em;
-}
-.port-h2 em { font-style:italic; }
-.port-hd-r { padding-bottom:10px; }
-.port-hd-r p {
-  font-family:var(--f-disp); font-size:16px; font-weight:300;
-  color:var(--c3); line-height:1.85; margin-bottom:22px;
-}
-.all-btn {
-  display:inline-flex; align-items:center; gap:12px;
-  font-family:var(--f-sans); font-size:9px; font-weight:300;
-  letter-spacing:.3em; text-transform:uppercase;
-  color:var(--c0); text-decoration:none;
-  border-bottom:1px solid var(--gold); padding-bottom:3px;
-  transition:color .3s, gap .3s; cursor:none;
-}
-.all-btn:hover { color:var(--gold); gap:20px; }
-.all-btn svg { width:16px; height:9px; fill:none; stroke:currentColor; stroke-width:1.2; }
-
-/* Masonry grid */
-.port-grid {
-  display:grid;
-  grid-template-columns:repeat(12,1fr);
-  gap:18px;
-  max-width:1320px; width:100%; margin:0 auto;
-}
-.pi { position:relative; overflow:hidden; border-radius:2px; will-change:transform; }
-.pi:nth-child(1) { grid-column:1/8; }
-.pi:nth-child(2) { grid-column:8/13; }
-.pi:nth-child(3) { grid-column:1/5; }
-.pi:nth-child(4) { grid-column:5/10; }
-.pi:nth-child(5) { grid-column:10/13; }
-.pi-in { position:relative; }
-.pi:nth-child(1) .pi-in,
-.pi:nth-child(2) .pi-in { height:560px; }
-.pi:nth-child(3) .pi-in,
-.pi:nth-child(4) .pi-in,
-.pi:nth-child(5) .pi-in { height:370px; }
-.pi-in img {
-  width:100%; height:100%; object-fit:cover; display:block;
-  transform:scale(1.06); transition:transform 1.1s var(--expo);
-}
-.pi:hover .pi-in img { transform:scale(1.0); }
-.pi-veil {
-  position:absolute; inset:0;
-  background:linear-gradient(to bottom,transparent 38%,rgba(26,24,20,.64) 100%);
-  opacity:0; transition:opacity .5s;
-}
-.pi:hover .pi-veil { opacity:1; }
-.pi-meta {
-  position:absolute; bottom:0; left:0; right:0; padding:26px 26px;
-  transform:translateY(8px); opacity:0;
-  transition:transform .5s var(--expo), opacity .5s;
-}
-.pi:hover .pi-meta { transform:translateY(0); opacity:1; }
-.pi-cat {
-  font-family:var(--f-sans); font-size:8px; font-weight:300;
-  letter-spacing:.32em; text-transform:uppercase; color:var(--goldl);
-  margin-bottom:5px;
-}
-.pi-name {
-  font-family:var(--f-disp); font-size:21px; font-weight:300;
-  color:#FAF7F1; letter-spacing:-.01em;
-}
-
-/* ═══════════════════════════════════════════
-   §5 FOOTER / CONTACT (REFACTORED - NO MAP)
-   ═══════════════════════════════════════════ */
-#s-foot {
-  background:var(--c0); flex-direction:column;
-  align-items:stretch; min-height:auto;
-}
-
-.foot-main {
-  max-width:1320px; width:100%; margin:0 auto;
-  padding:88px 56px;
-  display:grid; grid-template-columns:1.2fr 1fr;
-  gap:80px;
-}
-
-.foot-l-header {
-  margin-bottom:44px;
-}
-.foot-logo {
-  font-family:var(--f-disp); font-size:clamp(44px,5.5vw,74px);
-  font-weight:300; color:var(--w2); letter-spacing:-.03em; line-height:1;
-}
-.foot-logo em { font-style:italic; color:var(--gold); }
-.foot-tag {
-  font-family:var(--f-sans); font-size:9px; font-weight:300;
-  letter-spacing:.4em; text-transform:uppercase;
-  color:var(--w5); margin-top:8px;
-}
-
-/* Contact info stack */
-.foot-contacts { display:flex; flex-direction:column; gap:4px; }
-
-.fc-row {
-  display:flex; align-items:flex-start; gap:20px;
-  padding:20px 0; border-bottom:1px solid rgba(255,255,255,.06);
-}
-.fc-row:first-child { padding-top:0; }
-.fc-icon {
-  width:36px; height:36px; border-radius:50%;
-  border:1px solid rgba(200,169,106,.25);
-  display:flex; align-items:center; justify-content:center; flex-shrink:0;
-}
-.fc-icon svg { width:14px; height:14px; fill:none; stroke:var(--gold); stroke-width:1.6; }
-
-.fc-lbl {
-  font-family:var(--f-sans); font-size:8px; font-weight:300;
-  letter-spacing:.38em; text-transform:uppercase;
-  color:var(--w5); margin-bottom:4px;
-}
-.fc-val {
-  font-family:var(--f-disp); font-size:16px; font-weight:300;
-  color:var(--w3); letter-spacing:.02em;
-}
-
-/* Gold layout divider */
-.g-rule { width:44px; height:1px; background:var(--gold); margin:36px 0; }
-
-/* Actions & Buttons Panel */
-.foot-r-actions {
-  display:flex; flex-direction:column; justify-content:flex-end;
-}
-
-.cta-group {
-  display:flex; flex-direction:column; gap:12px;
-}
-
-.cta {
-  display:inline-flex; align-items:center; gap:14px;
-  padding:16px 28px; border-radius:2px; text-decoration:none; cursor:none;
-  font-family:var(--f-sans); font-size:10px; font-weight:300;
-  letter-spacing:.24em; text-transform:uppercase;
-  transition:transform .35s var(--expo), box-shadow .35s, background .3s, border-color .3s, color .3s;
-}
-.cta:hover { transform:translateX(8px); }
-.cta svg { flex-shrink:0; }
-.cta-svg-stroke svg { fill:none; stroke:currentColor; stroke-width:1.7; width:15px; height:15px; }
-
-.cta-call {
-  background:var(--gold); color:var(--c0);
-  box-shadow:0 4px 28px rgba(200,169,106,.28);
-}
-.cta-call:hover { background:var(--goldl); box-shadow:0 8px 36px rgba(200,169,106,.38); }
-
-.cta-wa {
-  background:var(--greenl); color:var(--green);
-  border:1px solid rgba(61,171,110,.22);
-}
-.cta-wa svg { fill:var(--green); width:15px; height:15px; }
-.cta-wa:hover { background:rgba(61,171,110,.22); border-color:rgba(61,171,110,.45); box-shadow:0 6px 24px rgba(61,171,110,.12); }
-
-.cta-mail {
-  background:transparent; color:var(--w5);
-  border:1px solid rgba(191,176,156,.25);
-}
-.cta-mail:hover { color:var(--w2); border-color:rgba(191,176,156,.55); background:rgba(191,176,156,.07); }
-
-/* Instagram Component */
-.foot-soc-block {
-  display: flex;
-  flex-direction: column;
-  gap:12px;
-}
-.insta-label {
-  font-family: var(--f-sans);
-  font-size: 10px;
-  font-weight: 400;
-  letter-spacing: .35em;
-  text-transform: uppercase;
-  color: var(--w5);
-}
-.insta-anchor {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: 1px solid rgba(200,169,106,.2);
-  background: rgba(255,255,255,.02);
-  color: var(--w5);
-  transition: all 0.3s var(--expo);
-  cursor: none;
-}
-.insta-anchor:hover {
-  color: var(--gold);
-  border-color: var(--gold);
-  background: rgba(200,169,106,0.06);
-  transform: translateY(-3px);
-}
-.insta-anchor svg { width: 20px; height: 20px; fill: currentColor; }
-
-/* Footer bottom strip */
-.foot-bot {
-  background:#111009;
-  padding:26px 56px;
-  display:flex; align-items:center; justify-content:between;
-  border-top:1px solid rgba(255,255,255,.04);
-}
-.foot-bot-container {
-  max-width:1320px; width:100%; margin:0 auto;
-  display:flex; align-items:center; justify-content:space-between;
-}
-.foot-bot p {
-  font-family:var(--f-sans); font-size:8px; font-weight:300;
-  letter-spacing:.22em; color:var(--w5);
-}
-
-/* ═══════════════════════════════════════════
-   REVEAL ANIMATION
-   ═══════════════════════════════════════════ */
-.rv {
-  opacity:0; transform:translateY(38px);
-  transition:opacity .9s var(--expo), transform .9s var(--expo);
-}
-.rv.on { opacity:1; transform:translateY(0); }
-.rv.d1 { transition-delay:.1s; }
-.rv.d2 { transition-delay:.22s; }
-.rv.d3 { transition-delay:.34s; }
-.rv.d4 { transition-delay:.48s; }
-
-/* ═══════════════════════════════════════════
-   RESPONSIVE
-   ═══════════════════════════════════════════ */
-@media (max-width:1100px) {
-  .cards { grid-template-columns:1fr 1fr; }
-  .card:last-child { grid-column:1/-1; }
-  .card-img { height:440px; }
-  .port-grid {
-    grid-template-columns:1fr 1fr;
-    grid-template-rows:auto;
-  }
-  .pi { grid-column:span 1 !important; }
-  .pi .pi-in { height:340px !important; }
-  .foot-main { grid-template-columns:1fr; gap:40px; }
-}
-
-@media (max-width:768px) {
-  nav { padding:18px 22px; }
-  .n-links { display:none; }
-  #s-phil { padding:80px 24px 120px; }
-  .phil-grid { grid-template-columns:1fr; gap:32px; }
-  .phil-sidebar { position:static; flex-direction:row; align-items:center; gap:16px; }
-  .phil-vert { writing-mode:horizontal-tb; transform:none; }
-  .phil-stats { grid-template-columns:1fr 1fr; }
-  #s-show { padding:80px 22px 120px; }
-  .cards { grid-template-columns:1fr; }
-  .card:last-child { grid-column:auto; }
-  #s-port { padding:80px 22px 100px; }
-  .port-hd { grid-template-columns:1fr; gap:28px; }
-  .port-grid { grid-template-columns:1fr; }
-  .foot-main { padding:56px 24px; }
-  .foot-bot-container { flex-direction:column; gap:12px; text-align:center; }
-}
-@media (max-width:480px) {
-  .hero-h1 { font-size:58px; }
-  .phil-stats { grid-template-columns:1fr; }
-  .stat-n { font-size:42px; }
-}
-</style>
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
 
-<div id="loader">
-  <div class="ld-title">HAYEE <i>Interior</i></div>
-  <div class="ld-bar"><div class="ld-fill"></div></div>
-  <div class="ld-sub">Luxury Interior Design Studio</div>
-</div>
+  <!-- ===================== CURSOR ===================== -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
 
-<div id="grain"></div>
+  <!-- ===================== PRELOADER ===================== -->
+  <div id="preloader">
+    <div class="pre-inner">
+      <div class="pre-logo">Hayee<span>Interior</span></div>
+      <div class="pre-bar"><div class="pre-fill" id="preFill"></div></div>
+      <div class="pre-percent" id="prePercent">0%</div>
+    </div>
+  </div>
 
-<div id="cur-dot"></div>
-<div id="cur-ring"></div>
+  <!-- ===================== NAVBAR ===================== -->
+  <header id="navbar">
+    <nav class="nav-container">
+      <a href="#home" class="nav-logo">Hayee<span>Interior</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#collections" class="nav-link">Collections</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#process" class="nav-link">Process</a></li>
+        <li><a href="#testimonials" class="nav-link">Reviews</a></li>
+        <li><a href="#contact" class="nav-link nav-cta">Contact Us</a></li>
+      </ul>
+      <button class="nav-burger" id="navBurger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
 
-<div id="prog"></div>
+  <!-- ===================== MOBILE MENU ===================== -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" id="mobileClose">&#10005;</button>
+    <ul>
+      <li><a href="#home" class="mob-link">Home</a></li>
+      <li><a href="#about" class="mob-link">About</a></li>
+      <li><a href="#collections" class="mob-link">Collections</a></li>
+      <li><a href="#services" class="mob-link">Services</a></li>
+      <li><a href="#process" class="mob-link">Process</a></li>
+      <li><a href="#testimonials" class="mob-link">Reviews</a></li>
+      <li><a href="#contact" class="mob-link">Contact Us</a></li>
+    </ul>
+    <div class="mob-contact">
+      <a href="tel:+917299030406">+91 72990 30406</a>
+      <a href="mailto:hayeefurn@gmail.com">hayeefurn@gmail.com</a>
+    </div>
+  </div>
 
-<nav>
-  <a class="n-logo" href="#">Hayee Interior</a>
-  <ul class="n-links">
-    <li><a href="#s-phil">Philosophy</a></li>
-    <li><a href="#s-show">Showroom</a></li>
-    <li><a href="#s-port">Portfolio</a></li>
-    <li><a href="#s-foot">Contact</a></li>
-  </ul>
-  <span class="n-est">Est. 2018</span>
-</nav>
+  <!-- ===================== HERO SECTION ===================== -->
+  <section id="home" class="hero">
+    <!-- Three.js canvas -->
+    <canvas id="heroCanvas"></canvas>
 
-<div id="s-wrap">
- <div id="s-content">
+    <!-- Parallax layers -->
+    <div class="hero-grain"></div>
+    <div class="hero-vignette"></div>
 
-  <section class="sec" id="s-hero">
-    <div class="hero-bg" id="heroBg"></div>
-    <div class="hero-body">
-      <p class="hero-eyebrow">Luxury Interior Design Studio</p>
-      <h1 class="hero-h1">HAYEE <em>Interior</em></h1>
-      <div class="hero-rule">
-        <div class="r"></div>
-        <p>Where Spaces Become Timeless</p>
-        <div class="r"></div>
+    <div class="hero-content">
+      <div class="hero-tag reveal-up">Trichy's Premier Interior Studio</div>
+      <h1 class="hero-title">
+        <span class="hero-line reveal-up" data-delay="0.1">Craft Your</span>
+        <span class="hero-line hero-italic reveal-up" data-delay="0.2">Perfect Space</span>
+        <span class="hero-line reveal-up" data-delay="0.3">Live <em>Beautifully</em></span>
+      </h1>
+      <p class="hero-sub reveal-up" data-delay="0.4">
+        Bespoke furniture & immersive interiors — designed for the way you live, crafted to last a lifetime.
+      </p>
+      <div class="hero-actions reveal-up" data-delay="0.5">
+        <a href="#collections" class="btn-primary">Explore Collections</a>
+        <a href="https://wa.me/917299030406?text=Hello%20Hayee%20Interior%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."
+           target="_blank" rel="noopener" class="btn-whatsapp">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp Us
+        </a>
+      </div>
+
+      <!-- Stats bar -->
+      <div class="hero-stats reveal-up" data-delay="0.7">
+        <div class="stat-item">
+          <span class="stat-num" data-target="500">0</span><span>+</span>
+          <span class="stat-label">Projects Done</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num" data-target="12">0</span><span>+</span>
+          <span class="stat-label">Years Experience</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num" data-target="98">0</span><span>%</span>
+          <span class="stat-label">Happy Clients</span>
+        </div>
       </div>
     </div>
-    <div class="hero-scroll">
+
+    <!-- Scroll cue -->
+    <div class="scroll-cue">
       <span>Scroll</span>
-      <div class="scroll-rod"></div>
+      <div class="scroll-line"></div>
     </div>
   </section>
 
-  <section class="sec" id="s-phil">
-    <div class="phil-texture"></div>
-    <div class="phil-grid">
+  <!-- ===================== MARQUEE ===================== -->
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <span>Living Room</span><em>✦</em>
+      <span>Bedroom Sets</span><em>✦</em>
+      <span>Custom Sofas</span><em>✦</em>
+      <span>Dining Tables</span><em>✦</em>
+      <span>Wardrobe Design</span><em>✦</em>
+      <span>Office Interiors</span><em>✦</em>
+      <span>Modular Kitchen</span><em>✦</em>
+      <span>CCTV & Smart Homes</span><em>✦</em>
+      <span>Living Room</span><em>✦</em>
+      <span>Bedroom Sets</span><em>✦</em>
+      <span>Custom Sofas</span><em>✦</em>
+      <span>Dining Tables</span><em>✦</em>
+      <span>Wardrobe Design</span><em>✦</em>
+      <span>Office Interiors</span><em>✦</em>
+      <span>Modular Kitchen</span><em>✦</em>
+      <span>CCTV & Smart Homes</span><em>✦</em>
+    </div>
+  </div>
 
-      <div class="phil-sidebar rv">
-        <div class="phil-vert">Philosophy</div>
-        <div class="phil-num">02</div>
+  <!-- ===================== ABOUT SECTION ===================== -->
+  <section id="about" class="about section-pad">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-visual">
+          <div class="about-img-wrap">
+            <div class="about-img-box img-1">
+              <div class="img-placeholder" data-label="Our Showroom">
+                <div class="placeholder-icon">🛋️</div>
+                <span>Showroom Floor</span>
+              </div>
+            </div>
+            <div class="about-img-box img-2">
+              <div class="img-placeholder" data-label="Craftsmanship">
+                <div class="placeholder-icon">🪚</div>
+                <span>Master Crafting</span>
+              </div>
+            </div>
+            <div class="about-badge">
+              <span class="badge-num">12+</span>
+              <span class="badge-txt">Years of Excellence</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-text">
+          <div class="section-tag reveal-up">Who We Are</div>
+          <h2 class="section-title reveal-up">Where Comfort<br/>Meets <em>Craftsmanship</em></h2>
+          <p class="body-text reveal-up">
+            Hayee Interior began as a family passion for beautiful, functional living spaces. Today, we are Trichy's most trusted destination for premium furniture, thoughtful interior design, and smart home solutions — all under one roof.
+          </p>
+          <p class="body-text reveal-up">
+            Every piece in our collection is chosen or crafted with intention. From custom sofas tailored to your living room to precision-built wardrobes and modular kitchens, we deliver quality that endures.
+          </p>
+
+          <div class="about-pillars reveal-up">
+            <div class="pillar">
+              <div class="pillar-icon">✦</div>
+              <div>
+                <strong>Bespoke Design</strong>
+                <p>Every project starts with your story, lifestyle, and vision.</p>
+              </div>
+            </div>
+            <div class="pillar">
+              <div class="pillar-icon">✦</div>
+              <div>
+                <strong>Premium Materials</strong>
+                <p>Solid wood, high-grade upholstery, and lasting finishes.</p>
+              </div>
+            </div>
+            <div class="pillar">
+              <div class="pillar-icon">✦</div>
+              <div>
+                <strong>On-Time Delivery</strong>
+                <p>We respect your schedule and deliver what we promise.</p>
+              </div>
+            </div>
+          </div>
+
+          <a href="#contact" class="btn-primary reveal-up">Get a Free Consultation</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== COLLECTIONS ===================== -->
+  <section id="collections" class="collections section-pad">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag reveal-up">Our Curated Range</div>
+        <h2 class="section-title reveal-up">Featured <em>Collections</em></h2>
+        <p class="section-sub reveal-up">Timeless designs that blend form, function, and personality for every room in your home.</p>
       </div>
 
-      <div class="phil-body">
-        <h2 class="phil-h2 rv">
-          The Art of <em>Considered</em><br>Living Spaces
-        </h2>
-        <p class="phil-p rv d1">
-          At Hayee Interior, we believe a home is not merely a structure — it is a living portrait
-          of the people within it. Every material selected, every proportion calibrated,
-          every texture juxtaposed is a deliberate act of storytelling.
-        </p>
-        <div class="phil-bq rv d2">
-          <p>"Design is not just what it looks like. Design is how it makes you feel when you inhabit it — every single morning."</p>
-          <cite>— Hayee Interior Creative Director</cite>
+      <div class="collections-grid">
+
+        <div class="col-card reveal-card" data-category="Living Room">
+          <div class="card-img">
+            <div class="img-placeholder dark">
+              <div class="placeholder-icon">🛋️</div>
+              <span>Nordic Sofa Set</span>
+            </div>
+            <div class="card-overlay">
+              <a href="#contact" class="card-enquire">Enquire Now</a>
+            </div>
+            <div class="card-badge">Bestseller</div>
+          </div>
+          <div class="card-body">
+            <div class="card-cat">Living Room</div>
+            <h3 class="card-name">Nordic Comfort Sofa Set</h3>
+            <p class="card-desc">3+2 seater in premium fabric with solid teak legs. Available in 12 colour options.</p>
+            <div class="card-footer">
+              <span class="card-price">₹45,000 <small>onwards</small></span>
+              <a href="https://wa.me/917299030406?text=I'm%20interested%20in%20the%20Nordic%20Comfort%20Sofa%20Set" target="_blank" class="card-wa">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              </a>
+            </div>
+          </div>
         </div>
-        <p class="phil-p rv d3">
-          Our process begins with silence — deep listening to understand how you truly live,
-          how light moves through your rooms at golden hour, and what quiet moments matter most.
-          From this foundation, we craft environments that transcend trend and exist beyond time.
-        </p>
-        <div class="phil-stats rv d4">
-          <div>
-            <div class="stat-n">240<sup>+</sup></div>
-            <div class="stat-l">Projects Completed</div>
+
+        <div class="col-card reveal-card" data-category="Bedroom">
+          <div class="card-img">
+            <div class="img-placeholder">
+              <div class="placeholder-icon">🛏️</div>
+              <span>King Bedroom Set</span>
+            </div>
+            <div class="card-overlay">
+              <a href="#contact" class="card-enquire">Enquire Now</a>
+            </div>
           </div>
-          <div>
-            <div class="stat-n">18<sup>+</sup></div>
-            <div class="stat-l">Years of Craft</div>
+          <div class="card-body">
+            <div class="card-cat">Bedroom</div>
+            <h3 class="card-name">Royal King Bedroom Suite</h3>
+            <p class="card-desc">King-size bed + 2 side tables + wardrobe in rich walnut veneer finish.</p>
+            <div class="card-footer">
+              <span class="card-price">₹85,000 <small>onwards</small></span>
+              <a href="https://wa.me/917299030406?text=I'm%20interested%20in%20the%20Royal%20King%20Bedroom%20Suite" target="_blank" class="card-wa">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              </a>
+            </div>
           </div>
-          <div>
-            <div class="stat-n">12</div>
-            <div class="stat-l">Design Awards</div>
+        </div>
+
+        <div class="col-card reveal-card" data-category="Dining">
+          <div class="card-img">
+            <div class="img-placeholder light">
+              <div class="placeholder-icon">🍽️</div>
+              <span>Dining Collection</span>
+            </div>
+            <div class="card-overlay">
+              <a href="#contact" class="card-enquire">Enquire Now</a>
+            </div>
+            <div class="card-badge new">New</div>
+          </div>
+          <div class="card-body">
+            <div class="card-cat">Dining</div>
+            <h3 class="card-name">Harvest Dining Set</h3>
+            <p class="card-desc">6-seater solid sheesham table with cushioned chairs. Handcrafted joinery.</p>
+            <div class="card-footer">
+              <span class="card-price">₹38,000 <small>onwards</small></span>
+              <a href="https://wa.me/917299030406?text=I'm%20interested%20in%20the%20Harvest%20Dining%20Set" target="_blank" class="card-wa">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-card reveal-card" data-category="Storage">
+          <div class="card-img">
+            <div class="img-placeholder mid">
+              <div class="placeholder-icon">🪞</div>
+              <span>Wardrobe Range</span>
+            </div>
+            <div class="card-overlay">
+              <a href="#contact" class="card-enquire">Enquire Now</a>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="card-cat">Wardrobe & Storage</div>
+            <h3 class="card-name">Modular Wardrobe System</h3>
+            <p class="card-desc">Floor-to-ceiling sliding wardrobes with soft-close drawers and mirror panels.</p>
+            <div class="card-footer">
+              <span class="card-price">₹28,000 <small>per unit</small></span>
+              <a href="https://wa.me/917299030406?text=I'm%20interested%20in%20the%20Modular%20Wardrobe%20System" target="_blank" class="card-wa">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-card reveal-card" data-category="Kitchen">
+          <div class="card-img">
+            <div class="img-placeholder warm">
+              <div class="placeholder-icon">🍳</div>
+              <span>Modular Kitchen</span>
+            </div>
+            <div class="card-overlay">
+              <a href="#contact" class="card-enquire">Enquire Now</a>
+            </div>
+            <div class="card-badge">Popular</div>
+          </div>
+          <div class="card-body">
+            <div class="card-cat">Modular Kitchen</div>
+            <h3 class="card-name">Premium Modular Kitchen</h3>
+            <p class="card-desc">L-shape / U-shape designs with anti-scratch laminate, deep drawers & chimney unit.</p>
+            <div class="card-footer">
+              <span class="card-price">₹1,20,000 <small>onwards</small></span>
+              <a href="https://wa.me/917299030406?text=I'm%20interested%20in%20the%20Premium%20Modular%20Kitchen" target="_blank" class="card-wa">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-card reveal-card" data-category="Office">
+          <div class="card-img">
+            <div class="img-placeholder blue">
+              <div class="placeholder-icon">💼</div>
+              <span>Office Furniture</span>
+            </div>
+            <div class="card-overlay">
+              <a href="#contact" class="card-enquire">Enquire Now</a>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="card-cat">Office Interiors</div>
+            <h3 class="card-name">Executive Office Suite</h3>
+            <p class="card-desc">L-shaped desk, ergonomic chair, bookcase & cabinets. Full office setups available.</p>
+            <div class="card-footer">
+              <span class="card-price">₹55,000 <small>onwards</small></span>
+              <a href="https://wa.me/917299030406?text=I'm%20interested%20in%20the%20Executive%20Office%20Suite" target="_blank" class="card-wa">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /collections-grid -->
+
+      <div class="collections-cta reveal-up">
+        <p>Don't see what you're looking for? We design and build <strong>custom furniture</strong> to your exact specifications.</p>
+        <a href="https://wa.me/917299030406?text=I%20need%20custom%20furniture%20designed%20for%20my%20space." target="_blank" class="btn-primary">Request Custom Design</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SERVICES ===================== -->
+  <section id="services" class="services section-pad">
+    <div class="services-bg-text" aria-hidden="true">SERVICES</div>
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag reveal-up">What We Offer</div>
+        <h2 class="section-title reveal-up">Our <em>Services</em></h2>
+        <p class="section-sub reveal-up">End-to-end interior solutions crafted to elevate every corner of your space.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card reveal-card">
+          <div class="svc-number">01</div>
+          <div class="svc-icon">🏠</div>
+          <h3>Complete Interior Design</h3>
+          <p>Full-room transformation — concept, planning, execution. Residential & commercial spaces handled with care.</p>
+          <a href="#contact" class="svc-link">Learn More →</a>
+        </div>
+        <div class="service-card reveal-card">
+          <div class="svc-number">02</div>
+          <div class="svc-icon">🛋️</div>
+          <h3>Custom Furniture</h3>
+          <p>Furniture built precisely to your dimensions, material preference, and aesthetic. No compromise.</p>
+          <a href="#contact" class="svc-link">Learn More →</a>
+        </div>
+        <div class="service-card reveal-card">
+          <div class="svc-number">03</div>
+          <div class="svc-icon">🪟</div>
+          <h3>Modular Systems</h3>
+          <p>Kitchens, wardrobes, and storage solutions designed for maximum utility in minimal space.</p>
+          <a href="#contact" class="svc-link">Learn More →</a>
+        </div>
+        <div class="service-card reveal-card">
+          <div class="svc-number">04</div>
+          <div class="svc-icon">🎨</div>
+          <h3>Décor & Styling</h3>
+          <p>Lighting, soft furnishings, artwork placement — the finishing touches that bring a space to life.</p>
+          <a href="#contact" class="svc-link">Learn More →</a>
+        </div>
+        <div class="service-card reveal-card">
+          <div class="svc-number">05</div>
+          <div class="svc-icon">📐</div>
+          <h3>Space Planning</h3>
+          <p>3D layout planning and visualization before execution. See your space before it's built.</p>
+          <a href="#contact" class="svc-link">Learn More →</a>
+        </div>
+        <div class="service-card reveal-card">
+          <div class="svc-number">06</div>
+          <div class="svc-icon">📷</div>
+          <h3>CCTV & Smart Homes</h3>
+          <p>Installation and maintenance of CCTV systems, smart lighting, and home automation solutions.</p>
+          <a href="#contact" class="svc-link">Learn More →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROCESS ===================== -->
+  <section id="process" class="process section-pad">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag reveal-up">How It Works</div>
+        <h2 class="section-title reveal-up">Our <em>Simple Process</em></h2>
+      </div>
+
+      <div class="process-steps">
+        <div class="step reveal-up" data-delay="0">
+          <div class="step-num">01</div>
+          <div class="step-line"></div>
+          <div class="step-content">
+            <h3>Consultation</h3>
+            <p>Share your vision, space dimensions, and budget. We listen — no judgment, no pressure.</p>
+          </div>
+        </div>
+        <div class="step reveal-up" data-delay="0.1">
+          <div class="step-num">02</div>
+          <div class="step-line"></div>
+          <div class="step-content">
+            <h3>Design & Plan</h3>
+            <p>Our team creates detailed layouts, material boards, and 3D visualizations for your approval.</p>
+          </div>
+        </div>
+        <div class="step reveal-up" data-delay="0.2">
+          <div class="step-num">03</div>
+          <div class="step-line"></div>
+          <div class="step-content">
+            <h3>Production</h3>
+            <p>Skilled craftsmen bring the designs to life using premium materials in our workshop.</p>
+          </div>
+        </div>
+        <div class="step reveal-up" data-delay="0.3">
+          <div class="step-num">04</div>
+          <div class="step-line"></div>
+          <div class="step-content">
+            <h3>Delivery & Install</h3>
+            <p>White-glove delivery and professional installation. We leave your space perfect and clean.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="sec" id="s-show">
-    <div class="show-hd rv">
-      <p class="show-ey">Our Expertise</p>
-      <h2 class="show-h2">The <em>Showroom</em></h2>
-    </div>
-
-    <div class="cards">
-
-      <div class="card" data-card>
-        <div class="card-img">
-          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=82&auto=format&fit=crop" alt="Residential Sanctuaries" loading="lazy">
-        </div>
-        <div class="card-veil"></div>
-        <div class="card-shine"></div>
-        <div class="card-arrow">
-          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </div>
-        <div class="card-body">
-          <div class="card-no">01 —</div>
-          <h3 class="card-title"><em>Residential</em><br>Sanctuaries</h3>
-          <p class="card-desc">Private residences crafted with meticulous attention to proportion, light, and the quiet luxury of natural materials.</p>
-        </div>
+  <!-- ===================== TESTIMONIALS ===================== -->
+  <section id="testimonials" class="testimonials section-pad">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag reveal-up">Client Stories</div>
+        <h2 class="section-title reveal-up">What Our <em>Clients Say</em></h2>
       </div>
 
-      <div class="card" data-card>
-        <div class="card-img">
-          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=82&auto=format&fit=crop" alt="Commercial Environments" loading="lazy">
-        </div>
-        <div class="card-veil"></div>
-        <div class="card-shine"></div>
-        <div class="card-arrow">
-          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </div>
-        <div class="card-body">
-          <div class="card-no">02 —</div>
-          <h3 class="card-title"><em>Commercial</em><br>Environments</h3>
-          <p class="card-desc">Hospitality and corporate spaces engineered to evoke emotion, drive productivity, and command quiet authority.</p>
-        </div>
-      </div>
+      <div class="testimonial-slider" id="testimonialSlider">
+        <div class="testimonial-track" id="testimonialTrack">
 
-      <div class="card" data-card>
-        <div class="card-img">
-          <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=82&auto=format&fit=crop" alt="Bespoke Furniture" loading="lazy">
-        </div>
-        <div class="card-veil"></div>
-        <div class="card-shine"></div>
-        <div class="card-arrow">
-          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </div>
-        <div class="card-body">
-          <div class="card-no">03 —</div>
-          <h3 class="card-title"><em>Bespoke</em><br>Furniture</h3>
-          <p class="card-desc">One-of-a-kind pieces designed and handcrafted to become heirlooms — functional sculpture for the discerning home.</p>
-        </div>
-      </div>
+          <div class="testimonial-card">
+            <div class="testi-quote">"</div>
+            <p>Hayee Interior completely transformed our living room. The custom sofa they made fits perfectly and the quality is exceptional. Highly recommend them to anyone in Trichy!</p>
+            <div class="testi-author">
+              <div class="testi-avatar">RA</div>
+              <div>
+                <strong>Rajan Arumugam</strong>
+                <span>Trichy, Tamil Nadu</span>
+              </div>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+          </div>
 
+          <div class="testimonial-card">
+            <div class="testi-quote">"</div>
+            <p>From design to delivery, everything was smooth and professional. Our modular kitchen looks stunning and the team was very patient with our changes. Worth every rupee.</p>
+            <div class="testi-author">
+              <div class="testi-avatar">PM</div>
+              <div>
+                <strong>Priya Murugan</strong>
+                <span>Near Anu Hospital Area</span>
+              </div>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testi-quote">"</div>
+            <p>Incredible craftsmanship. The bedroom suite they built for us is exactly what we envisioned. The wood quality, the finish — it's premium. We've already referred three friends.</p>
+            <div class="testi-author">
+              <div class="testi-avatar">SK</div>
+              <div>
+                <strong>Senthil Kumar</strong>
+                <span>Trichy</span>
+              </div>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testi-quote">"</div>
+            <p>Very responsive on WhatsApp and delivered on time. Our office furniture looks very professional. Staff is polite and they cleaned up after installation. Five stars!</p>
+            <div class="testi-author">
+              <div class="testi-avatar">VM</div>
+              <div>
+                <strong>Vasanth Mohan</strong>
+                <span>Business Owner, Trichy</span>
+              </div>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+          </div>
+
+        </div><!-- /track -->
+      </div><!-- /slider -->
+
+      <div class="testi-controls">
+        <button class="testi-btn" id="testiPrev" aria-label="Previous">&#8592;</button>
+        <div class="testi-dots" id="testiDots"></div>
+        <button class="testi-btn" id="testiNext" aria-label="Next">&#8594;</button>
+      </div>
     </div>
   </section>
 
-  <section class="sec" id="s-port">
-
-    <div class="port-hd">
-      <h2 class="port-h2 rv">Selected<br><em>Works</em></h2>
-      <div class="port-hd-r rv d1">
-        <p>A curated selection of residential and commercial projects — each a unique response to site, client, and context.</p>
-      </div>
-    </div>
-
-    <div class="port-grid">
-      <div class="pi rv" data-z="2">
-        <div class="pi-in">
-          <img src="https://images.unsplash.com/photo-1600210492493-0946911123ea?w=900&q=82&auto=format&fit=crop" alt="The Meridian Penthouse" loading="lazy">
-          <div class="pi-veil"></div>
-          <div class="pi-meta">
-            <div class="pi-cat">Residential · 2024</div>
-            <div class="pi-name">The Meridian Penthouse</div>
-          </div>
-        </div>
-      </div>
-      <div class="pi rv d1" data-z="1">
-        <div class="pi-in">
-          <img src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=700&q=82&auto=format&fit=crop" alt="Soleil Boutique Hotel" loading="lazy">
-          <div class="pi-veil"></div>
-          <div class="pi-meta">
-            <div class="pi-cat">Commercial · 2023</div>
-            <div class="pi-name">Soleil Boutique Hotel</div>
-          </div>
-        </div>
-      </div>
-      <div class="pi rv d2" data-z="3">
-        <div class="pi-in">
-          <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&q=82&auto=format&fit=crop" alt="Volta Chair Series" loading="lazy">
-          <div class="pi-veil"></div>
-          <div class="pi-meta">
-            <div class="pi-cat">Bespoke · 2024</div>
-            <div class="pi-name">Volta Chair Series</div>
-          </div>
-        </div>
-      </div>
-      <div class="pi rv d1" data-z="2">
-        <div class="pi-in">
-          <img src="https://images.unsplash.com/photo-1567538096621-38d2284b23ff?w=800&q=82&auto=format&fit=crop" alt="Amber Villa Retreat" loading="lazy">
-          <div class="pi-veil"></div>
-          <div class="pi-meta">
-            <div class="pi-cat">Residential · 2023</div>
-            <div class="pi-name">Amber Villa Retreat</div>
-          </div>
-        </div>
-      </div>
-      <div class="pi rv d3" data-z="1">
-        <div class="pi-in">
-          <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=500&q=82&auto=format&fit=crop" alt="The Croft Workspace" loading="lazy">
-          <div class="pi-veil"></div>
-          <div class="pi-meta">
-            <div class="pi-cat">Commercial · 2024</div>
-            <div class="pi-name">The Croft Workspace</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </section>
-
-  <section class="sec" id="s-foot">
-
-    <div class="foot-main">
-
-      <div class="foot-l">
-        <div class="foot-l-header">
-          <div class="foot-logo">Hayee <em>Furn</em></div>
-          <div class="foot-tag">Luxury Interior Design Studio</div>
-        </div>
-
-        <div class="foot-contacts">
-          <div class="fc-row">
-            <div class="fc-icon">
-              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-            </div>
-            <div class="fc-text">
-              <div class="fc-lbl">Phone</div>
-              <div class="fc-val">+91 72990 30406</div>
-            </div>
-          </div>
-          <div class="fc-row">
-            <div class="fc-icon">
-              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            </div>
-            <div class="fc-text">
-              <div class="fc-lbl">Email</div>
-              <div class="fc-val">hayeefurn@gmail.com</div>
-            </div>
-          </div>
-          <div class="fc-row">
-            <div class="fc-icon">
-              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-            </div>
-            <div class="fc-text">
-              <div class="fc-lbl">Services</div>
-              <div class="fc-val" style="font-size:13px;">Residential · Commercial · Bespoke</div>
-            </div>
-          </div>
-          <div class="fc-row">
-            <div class="fc-icon">
-              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            </div>
-            <div class="fc-text">
-              <div class="fc-lbl">Studio Location</div>
-              <div class="fc-val" style="font-size:14px;">trichy road,opp.to Anu Hospital,VOC Nagar,Arulananda Nagar West Extension,Thanjavur, Tamil Nadu, India</div>
-            </div>
-          </div>
-        </div>
+  <!-- ===================== CONTACT ===================== -->
+  <section id="contact" class="contact section-pad">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag reveal-up">Get In Touch</div>
+        <h2 class="section-title reveal-up">Let's Build Your<br/><em>Dream Space</em></h2>
       </div>
 
-      <div class="foot-r-actions">
-        <div class="cta-group">
-          <a href="tel:+917299030406" class="cta cta-call cta-svg-stroke">
-            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-            Call Now
+      <div class="contact-grid">
+        <div class="contact-info reveal-up">
+          <h3>Visit or Contact Us</h3>
+          <p>We're always happy to discuss your ideas. Walk in, call us, or drop a WhatsApp — we'll get back to you quickly.</p>
+
+          <div class="info-items">
+            <div class="info-item">
+              <div class="info-icon">📍</div>
+              <div>
+                <strong>Location</strong>
+                <span>Trichy Road, Near Anu Hospital, Trichy</span>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon">📞</div>
+              <div>
+                <strong>Phone / WhatsApp</strong>
+                <a href="tel:+917299030406">+91 72990 30406</a>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon">✉️</div>
+              <div>
+                <strong>Email</strong>
+                <a href="mailto:hayeefurn@gmail.com">hayeefurn@gmail.com</a>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon">🕒</div>
+              <div>
+                <strong>Working Hours</strong>
+                <span>Mon – Sat: 9:00 AM – 8:00 PM<br/>Sunday: 10:00 AM – 6:00 PM</span>
+              </div>
+            </div>
+          </div>
+
+          <a href="https://wa.me/917299030406?text=Hello%20Hayee%20Interior%2C%20I%20would%20like%20to%20discuss%20my%20interior%20project."
+             target="_blank" rel="noopener" class="btn-whatsapp large">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Chat on WhatsApp
           </a>
-
-          <a href="https://wa.me/917299030406?text=Hello%20Hayee%20Furn%2C%20I%20am%20interested%20in%20your%20luxury%20interior%20design%20services.%20Please%20guide%20me." target="_blank" rel="noopener" class="cta cta-wa">
-            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            WhatsApp Enquiry
-          </a>
-
-          <a href="mailto:hayeefurn@gmail.com?subject=Interior%20Design%20Enquiry&body=Hello%20Hayee%20Furn%2C%0A%0AI%20would%20like%20to%20enquire%20about%20your%20services.%0A%0APlease%20get%20back%20to%20me%20at%20your%20earliest%20convenience." class="cta cta-mail cta-svg-stroke">
-            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            Send Email
-          </a>
         </div>
 
-        <div class="g-rule" style="margin:24px 0 16px;"></div>
+        <div class="contact-form-wrap reveal-up">
+          <form id="contactForm" class="contact-form" novalidate>
+            <h3>Send Us a Message</h3>
 
-        <div class="foot-soc-block">
-          <div class="insta-label">Instagram</div>
-          <a href="https://instagram.com/hayeefurn" target="_blank" rel="noopener" class="insta-anchor" title="Follow Hayee Furn on Instagram">
-            <svg viewBox="0 0 24 24">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-            </svg>
-          </a>
+            <div class="form-group">
+              <label for="name">Full Name *</label>
+              <input type="text" id="name" name="name" placeholder="Your full name" required />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone">Phone Number *</label>
+                <input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="your@email.com" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="service">Service Interested In *</label>
+              <select id="service" name="service" required>
+                <option value="" disabled selected>Select a service</option>
+                <option>Living Room Furniture</option>
+                <option>Bedroom Furniture</option>
+                <option>Modular Kitchen</option>
+                <option>Wardrobe Design</option>
+                <option>Complete Interior Design</option>
+                <option>Office Furniture</option>
+                <option>CCTV Installation</option>
+                <option>Custom Furniture</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="4" placeholder="Tell us about your project, space size, budget, or any special requirements..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary full" id="formSubmit">
+              <span class="btn-text">Send Message</span>
+              <span class="btn-loading" hidden>Sending…</span>
+            </button>
+            <div class="form-success" id="formSuccess" hidden>
+              ✅ Thank you! We'll contact you within 24 hours.
+            </div>
+          </form>
         </div>
       </div>
 
-    </div>
-
-    <div class="foot-bot">
-      <div class="foot-bot-container">
-        <p>© 2026 Hayee Furn. All Rights Reserved.</p>
-        <p>Crafted with intention — Designed to endure.</p>
-        <p>Privacy · Terms · Credits</p>
+      <!-- Map embed area -->
+      <div class="map-area reveal-up">
+        <div class="map-label">Find Us</div>
+        <div class="map-embed">
+          <iframe
+            title="Hayee Interior Location"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.0!2d78.686!3d10.782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zVHJpY2h5IFJvYWQsIE5lYXIgQW51IEhvc3BpdGFsLCBUcmljaHk!5e0!3m2!1sen!2sin!4v1700000000000"
+            width="100%"
+            height="400"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
       </div>
     </div>
-
   </section>
 
- </div></div><div id="s-ghost"></div>
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">Hayee<span>Interior</span></div>
+          <p>Trichy's premier destination for luxury furniture and complete interior design solutions. Crafting beautiful spaces since 2012.</p>
+          <div class="footer-socials">
+            <a href="#" aria-label="Instagram" class="social-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="#" aria-label="Facebook" class="social-link">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </a>
+            <a href="https://wa.me/917299030406" target="_blank" aria-label="WhatsApp" class="social-link">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+          </div>
+        </div>
 
-<script>
-(function(){
-'use strict';
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#collections">Collections</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#process">Our Process</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
 
-/* ─── Config ─── */
-const LERP       = 0.072;
-const HERO_SCALE = 0.11;
-const HERO_FADE  = 1.35;
+        <div class="footer-col">
+          <h4>Collections</h4>
+          <ul>
+            <li><a href="#collections">Living Room</a></li>
+            <li><a href="#collections">Bedroom Sets</a></li>
+            <li><a href="#collections">Dining Furniture</a></li>
+            <li><a href="#collections">Wardrobes</a></li>
+            <li><a href="#collections">Modular Kitchen</a></li>
+            <li><a href="#collections">Office Furniture</a></li>
+          </ul>
+        </div>
 
-/* ─── State ─── */
-let sY  = 0;
-let tY  = 0;
-let tot = 0;
-let raf = null;
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <address>
+            <p>Trichy Road,<br/>Near Anu Hospital, Trichy</p>
+            <p><a href="tel:+917299030406">+91 72990 30406</a></p>
+            <p><a href="mailto:hayeefurn@gmail.com">hayeefurn@gmail.com</a></p>
+          </address>
+          <a href="https://wa.me/917299030406?text=Hello%20Hayee%20Interior!" target="_blank" class="footer-wa-btn">
+            Chat on WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
 
-/* ─── DOM ─── */
-const wrap    = document.getElementById('s-wrap');
-const content = document.getElementById('s-content');
-const ghost   = document.getElementById('s-ghost');
-const prog    = document.getElementById('prog');
-const loader  = document.getElementById('loader');
-const heroBg  = document.getElementById('heroBg');
-const dotEl   = document.getElementById('cur-dot');
-const ringEl  = document.getElementById('cur-ring');
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2025 <strong>Hayee Interior</strong> (Hayee Furn). All rights reserved.</p>
+        <p>Designed with ♥ for Trichy</p>
+      </div>
+    </div>
+  </footer>
 
-/* ─── Utils ─── */
-const lerp = (a,b,t) => a + (b-a)*t;
-const clamp = (v,mn,mx) => Math.max(mn, Math.min(mx, v));
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/917299030406?text=Hello%20Hayee%20Interior%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."
+     target="_blank" rel="noopener"
+     class="float-whatsapp"
+     aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
 
-/* ─── Measure ─── */
-function measure(){
-  tot = content.scrollHeight - window.innerHeight;
-  ghost.style.height = content.scrollHeight + 'px';
-  document.body.style.height = content.scrollHeight + 'px';
-}
-
-/* ─── Main render loop ─── */
-function render(){
-  sY = lerp(sY, tY, LERP);
-  if(Math.abs(tY - sY) < 0.04) sY = tY;
-
-  content.style.transform = `translate3d(0,${-sY}px,0)`;
-  prog.style.width = clamp(sY/tot*100,0,100) + '%';
-
-  if(heroBg){
-    const heroEl = document.getElementById('s-hero');
-    const heroH  = heroEl ? heroEl.offsetHeight : window.innerHeight;
-    const t      = clamp(sY / heroH, 0, 1);
-    const sc     = 1 + t * HERO_SCALE;
-    const tz     = t * 55;
-    const vy     = -sY * 0.32;
-    const op     = clamp(1 - t * HERO_FADE, 0, 1);
-    heroBg.style.transform = `scale(${sc}) translate3d(0,${vy}px,${tz}px)`;
-    heroBg.style.opacity   = op;
-  }
-
-  pItems.forEach(el => {
-    const d    = parseFloat(el.dataset.z)||1;
-    const rect = el.getBoundingClientRect();
-    const mid  = rect.top + rect.height/2 - window.innerHeight/2;
-    el.style.transform = `translate3d(0,${mid*0.038*d}px,0)`;
-  });
-
-  checkReveals();
-  raf = requestAnimationFrame(render);
-}
-
-/* ─── Wheel ─── */
-function onWheel(e){
-  e.preventDefault();
-  tY = clamp(tY + e.deltaY, 0, tot);
-}
-
-/* ─── Touch ─── */
-let tx0 = 0;
-function onTouchStart(e){ tx0 = e.touches[0].clientY; }
-function onTouchMove(e){
-  e.preventDefault();
-  const d = tx0 - e.touches[0].clientY;
-  tx0 = e.touches[0].clientY;
-  tY = clamp(tY + d*1.6, 0, tot);
-}
-
-/* ─── Keys ─── */
-function onKey(e){
-  const S = 110;
-  if(e.key==='ArrowDown'||e.key==='PageDown') tY = clamp(tY+S*3,0,tot);
-  else if(e.key==='ArrowUp'||e.key==='PageUp') tY = clamp(tY-S*3,0,tot);
-  else if(e.key==='Home') tY = 0;
-  else if(e.key==='End')  tY = tot;
-}
-
-/* ─── Anchor scroll ─── */
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click', e=>{
-    const t = document.querySelector(a.getAttribute('href'));
-    if(!t) return;
-    e.preventDefault();
-    const dest  = t.offsetTop;
-    const start = tY;
-    const dist  = dest - start;
-    const dur   = 1100;
-    const t0    = performance.now();
-    (function tick(now){
-      const el = Math.min((now-t0)/dur,1);
-      const ease = el<.5 ? 4*el*el*el : 1-Math.pow(-2*el+2,3)/2;
-      tY = start + dist*ease;
-      if(el<1) requestAnimationFrame(tick);
-    })(t0);
-  });
-});
-
-const pItems = document.querySelectorAll('.pi[data-z]');
-const rvEls = document.querySelectorAll('.rv');
-
-function checkReveals(){
-  const h = window.innerHeight;
-  rvEls.forEach(el=>{
-    if(el.classList.contains('on')) return;
-    const r = el.getBoundingClientRect();
-    if(r.top < h * 0.88) el.classList.add('on');
-  });
-}
-
-/* ─── Custom cursor ─── */
-let cx=0,cy=0, rx=0,ry=0;
-document.addEventListener('mousemove', e=>{ cx=e.clientX; cy=e.clientY; });
-(function curLoop(){
-  rx = lerp(rx,cx,.1); ry = lerp(ry,cy,.1);
-  dotEl.style.left  = cx+'px'; dotEl.style.top  = cy+'px';
-  ringEl.style.left = rx+'px'; ringEl.style.top = ry+'px';
-  requestAnimationFrame(curLoop);
-})();
-document.querySelectorAll('a,button,.card,.cta,.insta-anchor').forEach(el=>{
-  el.addEventListener('mouseenter',()=>document.body.classList.add('cur-grow'));
-  el.addEventListener('mouseleave',()=>document.body.classList.remove('cur-grow'));
-});
-
-/* ─── 3-D card tilt ─── */
-document.querySelectorAll('[data-card]').forEach(card=>{
-  let rX=0,rY=0, trX=0,trY=0, hovered=false, fId=null;
-
-  function cardLoop(){
-    rX = lerp(rX, hovered?trX:0, .08);
-    rY = lerp(rY, hovered?trY:0, .08);
-    const sc = hovered ? 1.022 : 1;
-    card.style.transform = `perspective(1000px) rotateX(${rX}deg) rotateY(${rY}deg) scale(${sc})`;
-    const shine = card.querySelector('.card-shine');
-    if(shine){
-      const xp = (rY/18+.5)*100;
-      const yp = (-rX/18+.5)*100;
-      shine.style.background = `radial-gradient(circle at ${xp}% ${yp}%, rgba(255,255,255,.16) 0%, transparent 65%)`;
-    }
-    if(Math.abs(rX)>.01||Math.abs(rY)>.01||hovered) fId=requestAnimationFrame(cardLoop);
-    else { cancelAnimationFrame(fId); card.style.transform=''; }
-  }
-
-  card.addEventListener('mousemove', e=>{
-    const rc = card.getBoundingClientRect();
-    const dx = (e.clientX - rc.left - rc.width/2)  / (rc.width/2);
-    const dy = (e.clientY - rc.top  - rc.height/2) / (rc.height/2);
-    trX = -dy*11; trY = dx*11;
-    card.style.boxShadow = `${-dx*18}px ${-dy*18}px 56px rgba(26,24,20,.13), 0 20px 56px rgba(26,24,20,.07)`;
-  });
-  card.addEventListener('mouseenter',()=>{ hovered=true; cancelAnimationFrame(fId); fId=requestAnimationFrame(cardLoop); });
-  card.addEventListener('mouseleave',()=>{ hovered=false; trX=0;trY=0; card.style.boxShadow=''; cancelAnimationFrame(fId); fId=requestAnimationFrame(cardLoop); });
-});
-
-/* ─── Init ─── */
-function init(){
-  measure();
-  window.addEventListener('wheel',   onWheel,      {passive:false});
-  window.addEventListener('touchstart', onTouchStart, {passive:true});
-  window.addEventListener('touchmove',  onTouchMove,  {passive:false});
-  window.addEventListener('keydown', onKey);
-  window.addEventListener('resize',  measure);
-  raf = requestAnimationFrame(render);
-  checkReveals();
-}
-
-/* ─── Boot after loader ─── */
-function boot(){
-  setTimeout(()=>{
-    loader.classList.add('out');
-    setTimeout(()=>{ loader.style.display='none'; init(); }, 950);
-  }, 1700);
-}
-
-if(document.readyState==='complete') boot();
-else window.addEventListener('load', boot);
-
-})();
-</script>
+  <!-- Scripts -->
+  <script src="script.js" defer></script>
 </body>
 </html>
