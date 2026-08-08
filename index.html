@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@200;300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
     
-    <!-- EmailJS Library for Newsletter Subscription -->
+    <!-- EmailJS Library -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     
     <style>
@@ -20,7 +20,6 @@
            CSS CUSTOM PROPERTIES (DESIGN TOKENS)
            ============================================ */
         :root {
-            /* Color Palette - Sophisticated Neutrals */
             --color-cream: #F5F0EB;
             --color-warm-white: #FAF8F5;
             --color-soft-gray: #E8E4DF;
@@ -34,1612 +33,249 @@
             --color-bronze: #8B7355;
             --color-whatsapp: #25D366;
             --color-whatsapp-dark: #128C7E;
-            --color-whatsapp-light: #DCF8C6;
             
-            /* Typography */
             --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
             --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             --font-accent: 'Cormorant Garamond', Georgia, serif;
             
-            /* Spacing Scale */
-            --space-xs: 0.5rem;
-            --space-sm: 1rem;
-            --space-md: 1.5rem;
-            --space-lg: 2rem;
-            --space-xl: 3rem;
-            --space-2xl: 4rem;
-            --space-3xl: 6rem;
-            --space-4xl: 8rem;
+            --space-xs: 0.5rem; --space-sm: 1rem; --space-md: 1.5rem; --space-lg: 2rem;
+            --space-xl: 3rem; --space-2xl: 4rem; --space-3xl: 6rem; --space-4xl: 8rem;
             
-            /* Shadows */
-            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
-            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
-            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
-            --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.16);
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.06); --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+            --shadow-lg: 0 8px 32px rgba(0,0,0,0.12); --shadow-xl: 0 16px 48px rgba(0,0,0,0.16);
             
-            /* Transitions */
-            --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-elegant: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-fast: 0.2s cubic-bezier(0.4,0,0.2,1);
+            --transition-smooth: 0.3s cubic-bezier(0.4,0,0.2,1);
+            --transition-elegant: 0.5s cubic-bezier(0.4,0,0.2,1);
             
-            /* Border Radius */
-            --radius-sm: 4px;
-            --radius-md: 8px;
-            --radius-lg: 12px;
-            --radius-xl: 20px;
+            --radius-sm: 4px; --radius-md: 8px; --radius-lg: 12px; --radius-xl: 20px;
         }
 
-        /* ============================================
-           CSS RESET & BASE STYLES
-           ============================================ */
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            font-size: 16px;
-            scroll-behavior: smooth;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        body {
-            font-family: var(--font-body);
-            background-color: var(--color-warm-white);
-            color: var(--color-charcoal);
-            line-height: 1.7;
-            overflow-x: hidden;
-            min-height: 100vh;
-        }
-
-        /* Selection Styling */
-        ::selection {
-            background-color: var(--color-gold-accent);
-            color: var(--color-warm-white);
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--color-cream);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--color-medium-gray);
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--color-charcoal);
-        }
-
-        /* ============================================
-           TYPOGRAPHY
-           ============================================ */
-        h1, h2, h3, h4, h5, h6 {
-            font-family: var(--font-display);
-            font-weight: 500;
-            line-height: 1.2;
-            color: var(--color-dark-charcoal);
-        }
-
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: var(--font-body); background-color: var(--color-warm-white); color: var(--color-charcoal); line-height: 1.7; overflow-x: hidden; }
+        ::selection { background-color: var(--color-gold-accent); color: var(--color-warm-white); }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--color-cream); }
+        ::-webkit-scrollbar-thumb { background: var(--color-medium-gray); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--color-charcoal); }
+        h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 500; line-height: 1.2; color: var(--color-dark-charcoal); }
         h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); }
         h2 { font-size: clamp(2rem, 4vw, 3.5rem); }
         h3 { font-size: clamp(1.5rem, 3vw, 2.5rem); }
         h4 { font-size: clamp(1.25rem, 2vw, 1.75rem); }
+        .container { width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 var(--space-lg); }
 
-        /* ============================================
-           CONTAINER & LAYOUT UTILITIES
-           ============================================ */
-        .container {
-            width: 100%;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 var(--space-lg);
-        }
-
-        .container-narrow {
-            max-width: 1100px;
-        }
-
-        .container-wide {
-            max-width: 1600px;
-        }
-
-        /* ============================================
-           HEADER & NAVIGATION
-           ============================================ */
-        .site-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background: rgba(250, 248, 245, 0.95);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            transition: all var(--transition-smooth);
-        }
-
-        .site-header.scrolled {
-            box-shadow: var(--shadow-md);
-            background: rgba(250, 248, 245, 0.98);
-        }
-
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 80px;
-        }
-
-        .brand-logo {
-            font-family: var(--font-display);
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--color-dark-charcoal);
-            text-decoration: none;
-            letter-spacing: -0.5px;
-            transition: color var(--transition-fast);
-        }
-
-        .brand-logo:hover {
-            color: var(--color-gold-accent);
-        }
-
-        .main-nav ul {
-            display: flex;
-            list-style: none;
-            gap: var(--space-xl);
-            align-items: center;
-        }
-
-        .main-nav a {
-            text-decoration: none;
-            color: var(--color-charcoal);
-            font-size: 0.9rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            position: relative;
-            padding: 0.5rem 0;
-            transition: color var(--transition-fast);
-        }
-
-        .main-nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 1.5px;
-            background: var(--color-gold-accent);
-            transition: width var(--transition-smooth);
-        }
-
-        .main-nav a:hover,
-        .main-nav a.active {
-            color: var(--color-gold-accent);
-        }
-
-        .main-nav a:hover::after,
-        .main-nav a.active::after {
-            width: 100%;
-        }
-
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: var(--space-md);
-        }
-
-        /* WhatsApp Header Button */
-        .header-whatsapp-btn {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.6rem 1.2rem;
-            background: var(--color-whatsapp);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            font-family: var(--font-body);
-            font-size: 0.8rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all var(--transition-smooth);
-            text-decoration: none;
-            white-space: nowrap;
-        }
-
-        .header-whatsapp-btn:hover {
-            background: var(--color-whatsapp-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
-        }
-
-        .header-whatsapp-btn svg {
-            width: 18px;
-            height: 18px;
-        }
+        /* Header */
+        .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(250,248,245,0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.05); transition: all var(--transition-smooth); }
+        .site-header.scrolled { box-shadow: var(--shadow-md); background: rgba(250,248,245,0.98); }
+        .header-container { display: flex; justify-content: space-between; align-items: center; height: 80px; }
+        .brand-logo { font-family: var(--font-display); font-size: 1.8rem; font-weight: 700; color: var(--color-dark-charcoal); text-decoration: none; letter-spacing: -0.5px; transition: color var(--transition-fast); }
+        .brand-logo:hover { color: var(--color-gold-accent); }
+        .main-nav ul { display: flex; list-style: none; gap: var(--space-xl); align-items: center; }
+        .main-nav a { text-decoration: none; color: var(--color-charcoal); font-size: 0.9rem; font-weight: 500; text-transform: uppercase; letter-spacing: 1.5px; position: relative; padding: 0.5rem 0; transition: color var(--transition-fast); }
+        .main-nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1.5px; background: var(--color-gold-accent); transition: width var(--transition-smooth); }
+        .main-nav a:hover, .main-nav a.active { color: var(--color-gold-accent); }
+        .main-nav a:hover::after, .main-nav a.active::after { width: 100%; }
+        .header-actions { display: flex; align-items: center; gap: var(--space-md); }
+        .mobile-menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; color: var(--color-charcoal); }
+        .mobile-menu-toggle:hover { color: var(--color-gold-accent); }
 
         /* Mobile Menu */
-        .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0.5rem;
-            color: var(--color-charcoal);
-            transition: color var(--transition-fast);
-        }
-
-        .mobile-menu-toggle:hover {
-            color: var(--color-gold-accent);
-        }
-
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 80%;
-            max-width: 400px;
-            height: 100vh;
-            background: var(--color-warm-white);
-            z-index: 2000;
-            padding: var(--space-2xl);
-            transition: right var(--transition-elegant);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .mobile-menu.active {
-            right: 0;
-        }
-
-        .mobile-menu-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1999;
-        }
-
-        .mobile-menu-overlay.active {
-            display: block;
-        }
-
-        .mobile-menu-close {
-            position: absolute;
-            top: var(--space-lg);
-            right: var(--space-lg);
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--color-charcoal);
-        }
-
-        .mobile-menu ul {
-            list-style: none;
-            margin-top: var(--space-3xl);
-        }
-
-        .mobile-menu li {
-            margin-bottom: var(--space-lg);
-        }
-
-        .mobile-menu a {
-            font-family: var(--font-display);
-            font-size: 1.5rem;
-            text-decoration: none;
-            color: var(--color-dark-charcoal);
-            transition: color var(--transition-fast);
-        }
-
-        .mobile-menu a:hover {
-            color: var(--color-gold-accent);
-        }
-
-        /* ============================================
-           WELCOME PAGE / INTRO OVERLAY
-           ============================================ */
-        .welcome-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--color-dark-charcoal);
-            z-index: 9999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: welcomeFadeOut 0.8s ease-in-out 2.5s forwards;
-        }
-
-        .welcome-content {
-            text-align: center;
-            animation: welcomeContentIn 1s ease-out 0.3s both;
-        }
-
-        .welcome-logo {
-            font-family: var(--font-display);
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            color: var(--color-warm-white);
-            margin-bottom: var(--space-md);
-            font-weight: 700;
-            letter-spacing: -1px;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease-out 0.5s forwards;
-        }
-
-        .welcome-tagline {
-            font-family: var(--font-accent);
-            font-size: clamp(1rem, 2vw, 1.3rem);
-            color: var(--color-gold-accent);
-            font-style: italic;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease-out 0.8s forwards;
-            letter-spacing: 1px;
-        }
-
-        .welcome-divider {
-            width: 60px;
-            height: 2px;
-            background: var(--color-gold-accent);
-            margin: var(--space-md) auto;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease-out 1s forwards;
-        }
-
-        .welcome-location {
-            font-size: 0.85rem;
-            color: var(--color-medium-gray);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease-out 1.2s forwards;
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes welcomeContentIn {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
-        }
-        @keyframes welcomeFadeOut {
-            0% { opacity: 1; visibility: visible; }
-            100% { opacity: 0; visibility: hidden; }
-        }
-
-        /* ============================================
-           HERO SECTION WITH INTERIOR IMAGE BACKGROUND
-           ============================================ */
-        .hero {
-            position: relative;
-            height: 100vh;
-            min-height: 700px;
-            display: flex;
-            align-items: center;
-            overflow: hidden;
-            margin-top: 0;
-            background-image: url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=2000&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }
-
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, 
-                rgba(28, 26, 23, 0.85) 0%, 
-                rgba(20, 18, 16, 0.75) 30%,
-                rgba(15, 13, 11, 0.7) 60%,
-                rgba(28, 26, 23, 0.85) 100%);
-            z-index: 1;
-        }
-
-        .hero-pattern {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 20% 50%, rgba(201, 169, 110, 0.06) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(201, 169, 110, 0.04) 0%, transparent 50%);
-            z-index: 2;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 3;
-            max-width: 800px;
-            padding: var(--space-4xl) var(--space-lg);
-        }
-
-        .hero-subtitle-top {
-            font-family: var(--font-body);
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            color: var(--color-gold-accent);
-            margin-bottom: var(--space-md);
-            font-weight: 500;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .hero-title {
-            font-size: clamp(3rem, 7vw, 6rem);
-            font-weight: 700;
-            color: var(--color-warm-white);
-            line-height: 1.1;
-            margin-bottom: var(--space-lg);
-            letter-spacing: -1px;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.4);
-        }
-
-        .hero-title em {
-            font-style: italic;
-            color: var(--color-gold-accent);
-            font-weight: 400;
-        }
-
-        .hero-description {
-            font-size: 1.1rem;
-            color: #D4CFC7;
-            margin-bottom: var(--space-xl);
-            max-width: 500px;
-            line-height: 1.8;
-            font-weight: 300;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: var(--space-md);
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            font-family: var(--font-body);
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-decoration: none;
-            border: none;
-            cursor: pointer;
-            transition: all var(--transition-smooth);
-            position: relative;
-            overflow: hidden;
-            border-radius: var(--radius-sm);
-        }
-
-        .btn-primary {
-            background: var(--color-gold-accent);
-            color: var(--color-warm-white);
-            border: 2px solid var(--color-gold-accent);
-        }
-
-        .btn-primary:hover {
-            background: var(--color-gold-dark);
-            border-color: var(--color-gold-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(201, 169, 110, 0.3);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--color-warm-white);
-            border: 2px solid rgba(255, 255, 255, 0.4);
-        }
-
-        .btn-outline:hover {
-            border-color: var(--color-gold-accent);
-            color: var(--color-gold-accent);
-            transform: translateY(-2px);
-            background: rgba(201, 169, 110, 0.1);
-        }
-
-        .btn-whatsapp {
-            background: var(--color-whatsapp);
-            color: white;
-            border: 2px solid var(--color-whatsapp);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .btn-whatsapp:hover {
-            background: var(--color-whatsapp-dark);
-            border-color: var(--color-whatsapp-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
-        }
-
-        .btn-outline-dark {
-            background: transparent;
-            color: var(--color-charcoal);
-            border: 2px solid var(--color-charcoal);
-        }
-
-        .btn-outline-dark:hover {
-            background: var(--color-charcoal);
-            color: var(--color-warm-white);
-        }
-
-        .hero-scroll-indicator {
-            position: absolute;
-            bottom: var(--space-xl);
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 3;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: var(--space-xs);
-            color: #B8B2A6;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            animation: bounce 2s infinite;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-            40% { transform: translateX(-50%) translateY(-10px); }
-            60% { transform: translateX(-50%) translateY(-5px); }
-        }
-
-        /* ============================================
-           SECTION STYLES
-           ============================================ */
-        .section {
-            padding: var(--space-4xl) 0;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: var(--space-3xl);
-        }
-
-        .section-label {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            color: var(--color-gold-accent);
-            margin-bottom: var(--space-sm);
-            font-weight: 600;
-        }
-
-        .section-title {
-            margin-bottom: var(--space-md);
-            color: var(--color-dark-charcoal);
-        }
-
-        .section-description {
-            color: var(--color-charcoal);
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto;
-            font-weight: 300;
-        }
-
-        /* ============================================
-           SHOP / COLLECTION PAGE STYLES
-           ============================================ */
-        .shop-page {
-            padding-top: var(--space-4xl);
-        }
-
-        .shop-header {
-            text-align: center;
-            margin-bottom: var(--space-3xl);
-        }
-
-        .page-title {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin-bottom: var(--space-sm);
-        }
-
-        .page-subtitle {
-            color: var(--color-charcoal);
-            font-size: 1.1rem;
-            font-weight: 300;
-        }
-
-        /* Filters */
-        .filters {
-            display: flex;
-            justify-content: center;
-            gap: var(--space-sm);
-            margin-bottom: var(--space-3xl);
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            padding: 0.7rem 1.8rem;
-            background: transparent;
-            border: 1.5px solid var(--color-soft-gray);
-            border-radius: 50px;
-            font-family: var(--font-body);
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--color-charcoal);
-            cursor: pointer;
-            transition: all var(--transition-smooth);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .filter-btn:hover,
-        .filter-btn.active {
-            background: var(--color-charcoal);
-            color: var(--color-warm-white);
-            border-color: var(--color-charcoal);
-        }
-
-        /* Product Grid */
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: var(--space-xl);
-        }
-
-        .product-card {
-            background: var(--color-warm-white);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            transition: all var(--transition-elegant);
-            cursor: pointer;
-            border: 1px solid transparent;
-        }
-
-        .product-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--color-soft-gray);
-        }
-
-        .product-image {
-            width: 100%;
-            height: 350px;
-            background: var(--color-cream);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .product-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform var(--transition-elegant);
-        }
-
-        .product-card:hover .product-image img {
-            transform: scale(1.05);
-        }
-
-        .product-badge {
-            position: absolute;
-            top: var(--space-sm);
-            left: var(--space-sm);
-            background: var(--color-gold-accent);
-            color: white;
-            padding: 0.3rem 1rem;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .product-inquire-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: var(--space-md);
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-            opacity: 0;
-            transform: translateY(10px);
-            transition: all var(--transition-smooth);
-        }
-
-        .product-card:hover .product-inquire-overlay {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .product-inquire-btn {
-            width: 100%;
-            padding: 0.7rem;
-            background: var(--color-whatsapp);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            font-family: var(--font-body);
-            font-size: 0.8rem;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            transition: all var(--transition-fast);
-        }
-
-        .product-inquire-btn:hover {
-            background: var(--color-whatsapp-dark);
-            transform: scale(1.02);
-        }
-
-        .product-info {
-            padding: var(--space-lg);
-        }
-
-        .product-category {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--color-gold-accent);
-            margin-bottom: var(--space-xs);
-            font-weight: 600;
-        }
-
-        .product-name {
-            font-family: var(--font-display);
-            font-size: 1.2rem;
-            margin-bottom: var(--space-xs);
-            font-weight: 600;
-        }
-
-        .product-price {
-            font-weight: 600;
-            color: var(--color-charcoal);
-            font-size: 1.1rem;
-        }
-
-        .product-price .original-price {
-            text-decoration: line-through;
-            color: var(--color-medium-gray);
-            margin-left: var(--space-xs);
-            font-weight: 400;
-            font-size: 0.9rem;
-        }
-
-        /* ============================================
-           PRODUCT DETAIL MODAL
-           ============================================ */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 3000;
-            align-items: center;
-            justify-content: center;
-            backdrop-filter: blur(5px);
-        }
-
-        .modal-overlay.active {
-            display: flex;
-        }
-
-        .modal {
-            background: var(--color-warm-white);
-            border-radius: var(--radius-xl);
-            max-width: 1000px;
-            width: 90%;
-            max-height: 90vh;
-            overflow-y: auto;
-            position: relative;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0;
-            animation: modalSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        @keyframes modalSlideIn {
-            from { opacity: 0; transform: translateY(30px) scale(0.95); }
-            to { opacity: 1; transform: translateY(0) scale(1); }
-        }
-
-        .modal-close {
-            position: absolute;
-            top: var(--space-md);
-            right: var(--space-md);
-            background: var(--color-warm-white);
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            z-index: 10;
-            font-size: 1.2rem;
-            box-shadow: var(--shadow-sm);
-            transition: all var(--transition-fast);
-        }
-
-        .modal-close:hover {
-            background: var(--color-charcoal);
-            color: white;
-        }
-
-        .modal-gallery {
-            background: var(--color-cream);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: var(--space-xl);
-            min-height: 500px;
-        }
-
-        .modal-gallery img {
-            max-width: 100%;
-            max-height: 500px;
-            object-fit: contain;
-            border-radius: var(--radius-md);
-        }
-
-        .modal-details {
-            padding: var(--space-2xl);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .modal-details .product-category {
-            margin-bottom: var(--space-sm);
-        }
-
-        .modal-details h2 {
-            margin-bottom: var(--space-md);
-        }
-
-        .modal-details .product-price {
-            font-size: 1.8rem;
-            margin-bottom: var(--space-lg);
-            color: var(--color-gold-accent);
-        }
-
-        .modal-details .product-description {
-            color: var(--color-charcoal);
-            line-height: 1.8;
-            margin-bottom: var(--space-xl);
-        }
-
-        .modal-details .product-specs {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: var(--space-md);
-            margin-bottom: var(--space-xl);
-            padding: var(--space-lg);
-            background: var(--color-cream);
-            border-radius: var(--radius-md);
-        }
-
-        .spec-item {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .spec-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--color-medium-gray);
-            margin-bottom: var(--space-xs);
-        }
-
-        .spec-value {
-            font-weight: 600;
-            color: var(--color-dark-charcoal);
-        }
-
-        .modal-inquire-btn {
-            width: 100%;
-            padding: 1rem;
-            background: var(--color-whatsapp);
-            color: white;
-            border: none;
-            border-radius: var(--radius-md);
-            font-family: var(--font-body);
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-            transition: all var(--transition-smooth);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .modal-inquire-btn:hover {
-            background: var(--color-whatsapp-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
-        }
-
-        /* ============================================
-           ABOUT SECTION
-           ============================================ */
-        .about-section {
-            background: var(--color-cream);
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--space-3xl);
-            align-items: center;
-        }
-
-        .about-image-wrapper {
-            position: relative;
-            height: 600px;
-            background: var(--color-charcoal);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-        }
-
-        .about-image-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .about-content h2 {
-            margin-bottom: var(--space-lg);
-        }
-
-        .about-content p {
-            margin-bottom: var(--space-md);
-            color: var(--color-charcoal);
-            font-size: 1.05rem;
-            line-height: 1.8;
-        }
-
-        .about-stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: var(--space-lg);
-            margin-top: var(--space-xl);
-            padding-top: var(--space-xl);
-            border-top: 1px solid var(--color-soft-gray);
-        }
-
-        .stat-number {
-            font-family: var(--font-display);
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--color-gold-accent);
-            margin-bottom: var(--space-xs);
-        }
-
-        .stat-label {
-            font-size: 0.85rem;
-            color: var(--color-charcoal);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* ============================================
-           SERVICES SECTION
-           ============================================ */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: var(--space-lg);
-        }
-
-        .service-card {
-            padding: var(--space-xl);
-            background: var(--color-warm-white);
-            border: 1px solid var(--color-soft-gray);
-            border-radius: var(--radius-lg);
-            transition: all var(--transition-smooth);
-            text-align: center;
-        }
-
-        .service-card:hover {
-            border-color: var(--color-gold-accent);
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .service-icon {
-            width: 70px;
-            height: 70px;
-            margin: 0 auto var(--space-lg);
-            background: var(--color-cream);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            color: var(--color-gold-accent);
-            transition: all var(--transition-smooth);
-        }
-
-        .service-card:hover .service-icon {
-            background: var(--color-gold-accent);
-            color: var(--color-warm-white);
-        }
-
-        .service-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: var(--space-sm);
-        }
-
-        .service-card p {
-            font-size: 0.9rem;
-            color: var(--color-charcoal);
-            line-height: 1.6;
-        }
-
-        /* ============================================
-           TESTIMONIALS SECTION
-           ============================================ */
-        .testimonials-section {
-            background: var(--color-dark-charcoal);
-            color: var(--color-warm-white);
-        }
-
-        .testimonials-section .section-title,
-        .testimonials-section .section-description {
-            color: var(--color-warm-white);
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: var(--space-xl);
-        }
-
-        .testimonial-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: var(--radius-lg);
-            padding: var(--space-xl);
-            transition: all var(--transition-smooth);
-        }
-
-        .testimonial-card:hover {
-            background: rgba(255, 255, 255, 0.06);
-            transform: translateY(-4px);
-        }
-
-        .testimonial-stars {
-            color: var(--color-gold-accent);
-            margin-bottom: var(--space-md);
-            font-size: 1.2rem;
-        }
-
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: var(--space-lg);
-            line-height: 1.8;
-            font-size: 1.05rem;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: var(--space-md);
-        }
-
-        .testimonial-author-image {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--color-gold-accent);
-        }
-
-        .testimonial-author-name {
-            font-weight: 600;
-        }
-
-        .testimonial-author-role {
-            font-size: 0.85rem;
-            color: var(--color-medium-gray);
-        }
-
-        /* ============================================
-           CONTACT & LOCATION SECTION
-           ============================================ */
-        .contact-section {
-            background: var(--color-cream);
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--space-3xl);
-        }
-
-        .contact-info h2 {
-            margin-bottom: var(--space-lg);
-        }
-
-        .contact-details {
-            margin-bottom: var(--space-xl);
-        }
-
-        .contact-item {
-            display: flex;
-            gap: var(--space-md);
-            margin-bottom: var(--space-lg);
-            align-items: flex-start;
-        }
-
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--color-warm-white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            color: var(--color-gold-accent);
-            font-size: 1.2rem;
-        }
-
-        .contact-text h4 {
-            margin-bottom: var(--space-xs);
-            font-size: 1rem;
-        }
-
-        .contact-text p {
-            color: var(--color-charcoal);
-            line-height: 1.6;
-        }
-
-        .contact-form {
-            background: var(--color-warm-white);
-            padding: var(--space-xl);
-            border-radius: var(--radius-lg);
-        }
-
-        .form-group {
-            margin-bottom: var(--space-md);
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: var(--space-xs);
-            font-weight: 500;
-            font-size: 0.9rem;
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 0.8rem 1rem;
-            border: 1.5px solid var(--color-soft-gray);
-            border-radius: var(--radius-md);
-            font-family: var(--font-body);
-            font-size: 0.95rem;
-            transition: all var(--transition-fast);
-            background: var(--color-warm-white);
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--color-gold-accent);
-            box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.1);
-        }
-
-        .form-group textarea {
-            height: 120px;
-            resize: vertical;
-        }
-
-        /* ============================================
-           FOOTER
-           ============================================ */
-        .site-footer {
-            background: var(--color-richer-charcoal);
-            color: var(--color-medium-gray);
-            padding: var(--space-3xl) 0 var(--space-lg);
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: var(--space-2xl);
-            margin-bottom: var(--space-3xl);
-        }
-
-        .footer-brand-name {
-            font-family: var(--font-display);
-            font-size: 1.8rem;
-            color: var(--color-warm-white);
-            margin-bottom: var(--space-md);
-        }
-
-        .footer-description {
-            line-height: 1.8;
-            margin-bottom: var(--space-lg);
-        }
-
-        .footer-social {
-            display: flex;
-            gap: var(--space-md);
-        }
-
-        .footer-social a {
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--color-warm-white);
-            text-decoration: none;
-            transition: all var(--transition-fast);
-        }
-
-        .footer-social a:hover {
-            background: var(--color-gold-accent);
-            transform: translateY(-2px);
-        }
-
-        .footer-column h4 {
-            color: var(--color-warm-white);
-            margin-bottom: var(--space-lg);
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .footer-column ul {
-            list-style: none;
-        }
-
-        .footer-column ul li {
-            margin-bottom: var(--space-sm);
-        }
-
-        .footer-column ul li a {
-            color: var(--color-medium-gray);
-            text-decoration: none;
-            transition: color var(--transition-fast);
-            font-size: 0.9rem;
-        }
-
-        .footer-column ul li a:hover {
-            color: var(--color-gold-accent);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: var(--space-lg);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.85rem;
-        }
-
-        /* ============================================
-           NEWSLETTER SECTION
-           ============================================ */
-        .newsletter-section {
-            background: var(--color-gold-accent);
-            padding: var(--space-3xl) 0;
-        }
-
-        .newsletter-content {
-            text-align: center;
-            color: var(--color-warm-white);
-        }
-
-        .newsletter-content h2 {
-            color: var(--color-warm-white);
-            margin-bottom: var(--space-sm);
-        }
-
-        .newsletter-content p {
-            margin-bottom: var(--space-xl);
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
-        .newsletter-form {
-            display: flex;
-            gap: var(--space-sm);
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .newsletter-form input {
-            flex: 1;
-            padding: 1rem 1.5rem;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50px;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            font-size: 0.95rem;
-            font-family: var(--font-body);
-        }
-
-        .newsletter-form input::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .newsletter-form input:focus {
-            outline: none;
-            border-color: white;
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .newsletter-form button {
-            padding: 1rem 2rem;
-            background: var(--color-warm-white);
-            color: var(--color-gold-accent);
-            border: none;
-            border-radius: 50px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: all var(--transition-smooth);
-            font-family: var(--font-body);
-            white-space: nowrap;
-        }
-
-        .newsletter-form button:hover {
-            background: var(--color-dark-charcoal);
-            color: var(--color-warm-white);
-        }
-
-        /* ============================================
-           WHATSAPP FLOATING BUTTON
-           ============================================ */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 5000;
-            width: 60px;
-            height: 60px;
-            background: var(--color-whatsapp);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-            cursor: pointer;
-            transition: all var(--transition-smooth);
-            animation: whatsappPulse 2s infinite;
-            text-decoration: none;
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
-            background: var(--color-whatsapp-dark);
-        }
-
-        .whatsapp-float svg {
-            width: 32px;
-            height: 32px;
-            fill: white;
-        }
-
-        .whatsapp-tooltip {
-            position: fixed;
-            bottom: 100px;
-            right: 30px;
-            background: var(--color-dark-charcoal);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            z-index: 4999;
-            box-shadow: var(--shadow-lg);
-            animation: fadeInUp 0.5s ease;
-            white-space: nowrap;
-        }
-
-        .whatsapp-tooltip::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            right: 20px;
-            width: 0;
-            height: 0;
-            border-left: 8px solid transparent;
-            border-right: 8px solid transparent;
-            border-top: 8px solid var(--color-dark-charcoal);
-        }
-
-        @keyframes whatsappPulse {
-            0%, 100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
-            50% { box-shadow: 0 4px 30px rgba(37, 211, 102, 0.7); }
-        }
-
-        /* ============================================
-           TOAST NOTIFICATIONS
-           ============================================ */
-        .toast {
-            position: fixed;
-            bottom: var(--space-xl);
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--color-dark-charcoal);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            box-shadow: var(--shadow-lg);
-            z-index: 5000;
-            animation: toastIn 0.3s ease, toastOut 0.3s ease 3.7s forwards;
-            font-weight: 500;
-            white-space: nowrap;
-            max-width: 90vw;
-            text-align: center;
-        }
-
-        @keyframes toastIn {
-            from { transform: translateX(-50%) translateY(100%); opacity: 0; }
-            to { transform: translateX(-50%) translateY(0); opacity: 1; }
-        }
-        @keyframes toastOut {
-            from { transform: translateX(-50%) translateY(0); opacity: 1; }
-            to { transform: translateX(-50%) translateY(100%); opacity: 0; }
-        }
-
-        /* ============================================
-           RESPONSIVE DESIGN
-           ============================================ */
-        @media (max-width: 1200px) {
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .testimonials-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-            .header-whatsapp-btn span {
-                display: none;
-            }
-            .header-whatsapp-btn {
-                padding: 0.6rem;
-            }
-        }
-
+        .mobile-menu { display: none; position: fixed; top: 0; right: -100%; width: 80%; max-width: 400px; height: 100vh; background: var(--color-warm-white); z-index: 2000; padding: var(--space-2xl); transition: right var(--transition-elegant); box-shadow: var(--shadow-xl); }
+        .mobile-menu.active { right: 0; }
+        .mobile-menu-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1999; }
+        .mobile-menu-overlay.active { display: block; }
+        .mobile-menu-close { position: absolute; top: var(--space-lg); right: var(--space-lg); background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--color-charcoal); }
+        .mobile-menu ul { list-style: none; margin-top: var(--space-3xl); }
+        .mobile-menu li { margin-bottom: var(--space-lg); }
+        .mobile-menu a { font-family: var(--font-display); font-size: 1.5rem; text-decoration: none; color: var(--color-dark-charcoal); }
+        .mobile-menu a:hover { color: var(--color-gold-accent); }
+
+        /* Welcome Overlay */
+        .welcome-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--color-dark-charcoal); z-index: 9999; display: flex; align-items: center; justify-content: center; animation: welcomeFadeOut 0.8s ease-in-out 2.5s forwards; }
+        .welcome-content { text-align: center; animation: welcomeContentIn 1s ease-out 0.3s both; }
+        .welcome-logo { font-family: var(--font-display); font-size: clamp(2rem,5vw,3.5rem); color: var(--color-warm-white); margin-bottom: var(--space-md); font-weight: 700; opacity: 0; animation: fadeInUp 0.8s ease-out 0.5s forwards; }
+        .welcome-tagline { font-family: var(--font-accent); font-size: clamp(1rem,2vw,1.3rem); color: var(--color-gold-accent); font-style: italic; opacity: 0; animation: fadeInUp 0.8s ease-out 0.8s forwards; }
+        .welcome-divider { width: 60px; height: 2px; background: var(--color-gold-accent); margin: var(--space-md) auto; opacity: 0; animation: fadeInUp 0.8s ease-out 1s forwards; }
+        .welcome-location { font-size: 0.85rem; color: var(--color-medium-gray); text-transform: uppercase; letter-spacing: 3px; opacity: 0; animation: fadeInUp 0.8s ease-out 1.2s forwards; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes welcomeContentIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+        @keyframes welcomeFadeOut { 0% { opacity: 1; visibility: visible; } 100% { opacity: 0; visibility: hidden; } }
+
+        /* Hero */
+        .hero { position: relative; height: 100vh; min-height: 700px; display: flex; align-items: center; overflow: hidden; background-image: url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=2000&auto=format&fit=crop'); background-size: cover; background-position: center; background-attachment: fixed; }
+        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(28,26,23,0.85) 0%, rgba(20,18,16,0.75) 30%, rgba(15,13,11,0.7) 60%, rgba(28,26,23,0.85) 100%); z-index: 1; }
+        .hero-pattern { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: radial-gradient(circle at 20% 50%, rgba(201,169,110,0.06) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(201,169,110,0.04) 0%, transparent 50%); z-index: 2; }
+        .hero-content { position: relative; z-index: 3; max-width: 800px; padding: var(--space-4xl) var(--space-lg); }
+        .hero-subtitle-top { font-family: var(--font-body); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 4px; color: var(--color-gold-accent); margin-bottom: var(--space-md); font-weight: 500; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+        .hero-title { font-size: clamp(3rem,7vw,6rem); font-weight: 700; color: var(--color-warm-white); line-height: 1.1; margin-bottom: var(--space-lg); letter-spacing: -1px; text-shadow: 0 4px 20px rgba(0,0,0,0.4); }
+        .hero-title em { font-style: italic; color: var(--color-gold-accent); font-weight: 400; }
+        .hero-description { font-size: 1.1rem; color: #D4CFC7; margin-bottom: var(--space-xl); max-width: 500px; line-height: 1.8; font-weight: 300; text-shadow: 0 2px 8px rgba(0,0,0,0.3); }
+        .hero-buttons { display: flex; gap: var(--space-md); flex-wrap: wrap; }
+        .btn { display: inline-block; padding: 1rem 2.5rem; font-family: var(--font-body); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; text-decoration: none; border: none; cursor: pointer; transition: all var(--transition-smooth); border-radius: var(--radius-sm); }
+        .btn-primary { background: var(--color-gold-accent); color: var(--color-warm-white); border: 2px solid var(--color-gold-accent); }
+        .btn-primary:hover { background: var(--color-gold-dark); border-color: var(--color-gold-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,169,110,0.3); }
+        .btn-outline { background: transparent; color: var(--color-warm-white); border: 2px solid rgba(255,255,255,0.4); }
+        .btn-outline:hover { border-color: var(--color-gold-accent); color: var(--color-gold-accent); transform: translateY(-2px); background: rgba(201,169,110,0.1); }
+        .btn-whatsapp { background: var(--color-whatsapp); color: white; border: 2px solid var(--color-whatsapp); display: inline-flex; align-items: center; gap: 0.5rem; }
+        .btn-whatsapp:hover { background: var(--color-whatsapp-dark); border-color: var(--color-whatsapp-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,211,102,0.3); }
+        .hero-scroll-indicator { position: absolute; bottom: var(--space-xl); left: 50%; transform: translateX(-50%); z-index: 3; display: flex; flex-direction: column; align-items: center; gap: var(--space-xs); color: #B8B2A6; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; animation: bounce 2s infinite; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+        @keyframes bounce { 0%,20%,50%,80%,100% { transform: translateX(-50%) translateY(0); } 40% { transform: translateX(-50%) translateY(-10px); } 60% { transform: translateX(-50%) translateY(-5px); } }
+
+        /* Sections */
+        .section { padding: var(--space-4xl) 0; }
+        .section-header { text-align: center; margin-bottom: var(--space-3xl); }
+        .section-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 4px; color: var(--color-gold-accent); margin-bottom: var(--space-sm); font-weight: 600; }
+        .section-title { margin-bottom: var(--space-md); color: var(--color-dark-charcoal); }
+        .section-description { color: var(--color-charcoal); font-size: 1.1rem; max-width: 600px; margin: 0 auto; font-weight: 300; }
+
+        /* Shop */
+        .shop-page { padding-top: var(--space-4xl); }
+        .shop-header { text-align: center; margin-bottom: var(--space-3xl); }
+        .filters { display: flex; justify-content: center; gap: var(--space-sm); margin-bottom: var(--space-3xl); flex-wrap: wrap; }
+        .filter-btn { padding: 0.7rem 1.8rem; background: transparent; border: 1.5px solid var(--color-soft-gray); border-radius: 50px; font-family: var(--font-body); font-size: 0.85rem; font-weight: 500; color: var(--color-charcoal); cursor: pointer; transition: all var(--transition-smooth); text-transform: uppercase; letter-spacing: 1px; }
+        .filter-btn:hover, .filter-btn.active { background: var(--color-charcoal); color: var(--color-warm-white); border-color: var(--color-charcoal); }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: var(--space-xl); }
+        .product-card { background: var(--color-warm-white); border-radius: var(--radius-lg); overflow: hidden; transition: all var(--transition-elegant); cursor: pointer; border: 1px solid transparent; }
+        .product-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--color-soft-gray); }
+        .product-image { width: 100%; height: 350px; background: var(--color-cream); position: relative; overflow: hidden; }
+        .product-image img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-elegant); }
+        .product-card:hover .product-image img { transform: scale(1.05); }
+        .product-badge { position: absolute; top: var(--space-sm); left: var(--space-sm); background: var(--color-gold-accent); color: white; padding: 0.3rem 1rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+        .product-info { padding: var(--space-lg); }
+        .product-category { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--color-gold-accent); margin-bottom: var(--space-xs); font-weight: 600; }
+        .product-name { font-family: var(--font-display); font-size: 1.2rem; margin-bottom: var(--space-sm); font-weight: 600; }
+        .product-inquire-btn-card { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.5rem 1.2rem; background: var(--color-whatsapp); color: white; border: none; border-radius: 50px; font-size: 0.75rem; font-weight: 600; cursor: pointer; transition: all var(--transition-fast); font-family: var(--font-body); }
+        .product-inquire-btn-card:hover { background: var(--color-whatsapp-dark); transform: scale(1.03); }
+        .product-inquire-btn-card svg { width: 14px; height: 14px; }
+
+        /* Modal */
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 3000; align-items: center; justify-content: center; backdrop-filter: blur(5px); }
+        .modal-overlay.active { display: flex; }
+        .modal { background: var(--color-warm-white); border-radius: var(--radius-xl); max-width: 1000px; width: 90%; max-height: 90vh; overflow-y: auto; position: relative; display: grid; grid-template-columns: 1fr 1fr; animation: modalSlideIn 0.4s ease; }
+        @keyframes modalSlideIn { from { opacity: 0; transform: translateY(30px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
+        .modal-close { position: absolute; top: var(--space-md); right: var(--space-md); background: var(--color-warm-white); border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; z-index: 10; font-size: 1.2rem; box-shadow: var(--shadow-sm); }
+        .modal-close:hover { background: var(--color-charcoal); color: white; }
+        .modal-gallery { background: var(--color-cream); display: flex; align-items: center; justify-content: center; padding: var(--space-xl); min-height: 500px; }
+        .modal-gallery img { max-width: 100%; max-height: 500px; object-fit: contain; border-radius: var(--radius-md); }
+        .modal-details { padding: var(--space-2xl); display: flex; flex-direction: column; justify-content: center; }
+        .modal-details .product-category { margin-bottom: var(--space-sm); }
+        .modal-details h2 { margin-bottom: var(--space-md); }
+        .modal-details .product-description { color: var(--color-charcoal); line-height: 1.8; margin-bottom: var(--space-xl); }
+        .modal-details .product-specs { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-md); margin-bottom: var(--space-xl); padding: var(--space-lg); background: var(--color-cream); border-radius: var(--radius-md); }
+        .spec-item { display: flex; flex-direction: column; }
+        .spec-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--color-medium-gray); margin-bottom: var(--space-xs); }
+        .spec-value { font-weight: 600; color: var(--color-dark-charcoal); }
+        .modal-inquire-btn { width: 100%; padding: 1rem; background: var(--color-whatsapp); color: white; border: none; border-radius: var(--radius-md); font-family: var(--font-body); font-size: 1rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.75rem; transition: all var(--transition-smooth); text-transform: uppercase; letter-spacing: 1px; }
+        .modal-inquire-btn:hover { background: var(--color-whatsapp-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,211,102,0.3); }
+
+        /* About */
+        .about-section { background: var(--color-cream); }
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3xl); align-items: center; }
+        .about-image-wrapper { height: 600px; background: var(--color-charcoal); border-radius: var(--radius-lg); overflow: hidden; }
+        .about-image-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+        .about-content p { margin-bottom: var(--space-md); color: var(--color-charcoal); font-size: 1.05rem; line-height: 1.8; }
+        .about-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); margin-top: var(--space-xl); padding-top: var(--space-xl); border-top: 1px solid var(--color-soft-gray); }
+        .stat-number { font-family: var(--font-display); font-size: 2.5rem; font-weight: 700; color: var(--color-gold-accent); margin-bottom: var(--space-xs); }
+        .stat-label { font-size: 0.85rem; color: var(--color-charcoal); text-transform: uppercase; letter-spacing: 1px; }
+
+        /* Services */
+        .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-lg); }
+        .service-card { padding: var(--space-xl); background: var(--color-warm-white); border: 1px solid var(--color-soft-gray); border-radius: var(--radius-lg); transition: all var(--transition-smooth); text-align: center; }
+        .service-card:hover { border-color: var(--color-gold-accent); transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+        .service-icon { width: 70px; height: 70px; margin: 0 auto var(--space-lg); background: var(--color-cream); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: var(--color-gold-accent); transition: all var(--transition-smooth); }
+        .service-card:hover .service-icon { background: var(--color-gold-accent); color: var(--color-warm-white); }
+        .service-card h3 { font-size: 1.2rem; margin-bottom: var(--space-sm); }
+        .service-card p { font-size: 0.9rem; color: var(--color-charcoal); line-height: 1.6; }
+
+        /* Testimonials */
+        .testimonials-section { background: var(--color-dark-charcoal); color: var(--color-warm-white); }
+        .testimonials-section .section-title, .testimonials-section .section-description { color: var(--color-warm-white); }
+        .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-xl); }
+        .testimonial-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-lg); padding: var(--space-xl); transition: all var(--transition-smooth); }
+        .testimonial-card:hover { background: rgba(255,255,255,0.06); transform: translateY(-4px); }
+        .testimonial-stars { color: var(--color-gold-accent); margin-bottom: var(--space-md); font-size: 1.2rem; }
+        .testimonial-text { font-style: italic; margin-bottom: var(--space-lg); line-height: 1.8; font-size: 1.05rem; }
+        .testimonial-author { display: flex; align-items: center; gap: var(--space-md); }
+        .testimonial-author-image { width: 50px; height: 50px; border-radius: 50%; background: var(--color-gold-accent); }
+        .testimonial-author-name { font-weight: 600; }
+        .testimonial-author-role { font-size: 0.85rem; color: var(--color-medium-gray); }
+
+        /* Contact */
+        .contact-section { background: var(--color-cream); }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3xl); }
+        .contact-item { display: flex; gap: var(--space-md); margin-bottom: var(--space-lg); align-items: flex-start; }
+        .contact-icon { width: 50px; height: 50px; background: var(--color-warm-white); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--color-gold-accent); font-size: 1.2rem; }
+        .contact-text h4 { margin-bottom: var(--space-xs); font-size: 1rem; }
+        .contact-text p { color: var(--color-charcoal); line-height: 1.6; }
+        .contact-form { background: var(--color-warm-white); padding: var(--space-xl); border-radius: var(--radius-lg); }
+        .form-group { margin-bottom: var(--space-md); }
+        .form-group label { display: block; margin-bottom: var(--space-xs); font-weight: 500; font-size: 0.9rem; }
+        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 0.8rem 1rem; border: 1.5px solid var(--color-soft-gray); border-radius: var(--radius-md); font-family: var(--font-body); font-size: 0.95rem; transition: all var(--transition-fast); background: var(--color-warm-white); }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--color-gold-accent); box-shadow: 0 0 0 3px rgba(201,169,110,0.1); }
+        .form-group textarea { height: 120px; resize: vertical; }
+
+        /* Newsletter */
+        .newsletter-section { background: var(--color-gold-accent); padding: var(--space-3xl) 0; }
+        .newsletter-content { text-align: center; color: var(--color-warm-white); }
+        .newsletter-content h2 { color: var(--color-warm-white); margin-bottom: var(--space-sm); }
+        .newsletter-content p { margin-bottom: var(--space-xl); font-size: 1.1rem; opacity: 0.9; }
+        .newsletter-form { display: flex; gap: var(--space-sm); max-width: 500px; margin: 0 auto; }
+        .newsletter-form input { flex: 1; padding: 1rem 1.5rem; border: 2px solid rgba(255,255,255,0.3); border-radius: 50px; background: rgba(255,255,255,0.1); color: white; font-size: 0.95rem; font-family: var(--font-body); }
+        .newsletter-form input::placeholder { color: rgba(255,255,255,0.7); }
+        .newsletter-form input:focus { outline: none; border-color: white; background: rgba(255,255,255,0.2); }
+        .newsletter-form button { padding: 1rem 2rem; background: var(--color-warm-white); color: var(--color-gold-accent); border: none; border-radius: 50px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: all var(--transition-smooth); font-family: var(--font-body); white-space: nowrap; }
+        .newsletter-form button:hover { background: var(--color-dark-charcoal); color: var(--color-warm-white); }
+
+        /* Footer */
+        .site-footer { background: var(--color-richer-charcoal); color: var(--color-medium-gray); padding: var(--space-3xl) 0 var(--space-lg); }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: var(--space-2xl); margin-bottom: var(--space-3xl); }
+        .footer-brand-name { font-family: var(--font-display); font-size: 1.8rem; color: var(--color-warm-white); margin-bottom: var(--space-md); }
+        .footer-description { line-height: 1.8; margin-bottom: var(--space-lg); }
+        .footer-social { display: flex; gap: var(--space-md); }
+        .footer-social a { width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--color-warm-white); text-decoration: none; transition: all var(--transition-fast); }
+        .footer-social a:hover { background: var(--color-gold-accent); transform: translateY(-2px); }
+        .footer-column h4 { color: var(--color-warm-white); margin-bottom: var(--space-lg); font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; }
+        .footer-column ul { list-style: none; }
+        .footer-column ul li { margin-bottom: var(--space-sm); }
+        .footer-column ul li a { color: var(--color-medium-gray); text-decoration: none; transition: color var(--transition-fast); font-size: 0.9rem; }
+        .footer-column ul li a:hover { color: var(--color-gold-accent); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: var(--space-lg); display: flex; justify-content: space-between; font-size: 0.85rem; }
+
+        /* WhatsApp Float */
+        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; z-index: 5000; width: 60px; height: 60px; background: var(--color-whatsapp); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.4); cursor: pointer; transition: all var(--transition-smooth); animation: whatsappPulse 2s infinite; text-decoration: none; }
+        .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 30px rgba(37,211,102,0.6); background: var(--color-whatsapp-dark); }
+        .whatsapp-float svg { width: 32px; height: 32px; fill: white; }
+        @keyframes whatsappPulse { 0%,100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4); } 50% { box-shadow: 0 4px 30px rgba(37,211,102,0.7); } }
+
+        /* Toast */
+        .toast { position: fixed; bottom: var(--space-xl); left: 50%; transform: translateX(-50%); background: var(--color-dark-charcoal); color: white; padding: 1rem 2rem; border-radius: 50px; box-shadow: var(--shadow-lg); z-index: 5000; animation: toastIn 0.3s ease, toastOut 0.3s ease 3.7s forwards; font-weight: 500; white-space: nowrap; max-width: 90vw; text-align: center; }
+        @keyframes toastIn { from { transform: translateX(-50%) translateY(100%); opacity: 0; } to { transform: translateX(-50%) translateY(0); opacity: 1; } }
+        @keyframes toastOut { from { transform: translateX(-50%) translateY(0); opacity: 1; } to { transform: translateX(-50%) translateY(100%); opacity: 0; } }
+
+        /* Responsive */
+        @media (max-width: 1200px) { .services-grid { grid-template-columns: repeat(2,1fr); } .testimonials-grid { grid-template-columns: repeat(2,1fr); } .footer-grid { grid-template-columns: 1fr 1fr; } }
         @media (max-width: 768px) {
-            .main-nav {
-                display: none;
-            }
-            .mobile-menu-toggle {
-                display: block;
-            }
-            .header-container {
-                height: 70px;
-            }
-            .hero {
-                background-attachment: scroll;
-                min-height: 600px;
-            }
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            .services-grid,
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-            }
-            .about-grid,
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-            .about-image-wrapper {
-                height: 400px;
-            }
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-            .modal {
-                grid-template-columns: 1fr;
-            }
-            .modal-gallery {
-                min-height: 300px;
-            }
-            .newsletter-form {
-                flex-direction: column;
-            }
-            .hero-buttons {
-                flex-direction: column;
-            }
-            .btn {
-                width: 100%;
-                text-align: center;
-            }
-            .product-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            }
-            .whatsapp-float {
-                bottom: 20px;
-                right: 20px;
-                width: 55px;
-                height: 55px;
-            }
-            .whatsapp-tooltip {
-                bottom: 85px;
-                right: 20px;
-                font-size: 0.75rem;
-                padding: 0.6rem 1.2rem;
-            }
+            .main-nav { display: none; } .mobile-menu-toggle { display: block; } .header-container { height: 70px; }
+            .hero { background-attachment: scroll; min-height: 600px; } .hero-title { font-size: 2.5rem; }
+            .services-grid, .testimonials-grid { grid-template-columns: 1fr; } .about-grid, .contact-grid { grid-template-columns: 1fr; }
+            .about-image-wrapper { height: 400px; } .footer-grid { grid-template-columns: 1fr; }
+            .modal { grid-template-columns: 1fr; } .modal-gallery { min-height: 300px; }
+            .newsletter-form { flex-direction: column; } .hero-buttons { flex-direction: column; } .btn { width: 100%; text-align: center; }
+            .product-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+            .whatsapp-float { bottom: 20px; right: 20px; width: 55px; height: 55px; }
         }
-
         @media (max-width: 480px) {
-            .container {
-                padding: 0 var(--space-md);
-            }
-            .section {
-                padding: var(--space-2xl) 0;
-            }
-            .filters {
-                gap: var(--space-xs);
-            }
-            .filter-btn {
-                padding: 0.5rem 1rem;
-                font-size: 0.75rem;
-            }
-            .hero {
-                min-height: 500px;
-            }
-            .welcome-logo {
-                font-size: 1.8rem;
-            }
-            .whatsapp-float {
-                bottom: 15px;
-                right: 15px;
-                width: 50px;
-                height: 50px;
-            }
-            .whatsapp-float svg {
-                width: 26px;
-                height: 26px;
-            }
+            .container { padding: 0 var(--space-md); } .section { padding: var(--space-2xl) 0; }
+            .filter-btn { padding: 0.5rem 1rem; font-size: 0.75rem; } .hero { min-height: 500px; }
+            .whatsapp-float { bottom: 15px; right: 15px; width: 50px; height: 50px; }
+            .whatsapp-float svg { width: 26px; height: 26px; }
         }
     </style>
 </head>
 <body>
-    <!-- ============================================
-    WELCOME PAGE / INTRO OVERLAY
-    ============================================ -->
+    <!-- Welcome Overlay -->
     <div class="welcome-overlay" id="welcomeOverlay">
         <div class="welcome-content">
             <div class="welcome-logo">Hayee Interior</div>
@@ -1649,13 +285,10 @@
         </div>
     </div>
 
-    <!-- ============================================
-    HEADER & NAVIGATION
-    ============================================ -->
+    <!-- Header -->
     <header class="site-header" id="siteHeader">
         <div class="container header-container">
             <a href="#home" class="brand-logo">Hayee Interior</a>
-            
             <nav class="main-nav">
                 <ul>
                     <li><a href="#home" class="active">Home</a></li>
@@ -1666,18 +299,9 @@
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
-
             <div class="header-actions">
-                <a href="https://wa.me/919876543210?text=Hello%20Hayee%20Interior%2C%20I%20would%20like%20to%20inquire%20about%20your%20products." class="header-whatsapp-btn" target="_blank" rel="noopener">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                    <span>Inquire Now</span>
-                </a>
                 <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="3" y1="12" x2="21" y2="12"/>
-                        <line x1="3" y1="6" x2="21" y2="6"/>
-                        <line x1="3" y1="18" x2="21" y2="18"/>
-                    </svg>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
                 </button>
             </div>
         </div>
@@ -1695,57 +319,31 @@
             <li><a href="#testimonials">Reviews</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
-        <a href="https://wa.me/919876543210?text=Hello%20Hayee%20Interior%2C%20I%20would%20like%20to%20inquire%20about%20your%20products." class="btn btn-whatsapp" style="margin-top:2rem;width:100%;justify-content:center;" target="_blank" rel="noopener">
+        <a href="https://wa.me/917299030406?text=Hello%20Hayee%20Interior%2C%20I%20would%20like%20to%20inquire%20about%20your%20products." class="btn btn-whatsapp" style="margin-top:2rem;width:100%;justify-content:center;" target="_blank" rel="noopener">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             Inquire via WhatsApp
         </a>
     </div>
 
-    <!-- ============================================
-    HERO SECTION
-    ============================================ -->
+    <!-- Hero -->
     <section class="hero" id="home">
-        <div class="hero-overlay"></div>
-        <div class="hero-pattern"></div>
-        <div class="container">
-            <div class="hero-content">
-                <p class="hero-subtitle-top">Established 2015 • Thanjavur</p>
-                <h1 class="hero-title">
-                    Crafting <em>Timeless</em><br>
-                    Interior Spaces
-                </h1>
-                <p class="hero-description">
-                    Where luxury meets functionality. Discover our curated collection of premium furniture and bespoke design services, right in the heart of Thanjavur, opposite Anu Hospital.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#shop" class="btn btn-primary">Explore Collection</a>
-                    <a href="https://wa.me/919876543210?text=Hello%20Hayee%20Interior%2C%20I%20would%20like%20to%20inquire%20about%20your%20products." class="btn btn-whatsapp" target="_blank" rel="noopener">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                        Inquire on WhatsApp
-                    </a>
-                </div>
+        <div class="hero-overlay"></div><div class="hero-pattern"></div>
+        <div class="container"><div class="hero-content">
+            <p class="hero-subtitle-top">Established 2015 • Thanjavur</p>
+            <h1 class="hero-title">Crafting <em>Timeless</em><br>Interior Spaces</h1>
+            <p class="hero-description">Where luxury meets functionality. Discover our curated collection of premium furniture and bespoke design services, right in the heart of Thanjavur, opposite Anu Hospital.</p>
+            <div class="hero-buttons">
+                <a href="#shop" class="btn btn-primary">Explore Collection</a>
+                <a href="#contact" class="btn btn-outline">Contact Us</a>
             </div>
-        </div>
-        <div class="hero-scroll-indicator">
-            <span>Scroll to Discover</span>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
-            </svg>
-        </div>
+        </div></div>
+        <div class="hero-scroll-indicator"><span>Scroll to Discover</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg></div>
     </section>
 
-    <!-- ============================================
-    COLLECTION / SHOP SECTION
-    ============================================ -->
+    <!-- Shop -->
     <section class="section shop-page" id="shop">
         <div class="container">
-            <div class="shop-header">
-                <p class="section-label">Our Collection</p>
-                <h2 class="section-title">Curated Pieces</h2>
-                <p class="section-description">Every item meticulously selected for its craftsmanship, beauty, and enduring quality. Inquire to learn more.</p>
-            </div>
-
-            <!-- Filters -->
+            <div class="shop-header"><p class="section-label">Our Collection</p><h2 class="section-title">Curated Pieces</h2><p class="section-description">Every item meticulously selected for its craftsmanship, beauty, and enduring quality.</p></div>
             <div class="filters" id="productFilters">
                 <button class="filter-btn active" data-category="all">All</button>
                 <button class="filter-btn" data-category="seating">Seating</button>
@@ -1755,301 +353,98 @@
                 <button class="filter-btn" data-category="storage">Storage</button>
                 <button class="filter-btn" data-category="textiles">Textiles</button>
             </div>
-
-            <!-- Product Grid -->
-            <div class="product-grid" id="productGrid">
-                <!-- Dynamically populated -->
-            </div>
-            <div id="noResults" style="display: none; text-align: center; padding: 3rem; color: var(--color-medium-gray);">
-                <p>No products found in this category.</p>
-            </div>
+            <div class="product-grid" id="productGrid"></div>
+            <div id="noResults" style="display:none;text-align:center;padding:3rem;color:var(--color-medium-gray);"><p>No products found.</p></div>
         </div>
     </section>
 
-    <!-- ============================================
-    ABOUT SECTION
-    ============================================ -->
+    <!-- About -->
     <section class="section about-section" id="about">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600&auto=format&fit=crop" alt="Hayee Interior Studio" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                <div class="about-content">
-                    <p class="section-label">Our Story</p>
-                    <h2>A Legacy of<br>Design Excellence</h2>
-                    <p>
-                        Founded in 2015, Hayee Interior has been at the forefront of luxury interior design in Thanjavur. Located opposite Anu Hospital, our studio has become a destination for discerning homeowners and designers seeking exceptional quality and timeless aesthetics.
-                    </p>
-                    <p>
-                        We believe that every space tells a story. Our approach combines classical design principles with contemporary sensibilities, creating interiors that are both beautiful and functional.
-                    </p>
-                    <div class="about-stats">
-                        <div class="stat-item">
-                            <div class="stat-number">500+</div>
-                            <div class="stat-label">Projects Completed</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">8+</div>
-                            <div class="stat-label">Years Experience</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">100%</div>
-                            <div class="stat-label">Client Satisfaction</div>
-                        </div>
-                    </div>
-                </div>
+        <div class="container"><div class="about-grid">
+            <div class="about-image-wrapper"><img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600&auto=format&fit=crop" alt="Hayee Interior Studio" style="width:100%;height:100%;object-fit:cover;"></div>
+            <div class="about-content">
+                <p class="section-label">Our Story</p><h2>A Legacy of<br>Design Excellence</h2>
+                <p>Founded in 2015, Hayee Interior has been at the forefront of luxury interior design in Thanjavur. Located opposite Anu Hospital, our studio has become a destination for discerning homeowners and designers.</p>
+                <p>We believe that every space tells a story. Our approach combines classical design principles with contemporary sensibilities.</p>
+                <div class="about-stats"><div><div class="stat-number">500+</div><div class="stat-label">Projects</div></div><div><div class="stat-number">8+</div><div class="stat-label">Years</div></div><div><div class="stat-number">100%</div><div class="stat-label">Satisfaction</div></div></div>
             </div>
-        </div>
+        </div></div>
     </section>
 
-    <!-- ============================================
-    SERVICES SECTION
-    ============================================ -->
+    <!-- Services -->
     <section class="section" id="services">
-        <div class="container">
-            <div class="section-header">
-                <p class="section-label">What We Offer</p>
-                <h2 class="section-title">Our Services</h2>
-                <p class="section-description">Comprehensive design solutions tailored to your unique vision</p>
-            </div>
+        <div class="container"><div class="section-header"><p class="section-label">What We Offer</p><h2 class="section-title">Our Services</h2></div>
             <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🎨</div>
-                    <h3>Interior Design</h3>
-                    <p>Full-scale interior design services from concept to completion, creating harmonious living spaces.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🪑</div>
-                    <h3>Furniture Curation</h3>
-                    <p>Handpicked premium furniture pieces from renowned craftsmen and exclusive brands worldwide.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">💡</div>
-                    <h3>Lighting Design</h3>
-                    <p>Custom lighting solutions that enhance ambiance and highlight architectural features beautifully.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🏠</div>
-                    <h3>Space Planning</h3>
-                    <p>Optimized layouts that maximize flow, functionality, and aesthetic appeal of every room.</p>
-                </div>
+                <div class="service-card"><div class="service-icon">🎨</div><h3>Interior Design</h3><p>Full-scale design services from concept to completion.</p></div>
+                <div class="service-card"><div class="service-icon">🪑</div><h3>Furniture Curation</h3><p>Handpicked premium pieces from renowned craftsmen.</p></div>
+                <div class="service-card"><div class="service-icon">💡</div><h3>Lighting Design</h3><p>Custom solutions that enhance ambiance beautifully.</p></div>
+                <div class="service-card"><div class="service-icon">🏠</div><h3>Space Planning</h3><p>Optimized layouts for maximum flow and functionality.</p></div>
             </div>
         </div>
     </section>
 
-    <!-- ============================================
-    TESTIMONIALS SECTION
-    ============================================ -->
+    <!-- Testimonials -->
     <section class="section testimonials-section" id="testimonials">
-        <div class="container">
-            <div class="section-header">
-                <p class="section-label">Client Love</p>
-                <h2 class="section-title">What Our Clients Say</h2>
-                <p class="section-description">Real stories from homeowners who trusted us with their spaces</p>
-            </div>
+        <div class="container"><div class="section-header"><p class="section-label">Client Love</p><h2 class="section-title">What Our Clients Say</h2></div>
             <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text">
-                        "Hayee Interior transformed our home into a masterpiece. Their attention to detail and understanding of our vision was exceptional. Every guest who visits is in awe."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-author-image"></div>
-                        <div>
-                            <div class="testimonial-author-name">Priya & Rajesh Kumar</div>
-                            <div class="testimonial-author-role">Residential Project, Thanjavur</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text">
-                        "Working with Hayee Interior was a seamless experience. They delivered our dream living room within budget and timeline. The quality of furniture is outstanding."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-author-image"></div>
-                        <div>
-                            <div class="testimonial-author-name">Dr. Senthil Nathan</div>
-                            <div class="testimonial-author-role">Anu Hospital, Thanjavur</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text">
-                        "From consultation to installation, the team showed incredible professionalism. They understood our minimalist aesthetic and created spaces that feel both luxurious and livable."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-author-image"></div>
-                        <div>
-                            <div class="testimonial-author-name">Ananya & Vikram Iyer</div>
-                            <div class="testimonial-author-role">Villa Project, Thanjavur</div>
-                        </div>
-                    </div>
-                </div>
+                <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Hayee Interior transformed our home into a masterpiece. Their attention to detail was exceptional."</p><div class="testimonial-author"><div class="testimonial-author-image"></div><div><div class="testimonial-author-name">Priya & Rajesh Kumar</div><div class="testimonial-author-role">Residential Project, Thanjavur</div></div></div></div>
+                <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Seamless experience. They delivered our dream living room within budget and timeline."</p><div class="testimonial-author"><div class="testimonial-author-image"></div><div><div class="testimonial-author-name">Dr. Senthil Nathan</div><div class="testimonial-author-role">Anu Hospital, Thanjavur</div></div></div></div>
+                <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Incredible professionalism. They understood our minimalist aesthetic perfectly."</p><div class="testimonial-author"><div class="testimonial-author-image"></div><div><div class="testimonial-author-name">Ananya & Vikram Iyer</div><div class="testimonial-author-role">Villa Project, Thanjavur</div></div></div></div>
             </div>
         </div>
     </section>
 
-    <!-- ============================================
-    NEWSLETTER SECTION
-    ============================================ -->
+    <!-- Newsletter -->
     <section class="newsletter-section">
-        <div class="container">
-            <div class="newsletter-content">
-                <h2>Stay Inspired</h2>
-                <p>Subscribe to receive design insights, new arrivals, and exclusive offers</p>
-                <form class="newsletter-form" id="newsletterForm">
-                    <input type="email" id="newsletterEmail" placeholder="Your email address" required>
-                    <button type="submit">Subscribe</button>
-                </form>
-                <p style="font-size:0.8rem;margin-top:1rem;opacity:0.7;">We respect your privacy. Unsubscribe anytime.</p>
-            </div>
-        </div>
+        <div class="container"><div class="newsletter-content">
+            <h2>Stay Inspired</h2><p>Subscribe to receive design insights, new arrivals, and exclusive offers</p>
+            <form class="newsletter-form" id="newsletterForm">
+                <input type="email" id="newsletterEmail" placeholder="Your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+            <p style="font-size:0.8rem;margin-top:1rem;opacity:0.7;">We respect your privacy. Unsubscribe anytime.</p>
+        </div></div>
     </section>
 
-    <!-- ============================================
-    CONTACT & LOCATION SECTION
-    ============================================ -->
+    <!-- Contact -->
     <section class="section contact-section" id="contact">
-        <div class="container">
-            <div class="section-header">
-                <p class="section-label">Get In Touch</p>
-                <h2 class="section-title">Visit Our Studio</h2>
-                <p class="section-description">We'd love to discuss your next project</p>
-            </div>
+        <div class="container"><div class="section-header"><p class="section-label">Get In Touch</p><h2 class="section-title">Visit Our Studio</h2></div>
             <div class="contact-grid">
-                <div class="contact-info">
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <div class="contact-icon">📍</div>
-                            <div class="contact-text">
-                                <h4>Our Location</h4>
-                                <p>Opposite Anu Hospital,<br>Thanjavur, Tamil Nadu - 613001</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">📞</div>
-                            <div class="contact-text">
-                                <h4>Phone</h4>
-                                <p>+91 98765 43210<br>+91 87654 32109</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">✉️</div>
-                            <div class="contact-text">
-                                <h4>Email</h4>
-                                <p>hello@hayeeinterior.com<br>design@hayeeinterior.com</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">🕐</div>
-                            <div class="contact-text">
-                                <h4>Working Hours</h4>
-                                <p>Monday - Saturday: 10 AM - 8 PM<br>Sunday: By Appointment Only</p>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="https://wa.me/917299030406s?text=Hello%20Hayee%20Interior%2C%20I%20would%20like%20to%20inquire%20about%20your%20services." class="btn btn-whatsapp" style="display:inline-flex;align-items:center;gap:0.5rem;" target="_blank" rel="noopener">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                        Chat on WhatsApp
-                    </a>
-                </div>
+                <div class="contact-info"><div class="contact-details">
+                    <div class="contact-item"><div class="contact-icon">📍</div><div class="contact-text"><h4>Our Location</h4><p>Opposite Anu Hospital,<br>Thanjavur, Tamil Nadu - 613001</p></div></div>
+                    <div class="contact-item"><div class="contact-icon">📞</div><div class="contact-text"><h4>Phone</h4><p>+91 7299030406</p></div></div>
+                    <div class="contact-item"><div class="contact-icon">✉️</div><div class="contact-text"><h4>Email</h4><p>hello@hayeeinterior.com</p></div></div>
+                    <div class="contact-item"><div class="contact-icon">🕐</div><div class="contact-text"><h4>Working Hours</h4><p>Monday - Saturday: 10 AM - 8 PM<br>Sunday: By Appointment Only</p></div></div>
+                </div></div>
                 <div class="contact-form">
-                    <h3 style="margin-bottom: 1.5rem;">Send Us an Inquiry</h3>
+                    <h3 style="margin-bottom:1.5rem;">Send Us an Inquiry</h3>
                     <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Full Name *</label>
-                            <input type="text" id="name" required placeholder="Enter your full name">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" required placeholder="Enter your email">
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">WhatsApp Number</label>
-                            <input type="tel" id="phone" placeholder="Enter your WhatsApp number">
-                        </div>
-                        <div class="form-group">
-                            <label for="service">Service Interested In</label>
-                            <select id="service">
-                                <option value="">Select a service</option>
-                                <option value="interior-design">Interior Design</option>
-                                <option value="furniture">Furniture Inquiry</option>
-                                <option value="consultation">Design Consultation</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Your Message *</label>
-                            <textarea id="message" required placeholder="Tell us about your project or inquiry..."></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="width:100%;">Send Inquiry</button>
+                        <div class="form-group"><label for="name">Full Name *</label><input type="text" id="name" required placeholder="Enter your full name"></div>
+                        <div class="form-group"><label for="email">Email Address *</label><input type="email" id="email" required placeholder="Enter your email"></div>
+                        <div class="form-group"><label for="phone">WhatsApp Number</label><input type="tel" id="phone" placeholder="Enter your WhatsApp number"></div>
+                        <div class="form-group"><label for="service">Service Interested In</label><select id="service"><option value="">Select a service</option><option value="interior-design">Interior Design</option><option value="furniture">Furniture Inquiry</option><option value="consultation">Design Consultation</option><option value="other">Other</option></select></div>
+                        <div class="form-group"><label for="message">Your Message *</label><textarea id="message" required placeholder="Tell us about your project..."></textarea></div>
+                        <button type="submit" class="btn btn-primary" style="width:100%;">Send Inquiry via WhatsApp</button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ============================================
-    FOOTER
-    ============================================ -->
+    <!-- Footer -->
     <footer class="site-footer">
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-column">
-                    <div class="footer-brand-name">Hayee Interior</div>
-                    <p class="footer-description">
-                        Premium interior design studio in Thanjavur, crafting timeless spaces since 2015. Located opposite Anu Hospital.
-                    </p>
-                    <div class="footer-social">
-                        <a href="#" aria-label="Instagram">📷</a>
-                        <a href="#" aria-label="Facebook">📘</a>
-                        <a href="#" aria-label="Pinterest">📌</a>
-                        <a href="https://wa.me/7299030406" aria-label="WhatsApp" target="_blank" rel="noopener">💬</a>
-                    </div>
-                </div>
-                <div class="footer-column">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#shop">Collection</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Categories</h4>
-                    <ul>
-                        <li><a href="#shop">Seating</a></li>
-                        <li><a href="#shop">Tables</a></li>
-                        <li><a href="#shop">Lighting</a></li>
-                        <li><a href="#shop">Decor</a></li>
-                        <li><a href="#shop">Storage</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Contact Info</h4>
-                    <ul>
-                        <li>📍 Opposite Anu Hospital</li>
-                        <li>📞 +91 98765 43210</li>
-                        <li>✉️ hello@hayeeinterior.com</li>
-                        <li>🕐 Mon-Sat: 10 AM - 8 PM</li>
-                    </ul>
-                </div>
+                <div class="footer-column"><div class="footer-brand-name">Hayee Interior</div><p class="footer-description">Premium interior design studio in Thanjavur, crafting timeless spaces since 2015. Located opposite Anu Hospital.</p><div class="footer-social"><a href="#" aria-label="Instagram">📷</a><a href="#" aria-label="Facebook">📘</a><a href="#" aria-label="Pinterest">📌</a><a href="https://wa.me/917299030406" aria-label="WhatsApp" target="_blank" rel="noopener">💬</a></div></div>
+                <div class="footer-column"><h4>Quick Links</h4><ul><li><a href="#home">Home</a></li><li><a href="#shop">Collection</a></li><li><a href="#about">About Us</a></li><li><a href="#services">Services</a></li><li><a href="#contact">Contact</a></li></ul></div>
+                <div class="footer-column"><h4>Categories</h4><ul><li><a href="#shop">Seating</a></li><li><a href="#shop">Tables</a></li><li><a href="#shop">Lighting</a></li><li><a href="#shop">Decor</a></li><li><a href="#shop">Storage</a></li></ul></div>
+                <div class="footer-column"><h4>Contact Info</h4><ul><li>📍 Opposite Anu Hospital</li><li>📞 +91 7299030406</li><li>✉️ hello@hayeeinterior.com</li><li>🕐 Mon-Sat: 10 AM - 8 PM</li></ul></div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Hayee Interior. All rights reserved.</p>
-                <p>Made with ❤️ in Thanjavur</p>
-            </div>
+            <div class="footer-bottom"><p>&copy; 2025 Hayee Interior. All rights reserved.</p><p>Made with ❤️ in Thanjavur</p></div>
         </div>
     </footer>
 
-    <!-- ============================================
-    PRODUCT DETAIL MODAL
-    ============================================ -->
+    <!-- Product Modal -->
     <div class="modal-overlay" id="productModal">
         <div class="modal">
             <button class="modal-close" id="modalClose">✕</button>
@@ -2058,181 +453,152 @@
         </div>
     </div>
 
-    <!-- ============================================
-    WHATSAPP FLOATING BUTTON
-    ============================================ -->
+    <!-- WhatsApp Floating Button -->
     <a href="https://wa.me/917299030406?text=Hello%20Hayee%20Interior%2C%20I%20would%20like%20to%20inquire%20about%20your%20products." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     </a>
-    <div class="whatsapp-tooltip" id="whatsappTooltip">Chat with us! 👋</div>
 
-    <!-- ============================================
-    JAVASCRIPT
-    ============================================ -->
     <script>
         // ============================================
-        // OWNER WHATSAPP NUMBER - CHANGE THIS
+        // EMAILJS CONFIGURATION
         // ============================================
-        const OWNER_WHATSAPP = '7299030406'; // Replace with your actual WhatsApp number (with country code, no + or spaces)
+        (function() {
+            emailjs.init('4PqovkDyLmhDMdgSA');
+        })();
+
+        const EMAILJS_SERVICE_ID = 'service_2bp28db';
+        const EMAILJS_TEMPLATE_ID = 'template_iwveg1r';
+        const OWNER_WHATSAPP = '7299030406';
 
         // ============================================
-        // PRODUCT DATABASE
+        // PRODUCT DATABASE (NO PRICES)
         // ============================================
         const products = [
-            { id: 1, title: "Serena Velvet Armchair", category: "seating", price: 85000, originalPrice: 95000, description: "Handcrafted armchair upholstered in Italian velvet with solid oak legs. The perfect blend of comfort and sophistication for your living space.", specs: { "Material": "Velvet & Solid Oak", "Dimensions": "85cm W x 90cm D x 95cm H", "Weight": "18 kg", "Color": "Sage Green" }, image: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=400&auto=format&fit=crop", badge: "Bestseller", inventory: 12 },
-            { id: 2, title: "Minimalist Marble Coffee Table", category: "tables", price: 120000, description: "Elegant coffee table featuring a Carrara marble top with a brushed brass base. A statement piece for contemporary interiors.", specs: { "Material": "Carrara Marble & Brass", "Dimensions": "120cm L x 70cm W x 40cm H", "Weight": "35 kg", "Color": "White & Gold" }, image: "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?w=400&auto=format&fit=crop", badge: null, inventory: 5 },
-            { id: 3, title: "Artisan Pendant Light", category: "lighting", price: 45000, originalPrice: 52000, description: "Hand-blown glass pendant light with antique brass fittings. Creates a warm, ambient glow perfect for dining areas.", specs: { "Material": "Blown Glass & Brass", "Dimensions": "30cm Diameter x 40cm H", "Weight": "4 kg", "Color": "Amber" }, image: "https://images.unsplash.com/photo-1524484485831-a92ffc0de03f?w=400&auto=format&fit=crop", badge: "Limited Edition", inventory: 3 },
-            { id: 4, title: "Sculptural Ceramic Vase", category: "decor", price: 18000, description: "Handcrafted ceramic vase with a unique sculptural form. Each piece is individually made by artisans in Tamil Nadu.", specs: { "Material": "Terracotta & Glaze", "Dimensions": "25cm W x 45cm H", "Weight": "3 kg", "Color": "Matte White" }, image: "https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=400&auto=format&fit=crop", badge: "Handmade", inventory: 20 },
-            { id: 5, title: "Chesterfield Leather Sofa", category: "seating", price: 245000, originalPrice: 280000, description: "Classic Chesterfield sofa in full-grain leather with deep button tufting. A timeless piece that ages beautifully.", specs: { "Material": "Full-Grain Leather", "Dimensions": "220cm L x 95cm D x 80cm H", "Weight": "65 kg", "Color": "Cognac Brown" }, image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&auto=format&fit=crop", badge: "Premium", inventory: 2 },
-            { id: 6, title: "Walnut Dining Table", category: "tables", price: 165000, description: "Solid American walnut dining table seating 8-10. Features a live edge detail and hand-rubbed oil finish.", specs: { "Material": "Solid Walnut", "Dimensions": "240cm L x 100cm W x 76cm H", "Weight": "80 kg", "Color": "Dark Walnut" }, image: "https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?w=400&auto=format&fit=crop", badge: null, inventory: 4 },
-            { id: 7, title: "Crystal Chandelier", category: "lighting", price: 320000, originalPrice: 380000, description: "Magnificent crystal chandelier with 24 lights. Hand-cut crystals catch and refract light beautifully throughout any grand space.", specs: { "Material": "Crystal & Gold-Plated Metal", "Dimensions": "100cm Diameter x 120cm H", "Weight": "45 kg", "Color": "Clear & Gold" }, image: "https://images.unsplash.com/photo-1540932239986-30128078f3c5?w=400&auto=format&fit=crop", badge: "Luxury", inventory: 1 },
-            { id: 8, title: "Linen Throw Pillow Set", category: "textiles", price: 6500, originalPrice: 8000, description: "Set of 4 hand-stitched linen throw pillows with feather inserts. Available in a palette of sophisticated neutrals.", specs: { "Material": "100% Linen", "Dimensions": "50cm x 50cm each", "Weight": "2 kg total", "Color": "Assorted Neutrals" }, image: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=400&auto=format&fit=crop", badge: null, inventory: 50 },
-            { id: 9, title: "Teak Wood Bookcase", category: "storage", price: 95000, description: "Floor-to-ceiling modular bookcase in reclaimed teak wood. Adjustable shelves accommodate books and display pieces.", specs: { "Material": "Reclaimed Teak", "Dimensions": "180cm W x 40cm D x 240cm H", "Weight": "120 kg", "Color": "Natural Teak" }, image: "https://images.unsplash.com/photo-1594620302200-9a762244a156?w=400&auto=format&fit=crop", badge: "Sustainable", inventory: 3 },
-            { id: 10, title: "Brass Floor Lamp", category: "lighting", price: 55000, originalPrice: 62000, description: "Sculptural floor lamp in solid brass with a linen shade. Adds a warm, sophisticated glow to reading nooks.", specs: { "Material": "Solid Brass & Linen", "Dimensions": "40cm W x 40cm D x 160cm H", "Weight": "12 kg", "Color": "Antique Brass" }, image: "https://images.unsplash.com/photo-1507473885765-e6ed057ab6fe?w=400&auto=format&fit=crop", badge: null, inventory: 7 },
-            { id: 11, title: "Velvet Ottoman", category: "seating", price: 35000, description: "Plush velvet ottoman with hidden storage. Doubles as extra seating or a footrest with elegant tufted detailing.", specs: { "Material": "Cotton Velvet", "Dimensions": "80cm Diameter x 45cm H", "Weight": "10 kg", "Color": "Blush Pink" }, image: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=400&auto=format&fit=crop", badge: "New", inventory: 15 },
-            { id: 12, title: "Marble Console Table", category: "tables", price: 140000, originalPrice: 160000, description: "Sleek console table with a Nero Marquina marble top and geometric black metal base. Perfect for entryways.", specs: { "Material": "Nero Marquina Marble & Steel", "Dimensions": "140cm L x 40cm D x 85cm H", "Weight": "40 kg", "Color": "Black & Gold" }, image: "https://images.unsplash.com/photo-1486946255434-2466348c2166?w=400&auto=format&fit=crop", badge: "Exclusive", inventory: 2 },
-            { id: 13, title: "Bamboo Pendant Light", category: "lighting", price: 28000, description: "Eco-friendly handwoven bamboo pendant light, perfect for creating a warm tropical ambiance.", specs: { "Material": "Natural Bamboo", "Dimensions": "45cm Diameter x 55cm H", "Weight": "2.5 kg", "Color": "Natural" }, image: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=400&auto=format&fit=crop", badge: "Eco-Friendly", inventory: 10 },
-            { id: 14, title: "Mid-Century Sideboard", category: "storage", price: 185000, originalPrice: 210000, description: "Iconic mid-century sideboard in American walnut with sculptural legs and brass handles.", specs: { "Material": "American Walnut & Brass", "Dimensions": "180cm L x 45cm D x 75cm H", "Weight": "55 kg", "Color": "Walnut" }, image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=400&auto=format&fit=crop", badge: "Iconic", inventory: 3 },
-            { id: 15, title: "Cashmere Throw Blanket", category: "textiles", price: 22000, originalPrice: 28000, description: "Ultra-soft pure cashmere throw in a sophisticated heathered charcoal.", specs: { "Material": "100% Cashmere", "Dimensions": "140cm x 200cm", "Weight": "0.8 kg", "Color": "Heathered Charcoal" }, image: "https://images.unsplash.com/photo-1580301762395-21ceb8804b4f?w=400&auto=format&fit=crop", badge: null, inventory: 25 },
-            { id: 16, title: "Wingback Dining Chairs (Set of 2)", category: "seating", price: 42000, description: "Elegant wingback chairs upholstered in performance linen. Perfect for dining or accent seating.", specs: { "Material": "Performance Linen & Oak", "Dimensions": "55cm W x 60cm D x 85cm H each", "Weight": "8 kg each", "Color": "Ivory" }, image: "https://images.unsplash.com/photo-1503602642458-232111445657?w=400&auto=format&fit=crop", badge: "Set of 2", inventory: 8 }
+            { id: 1, title: "Serena Velvet Armchair", category: "seating", description: "Handcrafted armchair upholstered in Italian velvet with solid oak legs. The perfect blend of comfort and sophistication for your living space.", specs: { "Material": "Velvet & Solid Oak", "Dimensions": "85cm W x 90cm D x 95cm H", "Weight": "18 kg", "Color": "Sage Green" }, image: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=400&auto=format&fit=crop", badge: "Bestseller" },
+            { id: 2, title: "Minimalist Marble Coffee Table", category: "tables", description: "Elegant coffee table featuring a Carrara marble top with a brushed brass base. A statement piece for contemporary interiors.", specs: { "Material": "Carrara Marble & Brass", "Dimensions": "120cm L x 70cm W x 40cm H", "Weight": "35 kg", "Color": "White & Gold" }, image: "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?w=400&auto=format&fit=crop", badge: null },
+            { id: 3, title: "Artisan Pendant Light", category: "lighting", description: "Hand-blown glass pendant light with antique brass fittings. Creates a warm, ambient glow perfect for dining areas.", specs: { "Material": "Blown Glass & Brass", "Dimensions": "30cm Diameter x 40cm H", "Weight": "4 kg", "Color": "Amber" }, image: "https://images.unsplash.com/photo-1524484485831-a92ffc0de03f?w=400&auto=format&fit=crop", badge: "Limited Edition" },
+            { id: 4, title: "Sculptural Ceramic Vase", category: "decor", description: "Handcrafted ceramic vase with a unique sculptural form. Each piece is individually made by artisans in Tamil Nadu.", specs: { "Material": "Terracotta & Glaze", "Dimensions": "25cm W x 45cm H", "Weight": "3 kg", "Color": "Matte White" }, image: "https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=400&auto=format&fit=crop", badge: "Handmade" },
+            { id: 5, title: "Chesterfield Leather Sofa", category: "seating", description: "Classic Chesterfield sofa in full-grain leather with deep button tufting. A timeless piece that ages beautifully.", specs: { "Material": "Full-Grain Leather", "Dimensions": "220cm L x 95cm D x 80cm H", "Weight": "65 kg", "Color": "Cognac Brown" }, image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&auto=format&fit=crop", badge: "Premium" },
+            { id: 6, title: "Walnut Dining Table", category: "tables", description: "Solid American walnut dining table seating 8-10. Features a live edge detail and hand-rubbed oil finish.", specs: { "Material": "Solid Walnut", "Dimensions": "240cm L x 100cm W x 76cm H", "Weight": "80 kg", "Color": "Dark Walnut" }, image: "https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?w=400&auto=format&fit=crop", badge: null },
+            { id: 7, title: "Crystal Chandelier", category: "lighting", description: "Magnificent crystal chandelier with 24 lights. Hand-cut crystals catch and refract light beautifully.", specs: { "Material": "Crystal & Gold-Plated Metal", "Dimensions": "100cm Diameter x 120cm H", "Weight": "45 kg", "Color": "Clear & Gold" }, image: "https://images.unsplash.com/photo-1540932239986-30128078f3c5?w=400&auto=format&fit=crop", badge: "Luxury" },
+            { id: 8, title: "Linen Throw Pillow Set", category: "textiles", description: "Set of 4 hand-stitched linen throw pillows with feather inserts.", specs: { "Material": "100% Linen", "Dimensions": "50cm x 50cm each", "Weight": "2 kg", "Color": "Assorted Neutrals" }, image: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=400&auto=format&fit=crop", badge: null },
+            { id: 9, title: "Teak Wood Bookcase", category: "storage", description: "Floor-to-ceiling modular bookcase in reclaimed teak wood.", specs: { "Material": "Reclaimed Teak", "Dimensions": "180cm W x 40cm D x 240cm H", "Weight": "120 kg", "Color": "Natural Teak" }, image: "https://images.unsplash.com/photo-1594620302200-9a762244a156?w=400&auto=format&fit=crop", badge: "Sustainable" },
+            { id: 10, title: "Brass Floor Lamp", category: "lighting", description: "Sculptural floor lamp in solid brass with a linen shade.", specs: { "Material": "Solid Brass & Linen", "Dimensions": "40cm W x 40cm D x 160cm H", "Weight": "12 kg", "Color": "Antique Brass" }, image: "https://images.unsplash.com/photo-1507473885765-e6ed057ab6fe?w=400&auto=format&fit=crop", badge: null },
+            { id: 11, title: "Velvet Ottoman", category: "seating", description: "Plush velvet ottoman with hidden storage and elegant tufted detailing.", specs: { "Material": "Cotton Velvet", "Dimensions": "80cm Diameter x 45cm H", "Weight": "10 kg", "Color": "Blush Pink" }, image: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=400&auto=format&fit=crop", badge: "New" },
+            { id: 12, title: "Marble Console Table", category: "tables", description: "Sleek console table with a Nero Marquina marble top and geometric black metal base.", specs: { "Material": "Nero Marquina Marble & Steel", "Dimensions": "140cm L x 40cm D x 85cm H", "Weight": "40 kg", "Color": "Black & Gold" }, image: "https://images.unsplash.com/photo-1486946255434-2466348c2166?w=400&auto=format&fit=crop", badge: "Exclusive" },
+            { id: 13, title: "Bamboo Pendant Light", category: "lighting", description: "Eco-friendly handwoven bamboo pendant light.", specs: { "Material": "Natural Bamboo", "Dimensions": "45cm Diameter x 55cm H", "Weight": "2.5 kg", "Color": "Natural" }, image: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=400&auto=format&fit=crop", badge: "Eco-Friendly" },
+            { id: 14, title: "Mid-Century Sideboard", category: "storage", description: "Iconic mid-century sideboard in American walnut with brass handles.", specs: { "Material": "American Walnut & Brass", "Dimensions": "180cm L x 45cm D x 75cm H", "Weight": "55 kg", "Color": "Walnut" }, image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=400&auto=format&fit=crop", badge: "Iconic" },
+            { id: 15, title: "Cashmere Throw Blanket", category: "textiles", description: "Ultra-soft pure cashmere throw in a sophisticated heathered charcoal.", specs: { "Material": "100% Cashmere", "Dimensions": "140cm x 200cm", "Weight": "0.8 kg", "Color": "Heathered Charcoal" }, image: "https://images.unsplash.com/photo-1580301762395-21ceb8804b4f?w=400&auto=format&fit=crop", badge: null },
+            { id: 16, title: "Wingback Dining Chairs (Set of 2)", category: "seating", description: "Elegant wingback chairs upholstered in performance linen.", specs: { "Material": "Performance Linen & Oak", "Dimensions": "55cm W x 60cm D x 85cm H each", "Weight": "8 kg each", "Color": "Ivory" }, image: "https://images.unsplash.com/photo-1503602642458-232111445657?w=400&auto=format&fit=crop", badge: "Set of 2" }
         ];
 
-        // ============================================
-        // WHATSAPP INQUIRY FUNCTION
-        // ============================================
+        // WhatsApp Inquiry
         function sendWhatsAppInquiry(productTitle = '') {
-            let message = '';
-            if (productTitle) {
-                message = `Hello Hayee Interior,%0A%0AI am interested in the *${productTitle}*.%0A%0APlease share more details about pricing and availability.%0A%0AThank you!`;
-            } else {
-                message = `Hello Hayee Interior,%0A%0AI would like to inquire about your products and services.%0A%0APlease share more information.%0A%0AThank you!`;
-            }
-            const whatsappURL = `https://wa.me/${7299030406}?text=${message}`;
-            window.open(whatsappURL, '_blank', 'noopener');
+            let message = productTitle 
+                ? `Hello Hayee Interior,%0A%0AI am interested in the *${productTitle}*.%0A%0APlease share more details about this product.%0A%0AThank you!`
+                : `Hello Hayee Interior,%0A%0AI would like to inquire about your products and services.%0A%0AThank you!`;
+            window.open(`https://wa.me/91${OWNER_WHATSAPP}?text=${message}`, '_blank', 'noopener');
         }
 
-        // ============================================
-        // RENDER PRODUCTS
-        // ============================================
+        // Render Products
         function renderProducts(category = 'all') {
             const grid = document.getElementById('productGrid');
             const noResults = document.getElementById('noResults');
             const filtered = category === 'all' ? products : products.filter(p => p.category === category);
-            
-            if (filtered.length === 0) {
-                grid.innerHTML = '';
-                noResults.style.display = 'block';
-                return;
-            }
-            
+            if (filtered.length === 0) { grid.innerHTML = ''; noResults.style.display = 'block'; return; }
             noResults.style.display = 'none';
             grid.innerHTML = filtered.map(product => `
                 <div class="product-card" onclick="openProductModal(${product.id})">
-                    <div class="product-image">
-                        <img src="${product.image}" alt="${product.title}" loading="lazy">
-                        ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ''}
-                        <div class="product-inquire-overlay" onclick="event.stopPropagation()">
-                            <button class="product-inquire-btn" onclick="sendWhatsAppInquiry('${product.title.replace(/'/g, "\\'")}')">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
-                                Inquire on WhatsApp
-                            </button>
-                        </div>
-                    </div>
+                    <div class="product-image"><img src="${product.image}" alt="${product.title}" loading="lazy">${product.badge ? `<span class="product-badge">${product.badge}</span>` : ''}</div>
                     <div class="product-info">
                         <p class="product-category">${product.category}</p>
                         <h3 class="product-name">${product.title}</h3>
-                        <div class="product-price">
-                            ₹${product.price.toLocaleString('en-IN')}
-                            ${product.originalPrice ? `<span class="original-price">₹${product.originalPrice.toLocaleString('en-IN')}</span>` : ''}
-                        </div>
+                        <button class="product-inquire-btn-card" onclick="event.stopPropagation(); sendWhatsAppInquiry('${product.title.replace(/'/g, "\\'")}')">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+                            Inquire
+                        </button>
                     </div>
                 </div>
             `).join('');
         }
 
-        // ============================================
-        // PRODUCT MODAL
-        // ============================================
+        // Product Modal
         function openProductModal(productId) {
             const product = products.find(p => p.id === productId);
             if (!product) return;
-            
             document.getElementById('modalGallery').innerHTML = `<img src="${product.image}" alt="${product.title}" style="max-width:100%;max-height:500px;object-fit:contain;">`;
-            
             document.getElementById('modalDetails').innerHTML = `
-                <p class="product-category">${product.category}</p>
-                <h2>${product.title}</h2>
-                <div class="product-price">₹${product.price.toLocaleString('en-IN')}</div>
+                <p class="product-category">${product.category}</p><h2>${product.title}</h2>
                 <p class="product-description">${product.description}</p>
-                <div class="product-specs">
-                    ${Object.entries(product.specs).map(([key, value]) => `
-                        <div class="spec-item">
-                            <span class="spec-label">${key}</span>
-                            <span class="spec-value">${value}</span>
-                        </div>
-                    `).join('')}
-                </div>
-                <p style="margin-bottom:1rem;"><strong>Availability:</strong> In Stock</p>
+                <div class="product-specs">${Object.entries(product.specs).map(([key, value]) => `<div class="spec-item"><span class="spec-label">${key}</span><span class="spec-value">${value}</span></div>`).join('')}</div>
                 <button class="modal-inquire-btn" onclick="sendWhatsAppInquiry('${product.title.replace(/'/g, "\\'")}')">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
                     Inquire via WhatsApp
                 </button>
             `;
-            
             document.getElementById('productModal').classList.add('active');
         }
 
-        // ============================================
-        // TOAST NOTIFICATION
-        // ============================================
         function showToast(message) {
-            const toast = document.createElement('div');
-            toast.className = 'toast';
-            toast.textContent = message;
-            document.body.appendChild(toast);
-            setTimeout(() => toast.remove(), 4000);
+            const toast = document.createElement('div'); toast.className = 'toast'; toast.textContent = message;
+            document.body.appendChild(toast); setTimeout(() => toast.remove(), 4000);
         }
 
-        // ============================================
-        // NEWSLETTER SUBSCRIPTION
-        // ============================================
-        function handleNewsletterSubmit(email) {
+        // Newsletter with EmailJS
+        async function handleNewsletterSubmit(email) {
             const userName = email.split('@')[0];
-            
-            // Create email content
-            const emailContent = `
-                Dear ${userName},
+            const htmlMessage = `
+                <!DOCTYPE html><html><head><meta charset="utf-8"></head>
+                <body style="margin:0;padding:0;background:#FAF8F5;">
+                    <table width="100%" cellpadding="0" cellspacing="0" style="background:#FAF8F5;padding:40px 20px;">
+                        <tr><td align="center">
+                            <table width="600" cellpadding="0" cellspacing="0" style="background:#FFF;border-radius:12px;overflow:hidden;">
+                                <tr><td style="background:#2C2925;padding:40px 30px;text-align:center;">
+                                    <h1 style="font-family:Georgia,serif;color:#FAF8F5;font-size:28px;margin:0;">Hayee Interior</h1>
+                                    <div style="width:50px;height:2px;background:#C9A96E;margin:15px auto;"></div>
+                                    <p style="color:#C9A96E;font-style:italic;font-size:16px;">Where Luxury Meets Timeless Design</p>
+                                </td></tr>
+                                <tr><td style="padding:30px;">
+                                    <h2 style="font-family:Georgia,serif;color:#2C2925;">Dear ${userName},</h2>
+                                    <p style="color:#3D3A35;font-size:15px;line-height:1.8;">Thank you for subscribing to <strong>Hayee Interior</strong>!</p>
+                                    <table width="100%" cellpadding="20" style="background:#F5F0EB;border-radius:8px;margin:20px 0;">
+                                        <tr><td><h3 style="font-family:Georgia,serif;color:#2C2925;">✨ As a subscriber, you'll receive:</h3>
+                                            <p style="color:#3D3A35;font-size:14px;">🆕 Early access to new collections</p>
+                                            <p style="color:#3D3A35;font-size:14px;">💎 Exclusive offers</p>
+                                            <p style="color:#3D3A35;font-size:14px;">📐 Design inspiration & tips</p>
+                                            <p style="color:#3D3A35;font-size:14px;">🎉 Event invitations</p>
+                                        </td></tr>
+                                    </table>
+                                    <p style="color:#3D3A35;font-size:15px;">Visit us at <strong>Opposite Anu Hospital, Thanjavur</strong>.</p>
+                                    <div style="text-align:center;margin:25px 0;"><a href="#" style="display:inline-block;background:#C9A96E;color:#FFF;padding:12px 30px;text-decoration:none;border-radius:4px;font-weight:600;">Explore Collection</a></div>
+                                </td></tr>
+                                <tr><td style="background:#F5F0EB;padding:20px 30px;text-align:center;color:#8B7355;font-size:12px;">
+                                    <p style="margin:0;"><strong>Hayee Interior</strong> | Thanjavur, Tamil Nadu</p>
+                                    <p style="margin:5px 0;">📞 +91 7299030406 | ✉️ hello@hayeeinterior.com</p>
+                                </td></tr>
+                            </table>
+                        </td></tr>
+                    </table>
+                </body></html>`;
 
-                Thank you for subscribing to Hayee Interior!
-
-                ✨ What you'll receive:
-                • Early access to new collections
-                • Design inspiration & tips
-                • Exclusive offers & updates
-                • Invitations to studio events
-
-                Visit us at: Opposite Anu Hospital, Thanjavur
-                Contact: +91 98765 43210
-
-                With love,
-                The Hayee Interior Team
-            `;
-
-            console.log('📧 Newsletter Subscription:');
-            console.log('To:', email);
-            console.log(emailContent);
-            
-            showToast('✨ Thank you for subscribing! Check your email for a welcome message. 💌');
+            try {
+                await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+                    to_email: email,
+                    to_name: userName,
+                    subject: '✨ Welcome to Hayee Interior!',
+                    message: htmlMessage
+                });
+                showToast('✨ Welcome aboard! Check your inbox! 💌');
+            } catch (error) {
+                console.error('EmailJS Error:', error);
+                showToast('⚠️ Subscription noted! (Email service config needed)');
+            }
         }
 
-        // ============================================
-        // EVENT LISTENERS
-        // ============================================
+        // Event Listeners
         document.addEventListener('DOMContentLoaded', () => {
-            // Initial render
             renderProducts();
             
-            // Mobile menu
             document.getElementById('mobileMenuToggle').addEventListener('click', () => {
                 document.getElementById('mobileMenu').classList.add('active');
                 document.getElementById('mobileMenuOverlay').classList.add('active');
@@ -2246,24 +612,16 @@
                 document.getElementById('mobileMenuOverlay').classList.remove('active');
             });
             
-            // Product filters
             document.querySelectorAll('.filter-btn').forEach(btn => {
                 btn.addEventListener('click', function() {
                     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-                    renderProducts(this.dataset.category);
+                    this.classList.add('active'); renderProducts(this.dataset.category);
                 });
             });
             
-            // Modal close
-            document.getElementById('modalClose').addEventListener('click', () => {
-                document.getElementById('productModal').classList.remove('active');
-            });
-            document.getElementById('productModal').addEventListener('click', function(e) {
-                if (e.target === this) this.classList.remove('active');
-            });
+            document.getElementById('modalClose').addEventListener('click', () => document.getElementById('productModal').classList.remove('active'));
+            document.getElementById('productModal').addEventListener('click', function(e) { if (e.target === this) this.classList.remove('active'); });
             
-            // Contact form - sends to WhatsApp
             document.getElementById('contactForm').addEventListener('submit', function(e) {
                 e.preventDefault();
                 const name = document.getElementById('name').value;
@@ -2271,66 +629,39 @@
                 const phone = document.getElementById('phone').value;
                 const service = document.getElementById('service').value;
                 const message = document.getElementById('message').value;
-                
                 const whatsappMessage = `Hello Hayee Interior,%0A%0A*New Inquiry*%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Phone:* ${phone}%0A*Service:* ${service}%0A*Message:* ${message}%0A%0APlease get back to me. Thank you!`;
-                
-                const whatsappURL = `https://wa.me/${7299030406}?text=${whatsappMessage}`;
-                window.open(whatsappURL, '_blank', 'noopener');
-                showToast('Opening WhatsApp to send your inquiry... 💬');
-                this.reset();
+                window.open(`https://wa.me/91${OWNER_WHATSAPP}?text=${whatsappMessage}`, '_blank', 'noopener');
+                showToast('Opening WhatsApp... 💬'); this.reset();
             });
             
-            // Newsletter form
             document.getElementById('newsletterForm').addEventListener('submit', function(e) {
                 e.preventDefault();
                 const email = document.getElementById('newsletterEmail').value;
-                if (email) {
-                    handleNewsletterSubmit(email);
-                    this.reset();
-                }
+                if (email) { handleNewsletterSubmit(email); this.reset(); }
             });
             
-            // Header scroll effect
             window.addEventListener('scroll', () => {
-                const header = document.getElementById('siteHeader');
-                if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
+                document.getElementById('siteHeader').classList.toggle('scrolled', window.scrollY > 50);
             });
             
-            // Smooth scroll for navigation links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     e.preventDefault();
                     const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        document.getElementById('mobileMenu').classList.remove('active');
-                        document.getElementById('mobileMenuOverlay').classList.remove('active');
-                    }
+                    if (target) { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+                    document.getElementById('mobileMenu').classList.remove('active');
+                    document.getElementById('mobileMenuOverlay').classList.remove('active');
                 });
             });
-
-            // Keyboard shortcut to close modal
+            
             document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') {
-                    document.getElementById('productModal').classList.remove('active');
-                }
+                if (e.key === 'Escape') document.getElementById('productModal').classList.remove('active');
             });
-
-            // Hide welcome overlay
+            
             setTimeout(() => {
                 const overlay = document.getElementById('welcomeOverlay');
                 if (overlay) overlay.style.display = 'none';
             }, 3300);
-
-            // Hide WhatsApp tooltip after 5 seconds
-            setTimeout(() => {
-                const tooltip = document.getElementById('whatsappTooltip');
-                if (tooltip) tooltip.style.display = 'none';
-            }, 8000);
         });
     </script>
 </body>
