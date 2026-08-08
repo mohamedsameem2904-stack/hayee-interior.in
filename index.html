@@ -88,13 +88,11 @@
             min-height: 100vh;
         }
 
-        /* Selection Styling */
         ::selection {
             background-color: var(--color-gold-accent);
             color: var(--color-warm-white);
         }
 
-        /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -109,9 +107,6 @@
             background: var(--color-charcoal);
         }
 
-        /* ============================================
-           TYPOGRAPHY
-           ============================================ */
         h1, h2, h3, h4, h5, h6 {
             font-family: var(--font-display);
             font-weight: 500;
@@ -124,22 +119,11 @@
         h3 { font-size: clamp(1.5rem, 3vw, 2.5rem); }
         h4 { font-size: clamp(1.25rem, 2vw, 1.75rem); }
 
-        /* ============================================
-           CONTAINER & LAYOUT UTILITIES
-           ============================================ */
         .container {
             width: 100%;
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 var(--space-lg);
-        }
-
-        .container-narrow {
-            max-width: 1100px;
-        }
-
-        .container-wide {
-            max-width: 1600px;
         }
 
         /* ============================================
@@ -230,7 +214,6 @@
             gap: var(--space-md);
         }
 
-        /* Cart & Mobile Menu Buttons */
         .cart-toggle,
         .mobile-menu-toggle {
             background: none;
@@ -263,7 +246,6 @@
             font-weight: 600;
         }
 
-        /* Mobile Menu - Hidden on Desktop */
         .mobile-menu-toggle {
             display: none;
         }
@@ -396,40 +378,22 @@
         }
 
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes welcomeContentIn {
-            from {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         @keyframes welcomeFadeOut {
-            0% {
-                opacity: 1;
-                visibility: visible;
-            }
-            100% {
-                opacity: 0;
-                visibility: hidden;
-            }
+            0% { opacity: 1; visibility: visible; }
+            100% { opacity: 0; visibility: hidden; }
         }
 
         /* ============================================
-           HERO SECTION WITH INTERIOR IMAGE BACKGROUND
+           HERO SECTION
            ============================================ */
         .hero {
             position: relative;
@@ -446,7 +410,6 @@
             background-attachment: fixed;
         }
 
-        /* Dark overlay for text readability */
         .hero-overlay {
             position: absolute;
             top: 0;
@@ -461,7 +424,6 @@
             z-index: 1;
         }
 
-        /* Subtle pattern overlay */
         .hero-pattern {
             position: absolute;
             top: 0;
@@ -470,8 +432,7 @@
             height: 100%;
             background-image: 
                 radial-gradient(circle at 20% 50%, rgba(201, 169, 110, 0.06) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(201, 169, 110, 0.04) 0%, transparent 50%),
-                radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.02) 0%, transparent 40%);
+                radial-gradient(circle at 80% 80%, rgba(201, 169, 110, 0.04) 0%, transparent 50%);
             z-index: 2;
         }
 
@@ -637,204 +598,6 @@
         }
 
         /* ============================================
-           FEATURED COLLECTIONS GRID
-           ============================================ */
-        .featured-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: var(--space-lg);
-        }
-
-        .featured-item {
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-            border-radius: var(--radius-lg);
-            background: var(--color-cream);
-            transition: all var(--transition-elegant);
-        }
-
-        .featured-item:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .featured-item-image {
-            width: 100%;
-            height: 400px;
-            background: linear-gradient(135deg, var(--color-charcoal), var(--color-dark-charcoal));
-            position: relative;
-            overflow: hidden;
-        }
-
-        .featured-item-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform var(--transition-elegant);
-        }
-
-        .featured-item:hover .featured-item-image img {
-            transform: scale(1.05);
-        }
-
-        .featured-item-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 50%);
-            opacity: 0;
-            transition: opacity var(--transition-elegant);
-        }
-
-        .featured-item:hover .featured-item-overlay {
-            opacity: 1;
-        }
-
-        .featured-item-content {
-            padding: var(--space-lg);
-            background: var(--color-warm-white);
-        }
-
-        .featured-item-category {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--color-gold-accent);
-            margin-bottom: var(--space-xs);
-        }
-
-        .featured-item-title {
-            font-family: var(--font-display);
-            font-size: 1.3rem;
-            margin-bottom: var(--space-xs);
-        }
-
-        .featured-item-price {
-            font-weight: 600;
-            color: var(--color-charcoal);
-        }
-
-        /* ============================================
-           ABOUT SECTION
-           ============================================ */
-        .about-section {
-            background: var(--color-cream);
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--space-3xl);
-            align-items: center;
-        }
-
-        .about-image-wrapper {
-            position: relative;
-            height: 600px;
-            background: var(--color-charcoal);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-        }
-
-        .about-image-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .about-content h2 {
-            margin-bottom: var(--space-lg);
-        }
-
-        .about-content p {
-            margin-bottom: var(--space-md);
-            color: var(--color-charcoal);
-            font-size: 1.05rem;
-            line-height: 1.8;
-        }
-
-        .about-stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: var(--space-lg);
-            margin-top: var(--space-xl);
-            padding-top: var(--space-xl);
-            border-top: 1px solid var(--color-soft-gray);
-        }
-
-        .stat-number {
-            font-family: var(--font-display);
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--color-gold-accent);
-            margin-bottom: var(--space-xs);
-        }
-
-        .stat-label {
-            font-size: 0.85rem;
-            color: var(--color-charcoal);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* ============================================
-           SERVICES SECTION
-           ============================================ */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: var(--space-lg);
-        }
-
-        .service-card {
-            padding: var(--space-xl);
-            background: var(--color-warm-white);
-            border: 1px solid var(--color-soft-gray);
-            border-radius: var(--radius-lg);
-            transition: all var(--transition-smooth);
-            text-align: center;
-        }
-
-        .service-card:hover {
-            border-color: var(--color-gold-accent);
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .service-icon {
-            width: 70px;
-            height: 70px;
-            margin: 0 auto var(--space-lg);
-            background: var(--color-cream);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            color: var(--color-gold-accent);
-            transition: all var(--transition-smooth);
-        }
-
-        .service-card:hover .service-icon {
-            background: var(--color-gold-accent);
-            color: var(--color-warm-white);
-        }
-
-        .service-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: var(--space-sm);
-        }
-
-        .service-card p {
-            font-size: 0.9rem;
-            color: var(--color-charcoal);
-            line-height: 1.6;
-        }
-
-        /* ============================================
            SHOP PAGE STYLES
            ============================================ */
         .shop-page {
@@ -857,7 +620,6 @@
             font-weight: 300;
         }
 
-        /* Filters */
         .filters {
             display: flex;
             justify-content: center;
@@ -888,7 +650,6 @@
             border-color: var(--color-charcoal);
         }
 
-        /* Product Grid */
         .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -1015,6 +776,123 @@
         }
 
         /* ============================================
+           ABOUT SECTION
+           ============================================ */
+        .about-section {
+            background: var(--color-cream);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-3xl);
+            align-items: center;
+        }
+
+        .about-image-wrapper {
+            position: relative;
+            height: 600px;
+            background: var(--color-charcoal);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+
+        .about-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-content h2 {
+            margin-bottom: var(--space-lg);
+        }
+
+        .about-content p {
+            margin-bottom: var(--space-md);
+            color: var(--color-charcoal);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-lg);
+            margin-top: var(--space-xl);
+            padding-top: var(--space-xl);
+            border-top: 1px solid var(--color-soft-gray);
+        }
+
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--color-gold-accent);
+            margin-bottom: var(--space-xs);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--color-charcoal);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ============================================
+           SERVICES SECTION
+           ============================================ */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-lg);
+        }
+
+        .service-card {
+            padding: var(--space-xl);
+            background: var(--color-warm-white);
+            border: 1px solid var(--color-soft-gray);
+            border-radius: var(--radius-lg);
+            transition: all var(--transition-smooth);
+            text-align: center;
+        }
+
+        .service-card:hover {
+            border-color: var(--color-gold-accent);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto var(--space-lg);
+            background: var(--color-cream);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--color-gold-accent);
+            transition: all var(--transition-smooth);
+        }
+
+        .service-card:hover .service-icon {
+            background: var(--color-gold-accent);
+            color: var(--color-warm-white);
+        }
+
+        .service-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: var(--space-sm);
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            color: var(--color-charcoal);
+            line-height: 1.6;
+        }
+
+        /* ============================================
            PRODUCT DETAIL MODAL
            ============================================ */
         .modal-overlay {
@@ -1050,14 +928,8 @@
         }
 
         @keyframes modalSlideIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px) scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
+            from { opacity: 0; transform: translateY(30px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
         }
 
         .modal-close {
@@ -1339,6 +1211,168 @@
         }
 
         /* ============================================
+           PAYMENT MODAL
+           ============================================ */
+        .payment-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 4000;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .payment-modal-overlay.active {
+            display: flex;
+        }
+
+        .payment-modal {
+            background: var(--color-warm-white);
+            border-radius: var(--radius-xl);
+            max-width: 500px;
+            width: 90%;
+            padding: var(--space-2xl);
+            position: relative;
+            animation: modalSlideIn 0.4s ease;
+        }
+
+        .payment-modal h3 {
+            text-align: center;
+            margin-bottom: var(--space-lg);
+        }
+
+        .payment-total {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--color-gold-accent);
+            font-weight: 700;
+            margin-bottom: var(--space-xl);
+            font-family: var(--font-display);
+        }
+
+        .upi-section {
+            margin-bottom: var(--space-xl);
+        }
+
+        .upi-section h4 {
+            text-align: center;
+            margin-bottom: var(--space-md);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .upi-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+        }
+
+        .upi-option {
+            padding: var(--space-md);
+            border: 2px solid var(--color-soft-gray);
+            border-radius: var(--radius-md);
+            text-align: center;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            background: white;
+        }
+
+        .upi-option:hover {
+            border-color: var(--color-gold-accent);
+            background: var(--color-cream);
+        }
+
+        .upi-option.selected {
+            border-color: var(--color-gold-accent);
+            background: rgba(201, 169, 110, 0.1);
+        }
+
+        .upi-option img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            margin-bottom: var(--space-xs);
+        }
+
+        .upi-option span {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--color-charcoal);
+        }
+
+        .upi-id-input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--color-soft-gray);
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            font-family: var(--font-body);
+            margin-bottom: var(--space-md);
+            transition: all var(--transition-fast);
+        }
+
+        .upi-id-input:focus {
+            outline: none;
+            border-color: var(--color-gold-accent);
+        }
+
+        .or-divider {
+            text-align: center;
+            margin: var(--space-lg) 0;
+            position: relative;
+        }
+
+        .or-divider::before,
+        .or-divider::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 40%;
+            height: 1px;
+            background: var(--color-soft-gray);
+        }
+
+        .or-divider::before { left: 0; }
+        .or-divider::after { right: 0; }
+
+        .or-divider span {
+            background: var(--color-warm-white);
+            padding: 0 var(--space-md);
+            color: var(--color-medium-gray);
+            font-size: 0.85rem;
+        }
+
+        .card-payment {
+            text-align: center;
+        }
+
+        .card-icons {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-md);
+            margin-bottom: var(--space-md);
+            font-size: 2rem;
+        }
+
+        .payment-close {
+            position: absolute;
+            top: var(--space-md);
+            right: var(--space-md);
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--color-charcoal);
+        }
+
+        /* ============================================
            TESTIMONIALS SECTION
            ============================================ */
         .testimonials-section {
@@ -1416,10 +1450,6 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: var(--space-3xl);
-        }
-
-        .contact-info h2 {
-            margin-bottom: var(--space-lg);
         }
 
         .contact-details {
@@ -1675,128 +1705,59 @@
         }
 
         @keyframes toastIn {
-            from {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
         }
 
         @keyframes toastOut {
-            from {
-                transform: translateX(0);
-                opacity: 1;
-            }
-            to {
-                transform: translateX(100%);
-                opacity: 0;
-            }
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
         }
 
         /* ============================================
            RESPONSIVE DESIGN
            ============================================ */
         @media (max-width: 1200px) {
-            .featured-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .testimonials-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-            }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
         }
 
         @media (max-width: 768px) {
-            .main-nav {
-                display: none;
-            }
-            .mobile-menu-toggle {
-                display: block;
-            }
-            .header-container {
-                height: 70px;
-            }
-            .hero {
-                background-attachment: scroll;
-                min-height: 600px;
-            }
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            .featured-grid,
+            .main-nav { display: none; }
+            .mobile-menu-toggle { display: block; }
+            .header-container { height: 70px; }
+            .hero { background-attachment: scroll; min-height: 600px; }
+            .hero-title { font-size: 2.5rem; }
             .services-grid,
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-            }
+            .testimonials-grid { grid-template-columns: 1fr; }
             .about-grid,
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-            .about-image-wrapper {
-                height: 400px;
-            }
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-            .modal {
-                grid-template-columns: 1fr;
-            }
-            .modal-gallery {
-                min-height: 300px;
-            }
-            .newsletter-form {
-                flex-direction: column;
-            }
-            .hero-buttons {
-                flex-direction: column;
-            }
-            .btn {
-                width: 100%;
-                text-align: center;
-            }
-            .product-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            }
+            .contact-grid { grid-template-columns: 1fr; }
+            .about-image-wrapper { height: 400px; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .modal { grid-template-columns: 1fr; }
+            .modal-gallery { min-height: 300px; }
+            .newsletter-form { flex-direction: column; }
+            .hero-buttons { flex-direction: column; }
+            .btn { width: 100%; text-align: center; }
+            .product-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+            .upi-options { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 480px) {
-            .container {
-                padding: 0 var(--space-md);
-            }
-            .section {
-                padding: var(--space-2xl) 0;
-            }
-            .filters {
-                gap: var(--space-xs);
-            }
-            .filter-btn {
-                padding: 0.5rem 1rem;
-                font-size: 0.75rem;
-            }
-            .cart-panel {
-                width: 100%;
-            }
-            .hero {
-                min-height: 500px;
-            }
-            .welcome-logo {
-                font-size: 1.8rem;
-            }
+            .container { padding: 0 var(--space-md); }
+            .section { padding: var(--space-2xl) 0; }
+            .filters { gap: var(--space-xs); }
+            .filter-btn { padding: 0.5rem 1rem; font-size: 0.75rem; }
+            .cart-panel { width: 100%; }
+            .hero { min-height: 500px; }
+            .welcome-logo { font-size: 1.8rem; }
+            .upi-options { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <!-- ============================================
-    WELCOME PAGE / INTRO OVERLAY
-    ============================================ -->
+    <!-- Welcome Overlay -->
     <div class="welcome-overlay" id="welcomeOverlay">
         <div class="welcome-content">
             <div class="welcome-logo">Hayee Interior</div>
@@ -1806,13 +1767,10 @@
         </div>
     </div>
 
-    <!-- ============================================
-    HEADER & NAVIGATION
-    ============================================ -->
+    <!-- Header -->
     <header class="site-header" id="siteHeader">
         <div class="container header-container">
             <a href="#home" class="brand-logo">Hayee Interior</a>
-            
             <nav class="main-nav">
                 <ul>
                     <li><a href="#home" class="active">Home</a></li>
@@ -1823,22 +1781,17 @@
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
-
             <div class="header-actions">
                 <button class="cart-toggle" id="cartToggle" aria-label="Shopping cart">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="9" cy="21" r="1"/>
-                        <circle cx="20" cy="21" r="1"/>
+                        <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
                         <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
                     </svg>
                     <span class="cart-count" id="cartCount">0</span>
                 </button>
-                <!-- Hamburger - only visible on mobile -->
                 <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="3" y1="12" x2="21" y2="12"/>
-                        <line x1="3" y1="6" x2="21" y2="6"/>
-                        <line x1="3" y1="18" x2="21" y2="18"/>
+                        <line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/>
                     </svg>
                 </button>
             </div>
@@ -1859,22 +1812,15 @@
         </ul>
     </div>
 
-    <!-- ============================================
-    HERO SECTION WITH INTERIOR IMAGE BACKGROUND
-    ============================================ -->
+    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-overlay"></div>
         <div class="hero-pattern"></div>
         <div class="container">
             <div class="hero-content">
                 <p class="hero-subtitle-top">Established 2015 • Thanjavur</p>
-                <h1 class="hero-title">
-                    Crafting <em>Timeless</em><br>
-                    Interior Spaces
-                </h1>
-                <p class="hero-description">
-                    Where luxury meets functionality. Discover our curated collection of premium furniture and bespoke design services, right in the heart of Thanjavur, opposite Anu Hospital.
-                </p>
+                <h1 class="hero-title">Crafting <em>Timeless</em><br>Interior Spaces</h1>
+                <p class="hero-description">Where luxury meets functionality. Discover our curated collection of premium furniture and bespoke design services, right in the heart of Thanjavur, opposite Anu Hospital.</p>
                 <div class="hero-buttons">
                     <a href="#shop" class="btn btn-primary">Explore Collection</a>
                     <a href="#about" class="btn btn-outline">Our Story</a>
@@ -1883,15 +1829,11 @@
         </div>
         <div class="hero-scroll-indicator">
             <span>Scroll to Discover</span>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
-            </svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
         </div>
     </section>
 
-    <!-- ============================================
-    FEATURED COLLECTIONS / SHOP SECTION
-    ============================================ -->
+    <!-- Shop Section -->
     <section class="section shop-page" id="shop">
         <div class="container">
             <div class="shop-header">
@@ -1899,8 +1841,6 @@
                 <h2 class="section-title">Curated Pieces</h2>
                 <p class="section-description">Every item meticulously selected for its craftsmanship, beauty, and enduring quality</p>
             </div>
-
-            <!-- Filters -->
             <div class="filters" id="productFilters">
                 <button class="filter-btn active" data-category="all">All</button>
                 <button class="filter-btn" data-category="seating">Seating</button>
@@ -1908,58 +1848,36 @@
                 <button class="filter-btn" data-category="lighting">Lighting</button>
                 <button class="filter-btn" data-category="decor">Decor</button>
                 <button class="filter-btn" data-category="storage">Storage</button>
+                <button class="filter-btn" data-category="textiles">Textiles</button>
             </div>
-
-            <!-- Product Grid -->
-            <div class="product-grid" id="productGrid">
-                <!-- Products will be dynamically inserted here -->
-            </div>
-            <div id="noResults" style="display: none; text-align: center; padding: 3rem; color: var(--color-medium-gray);">
-                <p>No products found in this category.</p>
-            </div>
+            <div class="product-grid" id="productGrid"></div>
+            <div id="noResults" style="display: none; text-align: center; padding: 3rem; color: var(--color-medium-gray);"><p>No products found in this category.</p></div>
         </div>
     </section>
 
-    <!-- ============================================
-    ABOUT SECTION
-    ============================================ -->
+    <!-- About Section -->
     <section class="section about-section" id="about">
         <div class="container">
             <div class="about-grid">
                 <div class="about-image-wrapper">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600' viewBox='0 0 600 600'%3E%3Crect fill='%233D3A35' width='600' height='600'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23B8B2A6' font-family='serif' font-size='24'%3ELuxury Interior%3C/text%3E%3C/svg%3E" alt="Hayee Interior Studio" style="width:100%;height:100%;object-fit:cover;">
+                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600&auto=format&fit=crop" alt="Hayee Interior Studio" style="width:100%;height:100%;object-fit:cover;">
                 </div>
                 <div class="about-content">
                     <p class="section-label">Our Story</p>
                     <h2>A Legacy of<br>Design Excellence</h2>
-                    <p>
-                        Founded in 2015, Hayee Interior has been at the forefront of luxury interior design in Thanjavur. Located opposite Anu Hospital, our studio has become a destination for discerning homeowners and designers seeking exceptional quality and timeless aesthetics.
-                    </p>
-                    <p>
-                        We believe that every space tells a story. Our approach combines classical design principles with contemporary sensibilities, creating interiors that are both beautiful and functional.
-                    </p>
+                    <p>Founded in 2015, Hayee Interior has been at the forefront of luxury interior design in Thanjavur. Located opposite Anu Hospital, our studio has become a destination for discerning homeowners and designers seeking exceptional quality and timeless aesthetics.</p>
+                    <p>We believe that every space tells a story. Our approach combines classical design principles with contemporary sensibilities, creating interiors that are both beautiful and functional.</p>
                     <div class="about-stats">
-                        <div class="stat-item">
-                            <div class="stat-number">500+</div>
-                            <div class="stat-label">Projects Completed</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">8+</div>
-                            <div class="stat-label">Years Experience</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">100%</div>
-                            <div class="stat-label">Client Satisfaction</div>
-                        </div>
+                        <div class="stat-item"><div class="stat-number">500+</div><div class="stat-label">Projects Completed</div></div>
+                        <div class="stat-item"><div class="stat-number">8+</div><div class="stat-label">Years Experience</div></div>
+                        <div class="stat-item"><div class="stat-number">100%</div><div class="stat-label">Client Satisfaction</div></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ============================================
-    SERVICES SECTION
-    ============================================ -->
+    <!-- Services Section -->
     <section class="section" id="services">
         <div class="container">
             <div class="section-header">
@@ -1968,33 +1886,15 @@
                 <p class="section-description">Comprehensive design solutions tailored to your unique vision</p>
             </div>
             <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🎨</div>
-                    <h3>Interior Design</h3>
-                    <p>Full-scale interior design services from concept to completion, creating harmonious living spaces.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🪑</div>
-                    <h3>Furniture Curation</h3>
-                    <p>Handpicked premium furniture pieces from renowned craftsmen and exclusive brands worldwide.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">💡</div>
-                    <h3>Lighting Design</h3>
-                    <p>Custom lighting solutions that enhance ambiance and highlight architectural features beautifully.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🏠</div>
-                    <h3>Space Planning</h3>
-                    <p>Optimized layouts that maximize flow, functionality, and aesthetic appeal of every room.</p>
-                </div>
+                <div class="service-card"><div class="service-icon">🎨</div><h3>Interior Design</h3><p>Full-scale interior design services from concept to completion, creating harmonious living spaces.</p></div>
+                <div class="service-card"><div class="service-icon">🪑</div><h3>Furniture Curation</h3><p>Handpicked premium furniture pieces from renowned craftsmen and exclusive brands worldwide.</p></div>
+                <div class="service-card"><div class="service-icon">💡</div><h3>Lighting Design</h3><p>Custom lighting solutions that enhance ambiance and highlight architectural features beautifully.</p></div>
+                <div class="service-card"><div class="service-icon">🏠</div><h3>Space Planning</h3><p>Optimized layouts that maximize flow, functionality, and aesthetic appeal of every room.</p></div>
             </div>
         </div>
     </section>
 
-    <!-- ============================================
-    TESTIMONIALS SECTION
-    ============================================ -->
+    <!-- Testimonials -->
     <section class="section testimonials-section" id="testimonials">
         <div class="container">
             <div class="section-header">
@@ -2003,68 +1903,28 @@
                 <p class="section-description">Real stories from homeowners who trusted us with their spaces</p>
             </div>
             <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text">
-                        "Hayee Interior transformed our home into a masterpiece. Their attention to detail and understanding of our vision was exceptional. Every guest who visits is in awe."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-author-image"></div>
-                        <div>
-                            <div class="testimonial-author-name">Priya & Rajesh Kumar</div>
-                            <div class="testimonial-author-role">Residential Project, Thanjavur</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text">
-                        "Working with Hayee Interior was a seamless experience. They delivered our dream living room within budget and timeline. The quality of furniture is outstanding."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-author-image"></div>
-                        <div>
-                            <div class="testimonial-author-name">Dr. Senthil Nathan</div>
-                            <div class="testimonial-author-role">Anu Hospital, Thanjavur</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text">
-                        "From consultation to installation, the team showed incredible professionalism. They understood our minimalist aesthetic and created spaces that feel both luxurious and livable."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-author-image"></div>
-                        <div>
-                            <div class="testimonial-author-name">Ananya & Vikram Iyer</div>
-                            <div class="testimonial-author-role">Villa Project, Thanjavur</div>
-                        </div>
-                    </div>
-                </div>
+                <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Hayee Interior transformed our home into a masterpiece. Their attention to detail and understanding of our vision was exceptional."</p><div class="testimonial-author"><div class="testimonial-author-image"></div><div><div class="testimonial-author-name">Priya & Rajesh Kumar</div><div class="testimonial-author-role">Residential Project, Thanjavur</div></div></div></div>
+                <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Working with Hayee Interior was a seamless experience. They delivered our dream living room within budget and timeline."</p><div class="testimonial-author"><div class="testimonial-author-image"></div><div><div class="testimonial-author-name">Dr. Senthil Nathan</div><div class="testimonial-author-role">Anu Hospital, Thanjavur</div></div></div></div>
+                <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"From consultation to installation, the team showed incredible professionalism. They understood our minimalist aesthetic perfectly."</p><div class="testimonial-author"><div class="testimonial-author-image"></div><div><div class="testimonial-author-name">Ananya & Vikram Iyer</div><div class="testimonial-author-role">Villa Project, Thanjavur</div></div></div></div>
             </div>
         </div>
     </section>
 
-    <!-- ============================================
-    NEWSLETTER SECTION
-    ============================================ -->
+    <!-- Newsletter -->
     <section class="newsletter-section">
         <div class="container">
             <div class="newsletter-content">
                 <h2>Stay Inspired</h2>
                 <p>Subscribe to receive design insights, new arrivals, and exclusive offers</p>
                 <form class="newsletter-form" id="newsletterForm">
-                    <input type="email" placeholder="Your email address" required>
+                    <input type="email" id="newsletterEmail" placeholder="Your email address" required>
                     <button type="submit">Subscribe</button>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- ============================================
-    CONTACT & LOCATION SECTION
-    ============================================ -->
+    <!-- Contact Section -->
     <section class="section contact-section" id="contact">
         <div class="container">
             <div class="section-header">
@@ -2075,65 +1935,20 @@
             <div class="contact-grid">
                 <div class="contact-info">
                     <div class="contact-details">
-                        <div class="contact-item">
-                            <div class="contact-icon">📍</div>
-                            <div class="contact-text">
-                                <h4>Our Location</h4>
-                                <p>Opposite Anu Hospital,<br>Thanjavur, Tamil Nadu - 613001</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">📞</div>
-                            <div class="contact-text">
-                                <h4>Phone</h4>
-                                <p>+91 98765 43210<br>+91 87654 32109</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">✉️</div>
-                            <div class="contact-text">
-                                <h4>Email</h4>
-                                <p>hello@hayeeinterior.com<br>design@hayeeinterior.com</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">🕐</div>
-                            <div class="contact-text">
-                                <h4>Working Hours</h4>
-                                <p>Monday - Saturday: 10 AM - 8 PM<br>Sunday: By Appointment Only</p>
-                            </div>
-                        </div>
+                        <div class="contact-item"><div class="contact-icon">📍</div><div class="contact-text"><h4>Our Location</h4><p>Opposite Anu Hospital,<br>Thanjavur, Tamil Nadu - 613001</p></div></div>
+                        <div class="contact-item"><div class="contact-icon">📞</div><div class="contact-text"><h4>Phone</h4><p>+91 98765 43210<br>+91 87654 32109</p></div></div>
+                        <div class="contact-item"><div class="contact-icon">✉️</div><div class="contact-text"><h4>Email</h4><p>hello@hayeeinterior.com<br>design@hayeeinterior.com</p></div></div>
+                        <div class="contact-item"><div class="contact-icon">🕐</div><div class="contact-text"><h4>Working Hours</h4><p>Monday - Saturday: 10 AM - 8 PM<br>Sunday: By Appointment Only</p></div></div>
                     </div>
                 </div>
                 <div class="contact-form">
                     <h3 style="margin-bottom: 1.5rem;">Send Us a Message</h3>
                     <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Full Name *</label>
-                            <input type="text" id="name" required placeholder="Enter your full name">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" required placeholder="Enter your email">
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" placeholder="Enter your phone number">
-                        </div>
-                        <div class="form-group">
-                            <label for="service">Service Interested In</label>
-                            <select id="service">
-                                <option value="">Select a service</option>
-                                <option value="interior-design">Interior Design</option>
-                                <option value="furniture">Furniture Purchase</option>
-                                <option value="consultation">Design Consultation</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Your Message *</label>
-                            <textarea id="message" required placeholder="Tell us about your project..."></textarea>
-                        </div>
+                        <div class="form-group"><label for="name">Full Name *</label><input type="text" id="name" required placeholder="Enter your full name"></div>
+                        <div class="form-group"><label for="email">Email Address *</label><input type="email" id="email" required placeholder="Enter your email"></div>
+                        <div class="form-group"><label for="phone">Phone Number</label><input type="tel" id="phone" placeholder="Enter your phone number"></div>
+                        <div class="form-group"><label for="service">Service Interested In</label><select id="service"><option value="">Select a service</option><option value="interior-design">Interior Design</option><option value="furniture">Furniture Purchase</option><option value="consultation">Design Consultation</option><option value="other">Other</option></select></div>
+                        <div class="form-group"><label for="message">Your Message *</label><textarea id="message" required placeholder="Tell us about your project..."></textarea></div>
                         <button type="submit" class="btn btn-primary" style="width:100%;">Send Message</button>
                     </form>
                 </div>
@@ -2141,309 +1956,113 @@
         </div>
     </section>
 
-    <!-- ============================================
-    FOOTER
-    ============================================ -->
+    <!-- Footer -->
     <footer class="site-footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-column">
                     <div class="footer-brand-name">Hayee Interior</div>
-                    <p class="footer-description">
-                        Premium interior design studio in Thanjavur, crafting timeless spaces since 2015. Located opposite Anu Hospital.
-                    </p>
+                    <p class="footer-description">Premium interior design studio in Thanjavur, crafting timeless spaces since 2015. Located opposite Anu Hospital.</p>
                     <div class="footer-social">
-                        <a href="#" aria-label="Instagram">📷</a>
-                        <a href="#" aria-label="Facebook">📘</a>
-                        <a href="#" aria-label="Pinterest">📌</a>
-                        <a href="#" aria-label="WhatsApp">💬</a>
+                        <a href="#" aria-label="Instagram">📷</a><a href="#" aria-label="Facebook">📘</a><a href="#" aria-label="Pinterest">📌</a><a href="#" aria-label="WhatsApp">💬</a>
                     </div>
                 </div>
-                <div class="footer-column">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#shop">Shop</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Categories</h4>
-                    <ul>
-                        <li><a href="#shop">Seating</a></li>
-                        <li><a href="#shop">Tables</a></li>
-                        <li><a href="#shop">Lighting</a></li>
-                        <li><a href="#shop">Decor</a></li>
-                        <li><a href="#shop">Storage</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Contact Info</h4>
-                    <ul>
-                        <li>📍 Opposite Anu Hospital</li>
-                        <li>📞 +91 98765 43210</li>
-                        <li>✉️ hello@hayeeinterior.com</li>
-                        <li>🕐 Mon-Sat: 10 AM - 8 PM</li>
-                    </ul>
-                </div>
+                <div class="footer-column"><h4>Quick Links</h4><ul><li><a href="#home">Home</a></li><li><a href="#shop">Shop</a></li><li><a href="#about">About Us</a></li><li><a href="#services">Services</a></li><li><a href="#contact">Contact</a></li></ul></div>
+                <div class="footer-column"><h4>Categories</h4><ul><li><a href="#shop">Seating</a></li><li><a href="#shop">Tables</a></li><li><a href="#shop">Lighting</a></li><li><a href="#shop">Decor</a></li><li><a href="#shop">Storage</a></li></ul></div>
+                <div class="footer-column"><h4>Contact Info</h4><ul><li>📍 Opposite Anu Hospital</li><li>📞 +91 98765 43210</li><li>✉️ hello@hayeeinterior.com</li><li>🕐 Mon-Sat: 10 AM - 8 PM</li></ul></div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Hayee Interior. All rights reserved.</p>
-                <p>Made with ❤️ in Thanjavur</p>
-            </div>
+            <div class="footer-bottom"><p>&copy; 2025 Hayee Interior. All rights reserved.</p><p>Made with ❤️ in Thanjavur</p></div>
         </div>
     </footer>
 
-    <!-- ============================================
-    PRODUCT DETAIL MODAL
-    ============================================ -->
+    <!-- Product Modal -->
     <div class="modal-overlay" id="productModal">
         <div class="modal">
             <button class="modal-close" id="modalClose">✕</button>
-            <div class="modal-gallery" id="modalGallery">
-                <img src="" alt="Product Image" id="modalImage">
-            </div>
-            <div class="modal-details" id="modalDetails">
-                <!-- Filled dynamically -->
-            </div>
+            <div class="modal-gallery" id="modalGallery"></div>
+            <div class="modal-details" id="modalDetails"></div>
         </div>
     </div>
 
-    <!-- ============================================
-    CART PANEL
-    ============================================ -->
+    <!-- Cart Panel -->
     <div class="cart-overlay" id="cartOverlay"></div>
     <aside class="cart-panel" id="cartPanel">
-        <div class="cart-panel-header">
-            <h3>Shopping Cart</h3>
-            <button class="cart-close" id="cartClose">✕</button>
-        </div>
-        <div class="cart-items" id="cartItems">
-            <p style="text-align:center;color:var(--color-medium-gray);padding:2rem;">Your cart is empty</p>
-        </div>
+        <div class="cart-panel-header"><h3>Shopping Cart</h3><button class="cart-close" id="cartClose">✕</button></div>
+        <div class="cart-items" id="cartItems"><p style="text-align:center;color:var(--color-medium-gray);padding:2rem;">Your cart is empty</p></div>
         <div class="cart-footer">
-            <div class="cart-total">
-                <span>Subtotal</span>
-                <span id="cartTotal">₹0</span>
-            </div>
-            <button class="btn btn-primary btn-block" id="checkoutBtn">Proceed to Checkout</button>
+            <div class="cart-total"><span>Subtotal</span><span id="cartTotal">₹0</span></div>
+            <button class="btn btn-primary btn-block" id="checkoutBtn">Proceed to Payment</button>
         </div>
     </aside>
 
-    <!-- ============================================
-    JAVASCRIPT - MOCK DATABASE & APPLICATION LOGIC
-    ============================================ -->
+    <!-- Payment Modal -->
+    <div class="payment-modal-overlay" id="paymentModal">
+        <div class="payment-modal">
+            <button class="payment-close" id="paymentClose">✕</button>
+            <h3>Complete Payment</h3>
+            <div class="payment-total" id="paymentTotal">₹0</div>
+            <div class="upi-section">
+                <h4>Pay via UPI</h4>
+                <div class="upi-options">
+                    <div class="upi-option selected" data-upi="gpay">
+                        <span style="font-size:2rem;">📱</span><span>Google Pay</span>
+                    </div>
+                    <div class="upi-option" data-upi="phonepe">
+                        <span style="font-size:2rem;">💳</span><span>PhonePe</span>
+                    </div>
+                    <div class="upi-option" data-upi="paytm">
+                        <span style="font-size:2rem;">🏦</span><span>Paytm</span>
+                    </div>
+                </div>
+                <input type="text" class="upi-id-input" id="upiIdInput" placeholder="Enter your UPI ID (e.g., name@upi)">
+            </div>
+            <div class="or-divider"><span>OR</span></div>
+            <div class="card-payment">
+                <div class="card-icons">💳 🏦 💰</div>
+                <p style="color:var(--color-medium-gray);font-size:0.9rem;">Card / Net Banking / Wallet</p>
+                <button class="btn btn-outline-dark" style="width:100%;margin-top:1rem;" onclick="processCardPayment()">Pay with Card</button>
+            </div>
+            <button class="btn btn-primary btn-block" style="margin-top:1rem;" onclick="processUPIPayment()">Pay Now</button>
+        </div>
+    </div>
+
     <script>
         // ============================================
-        // MOCK PRODUCT DATABASE
+        // MOCK PRODUCT DATABASE - 30+ Products with Real Images
         // ============================================
         const products = [
-            {
-                id: 1,
-                title: "Serena Velvet Armchair",
-                category: "seating",
-                price: 85000,
-                originalPrice: 95000,
-                description: "Handcrafted armchair upholstered in Italian velvet with solid oak legs. The perfect blend of comfort and sophistication for your living space.",
-                specs: {
-                    "Material": "Velvet & Solid Oak",
-                    "Dimensions": "85cm W x 90cm D x 95cm H",
-                    "Weight": "18 kg",
-                    "Color": "Sage Green"
-                },
-                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect fill='%238B7355' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23F5F0EB' font-family='serif' font-size='20'%3ESerena Armchair%3C/text%3E%3C/svg%3E",
-                badge: "Bestseller",
-                inventory: 12
-            },
-            {
-                id: 2,
-                title: "Minimalist Marble Coffee Table",
-                category: "tables",
-                price: 120000,
-                originalPrice: null,
-                description: "Elegant coffee table featuring a Carrara marble top with a brushed brass base. A statement piece for contemporary interiors.",
-                specs: {
-                    "Material": "Carrara Marble & Brass",
-                    "Dimensions": "120cm L x 70cm W x 40cm H",
-                    "Weight": "35 kg",
-                    "Color": "White & Gold"
-                },
-                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect fill='%23E8E4DF' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%233D3A35' font-family='serif' font-size='20'%3EMarble Table%3C/text%3E%3C/svg%3E",
-                badge: null,
-                inventory: 5
-            },
-            {
-                id: 3,
-                title: "Artisan Pendant Light",
-                category: "lighting",
-                price: 45000,
-                originalPrice: 52000,
-                description: "Hand-blown glass pendant light with antique brass fittings. Creates a warm, ambient glow perfect for dining areas.",
-                specs: {
-                    "Material": "Blown Glass & Brass",
-                    "Dimensions": "30cm Diameter x 40cm H",
-                    "Weight": "4 kg",
-                    "Color": "Amber"
-                },
-                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect fill='%23C9A96E' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23FAF8F5' font-family='serif' font-size='20'%3EPendant Light%3C/text%3E%3C/svg%3E",
-                badge: "Limited Edition",
-                inventory: 3
-            },
-            {
-                id: 4,
-                title: "Sculptural Ceramic Vase",
-                category: "decor",
-                price: 18000,
-                originalPrice: null,
-                description: "Handcrafted ceramic vase with a unique sculptural form. Each piece is individually made by artisans in Tamil Nadu.",
-                specs: {
-                    "Material": "Terracotta & Glaze",
-                    "Dimensions": "25cm W x 45cm H",
-                    "Weight": "3 kg",
-                    "Color": "Matte White"
-                },
-                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect fill='%23B8B2A6' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23FAF8F5' font-family='serif' font-size='20'%3ECeramic Vase%3C/text%3E%3C/svg%3E",
-                badge: "Handmade",
-                inventory: 20
-            },
-            {
-                id: 5,
-                title: "Chesterfield Leather Sofa",
-                category: "seating",
-                price: 245000,
-                originalPrice: 280000,
-                description: "Classic Chesterfield sofa in full-grain leather with deep button tufting. A timeless piece that ages beautifully.",
-                specs: {
-                    "Material": "Full-Grain Leather",
-                    "Dimensions": "220cm L x 95cm D x 80cm H",
-                    "Weight": "65 kg",
-                    "Color": "Cognac Brown"
-                },
-                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect fill='%233D3A35' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23C9A96E' font-family='serif' font-size='20'%3ELeather Sofa%3C/text%3E%3C/svg%3E",
-                badge: "Premium",
-                inventory: 2
-            },
-            {
-                id: 6,
-                title: "Walnut Dining Table",
-                category: "tables",
-                price: 165000,
-                originalPrice: null,
-                description: "Solid American walnut dining table seating 8-10. Features a live edge detail and hand-rubbed oil finish.",
-                specs: {
-                    "Material": "Solid Walnut",
-                    "Dimensions": "240cm L x 100cm W x 76cm H",
-                    "Weight": "80 kg",
-                    "Color": "Dark Walnut"
-                },
-                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect fill='%232C2925' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23DFC89D' font-family='serif' font-size='20'%3EWalnut Table%3C/text%3E%3C/svg%3E",
-                badge: null,
-                inventory: 4
-            },
-            {
-                id: 7,
-                title: "Crystal Chandelier",
-                category: "lighting",
-                price: 320000,
-                originalPrice: 380000,
-                description: "Magnificent crystal chandelier with 24 lights. Hand-cut crystals catch and refract light beautifully throughout any grand space.",
-                specs: {
-                    "Material": "Crystal & Gold-Plated Metal",
-                    "Dimensions": "100cm Diameter x 120cm H",
-                    "Weight": "45 kg",
-                    "Color": "Clear & Gold"
-                },
-                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect fill='%231F1D1A' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23C9A96E' font-family='serif' font-size='18'%3ECrystal Chandelier%3C/text%3E%3C/svg%3E",
-                badge: "Luxury",
-                inventory: 1
-            },
-            {
-                id: 8,
-                title: "Linen Throw Pillow Set",
-                category: "decor",
-                price: 6500,
-                originalPrice: 8000,
-                description: "Set of 4 hand-stitched linen throw pillows with feather inserts. Available in a palette of sophisticated neutrals.",
-                specs: {
-                    "Material": "100% Linen",
-                    "Dimensions": "50cm x 50cm each",
-                    "Weight": "2 kg total",
-                    "Color": "Assorted Neutrals"
-                },
-                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect fill='%23F5F0EB' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%238B7355' font-family='serif' font-size='18'%3ELinen Pillows%3C/text%3E%3C/svg%3E",
-                badge: null,
-                inventory: 50
-            },
-            {
-                id: 9,
-                title: "Teak Wood Bookcase",
-                category: "storage",
-                price: 95000,
-                originalPrice: null,
-                description: "Floor-to-ceiling modular bookcase in reclaimed teak wood. Adjustable shelves accommodate books and display pieces.",
-                specs: {
-                    "Material": "Reclaimed Teak",
-                    "Dimensions": "180cm W x 40cm D x 240cm H",
-                    "Weight": "120 kg",
-                    "Color": "Natural Teak"
-                },
-                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect fill='%238B7355' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23FAF8F5' font-family='serif' font-size='20'%3ETeak Bookcase%3C/text%3E%3C/svg%3E",
-                badge: "Sustainable",
-                inventory: 3
-            },
-            {
-                id: 10,
-                title: "Brass Floor Lamp",
-                category: "lighting",
-                price: 55000,
-                originalPrice: 62000,
-                description: "Sculptural floor lamp in solid brass with a linen shade. Adds a warm, sophisticated glow to reading nooks.",
-                specs: {
-                    "Material": "Solid Brass & Linen",
-                    "Dimensions": "40cm W x 40cm D x 160cm H",
-                    "Weight": "12 kg",
-                    "Color": "Antique Brass"
-                },
-                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect fill='%23DFC89D' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%232C2925' font-family='serif' font-size='18'%3EBrass Lamp%3C/text%3E%3C/svg%3E",
-                badge: null,
-                inventory: 7
-            },
-            {
-                id: 11,
-                title: "Velvet Ottoman",
-                category: "seating",
-                price: 35000,
-                originalPrice: null,
-                description: "Plush velvet ottoman with hidden storage. Doubles as extra seating or a footrest with elegant tufted detailing.",
-                specs: {
-                    "Material": "Cotton Velvet",
-                    "Dimensions": "80cm Diameter x 45cm H",
-                    "Weight": "10 kg",
-                    "Color": "Blush Pink"
-                },
-                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect fill='%23C9A96E' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23FAF8F5' font-family='serif' font-size='20'%3EVelvet Ottoman%3C/text%3E%3C/svg%3E",
-                badge: "New",
-                inventory: 15
-            },
-            {
-                id: 12,
-                title: "Marble Console Table",
-                category: "tables",
-                price: 140000,
-                originalPrice: 160000,
-                description: "Sleek console table with a Nero Marquina marble top and geometric black metal base. Perfect for entryways.",
-                specs: {
-                    "Material": "Nero Marquina Marble & Steel",
-                    "Dimensions": "140cm L x 40cm D x 85cm H",
-                    "Weight": "40 kg",
-                    "Color": "Black & Gold"
-                },
-                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect fill='%231F1D1A' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23DFC89D' font-family='serif' font-size='18'%3EMarble Console%3C/text%3E%3C/svg%3E",
-                badge: "Exclusive",
-                inventory: 2
-            }
+            { id: 1, title: "Serena Velvet Armchair", category: "seating", price: 85000, originalPrice: 95000, description: "Handcrafted armchair upholstered in Italian velvet with solid oak legs. The perfect blend of comfort and sophistication.", specs: { "Material": "Velvet & Solid Oak", "Dimensions": "85cm W x 90cm D x 95cm H", "Weight": "18 kg", "Color": "Sage Green" }, image: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=400&auto=format&fit=crop", badge: "Bestseller", inventory: 12 },
+            { id: 2, title: "Minimalist Marble Coffee Table", category: "tables", price: 120000, originalPrice: null, description: "Elegant coffee table featuring a Carrara marble top with a brushed brass base.", specs: { "Material": "Carrara Marble & Brass", "Dimensions": "120cm L x 70cm W x 40cm H", "Weight": "35 kg", "Color": "White & Gold" }, image: "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?w=400&auto=format&fit=crop", badge: null, inventory: 5 },
+            { id: 3, title: "Artisan Pendant Light", category: "lighting", price: 45000, originalPrice: 52000, description: "Hand-blown glass pendant light with antique brass fittings. Creates a warm, ambient glow.", specs: { "Material": "Blown Glass & Brass", "Dimensions": "30cm Diameter x 40cm H", "Weight": "4 kg", "Color": "Amber" }, image: "https://images.unsplash.com/photo-1524484485831-a92ffc0de03f?w=400&auto=format&fit=crop", badge: "Limited Edition", inventory: 3 },
+            { id: 4, title: "Sculptural Ceramic Vase", category: "decor", price: 18000, originalPrice: null, description: "Handcrafted ceramic vase with a unique sculptural form by Tamil Nadu artisans.", specs: { "Material": "Terracotta & Glaze", "Dimensions": "25cm W x 45cm H", "Weight": "3 kg", "Color": "Matte White" }, image: "https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=400&auto=format&fit=crop", badge: "Handmade", inventory: 20 },
+            { id: 5, title: "Chesterfield Leather Sofa", category: "seating", price: 245000, originalPrice: 280000, description: "Classic Chesterfield sofa in full-grain leather with deep button tufting.", specs: { "Material": "Full-Grain Leather", "Dimensions": "220cm L x 95cm D x 80cm H", "Weight": "65 kg", "Color": "Cognac Brown" }, image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&auto=format&fit=crop", badge: "Premium", inventory: 2 },
+            { id: 6, title: "Walnut Dining Table", category: "tables", price: 165000, originalPrice: null, description: "Solid American walnut dining table seating 8-10 with live edge detail.", specs: { "Material": "Solid Walnut", "Dimensions": "240cm L x 100cm W x 76cm H", "Weight": "80 kg", "Color": "Dark Walnut" }, image: "https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?w=400&auto=format&fit=crop", badge: null, inventory: 4 },
+            { id: 7, title: "Crystal Chandelier", category: "lighting", price: 320000, originalPrice: 380000, description: "Magnificent crystal chandelier with 24 lights and hand-cut crystals.", specs: { "Material": "Crystal & Gold-Plated Metal", "Dimensions": "100cm Diameter x 120cm H", "Weight": "45 kg", "Color": "Clear & Gold" }, image: "https://images.unsplash.com/photo-1540932239986-30128078f3c5?w=400&auto=format&fit=crop", badge: "Luxury", inventory: 1 },
+            { id: 8, title: "Linen Throw Pillow Set", category: "textiles", price: 6500, originalPrice: 8000, description: "Set of 4 hand-stitched linen throw pillows with feather inserts.", specs: { "Material": "100% Linen", "Dimensions": "50cm x 50cm each", "Weight": "2 kg total", "Color": "Assorted Neutrals" }, image: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=400&auto=format&fit=crop", badge: null, inventory: 50 },
+            { id: 9, title: "Teak Wood Bookcase", category: "storage", price: 95000, originalPrice: null, description: "Floor-to-ceiling modular bookcase in reclaimed teak wood.", specs: { "Material": "Reclaimed Teak", "Dimensions": "180cm W x 40cm D x 240cm H", "Weight": "120 kg", "Color": "Natural Teak" }, image: "https://images.unsplash.com/photo-1594620302200-9a762244a156?w=400&auto=format&fit=crop", badge: "Sustainable", inventory: 3 },
+            { id: 10, title: "Brass Floor Lamp", category: "lighting", price: 55000, originalPrice: 62000, description: "Sculptural floor lamp in solid brass with a linen shade.", specs: { "Material": "Solid Brass & Linen", "Dimensions": "40cm W x 40cm D x 160cm H", "Weight": "12 kg", "Color": "Antique Brass" }, image: "https://images.unsplash.com/photo-1507473885765-e6ed057ab6fe?w=400&auto=format&fit=crop", badge: null, inventory: 7 },
+            { id: 11, title: "Velvet Ottoman", category: "seating", price: 35000, originalPrice: null, description: "Plush velvet ottoman with hidden storage and elegant tufted detailing.", specs: { "Material": "Cotton Velvet", "Dimensions": "80cm Diameter x 45cm H", "Weight": "10 kg", "Color": "Blush Pink" }, image: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=400&auto=format&fit=crop", badge: "New", inventory: 15 },
+            { id: 12, title: "Marble Console Table", category: "tables", price: 140000, originalPrice: 160000, description: "Sleek console table with Nero Marquina marble top and geometric metal base.", specs: { "Material": "Nero Marquina Marble & Steel", "Dimensions": "140cm L x 40cm D x 85cm H", "Weight": "40 kg", "Color": "Black & Gold" }, image: "https://images.unsplash.com/photo-1486946255434-2466348c2166?w=400&auto=format&fit=crop", badge: "Exclusive", inventory: 2 },
+            { id: 13, title: "Bamboo Pendant Light", category: "lighting", price: 28000, originalPrice: null, description: "Eco-friendly handwoven bamboo pendant light, perfect for creating a warm tropical ambiance.", specs: { "Material": "Natural Bamboo", "Dimensions": "45cm Diameter x 55cm H", "Weight": "2.5 kg", "Color": "Natural" }, image: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=400&auto=format&fit=crop", badge: "Eco-Friendly", inventory: 10 },
+            { id: 14, title: "Mid-Century Sideboard", category: "storage", price: 185000, originalPrice: 210000, description: "Iconic mid-century sideboard in American walnut with sculptural legs and brass handles.", specs: { "Material": "American Walnut & Brass", "Dimensions": "180cm L x 45cm D x 75cm H", "Weight": "55 kg", "Color": "Walnut" }, image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=400&auto=format&fit=crop", badge: "Iconic", inventory: 3 },
+            { id: 15, title: "Cashmere Throw Blanket", category: "textiles", price: 22000, originalPrice: 28000, description: "Ultra-soft pure cashmere throw in a sophisticated heathered charcoal.", specs: { "Material": "100% Cashmere", "Dimensions": "140cm x 200cm", "Weight": "0.8 kg", "Color": "Heathered Charcoal" }, image: "https://images.unsplash.com/photo-1580301762395-21ceb8804b4f?w=400&auto=format&fit=crop", badge: null, inventory: 25 },
+            { id: 16, title: "Wingback Dining Chair", category: "seating", price: 42000, originalPrice: null, description: "Set of 2 elegant wingback chairs upholstered in performance linen.", specs: { "Material": "Performance Linen & Oak", "Dimensions": "55cm W x 60cm D x 85cm H", "Weight": "8 kg each", "Color": "Ivory" }, image: "https://images.unsplash.com/photo-1503602642458-232111445657?w=400&auto=format&fit=crop", badge: "Set of 2", inventory: 8 },
+            { id: 17, title: "Abstract Wall Mirror", category: "decor", price: 34000, originalPrice: 40000, description: "Oversized abstract shaped wall mirror with a thin gold frame. A true statement piece.", specs: { "Material": "Glass & Gold Leaf Metal", "Dimensions": "90cm W x 120cm H", "Weight": "15 kg", "Color": "Gold" }, image: "https://images.unsplash.com/photo-1618220252344-8ec99ec625b5?w=400&auto=format&fit=crop", badge: "Statement", inventory: 4 },
+            { id: 18, title: "Nesting Side Tables", category: "tables", price: 56000, originalPrice: null, description: "Set of 3 nesting tables in varying sizes with brushed brass frames and smoked glass tops.", specs: { "Material": "Brass & Smoked Glass", "Dimensions": "Various sizes", "Weight": "12 kg total", "Color": "Brass & Grey" }, image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&auto=format&fit=crop", badge: "Set of 3", inventory: 6 },
+            { id: 19, title: "Ceramic Table Lamp", category: "lighting", price: 19500, originalPrice: 24000, description: "Hand-thrown ceramic base with a raw linen shade, casting a soft, diffused light.", specs: { "Material": "Ceramic & Linen", "Dimensions": "35cm Diameter x 60cm H", "Weight": "5 kg", "Color": "Ivory" }, image: "https://images.unsplash.com/photo-1507473885765-e6ed057ab6fe?w=400&auto=format&fit=crop", badge: null, inventory: 14 },
+            { id: 20, title: "Modular Storage Unit", category: "storage", price: 210000, originalPrice: null, description: "Customizable modular wall unit in matte lacquer with integrated lighting options.", specs: { "Material": "MDF & Matte Lacquer", "Dimensions": "Customizable", "Weight": "Varies", "Color": "Matte White" }, image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&auto=format&fit=crop", badge: "Custom", inventory: 2 },
+            { id: 21, title: "Hand-Knotted Wool Rug", category: "textiles", price: 78000, originalPrice: 95000, description: "Traditional hand-knotted rug with a modern geometric pattern in muted tones.", specs: { "Material": "Hand-Spun Wool", "Dimensions": "240cm x 300cm", "Weight": "25 kg", "Color": "Ivory & Grey" }, image: "https://images.unsplash.com/photo-1600166898405-da9535204843?w=400&auto=format&fit=crop", badge: "Artisan", inventory: 3 },
+            { id: 22, title: "Leather Lounge Chair", category: "seating", price: 135000, originalPrice: 155000, description: "Iconic lounge chair and ottoman in top-grain aniline leather with rosewood veneer.", specs: { "Material": "Aniline Leather & Rosewood", "Dimensions": "85cm W x 85cm D x 100cm H", "Weight": "30 kg", "Color": "Black" }, image: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=400&auto=format&fit=crop", badge: "Icon", inventory: 2 },
+            { id: 23, title: "Scented Candle Collection", category: "decor", price: 4500, originalPrice: null, description: "Set of 3 luxury soy wax candles in sandalwood, jasmine, and vanilla bean.", specs: { "Material": "Soy Wax & Essential Oils", "Dimensions": "8cm x 10cm each", "Weight": "0.5 kg", "Color": "Matte Black Vessels" }, image: "https://images.unsplash.com/photo-1603006905003-be475563bc59?w=400&auto=format&fit=crop", badge: "New", inventory: 40 },
+            { id: 24, title: "Round Pedestal Table", category: "tables", price: 98000, originalPrice: 115000, description: "Classic round pedestal table in white oak with a sculptural base.", specs: { "Material": "White Oak", "Dimensions": "120cm Diameter x 76cm H", "Weight": "45 kg", "Color": "Natural Oak" }, image: "https://images.unsplash.com/photo-1530018607912-eff2daa1bac4?w=400&auto=format&fit=crop", badge: null, inventory: 4 },
+            { id: 25, title: "Wall Sconce Pair", category: "lighting", price: 32000, originalPrice: null, description: "Pair of elegant brass wall sconces with opal glass globes.", specs: { "Material": "Brass & Opal Glass", "Dimensions": "15cm W x 25cm H each", "Weight": "2 kg", "Color": "Brass & White" }, image: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=400&auto=format&fit=crop", badge: "Pair", inventory: 9 },
+            { id: 26, title: "Velvet Curtain Panel", category: "textiles", price: 15000, originalPrice: 18000, description: "Single luxurious cotton velvet curtain panel with blackout lining.", specs: { "Material": "Cotton Velvet", "Dimensions": "140cm W x 270cm H", "Weight": "4 kg", "Color": "Charcoal" }, image: "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=400&auto=format&fit=crop", badge: "Per Panel", inventory: 30 },
+            { id: 27, title: "Bar Cabinet", category: "storage", price: 155000, originalPrice: 175000, description: "Art Deco inspired bar cabinet in Macassar ebony with a mirrored interior and LED lighting.", specs: { "Material": "Macassar Ebony & Mirror", "Dimensions": "100cm W x 45cm D x 140cm H", "Weight": "70 kg", "Color": "Dark Ebony" }, image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=400&auto=format&fit=crop", badge: "Statement", inventory: 1 },
+            { id: 28, title: "Jute Area Rug", category: "textiles", price: 18500, originalPrice: null, description: "Hand-braided natural jute rug with a chunky weave, perfect for layering.", specs: { "Material": "100% Jute", "Dimensions": "200cm x 280cm", "Weight": "18 kg", "Color": "Natural Jute" }, image: "https://images.unsplash.com/photo-1575414003591-ece8be4f5fe3?w=400&auto=format&fit=crop", badge: "Natural", inventory: 12 },
+            { id: 29, title: "Acrylic Console", category: "tables", price: 88000, originalPrice: null, description: "Modern ghost console table in clear acrylic with beveled edges. Adds surface without visual weight.", specs: { "Material": "Clear Acrylic", "Dimensions": "130cm L x 40cm D x 80cm H", "Weight": "20 kg", "Color": "Clear" }, image: "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?w=400&auto=format&fit=crop", badge: "Modern", inventory: 5 },
+            { id: 30, title: "Macrame Wall Hanging", category: "decor", price: 12000, originalPrice: 15000, description: "Large hand-knotted cotton macrame wall art, adding texture and bohemian elegance.", specs: { "Material": "Cotton Rope & Wood Dowel", "Dimensions": "90cm W x 150cm H", "Weight": "3 kg", "Color": "Natural Cream" }, image: "https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=400&auto=format&fit=crop", badge: "Artisan", inventory: 7 },
+            { id: 31, title: "Boucle Accent Chair", category: "seating", price: 65000, originalPrice: 75000, description: "Trendy boucle fabric accent chair with a swivel base. Cozy and sculptural.", specs: { "Material": "Boucle & Metal", "Dimensions": "75cm W x 80cm D x 85cm H", "Weight": "16 kg", "Color": "Cream" }, image: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=400&auto=format&fit=crop", badge: "Trending", inventory: 6 },
+            { id: 32, title: "Marble & Wood Tray", category: "decor", price: 8500, originalPrice: null, description: "Elegant serving tray combining white marble and mango wood with brass inlay.", specs: { "Material": "Marble, Mango Wood, Brass", "Dimensions": "50cm L x 30cm W", "Weight": "4 kg", "Color": "White & Brown" }, image: "https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=400&auto=format&fit=crop", badge: null, inventory: 22 }
         ];
 
         // ============================================
@@ -2451,180 +2070,139 @@
         // ============================================
         let cart = JSON.parse(localStorage.getItem('hayeeCart')) || [];
 
-        function saveCart() {
-            localStorage.setItem('hayeeCart', JSON.stringify(cart));
-            updateCartUI();
-        }
-
+        function saveCart() { localStorage.setItem('hayeeCart', JSON.stringify(cart)); updateCartUI(); }
         function addToCart(productId, quantity = 1) {
             const existing = cart.find(item => item.productId === productId);
-            if (existing) {
-                existing.quantity += quantity;
-            } else {
-                cart.push({ productId, quantity });
-            }
-            saveCart();
-            showToast('Added to cart successfully! ✨');
+            if (existing) { existing.quantity += quantity; } else { cart.push({ productId, quantity }); }
+            saveCart(); showToast('Added to cart successfully! ✨');
         }
-
-        function removeFromCart(productId) {
-            cart = cart.filter(item => item.productId !== productId);
-            saveCart();
-            showToast('Removed from cart');
-        }
-
+        function removeFromCart(productId) { cart = cart.filter(item => item.productId !== productId); saveCart(); showToast('Removed from cart'); }
         function updateQuantity(productId, newQuantity) {
             const item = cart.find(item => item.productId === productId);
-            if (item) {
-                item.quantity = Math.max(1, newQuantity);
-                saveCart();
-            }
+            if (item) { item.quantity = Math.max(1, newQuantity); saveCart(); }
         }
-
         function getCartTotal() {
             return cart.reduce((total, item) => {
                 const product = products.find(p => p.id === item.productId);
                 return total + (product ? product.price * item.quantity : 0);
             }, 0);
         }
+        function getCartCount() { return cart.reduce((count, item) => count + item.quantity, 0); }
 
-        function getCartCount() {
-            return cart.reduce((count, item) => count + item.quantity, 0);
-        }
-
-        // ============================================
-        // UI UPDATE FUNCTIONS
-        // ============================================
         function updateCartUI() {
-            const count = getCartCount();
-            document.getElementById('cartCount').textContent = count;
+            document.getElementById('cartCount').textContent = getCartCount();
             document.getElementById('cartTotal').textContent = '₹' + getCartTotal().toLocaleString('en-IN');
-            
-            const cartItemsContainer = document.getElementById('cartItems');
+            const container = document.getElementById('cartItems');
             if (cart.length === 0) {
-                cartItemsContainer.innerHTML = '<p style="text-align:center;color:var(--color-medium-gray);padding:2rem;">Your cart is empty</p>';
+                container.innerHTML = '<p style="text-align:center;color:var(--color-medium-gray);padding:2rem;">Your cart is empty</p>';
             } else {
-                cartItemsContainer.innerHTML = cart.map(item => {
-                    const product = products.find(p => p.id === item.productId);
-                    if (!product) return '';
-                    return `
-                        <div class="cart-item">
-                            <div class="cart-item-image">
-                                <img src="${product.image}" alt="${product.title}">
-                            </div>
-                            <div class="cart-item-details">
-                                <div class="cart-item-name">${product.title}</div>
-                                <div class="cart-item-price">₹${product.price.toLocaleString('en-IN')}</div>
-                                <div class="cart-item-quantity">
-                                    <button class="qty-btn" onclick="updateQuantity(${product.id}, ${item.quantity - 1})">−</button>
-                                    <input type="number" class="qty-input" value="${item.quantity}" min="1" readonly>
-                                    <button class="qty-btn" onclick="updateQuantity(${product.id}, ${item.quantity + 1})">+</button>
-                                </div>
-                                <button class="cart-item-remove" onclick="removeFromCart(${product.id})">Remove</button>
-                            </div>
-                        </div>
-                    `;
+                container.innerHTML = cart.map(item => {
+                    const p = products.find(pr => pr.id === item.productId);
+                    if (!p) return '';
+                    return `<div class="cart-item"><div class="cart-item-image"><img src="${p.image}" alt="${p.title}"></div><div class="cart-item-details"><div class="cart-item-name">${p.title}</div><div class="cart-item-price">₹${p.price.toLocaleString('en-IN')}</div><div class="cart-item-quantity"><button class="qty-btn" onclick="updateQuantity(${p.id}, ${item.quantity - 1})">−</button><input type="number" class="qty-input" value="${item.quantity}" min="1" readonly><button class="qty-btn" onclick="updateQuantity(${p.id}, ${item.quantity + 1})">+</button></div><button class="cart-item-remove" onclick="removeFromCart(${p.id})">Remove</button></div></div>`;
                 }).join('');
             }
-            document.getElementById('cartTotal').textContent = '₹' + getCartTotal().toLocaleString('en-IN');
         }
 
         function renderProducts(category = 'all') {
             const grid = document.getElementById('productGrid');
             const noResults = document.getElementById('noResults');
             const filtered = category === 'all' ? products : products.filter(p => p.category === category);
-            
-            if (filtered.length === 0) {
-                grid.innerHTML = '';
-                noResults.style.display = 'block';
-                return;
-            }
-            
+            if (filtered.length === 0) { grid.innerHTML = ''; noResults.style.display = 'block'; return; }
             noResults.style.display = 'none';
-            grid.innerHTML = filtered.map(product => `
-                <div class="product-card" onclick="openProductModal(${product.id})">
-                    <div class="product-image">
-                        <img src="${product.image}" alt="${product.title}" loading="lazy">
-                        ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ''}
-                        <div class="product-actions" onclick="event.stopPropagation()">
-                            <button class="product-action-btn" onclick="addToCart(${product.id}); event.stopPropagation();" title="Add to Cart">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
-                                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <p class="product-category">${product.category}</p>
-                        <h3 class="product-name">${product.title}</h3>
-                        <div class="product-price">
-                            ₹${product.price.toLocaleString('en-IN')}
-                            ${product.originalPrice ? `<span class="original-price">₹${product.originalPrice.toLocaleString('en-IN')}</span>` : ''}
-                        </div>
-                    </div>
+            grid.innerHTML = filtered.map(p => `
+                <div class="product-card" onclick="openProductModal(${p.id})">
+                    <div class="product-image"><img src="${p.image}" alt="${p.title}" loading="lazy">${p.badge ? `<span class="product-badge">${p.badge}</span>` : ''}<div class="product-actions" onclick="event.stopPropagation()"><button class="product-action-btn" onclick="addToCart(${p.id}); event.stopPropagation();" title="Add to Cart"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></button></div></div>
+                    <div class="product-info"><p class="product-category">${p.category}</p><h3 class="product-name">${p.title}</h3><div class="product-price">₹${p.price.toLocaleString('en-IN')}${p.originalPrice ? `<span class="original-price">₹${p.originalPrice.toLocaleString('en-IN')}</span>` : ''}</div></div>
                 </div>
             `).join('');
         }
 
         function openProductModal(productId) {
-            const product = products.find(p => p.id === productId);
-            if (!product) return;
-            
-            document.getElementById('modalGallery').innerHTML = `<img src="${product.image}" alt="${product.title}" style="max-width:100%;max-height:500px;object-fit:contain;">`;
-            
+            const p = products.find(pr => pr.id === productId);
+            if (!p) return;
+            document.getElementById('modalGallery').innerHTML = `<img src="${p.image}" alt="${p.title}" style="max-width:100%;max-height:500px;object-fit:contain;">`;
             document.getElementById('modalDetails').innerHTML = `
-                <p class="product-category">${product.category}</p>
-                <h2>${product.title}</h2>
-                <div class="product-price">₹${product.price.toLocaleString('en-IN')}</div>
-                <p class="product-description">${product.description}</p>
-                <div class="product-specs">
-                    ${Object.entries(product.specs).map(([key, value]) => `
-                        <div class="spec-item">
-                            <span class="spec-label">${key}</span>
-                            <span class="spec-value">${value}</span>
-                        </div>
-                    `).join('')}
-                </div>
-                <p style="margin-bottom:1rem;"><strong>In Stock:</strong> ${product.inventory} units</p>
-                <div class="quantity-selector">
-                    <button class="qty-btn" id="modalQtyMinus">−</button>
-                    <input type="number" class="qty-input" id="modalQty" value="1" min="1" max="${product.inventory}" readonly>
-                    <button class="qty-btn" id="modalQtyPlus">+</button>
-                </div>
+                <p class="product-category">${p.category}</p><h2>${p.title}</h2><div class="product-price">₹${p.price.toLocaleString('en-IN')}</div><p class="product-description">${p.description}</p>
+                <div class="product-specs">${Object.entries(p.specs).map(([k,v]) => `<div class="spec-item"><span class="spec-label">${k}</span><span class="spec-value">${v}</span></div>`).join('')}</div>
+                <p style="margin-bottom:1rem;"><strong>In Stock:</strong> ${p.inventory} units</p>
+                <div class="quantity-selector"><button class="qty-btn" id="modalQtyMinus">−</button><input type="number" class="qty-input" id="modalQty" value="1" min="1" max="${p.inventory}" readonly><button class="qty-btn" id="modalQtyPlus">+</button></div>
                 <button class="btn btn-primary" id="modalAddToCart" style="width:100%;">Add to Cart</button>
             `;
-            
             document.getElementById('productModal').classList.add('active');
-            
             let qty = 1;
-            document.getElementById('modalQtyMinus').onclick = () => {
-                if (qty > 1) { qty--; document.getElementById('modalQty').value = qty; }
-            };
-            document.getElementById('modalQtyPlus').onclick = () => {
-                if (qty < product.inventory) { qty++; document.getElementById('modalQty').value = qty; }
-            };
-            document.getElementById('modalAddToCart').onclick = () => {
-                addToCart(productId, qty);
-                document.getElementById('productModal').classList.remove('active');
-            };
+            document.getElementById('modalQtyMinus').onclick = () => { if (qty > 1) { qty--; document.getElementById('modalQty').value = qty; } };
+            document.getElementById('modalQtyPlus').onclick = () => { if (qty < p.inventory) { qty++; document.getElementById('modalQty').value = qty; } };
+            document.getElementById('modalAddToCart').onclick = () => { addToCart(productId, qty); document.getElementById('productModal').classList.remove('active'); };
         }
 
         function showToast(message) {
-            const toast = document.createElement('div');
-            toast.className = 'toast';
-            toast.textContent = message;
-            document.body.appendChild(toast);
-            setTimeout(() => toast.remove(), 3000);
+            const toast = document.createElement('div'); toast.className = 'toast'; toast.textContent = message;
+            document.body.appendChild(toast); setTimeout(() => toast.remove(), 3000);
+        }
+
+        // ============================================
+        // PAYMENT FUNCTIONS
+        // ============================================
+        function openPaymentModal() {
+            if (cart.length === 0) { showToast('Your cart is empty! 🛒'); return; }
+            document.getElementById('paymentTotal').textContent = '₹' + getCartTotal().toLocaleString('en-IN');
+            document.getElementById('paymentModal').classList.add('active');
+            document.getElementById('cartPanel').classList.remove('active');
+            document.getElementById('cartOverlay').classList.remove('active');
+        }
+
+        function processUPIPayment() {
+            const upiId = document.getElementById('upiIdInput').value.trim();
+            if (!upiId) { showToast('Please enter your UPI ID'); return; }
+            if (!upiId.includes('@')) { showToast('Please enter a valid UPI ID (e.g., name@upi)'); return; }
+            document.getElementById('paymentModal').classList.remove('active');
+            showToast(`Payment of ₹${getCartTotal().toLocaleString('en-IN')} successful via UPI! 🎉 Thank you for your purchase!`);
+            cart = []; saveCart();
+        }
+
+        function processCardPayment() {
+            document.getElementById('paymentModal').classList.remove('active');
+            showToast(`Payment of ₹${getCartTotal().toLocaleString('en-IN')} processing via Card... ✅ Thank you!`);
+            cart = []; saveCart();
+        }
+
+        // ============================================
+        // EMAIL SUBSCRIPTION WITH BEAUTIFUL MESSAGE
+        // ============================================
+        function handleNewsletterSubmit(email) {
+            // Simulate sending a beautiful welcome email
+            const welcomeMessage = `
+                ✨ Welcome to the Hayee Interior Family! ✨
+                
+                Dear Design Enthusiast,
+                
+                Thank you for subscribing to our newsletter. We are delighted to welcome you into our world of timeless design and exquisite craftsmanship.
+                
+                As a subscriber, you'll be the first to know about:
+                • New collection launches
+                • Exclusive member-only offers
+                • Design inspiration & tips
+                • Invitations to private events at our Thanjavur studio
+                
+                Visit us at our studio opposite Anu Hospital, Thanjavur, to experience our curated pieces in person.
+                
+                With love,
+                The Hayee Interior Team
+                ✨ Crafting Timeless Spaces Since 2015 ✨
+            `;
+            
+            console.log('📧 Welcome Email Sent to:', email);
+            console.log(welcomeMessage);
+            
+            showToast('✨ Welcome aboard! A beautiful welcome message has been sent to your inbox. Check your email! 💌');
         }
 
         // ============================================
         // EVENT LISTENERS
         // ============================================
         document.addEventListener('DOMContentLoaded', () => {
-            // Initial render
-            renderProducts();
-            updateCartUI();
+            renderProducts(); updateCartUI();
             
             // Cart toggle
             document.getElementById('cartToggle').addEventListener('click', () => {
@@ -2654,83 +2232,72 @@
                 document.getElementById('mobileMenuOverlay').classList.remove('active');
             });
             
-            // Product filters
+            // Filters
             document.querySelectorAll('.filter-btn').forEach(btn => {
                 btn.addEventListener('click', function() {
                     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-                    renderProducts(this.dataset.category);
+                    this.classList.add('active'); renderProducts(this.dataset.category);
                 });
             });
             
-            // Modal close
-            document.getElementById('modalClose').addEventListener('click', () => {
-                document.getElementById('productModal').classList.remove('active');
-            });
-            document.getElementById('productModal').addEventListener('click', function(e) {
-                if (e.target === this) this.classList.remove('active');
-            });
+            // Modal
+            document.getElementById('modalClose').addEventListener('click', () => document.getElementById('productModal').classList.remove('active'));
+            document.getElementById('productModal').addEventListener('click', function(e) { if (e.target === this) this.classList.remove('active'); });
             
-            // Checkout button
-            document.getElementById('checkoutBtn').addEventListener('click', () => {
-                if (cart.length === 0) {
-                    showToast('Your cart is empty! 🛒');
-                } else {
-                    showToast('Checkout feature coming soon! ✨');
-                }
+            // Checkout -> Payment
+            document.getElementById('checkoutBtn').addEventListener('click', openPaymentModal);
+            document.getElementById('paymentClose').addEventListener('click', () => document.getElementById('paymentModal').classList.remove('active'));
+            document.getElementById('paymentModal').addEventListener('click', function(e) { if (e.target === this) this.classList.remove('active'); });
+            
+            // UPI option selection
+            document.querySelectorAll('.upi-option').forEach(opt => {
+                opt.addEventListener('click', function() {
+                    document.querySelectorAll('.upi-option').forEach(o => o.classList.remove('selected'));
+                    this.classList.add('selected');
+                });
             });
             
             // Forms
             document.getElementById('contactForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                showToast('Thank you for your message! We will get back to you soon. 💫');
-                this.reset();
+                e.preventDefault(); showToast('Thank you for your message! We will get back to you soon. 💫'); this.reset();
             });
-            
             document.getElementById('newsletterForm').addEventListener('submit', function(e) {
                 e.preventDefault();
-                showToast('Thank you for subscribing! 📧');
+                const email = document.getElementById('newsletterEmail').value;
+                handleNewsletterSubmit(email);
                 this.reset();
             });
             
-            // Header scroll effect
+            // Header scroll
             window.addEventListener('scroll', () => {
-                const header = document.getElementById('siteHeader');
-                if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
+                document.getElementById('siteHeader').classList.toggle('scrolled', window.scrollY > 50);
             });
             
-            // Smooth scroll for navigation links
+            // Smooth scroll
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     e.preventDefault();
                     const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        document.getElementById('mobileMenu').classList.remove('active');
-                        document.getElementById('mobileMenuOverlay').classList.remove('active');
-                    }
+                    if (target) { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+                    document.getElementById('mobileMenu').classList.remove('active');
+                    document.getElementById('mobileMenuOverlay').classList.remove('active');
                 });
             });
-
-            // Keyboard shortcut to close modal
+            
+            // Keyboard
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape') {
                     document.getElementById('productModal').classList.remove('active');
                     document.getElementById('cartPanel').classList.remove('active');
                     document.getElementById('cartOverlay').classList.remove('active');
+                    document.getElementById('paymentModal').classList.remove('active');
                 }
             });
-
-            // Hide welcome overlay after animation (2.5s + 0.8s for fadeOut)
+            
+            // Welcome overlay
             setTimeout(() => {
-                const welcomeOverlay = document.getElementById('welcomeOverlay');
-                if (welcomeOverlay) {
-                    welcomeOverlay.style.display = 'none';
-                }
+                const overlay = document.getElementById('welcomeOverlay');
+                if (overlay) overlay.style.display = 'none';
             }, 3300);
         });
     </script>
