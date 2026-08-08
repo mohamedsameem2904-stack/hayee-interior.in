@@ -7,7 +7,6 @@
     <meta name="keywords" content="luxury interior design, Thanjavur, furniture, home decor, Hayee Interior, premium furniture">
     <title>Hayee Interior | Luxury Interior Design Studio - Thanjavur</title>
     
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@200;300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
@@ -16,303 +15,242 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     
     <style>
-        /* ============================================
-           CSS CUSTOM PROPERTIES (DESIGN TOKENS)
-           ============================================ */
         :root {
-            --color-cream: #F5F0EB;
-            --color-warm-white: #FAF8F5;
-            --color-soft-gray: #E8E4DF;
-            --color-medium-gray: #B8B2A6;
-            --color-charcoal: #3D3A35;
-            --color-dark-charcoal: #2C2925;
-            --color-richer-charcoal: #1F1D1A;
-            --color-gold-accent: #C9A96E;
-            --color-gold-light: #DFC89D;
-            --color-gold-dark: #A8854A;
-            --color-bronze: #8B7355;
-            --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
-            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --color-cream: #F5F0EB; --color-warm-white: #FAF8F5; --color-soft-gray: #E8E4DF;
+            --color-medium-gray: #B8B2A6; --color-charcoal: #3D3A35; --color-dark-charcoal: #2C2925;
+            --color-richer-charcoal: #1F1D1A; --color-gold-accent: #C9A96E; --color-gold-light: #DFC89D;
+            --color-gold-dark: #A8854A; --color-bronze: #8B7355;
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             --font-accent: 'Cormorant Garamond', Georgia, serif;
             --space-xs: 0.5rem; --space-sm: 1rem; --space-md: 1.5rem; --space-lg: 2rem;
             --space-xl: 3rem; --space-2xl: 4rem; --space-3xl: 6rem; --space-4xl: 8rem;
-            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
-            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
-            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
-            --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.16);
-            --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-elegant: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.06); --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+            --shadow-lg: 0 8px 32px rgba(0,0,0,0.12); --shadow-xl: 0 16px 48px rgba(0,0,0,0.16);
+            --transition-fast: 0.2s cubic-bezier(0.4,0,0.2,1);
+            --transition-smooth: 0.3s cubic-bezier(0.4,0,0.2,1);
+            --transition-elegant: 0.5s cubic-bezier(0.4,0,0.2,1);
             --radius-sm: 4px; --radius-md: 8px; --radius-lg: 12px; --radius-xl: 20px;
         }
-
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-        body { font-family: var(--font-body); background-color: var(--color-warm-white); color: var(--color-charcoal); line-height: 1.7; overflow-x: hidden; min-height: 100vh; }
-        ::selection { background-color: var(--color-gold-accent); color: var(--color-warm-white); }
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: var(--color-cream); }
-        ::-webkit-scrollbar-thumb { background: var(--color-medium-gray); border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--color-charcoal); }
-        h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); font-weight: 500; line-height: 1.2; color: var(--color-dark-charcoal); }
-        h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); }
-        h2 { font-size: clamp(2rem, 4vw, 3.5rem); }
-        h3 { font-size: clamp(1.5rem, 3vw, 2.5rem); }
-        h4 { font-size: clamp(1.25rem, 2vw, 1.75rem); }
-        .container { width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 var(--space-lg); }
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+        body{font-family:var(--font-body);background-color:var(--color-warm-white);color:var(--color-charcoal);line-height:1.7;overflow-x:hidden;min-height:100vh}
+        ::selection{background-color:var(--color-gold-accent);color:var(--color-warm-white)}
+        ::-webkit-scrollbar{width:8px}
+        ::-webkit-scrollbar-track{background:var(--color-cream)}
+        ::-webkit-scrollbar-thumb{background:var(--color-medium-gray);border-radius:4px}
+        ::-webkit-scrollbar-thumb:hover{background:var(--color-charcoal)}
+        h1,h2,h3,h4,h5,h6{font-family:var(--font-display);font-weight:500;line-height:1.2;color:var(--color-dark-charcoal)}
+        h1{font-size:clamp(2.5rem,5vw,4.5rem)}h2{font-size:clamp(2rem,4vw,3.5rem)}
+        h3{font-size:clamp(1.5rem,3vw,2.5rem)}h4{font-size:clamp(1.25rem,2vw,1.75rem)}
+        .container{width:100%;max-width:1400px;margin:0 auto;padding:0 var(--space-lg)}
 
         /* Header */
-        .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(250, 248, 245, 0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0, 0, 0, 0.05); transition: all var(--transition-smooth); }
-        .site-header.scrolled { box-shadow: var(--shadow-md); background: rgba(250, 248, 245, 0.98); }
-        .header-container { display: flex; justify-content: space-between; align-items: center; height: 80px; }
-        .brand-logo { font-family: var(--font-display); font-size: 1.8rem; font-weight: 700; color: var(--color-dark-charcoal); text-decoration: none; letter-spacing: -0.5px; transition: color var(--transition-fast); }
-        .brand-logo:hover { color: var(--color-gold-accent); }
-        .main-nav ul { display: flex; list-style: none; gap: var(--space-xl); align-items: center; }
-        .main-nav a { text-decoration: none; color: var(--color-charcoal); font-size: 0.9rem; font-weight: 500; text-transform: uppercase; letter-spacing: 1.5px; position: relative; padding: 0.5rem 0; transition: color var(--transition-fast); }
-        .main-nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1.5px; background: var(--color-gold-accent); transition: width var(--transition-smooth); }
-        .main-nav a:hover, .main-nav a.active { color: var(--color-gold-accent); }
-        .main-nav a:hover::after, .main-nav a.active::after { width: 100%; }
-        .header-actions { display: flex; align-items: center; gap: var(--space-md); }
-        .cart-toggle, .mobile-menu-toggle { background: none; border: none; cursor: pointer; position: relative; padding: 0.5rem; color: var(--color-charcoal); transition: color var(--transition-fast); }
-        .cart-toggle:hover, .mobile-menu-toggle:hover { color: var(--color-gold-accent); }
-        .cart-count { position: absolute; top: 0; right: 0; background: var(--color-gold-accent); color: white; font-size: 0.7rem; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; }
-        .mobile-menu-toggle { display: none; }
-        .mobile-menu { display: none; position: fixed; top: 0; right: -100%; width: 80%; max-width: 400px; height: 100vh; background: var(--color-warm-white); z-index: 2000; padding: var(--space-2xl); transition: right var(--transition-elegant); box-shadow: var(--shadow-xl); }
-        .mobile-menu.active { right: 0; }
-        .mobile-menu-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 1999; }
-        .mobile-menu-overlay.active { display: block; }
-        .mobile-menu-close { position: absolute; top: var(--space-lg); right: var(--space-lg); background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--color-charcoal); }
-        .mobile-menu ul { list-style: none; margin-top: var(--space-3xl); }
-        .mobile-menu li { margin-bottom: var(--space-lg); }
-        .mobile-menu a { font-family: var(--font-display); font-size: 1.5rem; text-decoration: none; color: var(--color-dark-charcoal); transition: color var(--transition-fast); }
-        .mobile-menu a:hover { color: var(--color-gold-accent); }
+        .site-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(250,248,245,0.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,0.05);transition:all var(--transition-smooth)}
+        .site-header.scrolled{box-shadow:var(--shadow-md);background:rgba(250,248,245,0.98)}
+        .header-container{display:flex;justify-content:space-between;align-items:center;height:80px}
+        .brand-logo{font-family:var(--font-display);font-size:1.8rem;font-weight:700;color:var(--color-dark-charcoal);text-decoration:none;letter-spacing:-0.5px;transition:color var(--transition-fast)}
+        .brand-logo:hover{color:var(--color-gold-accent)}
+        .main-nav ul{display:flex;list-style:none;gap:var(--space-xl);align-items:center}
+        .main-nav a{text-decoration:none;color:var(--color-charcoal);font-size:0.9rem;font-weight:500;text-transform:uppercase;letter-spacing:1.5px;position:relative;padding:0.5rem 0;transition:color var(--transition-fast)}
+        .main-nav a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1.5px;background:var(--color-gold-accent);transition:width var(--transition-smooth)}
+        .main-nav a:hover,.main-nav a.active{color:var(--color-gold-accent)}
+        .main-nav a:hover::after,.main-nav a.active::after{width:100%}
+        .header-actions{display:flex;align-items:center;gap:var(--space-md)}
+        .cart-toggle,.mobile-menu-toggle{background:none;border:none;cursor:pointer;position:relative;padding:0.5rem;color:var(--color-charcoal);transition:color var(--transition-fast)}
+        .cart-toggle:hover,.mobile-menu-toggle:hover{color:var(--color-gold-accent)}
+        .cart-count{position:absolute;top:0;right:0;background:var(--color-gold-accent);color:white;font-size:0.7rem;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:600}
+        .mobile-menu-toggle{display:none}
 
-        /* Welcome Overlay */
-        .welcome-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--color-dark-charcoal); z-index: 9999; display: flex; align-items: center; justify-content: center; animation: welcomeFadeOut 0.8s ease-in-out 2.5s forwards; }
-        .welcome-content { text-align: center; animation: welcomeContentIn 1s ease-out 0.3s both; }
-        .welcome-logo { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3.5rem); color: var(--color-warm-white); margin-bottom: var(--space-md); font-weight: 700; letter-spacing: -1px; opacity: 0; animation: fadeInUp 0.8s ease-out 0.5s forwards; }
-        .welcome-tagline { font-family: var(--font-accent); font-size: clamp(1rem, 2vw, 1.3rem); color: var(--color-gold-accent); font-style: italic; opacity: 0; animation: fadeInUp 0.8s ease-out 0.8s forwards; letter-spacing: 1px; }
-        .welcome-divider { width: 60px; height: 2px; background: var(--color-gold-accent); margin: var(--space-md) auto; opacity: 0; animation: fadeInUp 0.8s ease-out 1s forwards; }
-        .welcome-location { font-size: 0.85rem; color: var(--color-medium-gray); text-transform: uppercase; letter-spacing: 3px; opacity: 0; animation: fadeInUp 0.8s ease-out 1.2s forwards; }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes welcomeContentIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
-        @keyframes welcomeFadeOut { 0% { opacity: 1; visibility: visible; } 100% { opacity: 0; visibility: hidden; } }
+        /* Mobile Menu */
+        .mobile-menu{display:none;position:fixed;top:0;right:-100%;width:80%;max-width:400px;height:100vh;background:var(--color-warm-white);z-index:2000;padding:var(--space-2xl);transition:right var(--transition-elegant);box-shadow:var(--shadow-xl)}
+        .mobile-menu.active{right:0}
+        .mobile-menu-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:1999}
+        .mobile-menu-overlay.active{display:block}
+        .mobile-menu-close{position:absolute;top:var(--space-lg);right:var(--space-lg);background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--color-charcoal)}
+        .mobile-menu ul{list-style:none;margin-top:var(--space-3xl)}
+        .mobile-menu li{margin-bottom:var(--space-lg)}
+        .mobile-menu a{font-family:var(--font-display);font-size:1.5rem;text-decoration:none;color:var(--color-dark-charcoal);transition:color var(--transition-fast)}
+        .mobile-menu a:hover{color:var(--color-gold-accent)}
+
+        /* Welcome */
+        .welcome-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:var(--color-dark-charcoal);z-index:9999;display:flex;align-items:center;justify-content:center;animation:welcomeFadeOut 0.8s ease-in-out 2.5s forwards}
+        .welcome-content{text-align:center;animation:welcomeContentIn 1s ease-out 0.3s both}
+        .welcome-logo{font-family:var(--font-display);font-size:clamp(2rem,5vw,3.5rem);color:var(--color-warm-white);margin-bottom:var(--space-md);font-weight:700;letter-spacing:-1px;opacity:0;animation:fadeInUp 0.8s ease-out 0.5s forwards}
+        .welcome-tagline{font-family:var(--font-accent);font-size:clamp(1rem,2vw,1.3rem);color:var(--color-gold-accent);font-style:italic;opacity:0;animation:fadeInUp 0.8s ease-out 0.8s forwards;letter-spacing:1px}
+        .welcome-divider{width:60px;height:2px;background:var(--color-gold-accent);margin:var(--space-md) auto;opacity:0;animation:fadeInUp 0.8s ease-out 1s forwards}
+        .welcome-location{font-size:0.85rem;color:var(--color-medium-gray);text-transform:uppercase;letter-spacing:3px;opacity:0;animation:fadeInUp 0.8s ease-out 1.2s forwards}
+        @keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+        @keyframes welcomeContentIn{from{opacity:0;transform:scale(0.95)}to{opacity:1;transform:scale(1)}}
+        @keyframes welcomeFadeOut{0%{opacity:1;visibility:visible}100%{opacity:0;visibility:hidden}}
 
         /* Hero */
-        .hero { position: relative; height: 100vh; min-height: 700px; display: flex; align-items: center; overflow: hidden; margin-top: 0; background-image: url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=2000&auto=format&fit=crop'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: fixed; }
-        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(28, 26, 23, 0.85) 0%, rgba(20, 18, 16, 0.75) 30%, rgba(15, 13, 11, 0.7) 60%, rgba(28, 26, 23, 0.85) 100%); z-index: 1; }
-        .hero-pattern { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: radial-gradient(circle at 20% 50%, rgba(201, 169, 110, 0.06) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(201, 169, 110, 0.04) 0%, transparent 50%); z-index: 2; }
-        .hero-content { position: relative; z-index: 3; max-width: 800px; padding: var(--space-4xl) var(--space-lg); }
-        .hero-subtitle-top { font-family: var(--font-body); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 4px; color: var(--color-gold-accent); margin-bottom: var(--space-md); font-weight: 500; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
-        .hero-title { font-size: clamp(3rem, 7vw, 6rem); font-weight: 700; color: var(--color-warm-white); line-height: 1.1; margin-bottom: var(--space-lg); letter-spacing: -1px; text-shadow: 0 4px 20px rgba(0,0,0,0.4); }
-        .hero-title em { font-style: italic; color: var(--color-gold-accent); font-weight: 400; }
-        .hero-description { font-size: 1.1rem; color: #D4CFC7; margin-bottom: var(--space-xl); max-width: 500px; line-height: 1.8; font-weight: 300; text-shadow: 0 2px 8px rgba(0,0,0,0.3); }
-        .hero-buttons { display: flex; gap: var(--space-md); flex-wrap: wrap; }
-        .btn { display: inline-block; padding: 0.85rem 2rem; font-family: var(--font-body); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; text-decoration: none; border: none; cursor: pointer; transition: all var(--transition-smooth); position: relative; overflow: hidden; border-radius: var(--radius-sm); }
-        .btn-primary { background: var(--color-gold-accent); color: var(--color-warm-white); border: 2px solid var(--color-gold-accent); }
-        .btn-primary:hover { background: var(--color-gold-dark); border-color: var(--color-gold-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201, 169, 110, 0.3); }
-        .btn-outline { background: transparent; color: var(--color-warm-white); border: 2px solid rgba(255, 255, 255, 0.4); }
-        .btn-outline:hover { border-color: var(--color-gold-accent); color: var(--color-gold-accent); transform: translateY(-2px); background: rgba(201, 169, 110, 0.1); }
-        .btn-outline-dark { background: transparent; color: var(--color-charcoal); border: 2px solid var(--color-charcoal); }
-        .btn-outline-dark:hover { background: var(--color-charcoal); color: var(--color-warm-white); }
-        .btn-block { width: 100%; text-align: center; }
-        .hero-scroll-indicator { position: absolute; bottom: var(--space-xl); left: 50%; transform: translateX(-50%); z-index: 3; display: flex; flex-direction: column; align-items: center; gap: var(--space-xs); color: #B8B2A6; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; animation: bounce 2s infinite; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
-        @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); } 40% { transform: translateX(-50%) translateY(-10px); } 60% { transform: translateX(-50%) translateY(-5px); } }
+        .hero{position:relative;height:100vh;min-height:700px;display:flex;align-items:center;overflow:hidden;background-image:url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=2000&auto=format&fit=crop');background-size:cover;background-position:center;background-attachment:fixed}
+        .hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(28,26,23,0.85) 0%,rgba(20,18,16,0.75) 30%,rgba(15,13,11,0.7) 60%,rgba(28,26,23,0.85) 100%);z-index:1}
+        .hero-pattern{position:absolute;top:0;left:0;width:100%;height:100%;background-image:radial-gradient(circle at 20% 50%,rgba(201,169,110,0.06) 0%,transparent 50%),radial-gradient(circle at 80% 80%,rgba(201,169,110,0.04) 0%,transparent 50%);z-index:2}
+        .hero-content{position:relative;z-index:3;max-width:800px;padding:var(--space-4xl) var(--space-lg)}
+        .hero-subtitle-top{font-family:var(--font-body);font-size:0.85rem;text-transform:uppercase;letter-spacing:4px;color:var(--color-gold-accent);margin-bottom:var(--space-md);font-weight:500;text-shadow:0 2px 4px rgba(0,0,0,0.3)}
+        .hero-title{font-size:clamp(3rem,7vw,6rem);font-weight:700;color:var(--color-warm-white);line-height:1.1;margin-bottom:var(--space-lg);letter-spacing:-1px;text-shadow:0 4px 20px rgba(0,0,0,0.4)}
+        .hero-title em{font-style:italic;color:var(--color-gold-accent);font-weight:400}
+        .hero-description{font-size:1.1rem;color:#D4CFC7;margin-bottom:var(--space-xl);max-width:500px;line-height:1.8;font-weight:300;text-shadow:0 2px 8px rgba(0,0,0,0.3)}
+        .hero-buttons{display:flex;gap:var(--space-md);flex-wrap:wrap}
+        .btn{display:inline-block;padding:0.85rem 2rem;font-family:var(--font-body);font-size:0.8rem;font-weight:600;text-transform:uppercase;letter-spacing:2px;text-decoration:none;border:none;cursor:pointer;transition:all var(--transition-smooth);border-radius:var(--radius-sm)}
+        .btn-primary{background:var(--color-gold-accent);color:var(--color-warm-white);border:2px solid var(--color-gold-accent)}
+        .btn-primary:hover{background:var(--color-gold-dark);border-color:var(--color-gold-dark);transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,169,110,0.3)}
+        .btn-outline{background:transparent;color:var(--color-warm-white);border:2px solid rgba(255,255,255,0.4)}
+        .btn-outline:hover{border-color:var(--color-gold-accent);color:var(--color-gold-accent);transform:translateY(-2px);background:rgba(201,169,110,0.1)}
+        .btn-outline-dark{background:transparent;color:var(--color-charcoal);border:2px solid var(--color-charcoal)}
+        .btn-outline-dark:hover{background:var(--color-charcoal);color:var(--color-warm-white)}
+        .btn-block{width:100%;text-align:center}
+        .hero-scroll-indicator{position:absolute;bottom:var(--space-xl);left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:var(--space-xs);color:#B8B2A6;font-size:0.75rem;text-transform:uppercase;letter-spacing:2px;animation:bounce 2s infinite;text-shadow:0 2px 4px rgba(0,0,0,0.3)}
+        @keyframes bounce{0%,20%,50%,80%,100%{transform:translateX(-50%) translateY(0)}40%{transform:translateX(-50%) translateY(-10px)}60%{transform:translateX(-50%) translateY(-5px)}}
 
         /* Sections */
-        .section { padding: var(--space-4xl) 0; }
-        .section-header { text-align: center; margin-bottom: var(--space-3xl); }
-        .section-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 4px; color: var(--color-gold-accent); margin-bottom: var(--space-sm); font-weight: 600; }
-        .section-title { margin-bottom: var(--space-md); color: var(--color-dark-charcoal); }
-        .section-description { color: var(--color-charcoal); font-size: 1.1rem; max-width: 600px; margin: 0 auto; font-weight: 300; }
+        .section{padding:var(--space-4xl) 0}
+        .section-header{text-align:center;margin-bottom:var(--space-3xl)}
+        .section-label{font-size:0.8rem;text-transform:uppercase;letter-spacing:4px;color:var(--color-gold-accent);margin-bottom:var(--space-sm);font-weight:600}
+        .section-title{margin-bottom:var(--space-md);color:var(--color-dark-charcoal)}
+        .section-description{color:var(--color-charcoal);font-size:1.1rem;max-width:600px;margin:0 auto;font-weight:300}
 
         /* Shop */
-        .shop-page { padding-top: var(--space-4xl); }
-        .shop-header { text-align: center; margin-bottom: var(--space-3xl); }
-        .page-title { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: var(--space-sm); }
-        .page-subtitle { color: var(--color-charcoal); font-size: 1.1rem; font-weight: 300; }
-        .filters { display: flex; justify-content: center; gap: var(--space-sm); margin-bottom: var(--space-3xl); flex-wrap: wrap; }
-        .filter-btn { padding: 0.6rem 1.5rem; background: transparent; border: 1.5px solid var(--color-soft-gray); border-radius: 50px; font-family: var(--font-body); font-size: 0.8rem; font-weight: 500; color: var(--color-charcoal); cursor: pointer; transition: all var(--transition-smooth); text-transform: uppercase; letter-spacing: 1px; }
-        .filter-btn:hover, .filter-btn.active { background: var(--color-charcoal); color: var(--color-warm-white); border-color: var(--color-charcoal); }
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-xl); }
-        .product-card { background: var(--color-warm-white); border-radius: var(--radius-lg); overflow: hidden; transition: all var(--transition-elegant); cursor: pointer; border: 1px solid transparent; }
-        .product-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--color-soft-gray); }
-        .product-image { width: 100%; height: 320px; background: var(--color-cream); position: relative; overflow: hidden; }
-        .product-image img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-elegant); }
-        .product-card:hover .product-image img { transform: scale(1.05); }
-        .product-badge { position: absolute; top: var(--space-sm); left: var(--space-sm); background: var(--color-gold-accent); color: white; padding: 0.3rem 1rem; border-radius: 50px; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
-        .product-actions { position: absolute; top: var(--space-sm); right: var(--space-sm); display: flex; flex-direction: column; gap: var(--space-xs); opacity: 0; transform: translateX(10px); transition: all var(--transition-smooth); }
-        .product-card:hover .product-actions { opacity: 1; transform: translateX(0); }
-        .product-action-btn { width: 38px; height: 38px; background: var(--color-warm-white); border: none; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-sm); transition: all var(--transition-fast); color: var(--color-charcoal); }
-        .product-action-btn:hover { background: var(--color-gold-accent); color: white; }
-        .product-info { padding: var(--space-md); }
-        .product-category { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: var(--color-gold-accent); margin-bottom: var(--space-xs); font-weight: 600; }
-        .product-name { font-family: var(--font-display); font-size: 1.1rem; margin-bottom: var(--space-xs); font-weight: 600; }
-        .product-price { font-weight: 600; color: var(--color-charcoal); font-size: 1rem; }
-        .product-price .original-price { text-decoration: line-through; color: var(--color-medium-gray); margin-left: var(--space-xs); font-weight: 400; font-size: 0.85rem; }
+        .shop-page{padding-top:var(--space-4xl)}
+        .shop-header{text-align:center;margin-bottom:var(--space-3xl)}
+        .filters{display:flex;justify-content:center;gap:var(--space-sm);margin-bottom:var(--space-3xl);flex-wrap:wrap}
+        .filter-btn{padding:0.6rem 1.5rem;background:transparent;border:1.5px solid var(--color-soft-gray);border-radius:50px;font-family:var(--font-body);font-size:0.8rem;font-weight:500;color:var(--color-charcoal);cursor:pointer;transition:all var(--transition-smooth);text-transform:uppercase;letter-spacing:1px}
+        .filter-btn:hover,.filter-btn.active{background:var(--color-charcoal);color:var(--color-warm-white);border-color:var(--color-charcoal)}
+        .product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:var(--space-xl)}
+        .product-card{background:var(--color-warm-white);border-radius:var(--radius-lg);overflow:hidden;transition:all var(--transition-elegant);cursor:pointer;border:1px solid transparent}
+        .product-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:var(--color-soft-gray)}
+        .product-image{width:100%;height:320px;background:var(--color-cream);position:relative;overflow:hidden}
+        .product-image img{width:100%;height:100%;object-fit:cover;transition:transform var(--transition-elegant)}
+        .product-card:hover .product-image img{transform:scale(1.05)}
+        .product-badge{position:absolute;top:var(--space-sm);left:var(--space-sm);background:var(--color-gold-accent);color:white;padding:0.3rem 1rem;border-radius:50px;font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:1px}
+        .product-actions{position:absolute;top:var(--space-sm);right:var(--space-sm);display:flex;flex-direction:column;gap:var(--space-xs);opacity:0;transform:translateX(10px);transition:all var(--transition-smooth)}
+        .product-card:hover .product-actions{opacity:1;transform:translateX(0)}
+        .product-action-btn{width:38px;height:38px;background:var(--color-warm-white);border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-sm);transition:all var(--transition-fast);color:var(--color-charcoal)}
+        .product-action-btn:hover{background:var(--color-gold-accent);color:white}
+        .product-info{padding:var(--space-md)}
+        .product-category{font-size:0.7rem;text-transform:uppercase;letter-spacing:2px;color:var(--color-gold-accent);margin-bottom:var(--space-xs);font-weight:600}
+        .product-name{font-family:var(--font-display);font-size:1.1rem;margin-bottom:var(--space-xs);font-weight:600}
+        .product-price{font-weight:600;color:var(--color-charcoal);font-size:1rem}
+        .product-price .original-price{text-decoration:line-through;color:var(--color-medium-gray);margin-left:var(--space-xs);font-weight:400;font-size:0.85rem}
 
         /* About */
-        .about-section { background: var(--color-cream); }
-        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3xl); align-items: center; }
-        .about-image-wrapper { position: relative; height: 500px; background: var(--color-charcoal); border-radius: var(--radius-lg); overflow: hidden; }
-        .about-image-wrapper img { width: 100%; height: 100%; object-fit: cover; }
-        .about-content p { margin-bottom: var(--space-md); color: var(--color-charcoal); font-size: 1.05rem; line-height: 1.8; }
-        .about-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); margin-top: var(--space-xl); padding-top: var(--space-xl); border-top: 1px solid var(--color-soft-gray); }
-        .stat-number { font-family: var(--font-display); font-size: 2.5rem; font-weight: 700; color: var(--color-gold-accent); margin-bottom: var(--space-xs); }
-        .stat-label { font-size: 0.85rem; color: var(--color-charcoal); text-transform: uppercase; letter-spacing: 1px; }
+        .about-section{background:var(--color-cream)}
+        .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-3xl);align-items:center}
+        .about-image-wrapper{height:500px;background:var(--color-charcoal);border-radius:var(--radius-lg);overflow:hidden}
+        .about-image-wrapper img{width:100%;height:100%;object-fit:cover}
+        .about-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-lg);margin-top:var(--space-xl);padding-top:var(--space-xl);border-top:1px solid var(--color-soft-gray)}
+        .stat-number{font-family:var(--font-display);font-size:2.5rem;font-weight:700;color:var(--color-gold-accent)}
 
         /* Services */
-        .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-lg); }
-        .service-card { padding: var(--space-xl); background: var(--color-warm-white); border: 1px solid var(--color-soft-gray); border-radius: var(--radius-lg); transition: all var(--transition-smooth); text-align: center; }
-        .service-card:hover { border-color: var(--color-gold-accent); transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-        .service-icon { width: 60px; height: 60px; margin: 0 auto var(--space-md); background: var(--color-cream); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: var(--color-gold-accent); transition: all var(--transition-smooth); }
-        .service-card:hover .service-icon { background: var(--color-gold-accent); color: var(--color-warm-white); }
-        .service-card h3 { font-size: 1.1rem; margin-bottom: var(--space-xs); }
-        .service-card p { font-size: 0.85rem; color: var(--color-charcoal); line-height: 1.6; }
+        .services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-lg)}
+        .service-card{padding:var(--space-xl);background:var(--color-warm-white);border:1px solid var(--color-soft-gray);border-radius:var(--radius-lg);transition:all var(--transition-smooth);text-align:center}
+        .service-card:hover{border-color:var(--color-gold-accent);transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+        .service-icon{width:60px;height:60px;margin:0 auto var(--space-md);background:var(--color-cream);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--color-gold-accent);transition:all var(--transition-smooth)}
+        .service-card:hover .service-icon{background:var(--color-gold-accent);color:var(--color-warm-white)}
 
-        /* Product Modal */
-        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); z-index: 3000; align-items: center; justify-content: center; backdrop-filter: blur(5px); }
-        .modal-overlay.active { display: flex; }
-        .modal { background: var(--color-warm-white); border-radius: var(--radius-xl); max-width: 900px; width: 90%; max-height: 85vh; overflow-y: auto; position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 0; animation: modalSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-        @keyframes modalSlideIn { from { opacity: 0; transform: translateY(20px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
-        .modal-close { position: absolute; top: var(--space-sm); right: var(--space-sm); background: var(--color-warm-white); border: none; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; z-index: 10; font-size: 1.1rem; box-shadow: var(--shadow-sm); transition: all var(--transition-fast); }
-        .modal-close:hover { background: var(--color-charcoal); color: white; }
-        .modal-gallery { background: var(--color-cream); display: flex; align-items: center; justify-content: center; padding: var(--space-lg); min-height: 400px; }
-        .modal-gallery img { max-width: 100%; max-height: 400px; object-fit: contain; border-radius: var(--radius-md); }
-        .modal-details { padding: var(--space-xl); display: flex; flex-direction: column; justify-content: center; }
-        .modal-details .product-category { margin-bottom: var(--space-xs); }
-        .modal-details h2 { margin-bottom: var(--space-sm); font-size: 1.8rem; }
-        .modal-details .product-price { font-size: 1.6rem; margin-bottom: var(--space-md); color: var(--color-gold-accent); }
-        .modal-details .product-description { color: var(--color-charcoal); line-height: 1.7; margin-bottom: var(--space-lg); font-size: 0.95rem; }
-        .modal-details .product-specs { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-sm); margin-bottom: var(--space-lg); padding: var(--space-md); background: var(--color-cream); border-radius: var(--radius-md); }
-        .spec-item { display: flex; flex-direction: column; }
-        .spec-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: var(--color-medium-gray); margin-bottom: 2px; }
-        .spec-value { font-weight: 600; color: var(--color-dark-charcoal); font-size: 0.9rem; }
-        .quantity-selector { display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-md); }
-        .qty-btn { width: 36px; height: 36px; background: var(--color-cream); border: 1px solid var(--color-soft-gray); border-radius: var(--radius-sm); cursor: pointer; font-size: 1.1rem; transition: all var(--transition-fast); display: flex; align-items: center; justify-content: center; }
-        .qty-btn:hover { background: var(--color-charcoal); color: white; border-color: var(--color-charcoal); }
-        .qty-input { width: 50px; height: 36px; text-align: center; border: 1px solid var(--color-soft-gray); border-radius: var(--radius-sm); font-size: 0.9rem; font-family: var(--font-body); }
+        /* Modal */
+        .modal-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);z-index:3000;align-items:center;justify-content:center;backdrop-filter:blur(5px)}
+        .modal-overlay.active{display:flex}
+        .modal{background:var(--color-warm-white);border-radius:var(--radius-xl);max-width:900px;width:90%;max-height:85vh;overflow-y:auto;position:relative;display:grid;grid-template-columns:1fr 1fr;animation:modalSlideIn 0.4s ease}
+        @keyframes modalSlideIn{from{opacity:0;transform:translateY(20px) scale(0.95)}to{opacity:1;transform:translateY(0) scale(1)}}
+        .modal-close{position:absolute;top:var(--space-sm);right:var(--space-sm);background:var(--color-warm-white);border:none;width:36px;height:36px;border-radius:50%;cursor:pointer;z-index:10;font-size:1.1rem;box-shadow:var(--shadow-sm)}
+        .modal-close:hover{background:var(--color-charcoal);color:white}
+        .modal-gallery{background:var(--color-cream);display:flex;align-items:center;justify-content:center;padding:var(--space-lg);min-height:400px}
+        .modal-gallery img{max-width:100%;max-height:400px;object-fit:contain;border-radius:var(--radius-md)}
+        .modal-details{padding:var(--space-xl)}
+        .product-specs{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-sm);margin-bottom:var(--space-lg);padding:var(--space-md);background:var(--color-cream);border-radius:var(--radius-md)}
+        .quantity-selector{display:flex;align-items:center;gap:var(--space-sm);margin-bottom:var(--space-md)}
+        .qty-btn{width:36px;height:36px;background:var(--color-cream);border:1px solid var(--color-soft-gray);border-radius:var(--radius-sm);cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center}
+        .qty-btn:hover{background:var(--color-charcoal);color:white}
+        .qty-input{width:50px;height:36px;text-align:center;border:1px solid var(--color-soft-gray);border-radius:var(--radius-sm)}
 
-        /* Cart Panel */
-        .cart-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 2000; }
-        .cart-overlay.active { display: block; }
-        .cart-panel { position: fixed; top: 0; right: -450px; width: 400px; max-width: 90vw; height: 100vh; background: var(--color-warm-white); z-index: 2001; display: flex; flex-direction: column; transition: right var(--transition-elegant); box-shadow: var(--shadow-xl); }
-        .cart-panel.active { right: 0; }
-        .cart-panel-header { padding: var(--space-md); border-bottom: 1px solid var(--color-soft-gray); display: flex; justify-content: space-between; align-items: center; }
-        .cart-panel-header h3 { margin: 0; font-size: 1.2rem; }
-        .cart-close { background: none; border: none; font-size: 1.3rem; cursor: pointer; color: var(--color-charcoal); transition: color var(--transition-fast); }
-        .cart-close:hover { color: var(--color-gold-accent); }
-        .cart-items { flex: 1; overflow-y: auto; padding: var(--space-md); }
-        .cart-item { display: flex; gap: var(--space-sm); padding: var(--space-sm) 0; border-bottom: 1px solid var(--color-soft-gray); }
-        .cart-item-image { width: 70px; height: 70px; background: var(--color-cream); border-radius: var(--radius-sm); overflow: hidden; flex-shrink: 0; }
-        .cart-item-image img { width: 100%; height: 100%; object-fit: cover; }
-        .cart-item-details { flex: 1; }
-        .cart-item-name { font-weight: 600; margin-bottom: 2px; font-size: 0.9rem; }
-        .cart-item-price { color: var(--color-gold-accent); font-weight: 600; font-size: 0.9rem; }
-        .cart-item-quantity { display: flex; align-items: center; gap: var(--space-xs); margin-top: var(--space-xs); }
-        .cart-item-remove { background: none; border: none; color: #999; cursor: pointer; font-size: 0.75rem; text-decoration: underline; margin-top: var(--space-xs); padding: 0; }
-        .cart-item-remove:hover { color: #c0392b; }
-        .cart-footer { padding: var(--space-md); border-top: 1px solid var(--color-soft-gray); }
-        .cart-total { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-md); font-size: 1.1rem; font-weight: 600; }
-        .cart-total span:last-child { color: var(--color-gold-accent); font-size: 1.3rem; }
+        /* Cart */
+        .cart-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:2000}
+        .cart-overlay.active{display:block}
+        .cart-panel{position:fixed;top:0;right:-450px;width:400px;max-width:90vw;height:100vh;background:var(--color-warm-white);z-index:2001;display:flex;flex-direction:column;transition:right var(--transition-elegant);box-shadow:var(--shadow-xl)}
+        .cart-panel.active{right:0}
+        .cart-panel-header{padding:var(--space-md);border-bottom:1px solid var(--color-soft-gray);display:flex;justify-content:space-between;align-items:center}
+        .cart-close{background:none;border:none;font-size:1.3rem;cursor:pointer}
+        .cart-items{flex:1;overflow-y:auto;padding:var(--space-md)}
+        .cart-item{display:flex;gap:var(--space-sm);padding:var(--space-sm) 0;border-bottom:1px solid var(--color-soft-gray)}
+        .cart-item-image{width:70px;height:70px;background:var(--color-cream);border-radius:var(--radius-sm);overflow:hidden;flex-shrink:0}
+        .cart-item-image img{width:100%;height:100%;object-fit:cover}
+        .cart-footer{padding:var(--space-md);border-top:1px solid var(--color-soft-gray)}
+        .cart-total{display:flex;justify-content:space-between;margin-bottom:var(--space-md);font-size:1.1rem;font-weight:600}
 
-        /* COMPACT PAYMENT MODAL */
-        .payment-modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); z-index: 4000; align-items: center; justify-content: center; backdrop-filter: blur(5px); }
-        .payment-modal-overlay.active { display: flex; }
-        .payment-modal { background: var(--color-warm-white); border-radius: var(--radius-lg); max-width: 380px; width: 90%; padding: var(--space-lg); position: relative; animation: modalSlideIn 0.3s ease; }
-        .payment-modal h3 { text-align: center; margin-bottom: var(--space-sm); font-size: 1.2rem; }
-        .payment-total { text-align: center; font-size: 1.5rem; color: var(--color-gold-accent); font-weight: 700; margin-bottom: var(--space-md); font-family: var(--font-display); }
-        .upi-section h4 { text-align: center; margin-bottom: var(--space-sm); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; }
-        .upi-options { display: flex; justify-content: center; gap: var(--space-sm); margin-bottom: var(--space-md); flex-wrap: wrap; }
-        .upi-option { padding: var(--space-sm); border: 2px solid var(--color-soft-gray); border-radius: var(--radius-md); text-align: center; cursor: pointer; transition: all var(--transition-fast); background: white; min-width: 80px; }
-        .upi-option:hover, .upi-option.selected { border-color: var(--color-gold-accent); background: rgba(201, 169, 110, 0.1); }
-        .upi-option span:first-child { font-size: 1.5rem; display: block; }
-        .upi-option span:last-child { font-size: 0.7rem; font-weight: 600; color: var(--color-charcoal); }
-        .upi-id-input { width: 100%; padding: 0.7rem; border: 2px solid var(--color-soft-gray); border-radius: var(--radius-md); font-size: 0.9rem; font-family: var(--font-body); margin-bottom: var(--space-sm); transition: all var(--transition-fast); }
-        .upi-id-input:focus { outline: none; border-color: var(--color-gold-accent); }
-        .or-divider { text-align: center; margin: var(--space-sm) 0; position: relative; font-size: 0.8rem; color: var(--color-medium-gray); }
-        .or-divider::before, .or-divider::after { content: ''; position: absolute; top: 50%; width: 35%; height: 1px; background: var(--color-soft-gray); }
-        .or-divider::before { left: 0; } .or-divider::after { right: 0; }
-        .card-icons { text-align: center; font-size: 1.5rem; margin-bottom: var(--space-xs); }
-        .payment-close { position: absolute; top: var(--space-xs); right: var(--space-xs); background: none; border: none; font-size: 1.2rem; cursor: pointer; color: var(--color-charcoal); width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; }
-        .payment-close:hover { color: var(--color-gold-accent); }
+        /* Payment Modal - Compact */
+        .payment-modal-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:4000;align-items:center;justify-content:center;backdrop-filter:blur(5px)}
+        .payment-modal-overlay.active{display:flex}
+        .payment-modal{background:var(--color-warm-white);border-radius:var(--radius-lg);max-width:380px;width:90%;padding:var(--space-lg);position:relative;animation:modalSlideIn 0.3s ease}
+        .payment-total{text-align:center;font-size:1.5rem;color:var(--color-gold-accent);font-weight:700;margin-bottom:var(--space-md);font-family:var(--font-display)}
+        .upi-options{display:flex;justify-content:center;gap:var(--space-sm);margin-bottom:var(--space-md);flex-wrap:wrap}
+        .upi-option{padding:var(--space-sm);border:2px solid var(--color-soft-gray);border-radius:var(--radius-md);text-align:center;cursor:pointer;min-width:80px;background:white}
+        .upi-option:hover,.upi-option.selected{border-color:var(--color-gold-accent);background:rgba(201,169,110,0.1)}
+        .upi-id-input{width:100%;padding:0.7rem;border:2px solid var(--color-soft-gray);border-radius:var(--radius-md);font-size:0.9rem;margin-bottom:var(--space-sm)}
+        .upi-id-input:focus{outline:none;border-color:var(--color-gold-accent)}
+        .or-divider{text-align:center;margin:var(--space-sm) 0;font-size:0.8rem;color:var(--color-medium-gray);position:relative}
+        .or-divider::before,.or-divider::after{content:'';position:absolute;top:50%;width:35%;height:1px;background:var(--color-soft-gray)}
+        .or-divider::before{left:0}.or-divider::after{right:0}
+        .payment-close{position:absolute;top:var(--space-xs);right:var(--space-xs);background:none;border:none;font-size:1.2rem;cursor:pointer;width:30px;height:30px;display:flex;align-items:center;justify-content:center}
 
         /* Testimonials */
-        .testimonials-section { background: var(--color-dark-charcoal); color: var(--color-warm-white); }
-        .testimonials-section .section-title, .testimonials-section .section-description { color: var(--color-warm-white); }
-        .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-xl); }
-        .testimonial-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--radius-lg); padding: var(--space-xl); transition: all var(--transition-smooth); }
-        .testimonial-card:hover { background: rgba(255, 255, 255, 0.06); transform: translateY(-4px); }
-        .testimonial-stars { color: var(--color-gold-accent); margin-bottom: var(--space-md); font-size: 1.2rem; }
-        .testimonial-text { font-style: italic; margin-bottom: var(--space-lg); line-height: 1.8; font-size: 1.05rem; }
-        .testimonial-author { display: flex; align-items: center; gap: var(--space-md); }
-        .testimonial-author-image { width: 50px; height: 50px; border-radius: 50%; background: var(--color-gold-accent); }
-        .testimonial-author-name { font-weight: 600; }
-        .testimonial-author-role { font-size: 0.85rem; color: var(--color-medium-gray); }
+        .testimonials-section{background:var(--color-dark-charcoal);color:var(--color-warm-white)}
+        .testimonials-section .section-title,.testimonials-section .section-description{color:var(--color-warm-white)}
+        .testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-xl)}
+        .testimonial-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius-lg);padding:var(--space-xl)}
+        .testimonial-card:hover{background:rgba(255,255,255,0.06);transform:translateY(-4px)}
+        .testimonial-stars{color:var(--color-gold-accent);margin-bottom:var(--space-md)}
 
         /* Contact */
-        .contact-section { background: var(--color-cream); }
-        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3xl); }
-        .contact-item { display: flex; gap: var(--space-md); margin-bottom: var(--space-lg); align-items: flex-start; }
-        .contact-icon { width: 50px; height: 50px; background: var(--color-warm-white); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--color-gold-accent); font-size: 1.2rem; }
-        .contact-text h4 { margin-bottom: var(--space-xs); font-size: 1rem; }
-        .contact-text p { color: var(--color-charcoal); line-height: 1.6; }
-        .contact-form { background: var(--color-warm-white); padding: var(--space-xl); border-radius: var(--radius-lg); }
-        .form-group { margin-bottom: var(--space-md); }
-        .form-group label { display: block; margin-bottom: var(--space-xs); font-weight: 500; font-size: 0.9rem; }
-        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 0.8rem 1rem; border: 1.5px solid var(--color-soft-gray); border-radius: var(--radius-md); font-family: var(--font-body); font-size: 0.95rem; transition: all var(--transition-fast); background: var(--color-warm-white); }
-        .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--color-gold-accent); box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.1); }
-        .form-group textarea { height: 120px; resize: vertical; }
+        .contact-section{background:var(--color-cream)}
+        .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-3xl)}
+        .contact-item{display:flex;gap:var(--space-md);margin-bottom:var(--space-lg);align-items:flex-start}
+        .contact-icon{width:50px;height:50px;background:var(--color-warm-white);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+        .contact-form{background:var(--color-warm-white);padding:var(--space-xl);border-radius:var(--radius-lg)}
+        .form-group{margin-bottom:var(--space-md)}
+        .form-group input,.form-group textarea,.form-group select{width:100%;padding:0.8rem 1rem;border:1.5px solid var(--color-soft-gray);border-radius:var(--radius-md);font-family:var(--font-body);font-size:0.95rem}
 
         /* Newsletter */
-        .newsletter-section { background: var(--color-gold-accent); padding: var(--space-3xl) 0; }
-        .newsletter-content { text-align: center; color: var(--color-warm-white); }
-        .newsletter-content h2 { color: var(--color-warm-white); margin-bottom: var(--space-sm); }
-        .newsletter-content p { margin-bottom: var(--space-xl); font-size: 1.1rem; opacity: 0.9; }
-        .newsletter-form { display: flex; gap: var(--space-sm); max-width: 500px; margin: 0 auto; }
-        .newsletter-form input { flex: 1; padding: 1rem 1.5rem; border: 2px solid rgba(255, 255, 255, 0.3); border-radius: 50px; background: rgba(255, 255, 255, 0.1); color: white; font-size: 0.95rem; font-family: var(--font-body); }
-        .newsletter-form input::placeholder { color: rgba(255, 255, 255, 0.7); }
-        .newsletter-form input:focus { outline: none; border-color: white; background: rgba(255, 255, 255, 0.2); }
-        .newsletter-form button { padding: 1rem 2rem; background: var(--color-warm-white); color: var(--color-gold-accent); border: none; border-radius: 50px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: all var(--transition-smooth); font-family: var(--font-body); white-space: nowrap; }
-        .newsletter-form button:hover { background: var(--color-dark-charcoal); color: var(--color-warm-white); }
+        .newsletter-section{background:var(--color-gold-accent);padding:var(--space-3xl) 0}
+        .newsletter-content{text-align:center;color:var(--color-warm-white)}
+        .newsletter-content h2{color:var(--color-warm-white)}
+        .newsletter-form{display:flex;gap:var(--space-sm);max-width:500px;margin:0 auto}
+        .newsletter-form input{flex:1;padding:1rem 1.5rem;border:2px solid rgba(255,255,255,0.3);border-radius:50px;background:rgba(255,255,255,0.1);color:white}
+        .newsletter-form input::placeholder{color:rgba(255,255,255,0.7)}
+        .newsletter-form button{padding:1rem 2rem;background:var(--color-warm-white);color:var(--color-gold-accent);border:none;border-radius:50px;font-weight:600;cursor:pointer;white-space:nowrap}
+        .newsletter-form button:hover{background:var(--color-dark-charcoal);color:var(--color-warm-white)}
 
         /* Footer */
-        .site-footer { background: var(--color-richer-charcoal); color: var(--color-medium-gray); padding: var(--space-3xl) 0 var(--space-lg); }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: var(--space-2xl); margin-bottom: var(--space-3xl); }
-        .footer-brand-name { font-family: var(--font-display); font-size: 1.8rem; color: var(--color-warm-white); margin-bottom: var(--space-md); }
-        .footer-description { line-height: 1.8; margin-bottom: var(--space-lg); }
-        .footer-social { display: flex; gap: var(--space-md); }
-        .footer-social a { width: 40px; height: 40px; background: rgba(255, 255, 255, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--color-warm-white); text-decoration: none; transition: all var(--transition-fast); }
-        .footer-social a:hover { background: var(--color-gold-accent); transform: translateY(-2px); }
-        .footer-column h4 { color: var(--color-warm-white); margin-bottom: var(--space-lg); font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; }
-        .footer-column ul { list-style: none; }
-        .footer-column ul li { margin-bottom: var(--space-sm); }
-        .footer-column ul li a { color: var(--color-medium-gray); text-decoration: none; transition: color var(--transition-fast); font-size: 0.9rem; }
-        .footer-column ul li a:hover { color: var(--color-gold-accent); }
-        .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: var(--space-lg); display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; }
+        .site-footer{background:var(--color-richer-charcoal);color:var(--color-medium-gray);padding:var(--space-3xl) 0 var(--space-lg)}
+        .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:var(--space-2xl);margin-bottom:var(--space-3xl)}
+        .footer-brand-name{font-family:var(--font-display);font-size:1.8rem;color:var(--color-warm-white)}
+        .footer-social{display:flex;gap:var(--space-md)}
+        .footer-social a{width:40px;height:40px;background:rgba(255,255,255,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--color-warm-white);text-decoration:none}
+        .footer-social a:hover{background:var(--color-gold-accent);transform:translateY(-2px)}
+        .footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:var(--space-lg);display:flex;justify-content:space-between;font-size:0.85rem}
 
         /* Toast */
-        .toast { position: fixed; bottom: var(--space-xl); right: var(--space-xl); background: var(--color-dark-charcoal); color: white; padding: 1rem 2rem; border-radius: var(--radius-md); box-shadow: var(--shadow-lg); z-index: 5000; animation: toastIn 0.3s ease, toastOut 0.3s ease 3.7s forwards; font-weight: 500; max-width: 90vw; }
-        @keyframes toastIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
-        @keyframes toastOut { from { transform: translateX(0); opacity: 1; } to { transform: translateX(100%); opacity: 0; } }
+        .toast{position:fixed;bottom:var(--space-xl);right:var(--space-xl);background:var(--color-dark-charcoal);color:white;padding:1rem 2rem;border-radius:var(--radius-md);box-shadow:var(--shadow-lg);z-index:5000;animation:toastIn 0.3s ease,toastOut 0.3s ease 3.7s forwards;max-width:90vw}
+        @keyframes toastIn{from{transform:translateX(100%);opacity:0}to{transform:translateX(0);opacity:1}}
+        @keyframes toastOut{from{transform:translateX(0);opacity:1}to{transform:translateX(100%);opacity:0}}
 
-        /* Responsive */
-        @media (max-width: 1200px) { .services-grid { grid-template-columns: repeat(2, 1fr); } .testimonials-grid { grid-template-columns: repeat(2, 1fr); } .footer-grid { grid-template-columns: 1fr 1fr; } }
-        @media (max-width: 768px) {
-            .main-nav { display: none; } .mobile-menu-toggle { display: block; } .header-container { height: 70px; }
-            .hero { background-attachment: scroll; min-height: 600px; } .hero-title { font-size: 2.5rem; }
-            .services-grid, .testimonials-grid { grid-template-columns: 1fr; } .about-grid, .contact-grid { grid-template-columns: 1fr; }
-            .about-image-wrapper { height: 350px; } .footer-grid { grid-template-columns: 1fr; }
-            .modal { grid-template-columns: 1fr; } .modal-gallery { min-height: 250px; }
-            .newsletter-form { flex-direction: column; } .hero-buttons { flex-direction: column; }
-            .btn { width: 100%; text-align: center; } .product-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
-            .payment-modal { max-width: 340px; padding: var(--space-md); }
+        @media(max-width:1200px){.services-grid,.testimonials-grid{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr 1fr}}
+        @media(max-width:768px){
+            .main-nav{display:none}.mobile-menu-toggle{display:block}.header-container{height:70px}
+            .hero{background-attachment:scroll;min-height:600px}.hero-title{font-size:2.5rem}
+            .services-grid,.testimonials-grid{grid-template-columns:1fr}.about-grid,.contact-grid{grid-template-columns:1fr}
+            .about-image-wrapper{height:350px}.footer-grid{grid-template-columns:1fr}
+            .modal{grid-template-columns:1fr}.modal-gallery{min-height:250px}
+            .newsletter-form{flex-direction:column}.hero-buttons{flex-direction:column}.btn{width:100%}
+            .product-grid{grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+            .payment-modal{max-width:340px;padding:var(--space-md)}
         }
-        @media (max-width: 480px) {
-            .container { padding: 0 var(--space-md); } .section { padding: var(--space-2xl) 0; }
-            .filters { gap: var(--space-xs); } .filter-btn { padding: 0.5rem 1rem; font-size: 0.7rem; }
-            .cart-panel { width: 100%; } .hero { min-height: 500px; } .welcome-logo { font-size: 1.8rem; }
-            .payment-modal { max-width: 300px; } .upi-option { min-width: 70px; padding: var(--space-xs); }
+        @media(max-width:480px){
+            .container{padding:0 var(--space-md)}.section{padding:var(--space-2xl) 0}
+            .filter-btn{padding:0.5rem 1rem;font-size:0.7rem}.cart-panel{width:100%}
+            .payment-modal{max-width:300px}.upi-option{min-width:70px;padding:var(--space-xs)}
         }
     </style>
 </head>
@@ -333,18 +271,12 @@
             <a href="#home" class="brand-logo">Hayee Interior</a>
             <nav class="main-nav"><ul><li><a href="#home" class="active">Home</a></li><li><a href="#shop">Shop</a></li><li><a href="#about">About</a></li><li><a href="#services">Services</a></li><li><a href="#testimonials">Reviews</a></li><li><a href="#contact">Contact</a></li></ul></nav>
             <div class="header-actions">
-                <button class="cart-toggle" id="cartToggle" aria-label="Shopping cart">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-                    <span class="cart-count" id="cartCount">0</span>
-                </button>
-                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-                </button>
+                <button class="cart-toggle" id="cartToggle"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span class="cart-count" id="cartCount">0</span></button>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
             </div>
         </div>
     </header>
 
-    <!-- Mobile Menu -->
     <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
     <div class="mobile-menu" id="mobileMenu">
         <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
@@ -368,53 +300,40 @@
         <div class="container">
             <div class="shop-header"><p class="section-label">Our Collection</p><h2 class="section-title">Curated Pieces</h2><p class="section-description">Every item meticulously selected for its craftsmanship, beauty, and enduring quality</p></div>
             <div class="filters" id="productFilters">
-                <button class="filter-btn active" data-category="all">All</button>
-                <button class="filter-btn" data-category="seating">Seating</button>
-                <button class="filter-btn" data-category="tables">Tables</button>
-                <button class="filter-btn" data-category="lighting">Lighting</button>
-                <button class="filter-btn" data-category="decor">Decor</button>
-                <button class="filter-btn" data-category="storage">Storage</button>
-                <button class="filter-btn" data-category="textiles">Textiles</button>
+                <button class="filter-btn active" data-category="all">All</button><button class="filter-btn" data-category="seating">Seating</button><button class="filter-btn" data-category="tables">Tables</button><button class="filter-btn" data-category="lighting">Lighting</button><button class="filter-btn" data-category="decor">Decor</button><button class="filter-btn" data-category="storage">Storage</button><button class="filter-btn" data-category="textiles">Textiles</button>
             </div>
             <div class="product-grid" id="productGrid"></div>
-            <div id="noResults" style="display:none;text-align:center;padding:3rem;color:var(--color-medium-gray);"><p>No products found in this category.</p></div>
+            <div id="noResults" style="display:none;text-align:center;padding:3rem;"><p>No products found.</p></div>
         </div>
     </section>
 
     <!-- About -->
     <section class="section about-section" id="about">
         <div class="container"><div class="about-grid">
-            <div class="about-image-wrapper"><img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600&auto=format&fit=crop" alt="Hayee Interior Studio" style="width:100%;height:100%;object-fit:cover;"></div>
-            <div class="about-content">
-                <p class="section-label">Our Story</p><h2>A Legacy of<br>Design Excellence</h2>
-                <p>Founded in 2015, Hayee Interior has been at the forefront of luxury interior design in Thanjavur. Located opposite Anu Hospital, our studio has become a destination for discerning homeowners and designers seeking exceptional quality and timeless aesthetics.</p>
-                <p>We believe that every space tells a story. Our approach combines classical design principles with contemporary sensibilities, creating interiors that are both beautiful and functional.</p>
-                <div class="about-stats"><div class="stat-item"><div class="stat-number">500+</div><div class="stat-label">Projects</div></div><div class="stat-item"><div class="stat-number">8+</div><div class="stat-label">Years</div></div><div class="stat-item"><div class="stat-number">100%</div><div class="stat-label">Satisfaction</div></div></div>
-            </div>
+            <div class="about-image-wrapper"><img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600&auto=format&fit=crop" alt="Studio"></div>
+            <div class="about-content"><p class="section-label">Our Story</p><h2>A Legacy of<br>Design Excellence</h2><p>Founded in 2015, Hayee Interior has been at the forefront of luxury interior design in Thanjavur. Located opposite Anu Hospital, our studio has become a destination for discerning homeowners.</p><p>We believe that every space tells a story. Our approach combines classical design principles with contemporary sensibilities.</p><div class="about-stats"><div><div class="stat-number">500+</div><div class="stat-label">Projects</div></div><div><div class="stat-number">8+</div><div class="stat-label">Years</div></div><div><div class="stat-number">100%</div><div class="stat-label">Satisfaction</div></div></div></div>
         </div></div>
     </section>
 
     <!-- Services -->
     <section class="section" id="services">
-        <div class="container">
-            <div class="section-header"><p class="section-label">What We Offer</p><h2 class="section-title">Our Services</h2><p class="section-description">Comprehensive design solutions tailored to your unique vision</p></div>
+        <div class="container"><div class="section-header"><p class="section-label">What We Offer</p><h2 class="section-title">Our Services</h2></div>
             <div class="services-grid">
-                <div class="service-card"><div class="service-icon">🎨</div><h3>Interior Design</h3><p>Full-scale interior design services from concept to completion.</p></div>
-                <div class="service-card"><div class="service-icon">🪑</div><h3>Furniture Curation</h3><p>Handpicked premium pieces from renowned craftsmen worldwide.</p></div>
-                <div class="service-card"><div class="service-icon">💡</div><h3>Lighting Design</h3><p>Custom lighting solutions that enhance ambiance beautifully.</p></div>
-                <div class="service-card"><div class="service-icon">🏠</div><h3>Space Planning</h3><p>Optimized layouts that maximize flow and functionality.</p></div>
+                <div class="service-card"><div class="service-icon">🎨</div><h3>Interior Design</h3><p>Full-scale design services from concept to completion.</p></div>
+                <div class="service-card"><div class="service-icon">🪑</div><h3>Furniture Curation</h3><p>Handpicked premium pieces from renowned craftsmen.</p></div>
+                <div class="service-card"><div class="service-icon">💡</div><h3>Lighting Design</h3><p>Custom solutions that enhance ambiance.</p></div>
+                <div class="service-card"><div class="service-icon">🏠</div><h3>Space Planning</h3><p>Optimized layouts for maximum flow.</p></div>
             </div>
         </div>
     </section>
 
     <!-- Testimonials -->
     <section class="section testimonials-section" id="testimonials">
-        <div class="container">
-            <div class="section-header"><p class="section-label">Client Love</p><h2 class="section-title">What Our Clients Say</h2><p class="section-description">Real stories from homeowners who trusted us with their spaces</p></div>
+        <div class="container"><div class="section-header"><p class="section-label">Client Love</p><h2 class="section-title">What Our Clients Say</h2></div>
             <div class="testimonials-grid">
-                <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Hayee Interior transformed our home into a masterpiece. Their attention to detail and understanding of our vision was exceptional."</p><div class="testimonial-author"><div class="testimonial-author-image"></div><div><div class="testimonial-author-name">Priya & Rajesh Kumar</div><div class="testimonial-author-role">Residential Project, Thanjavur</div></div></div></div>
-                <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Working with Hayee Interior was a seamless experience. They delivered our dream living room within budget and timeline."</p><div class="testimonial-author"><div class="testimonial-author-image"></div><div><div class="testimonial-author-name">Dr. Senthil Nathan</div><div class="testimonial-author-role">Anu Hospital, Thanjavur</div></div></div></div>
-                <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"From consultation to installation, the team showed incredible professionalism and understood our minimalist aesthetic perfectly."</p><div class="testimonial-author"><div class="testimonial-author-image"></div><div><div class="testimonial-author-name">Ananya & Vikram Iyer</div><div class="testimonial-author-role">Villa Project, Thanjavur</div></div></div></div>
+                <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Hayee Interior transformed our home into a masterpiece."</p><div><strong>Priya & Rajesh Kumar</strong><br><small>Residential Project, Thanjavur</small></div></div>
+                <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Seamless experience. They delivered our dream living room."</p><div><strong>Dr. Senthil Nathan</strong><br><small>Anu Hospital, Thanjavur</small></div></div>
+                <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Incredible professionalism and minimalist aesthetic."</p><div><strong>Ananya & Vikram Iyer</strong><br><small>Villa Project, Thanjavur</small></div></div>
             </div>
         </div>
     </section>
@@ -422,7 +341,7 @@
     <!-- Newsletter -->
     <section class="newsletter-section">
         <div class="container"><div class="newsletter-content">
-            <h2>Stay Inspired</h2><p>Subscribe to receive design insights, new arrivals, and exclusive offers</p>
+            <h2>Stay Inspired</h2><p>Subscribe for design insights and exclusive offers</p>
             <form class="newsletter-form" id="newsletterForm">
                 <input type="email" id="newsletterEmail" placeholder="Your email address" required>
                 <button type="submit">Subscribe</button>
@@ -432,24 +351,20 @@
 
     <!-- Contact -->
     <section class="section contact-section" id="contact">
-        <div class="container">
-            <div class="section-header"><p class="section-label">Get In Touch</p><h2 class="section-title">Visit Our Studio</h2><p class="section-description">We'd love to discuss your next project</p></div>
+        <div class="container"><div class="section-header"><p class="section-label">Get In Touch</p><h2 class="section-title">Visit Our Studio</h2></div>
             <div class="contact-grid">
-                <div class="contact-info"><div class="contact-details">
-                    <div class="contact-item"><div class="contact-icon">📍</div><div class="contact-text"><h4>Our Location</h4><p>Opposite Anu Hospital,<br>Thanjavur, Tamil Nadu - 613001</p></div></div>
-                    <div class="contact-item"><div class="contact-icon">📞</div><div class="contact-text"><h4>Phone</h4><p>+91 98765 43210<br>+91 87654 32109</p></div></div>
-                    <div class="contact-item"><div class="contact-icon">✉️</div><div class="contact-text"><h4>Email</h4><p>hello@hayeeinterior.com<br>design@hayeeinterior.com</p></div></div>
-                    <div class="contact-item"><div class="contact-icon">🕐</div><div class="contact-text"><h4>Working Hours</h4><p>Monday - Saturday: 10 AM - 8 PM<br>Sunday: By Appointment Only</p></div></div>
-                </div></div>
+                <div>
+                    <div class="contact-item"><div class="contact-icon">📍</div><div><h4>Location</h4><p>Opposite Anu Hospital, Thanjavur</p></div></div>
+                    <div class="contact-item"><div class="contact-icon">📞</div><div><h4>Phone</h4><p>+91 98765 43210</p></div></div>
+                    <div class="contact-item"><div class="contact-icon">✉️</div><div><h4>Email</h4><p>hello@hayeeinterior.com</p></div></div>
+                </div>
                 <div class="contact-form">
-                    <h3 style="margin-bottom:1.5rem;">Send Us a Message</h3>
+                    <h3 style="margin-bottom:1rem;">Send a Message</h3>
                     <form id="contactForm">
-                        <div class="form-group"><label for="name">Full Name *</label><input type="text" id="name" required placeholder="Enter your full name"></div>
-                        <div class="form-group"><label for="email">Email Address *</label><input type="email" id="email" required placeholder="Enter your email"></div>
-                        <div class="form-group"><label for="phone">Phone Number</label><input type="tel" id="phone" placeholder="Enter your phone number"></div>
-                        <div class="form-group"><label for="service">Service Interested In</label><select id="service"><option value="">Select a service</option><option value="interior-design">Interior Design</option><option value="furniture">Furniture Purchase</option><option value="consultation">Design Consultation</option><option value="other">Other</option></select></div>
-                        <div class="form-group"><label for="message">Your Message *</label><textarea id="message" required placeholder="Tell us about your project..."></textarea></div>
-                        <button type="submit" class="btn btn-primary" style="width:100%;">Send Message</button>
+                        <div class="form-group"><input type="text" placeholder="Full Name" required></div>
+                        <div class="form-group"><input type="email" placeholder="Email Address" required></div>
+                        <div class="form-group"><textarea placeholder="Your Message" rows="4" required></textarea></div>
+                        <button type="submit" class="btn btn-primary btn-block">Send Message</button>
                     </form>
                 </div>
             </div>
@@ -460,261 +375,203 @@
     <footer class="site-footer">
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-column"><div class="footer-brand-name">Hayee Interior</div><p class="footer-description">Premium interior design studio in Thanjavur, crafting timeless spaces since 2015. Located opposite Anu Hospital.</p><div class="footer-social"><a href="#" aria-label="Instagram">📷</a><a href="#" aria-label="Facebook">📘</a><a href="#" aria-label="Pinterest">📌</a><a href="#" aria-label="WhatsApp">💬</a></div></div>
-                <div class="footer-column"><h4>Quick Links</h4><ul><li><a href="#home">Home</a></li><li><a href="#shop">Shop</a></li><li><a href="#about">About Us</a></li><li><a href="#services">Services</a></li><li><a href="#contact">Contact</a></li></ul></div>
-                <div class="footer-column"><h4>Categories</h4><ul><li><a href="#shop">Seating</a></li><li><a href="#shop">Tables</a></li><li><a href="#shop">Lighting</a></li><li><a href="#shop">Decor</a></li><li><a href="#shop">Storage</a></li></ul></div>
-                <div class="footer-column"><h4>Contact Info</h4><ul><li>📍 Opposite Anu Hospital</li><li>📞 +91 98765 43210</li><li>✉️ hello@hayeeinterior.com</li><li>🕐 Mon-Sat: 10 AM - 8 PM</li></ul></div>
+                <div><div class="footer-brand-name">Hayee Interior</div><p>Premium interior design studio in Thanjavur since 2015.</p><div class="footer-social"><a href="#">📷</a><a href="#">📘</a><a href="#">📌</a></div></div>
+                <div><h4>Links</h4><ul><li><a href="#home">Home</a></li><li><a href="#shop">Shop</a></li><li><a href="#contact">Contact</a></li></ul></div>
+                <div><h4>Categories</h4><ul><li><a href="#shop">Seating</a></li><li><a href="#shop">Tables</a></li><li><a href="#shop">Lighting</a></li></ul></div>
+                <div><h4>Contact</h4><ul><li>📍 Opposite Anu Hospital</li><li>📞 +91 98765 43210</li></ul></div>
             </div>
-            <div class="footer-bottom"><p>&copy; 2025 Hayee Interior. All rights reserved.</p><p>Made with ❤️ in Thanjavur</p></div>
+            <div class="footer-bottom"><p>&copy; 2025 Hayee Interior</p><p>Made with ❤️ in Thanjavur</p></div>
         </div>
     </footer>
 
     <!-- Product Modal -->
     <div class="modal-overlay" id="productModal"><div class="modal"><button class="modal-close" id="modalClose">✕</button><div class="modal-gallery" id="modalGallery"></div><div class="modal-details" id="modalDetails"></div></div></div>
 
-    <!-- Cart Panel -->
+    <!-- Cart -->
     <div class="cart-overlay" id="cartOverlay"></div>
     <aside class="cart-panel" id="cartPanel">
-        <div class="cart-panel-header"><h3>Shopping Cart</h3><button class="cart-close" id="cartClose">✕</button></div>
-        <div class="cart-items" id="cartItems"><p style="text-align:center;color:var(--color-medium-gray);padding:2rem;">Your cart is empty</p></div>
+        <div class="cart-panel-header"><h3>Cart</h3><button class="cart-close" id="cartClose">✕</button></div>
+        <div class="cart-items" id="cartItems"></div>
         <div class="cart-footer"><div class="cart-total"><span>Subtotal</span><span id="cartTotal">₹0</span></div><button class="btn btn-primary btn-block" id="checkoutBtn">Proceed to Payment</button></div>
     </aside>
 
-    <!-- COMPACT PAYMENT MODAL -->
+    <!-- Payment Modal -->
     <div class="payment-modal-overlay" id="paymentModal">
         <div class="payment-modal">
             <button class="payment-close" id="paymentClose">✕</button>
-            <h3>Complete Payment</h3>
+            <h3 style="text-align:center;">Complete Payment</h3>
             <div class="payment-total" id="paymentTotal">₹0</div>
-            <div class="upi-section">
-                <h4>Pay via UPI</h4>
-                <div class="upi-options">
-                    <div class="upi-option selected" data-upi="gpay"><span>📱</span><span>Google Pay</span></div>
-                    <div class="upi-option" data-upi="phonepe"><span>💳</span><span>PhonePe</span></div>
-                    <div class="upi-option" data-upi="paytm"><span>🏦</span><span>Paytm</span></div>
-                </div>
-                <input type="text" class="upi-id-input" id="upiIdInput" placeholder="Enter UPI ID (e.g., name@upi)">
+            <h4 style="text-align:center;font-size:0.85rem;text-transform:uppercase;letter-spacing:2px;">Pay via UPI</h4>
+            <div class="upi-options">
+                <div class="upi-option selected"><span style="font-size:1.5rem;">📱</span><span>GPay</span></div>
+                <div class="upi-option"><span style="font-size:1.5rem;">💳</span><span>PhonePe</span></div>
+                <div class="upi-option"><span style="font-size:1.5rem;">🏦</span><span>Paytm</span></div>
             </div>
+            <input type="text" class="upi-id-input" id="upiIdInput" placeholder="Enter UPI ID (e.g., name@upi)">
             <div class="or-divider">OR</div>
-            <div class="card-icons">💳 🏦 💰</div>
-            <button class="btn btn-outline-dark btn-block" style="margin-bottom:0.5rem;" onclick="processCardPayment()">Pay with Card / Net Banking</button>
+            <div style="text-align:center;font-size:1.5rem;">💳 🏦 💰</div>
+            <button class="btn btn-outline-dark btn-block" style="margin:0.5rem 0;" onclick="processCardPayment()">Pay with Card</button>
             <button class="btn btn-primary btn-block" onclick="processUPIPayment()">Pay Now</button>
         </div>
     </div>
 
     <script>
         // ============================================
-        // EMAILJS INITIALIZATION
-        // ============================================
-        (function() {
-            // Initialize EmailJS with your public key
-            // IMPORTANT: Replace 'YOUR_PUBLIC_KEY' with your actual EmailJS public key
-            // Sign up at https://www.emailjs.com/ (free tier: 200 emails/month)
-            emailjs.init('YOUR_PUBLIC_KEY'); // <-- REPLACE THIS WITH YOUR ACTUAL PUBLIC KEY
-        })();
-
-        // ============================================
-        // PRODUCT DATABASE (32 Products with Real Images)
+        // PRODUCT DATABASE
         // ============================================
         const products = [
-            { id: 1, title: "Serena Velvet Armchair", category: "seating", price: 85000, originalPrice: 95000, description: "Handcrafted armchair upholstered in Italian velvet with solid oak legs.", specs: { "Material": "Velvet & Solid Oak", "Dimensions": "85cm W x 90cm D x 95cm H", "Weight": "18 kg", "Color": "Sage Green" }, image: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=400&auto=format&fit=crop", badge: "Bestseller", inventory: 12 },
-            { id: 2, title: "Minimalist Marble Coffee Table", category: "tables", price: 120000, originalPrice: null, description: "Elegant coffee table featuring a Carrara marble top with a brushed brass base.", specs: { "Material": "Carrara Marble & Brass", "Dimensions": "120cm L x 70cm W x 40cm H", "Weight": "35 kg", "Color": "White & Gold" }, image: "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?w=400&auto=format&fit=crop", badge: null, inventory: 5 },
-            { id: 3, title: "Artisan Pendant Light", category: "lighting", price: 45000, originalPrice: 52000, description: "Hand-blown glass pendant light with antique brass fittings.", specs: { "Material": "Blown Glass & Brass", "Dimensions": "30cm Diameter x 40cm H", "Weight": "4 kg", "Color": "Amber" }, image: "https://images.unsplash.com/photo-1524484485831-a92ffc0de03f?w=400&auto=format&fit=crop", badge: "Limited Edition", inventory: 3 },
-            { id: 4, title: "Sculptural Ceramic Vase", category: "decor", price: 18000, originalPrice: null, description: "Handcrafted ceramic vase with a unique sculptural form by Tamil Nadu artisans.", specs: { "Material": "Terracotta & Glaze", "Dimensions": "25cm W x 45cm H", "Weight": "3 kg", "Color": "Matte White" }, image: "https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=400&auto=format&fit=crop", badge: "Handmade", inventory: 20 },
-            { id: 5, title: "Chesterfield Leather Sofa", category: "seating", price: 245000, originalPrice: 280000, description: "Classic Chesterfield sofa in full-grain leather with deep button tufting.", specs: { "Material": "Full-Grain Leather", "Dimensions": "220cm L x 95cm D x 80cm H", "Weight": "65 kg", "Color": "Cognac Brown" }, image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&auto=format&fit=crop", badge: "Premium", inventory: 2 },
-            { id: 6, title: "Walnut Dining Table", category: "tables", price: 165000, originalPrice: null, description: "Solid American walnut dining table seating 8-10 with live edge detail.", specs: { "Material": "Solid Walnut", "Dimensions": "240cm L x 100cm W x 76cm H", "Weight": "80 kg", "Color": "Dark Walnut" }, image: "https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?w=400&auto=format&fit=crop", badge: null, inventory: 4 },
-            { id: 7, title: "Crystal Chandelier", category: "lighting", price: 320000, originalPrice: 380000, description: "Magnificent crystal chandelier with 24 lights and hand-cut crystals.", specs: { "Material": "Crystal & Gold-Plated Metal", "Dimensions": "100cm Diameter x 120cm H", "Weight": "45 kg", "Color": "Clear & Gold" }, image: "https://images.unsplash.com/photo-1540932239986-30128078f3c5?w=400&auto=format&fit=crop", badge: "Luxury", inventory: 1 },
-            { id: 8, title: "Linen Throw Pillow Set", category: "textiles", price: 6500, originalPrice: 8000, description: "Set of 4 hand-stitched linen throw pillows with feather inserts.", specs: { "Material": "100% Linen", "Dimensions": "50cm x 50cm each", "Weight": "2 kg total", "Color": "Assorted Neutrals" }, image: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=400&auto=format&fit=crop", badge: null, inventory: 50 },
-            { id: 9, title: "Teak Wood Bookcase", category: "storage", price: 95000, originalPrice: null, description: "Floor-to-ceiling modular bookcase in reclaimed teak wood.", specs: { "Material": "Reclaimed Teak", "Dimensions": "180cm W x 40cm D x 240cm H", "Weight": "120 kg", "Color": "Natural Teak" }, image: "https://images.unsplash.com/photo-1594620302200-9a762244a156?w=400&auto=format&fit=crop", badge: "Sustainable", inventory: 3 },
-            { id: 10, title: "Brass Floor Lamp", category: "lighting", price: 55000, originalPrice: 62000, description: "Sculptural floor lamp in solid brass with a linen shade.", specs: { "Material": "Solid Brass & Linen", "Dimensions": "40cm W x 40cm D x 160cm H", "Weight": "12 kg", "Color": "Antique Brass" }, image: "https://images.unsplash.com/photo-1507473885765-e6ed057ab6fe?w=400&auto=format&fit=crop", badge: null, inventory: 7 },
-            { id: 11, title: "Velvet Ottoman", category: "seating", price: 35000, originalPrice: null, description: "Plush velvet ottoman with hidden storage and elegant tufted detailing.", specs: { "Material": "Cotton Velvet", "Dimensions": "80cm Diameter x 45cm H", "Weight": "10 kg", "Color": "Blush Pink" }, image: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=400&auto=format&fit=crop", badge: "New", inventory: 15 },
-            { id: 12, title: "Marble Console Table", category: "tables", price: 140000, originalPrice: 160000, description: "Sleek console table with Nero Marquina marble top and geometric metal base.", specs: { "Material": "Nero Marquina Marble & Steel", "Dimensions": "140cm L x 40cm D x 85cm H", "Weight": "40 kg", "Color": "Black & Gold" }, image: "https://images.unsplash.com/photo-1486946255434-2466348c2166?w=400&auto=format&fit=crop", badge: "Exclusive", inventory: 2 },
-            { id: 13, title: "Bamboo Pendant Light", category: "lighting", price: 28000, originalPrice: null, description: "Eco-friendly handwoven bamboo pendant light for a warm tropical ambiance.", specs: { "Material": "Natural Bamboo", "Dimensions": "45cm Diameter x 55cm H", "Weight": "2.5 kg", "Color": "Natural" }, image: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=400&auto=format&fit=crop", badge: "Eco-Friendly", inventory: 10 },
-            { id: 14, title: "Mid-Century Sideboard", category: "storage", price: 185000, originalPrice: 210000, description: "Iconic mid-century sideboard in American walnut with sculptural legs.", specs: { "Material": "American Walnut & Brass", "Dimensions": "180cm L x 45cm D x 75cm H", "Weight": "55 kg", "Color": "Walnut" }, image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=400&auto=format&fit=crop", badge: "Iconic", inventory: 3 },
-            { id: 15, title: "Cashmere Throw Blanket", category: "textiles", price: 22000, originalPrice: 28000, description: "Ultra-soft pure cashmere throw in a sophisticated heathered charcoal.", specs: { "Material": "100% Cashmere", "Dimensions": "140cm x 200cm", "Weight": "0.8 kg", "Color": "Heathered Charcoal" }, image: "https://images.unsplash.com/photo-1580301762395-21ceb8804b4f?w=400&auto=format&fit=crop", badge: null, inventory: 25 },
-            { id: 16, title: "Wingback Dining Chair", category: "seating", price: 42000, originalPrice: null, description: "Set of 2 elegant wingback chairs upholstered in performance linen.", specs: { "Material": "Performance Linen & Oak", "Dimensions": "55cm W x 60cm D x 85cm H", "Weight": "8 kg each", "Color": "Ivory" }, image: "https://images.unsplash.com/photo-1503602642458-232111445657?w=400&auto=format&fit=crop", badge: "Set of 2", inventory: 8 },
-            { id: 17, title: "Abstract Wall Mirror", category: "decor", price: 34000, originalPrice: 40000, description: "Oversized abstract shaped wall mirror with a thin gold frame.", specs: { "Material": "Glass & Gold Leaf Metal", "Dimensions": "90cm W x 120cm H", "Weight": "15 kg", "Color": "Gold" }, image: "https://images.unsplash.com/photo-1618220252344-8ec99ec625b5?w=400&auto=format&fit=crop", badge: "Statement", inventory: 4 },
-            { id: 18, title: "Nesting Side Tables", category: "tables", price: 56000, originalPrice: null, description: "Set of 3 nesting tables with brushed brass frames and smoked glass tops.", specs: { "Material": "Brass & Smoked Glass", "Dimensions": "Various sizes", "Weight": "12 kg", "Color": "Brass & Grey" }, image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&auto=format&fit=crop", badge: "Set of 3", inventory: 6 },
-            { id: 19, title: "Ceramic Table Lamp", category: "lighting", price: 19500, originalPrice: 24000, description: "Hand-thrown ceramic base with a raw linen shade.", specs: { "Material": "Ceramic & Linen", "Dimensions": "35cm Diameter x 60cm H", "Weight": "5 kg", "Color": "Ivory" }, image: "https://images.unsplash.com/photo-1507473885765-e6ed057ab6fe?w=400&auto=format&fit=crop", badge: null, inventory: 14 },
-            { id: 20, title: "Modular Storage Unit", category: "storage", price: 210000, originalPrice: null, description: "Customizable modular wall unit in matte lacquer with integrated lighting.", specs: { "Material": "MDF & Matte Lacquer", "Dimensions": "Customizable", "Weight": "Varies", "Color": "Matte White" }, image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&auto=format&fit=crop", badge: "Custom", inventory: 2 },
-            { id: 21, title: "Hand-Knotted Wool Rug", category: "textiles", price: 78000, originalPrice: 95000, description: "Traditional hand-knotted rug with a modern geometric pattern.", specs: { "Material": "Hand-Spun Wool", "Dimensions": "240cm x 300cm", "Weight": "25 kg", "Color": "Ivory & Grey" }, image: "https://images.unsplash.com/photo-1600166898405-da9535204843?w=400&auto=format&fit=crop", badge: "Artisan", inventory: 3 },
-            { id: 22, title: "Leather Lounge Chair", category: "seating", price: 135000, originalPrice: 155000, description: "Iconic lounge chair and ottoman in top-grain aniline leather.", specs: { "Material": "Aniline Leather & Rosewood", "Dimensions": "85cm W x 85cm D x 100cm H", "Weight": "30 kg", "Color": "Black" }, image: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=400&auto=format&fit=crop", badge: "Icon", inventory: 2 },
-            { id: 23, title: "Scented Candle Collection", category: "decor", price: 4500, originalPrice: null, description: "Set of 3 luxury soy wax candles in sandalwood, jasmine, and vanilla.", specs: { "Material": "Soy Wax & Essential Oils", "Dimensions": "8cm x 10cm each", "Weight": "0.5 kg", "Color": "Matte Black" }, image: "https://images.unsplash.com/photo-1603006905003-be475563bc59?w=400&auto=format&fit=crop", badge: "New", inventory: 40 },
-            { id: 24, title: "Round Pedestal Table", category: "tables", price: 98000, originalPrice: 115000, description: "Classic round pedestal table in white oak with a sculptural base.", specs: { "Material": "White Oak", "Dimensions": "120cm Diameter x 76cm H", "Weight": "45 kg", "Color": "Natural Oak" }, image: "https://images.unsplash.com/photo-1530018607912-eff2daa1bac4?w=400&auto=format&fit=crop", badge: null, inventory: 4 },
-            { id: 25, title: "Wall Sconce Pair", category: "lighting", price: 32000, originalPrice: null, description: "Pair of elegant brass wall sconces with opal glass globes.", specs: { "Material": "Brass & Opal Glass", "Dimensions": "15cm W x 25cm H each", "Weight": "2 kg", "Color": "Brass & White" }, image: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=400&auto=format&fit=crop", badge: "Pair", inventory: 9 },
-            { id: 26, title: "Velvet Curtain Panel", category: "textiles", price: 15000, originalPrice: 18000, description: "Luxurious cotton velvet curtain panel with blackout lining.", specs: { "Material": "Cotton Velvet", "Dimensions": "140cm W x 270cm H", "Weight": "4 kg", "Color": "Charcoal" }, image: "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=400&auto=format&fit=crop", badge: "Per Panel", inventory: 30 },
-            { id: 27, title: "Bar Cabinet", category: "storage", price: 155000, originalPrice: 175000, description: "Art Deco inspired bar cabinet in Macassar ebony with mirrored interior.", specs: { "Material": "Macassar Ebony & Mirror", "Dimensions": "100cm W x 45cm D x 140cm H", "Weight": "70 kg", "Color": "Dark Ebony" }, image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=400&auto=format&fit=crop", badge: "Statement", inventory: 1 },
-            { id: 28, title: "Jute Area Rug", category: "textiles", price: 18500, originalPrice: null, description: "Hand-braided natural jute rug with a chunky weave.", specs: { "Material": "100% Jute", "Dimensions": "200cm x 280cm", "Weight": "18 kg", "Color": "Natural Jute" }, image: "https://images.unsplash.com/photo-1575414003591-ece8be4f5fe3?w=400&auto=format&fit=crop", badge: "Natural", inventory: 12 },
-            { id: 29, title: "Acrylic Console", category: "tables", price: 88000, originalPrice: null, description: "Modern ghost console table in clear acrylic with beveled edges.", specs: { "Material": "Clear Acrylic", "Dimensions": "130cm L x 40cm D x 80cm H", "Weight": "20 kg", "Color": "Clear" }, image: "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?w=400&auto=format&fit=crop", badge: "Modern", inventory: 5 },
-            { id: 30, title: "Macrame Wall Hanging", category: "decor", price: 12000, originalPrice: 15000, description: "Large hand-knotted cotton macrame wall art for bohemian elegance.", specs: { "Material": "Cotton Rope & Wood", "Dimensions": "90cm W x 150cm H", "Weight": "3 kg", "Color": "Natural Cream" }, image: "https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=400&auto=format&fit=crop", badge: "Artisan", inventory: 7 },
-            { id: 31, title: "Boucle Accent Chair", category: "seating", price: 65000, originalPrice: 75000, description: "Trendy boucle fabric accent chair with a swivel base.", specs: { "Material": "Boucle & Metal", "Dimensions": "75cm W x 80cm D x 85cm H", "Weight": "16 kg", "Color": "Cream" }, image: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=400&auto=format&fit=crop", badge: "Trending", inventory: 6 },
-            { id: 32, title: "Marble & Wood Tray", category: "decor", price: 8500, originalPrice: null, description: "Elegant serving tray combining white marble and mango wood.", specs: { "Material": "Marble, Mango Wood, Brass", "Dimensions": "50cm L x 30cm W", "Weight": "4 kg", "Color": "White & Brown" }, image: "https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=400&auto=format&fit=crop", badge: null, inventory: 22 }
+            { id: 1, title: "Serena Velvet Armchair", category: "seating", price: 85000, originalPrice: 95000, description: "Handcrafted armchair in Italian velvet with solid oak legs.", specs: { "Material": "Velvet & Oak", "Dimensions": "85x90x95cm", "Color": "Sage Green" }, image: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=400&auto=format&fit=crop", badge: "Bestseller", inventory: 12 },
+            { id: 2, title: "Marble Coffee Table", category: "tables", price: 120000, description: "Carrara marble top with brushed brass base.", specs: { "Material": "Marble & Brass", "Dimensions": "120x70x40cm", "Color": "White & Gold" }, image: "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?w=400&auto=format&fit=crop", badge: null, inventory: 5 },
+            { id: 3, title: "Artisan Pendant Light", category: "lighting", price: 45000, originalPrice: 52000, description: "Hand-blown glass with antique brass fittings.", specs: { "Material": "Glass & Brass", "Dimensions": "30x40cm", "Color": "Amber" }, image: "https://images.unsplash.com/photo-1524484485831-a92ffc0de03f?w=400&auto=format&fit=crop", badge: "Limited", inventory: 3 },
+            { id: 4, title: "Ceramic Vase", category: "decor", price: 18000, description: "Handcrafted by Tamil Nadu artisans.", specs: { "Material": "Terracotta", "Dimensions": "25x45cm", "Color": "Matte White" }, image: "https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=400&auto=format&fit=crop", badge: "Handmade", inventory: 20 },
+            { id: 5, title: "Chesterfield Sofa", category: "seating", price: 245000, originalPrice: 280000, description: "Full-grain leather with deep button tufting.", specs: { "Material": "Full-Grain Leather", "Dimensions": "220x95x80cm", "Color": "Cognac" }, image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&auto=format&fit=crop", badge: "Premium", inventory: 2 },
+            { id: 6, title: "Walnut Dining Table", category: "tables", price: 165000, description: "Solid American walnut, seats 8-10.", specs: { "Material": "Solid Walnut", "Dimensions": "240x100x76cm", "Color": "Dark Walnut" }, image: "https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?w=400&auto=format&fit=crop", badge: null, inventory: 4 },
+            { id: 7, title: "Crystal Chandelier", category: "lighting", price: 320000, originalPrice: 380000, description: "24 lights with hand-cut crystals.", specs: { "Material": "Crystal & Gold", "Dimensions": "100x120cm", "Color": "Clear & Gold" }, image: "https://images.unsplash.com/photo-1540932239986-30128078f3c5?w=400&auto=format&fit=crop", badge: "Luxury", inventory: 1 },
+            { id: 8, title: "Linen Pillow Set", category: "textiles", price: 6500, originalPrice: 8000, description: "Set of 4 hand-stitched linen pillows.", specs: { "Material": "100% Linen", "Dimensions": "50x50cm", "Color": "Neutrals" }, image: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=400&auto=format&fit=crop", badge: null, inventory: 50 },
+            { id: 9, title: "Teak Bookcase", category: "storage", price: 95000, description: "Modular bookcase in reclaimed teak.", specs: { "Material": "Reclaimed Teak", "Dimensions": "180x40x240cm", "Color": "Natural" }, image: "https://images.unsplash.com/photo-1594620302200-9a762244a156?w=400&auto=format&fit=crop", badge: "Sustainable", inventory: 3 },
+            { id: 10, title: "Brass Floor Lamp", category: "lighting", price: 55000, originalPrice: 62000, description: "Solid brass with linen shade.", specs: { "Material": "Brass & Linen", "Dimensions": "40x160cm", "Color": "Antique Brass" }, image: "https://images.unsplash.com/photo-1507473885765-e6ed057ab6fe?w=400&auto=format&fit=crop", badge: null, inventory: 7 },
+            { id: 11, title: "Velvet Ottoman", category: "seating", price: 35000, description: "Plush velvet with hidden storage.", specs: { "Material": "Cotton Velvet", "Dimensions": "80x45cm", "Color": "Blush" }, image: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=400&auto=format&fit=crop", badge: "New", inventory: 15 },
+            { id: 12, title: "Marble Console Table", category: "tables", price: 140000, originalPrice: 160000, description: "Nero Marquina marble with metal base.", specs: { "Material": "Marble & Steel", "Dimensions": "140x40x85cm", "Color": "Black & Gold" }, image: "https://images.unsplash.com/photo-1486946255434-2466348c2166?w=400&auto=format&fit=crop", badge: "Exclusive", inventory: 2 },
+            { id: 13, title: "Bamboo Pendant Light", category: "lighting", price: 28000, description: "Eco-friendly handwoven bamboo.", specs: { "Material": "Bamboo", "Dimensions": "45x55cm", "Color": "Natural" }, image: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=400&auto=format&fit=crop", badge: "Eco", inventory: 10 },
+            { id: 14, title: "Mid-Century Sideboard", category: "storage", price: 185000, description: "American walnut with brass handles.", specs: { "Material": "Walnut & Brass", "Dimensions": "180x45x75cm", "Color": "Walnut" }, image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=400&auto=format&fit=crop", badge: "Iconic", inventory: 3 },
+            { id: 15, title: "Cashmere Throw", category: "textiles", price: 22000, description: "Pure cashmere in heathered charcoal.", specs: { "Material": "100% Cashmere", "Dimensions": "140x200cm", "Color": "Charcoal" }, image: "https://images.unsplash.com/photo-1580301762395-21ceb8804b4f?w=400&auto=format&fit=crop", badge: null, inventory: 25 },
+            { id: 16, title: "Wingback Chairs (Set of 2)", category: "seating", price: 42000, description: "Performance linen upholstery.", specs: { "Material": "Linen & Oak", "Dimensions": "55x60x85cm", "Color": "Ivory" }, image: "https://images.unsplash.com/photo-1503602642458-232111445657?w=400&auto=format&fit=crop", badge: "Set of 2", inventory: 8 }
         ];
 
         // Cart
         let cart = JSON.parse(localStorage.getItem('hayeeCart')) || [];
         function saveCart() { localStorage.setItem('hayeeCart', JSON.stringify(cart)); updateCartUI(); }
-        function addToCart(productId, quantity = 1) {
-            const existing = cart.find(item => item.productId === productId);
-            if (existing) { existing.quantity += quantity; } else { cart.push({ productId, quantity }); }
-            saveCart(); showToast('Added to cart! ✨');
-        }
-        function removeFromCart(productId) { cart = cart.filter(item => item.productId !== productId); saveCart(); }
-        function updateQuantity(productId, newQuantity) {
-            const item = cart.find(item => item.productId === productId);
-            if (item) { item.quantity = Math.max(1, newQuantity); saveCart(); }
-        }
-        function getCartTotal() { return cart.reduce((total, item) => { const p = products.find(pr => pr.id === item.productId); return total + (p ? p.price * item.quantity : 0); }, 0); }
-        function getCartCount() { return cart.reduce((count, item) => count + item.quantity, 0); }
-
+        function addToCart(pid, qty = 1) { const e = cart.find(i => i.productId === pid); if (e) e.quantity += qty; else cart.push({ productId: pid, quantity: qty }); saveCart(); showToast('Added to cart! ✨'); }
+        function removeFromCart(pid) { cart = cart.filter(i => i.productId !== pid); saveCart(); }
+        function updateQuantity(pid, q) { const i = cart.find(x => x.productId === pid); if (i) { i.quantity = Math.max(1, q); saveCart(); } }
+        function getCartTotal() { return cart.reduce((t, i) => { const p = products.find(x => x.id === i.productId); return t + (p ? p.price * i.quantity : 0); }, 0); }
+        function getCartCount() { return cart.reduce((c, i) => c + i.quantity, 0); }
         function updateCartUI() {
             document.getElementById('cartCount').textContent = getCartCount();
             document.getElementById('cartTotal').textContent = '₹' + getCartTotal().toLocaleString('en-IN');
-            const container = document.getElementById('cartItems');
-            if (cart.length === 0) {
-                container.innerHTML = '<p style="text-align:center;color:var(--color-medium-gray);padding:2rem;">Your cart is empty</p>';
-            } else {
-                container.innerHTML = cart.map(item => {
-                    const p = products.find(pr => pr.id === item.productId);
-                    if (!p) return '';
-                    return `<div class="cart-item"><div class="cart-item-image"><img src="${p.image}" alt="${p.title}"></div><div class="cart-item-details"><div class="cart-item-name">${p.title}</div><div class="cart-item-price">₹${p.price.toLocaleString('en-IN')}</div><div class="cart-item-quantity"><button class="qty-btn" onclick="updateQuantity(${p.id},${item.quantity-1})">−</button><span>${item.quantity}</span><button class="qty-btn" onclick="updateQuantity(${p.id},${item.quantity+1})">+</button></div><button class="cart-item-remove" onclick="removeFromCart(${p.id})">Remove</button></div></div>`;
-                }).join('');
-            }
+            const c = document.getElementById('cartItems');
+            if (cart.length === 0) c.innerHTML = '<p style="text-align:center;padding:2rem;">Your cart is empty</p>';
+            else c.innerHTML = cart.map(i => { const p = products.find(x => x.id === i.productId); if (!p) return ''; return `<div class="cart-item"><div class="cart-item-image"><img src="${p.image}"></div><div><strong>${p.title}</strong><br><span style="color:var(--color-gold-accent)">₹${p.price.toLocaleString('en-IN')}</span><br><button class="qty-btn" onclick="updateQuantity(${p.id},${i.quantity-1})">−</button> ${i.quantity} <button class="qty-btn" onclick="updateQuantity(${p.id},${i.quantity+1})">+</button> <button onclick="removeFromCart(${p.id})" style="background:none;border:none;color:red;cursor:pointer;font-size:0.75rem;">Remove</button></div></div>`; }).join('');
         }
-
-        function renderProducts(category = 'all') {
-            const grid = document.getElementById('productGrid');
-            const noResults = document.getElementById('noResults');
-            const filtered = category === 'all' ? products : products.filter(p => p.category === category);
-            if (filtered.length === 0) { grid.innerHTML = ''; noResults.style.display = 'block'; return; }
-            noResults.style.display = 'none';
-            grid.innerHTML = filtered.map(p => `
-                <div class="product-card" onclick="openProductModal(${p.id})">
-                    <div class="product-image"><img src="${p.image}" alt="${p.title}" loading="lazy">${p.badge?`<span class="product-badge">${p.badge}</span>`:''}<div class="product-actions" onclick="event.stopPropagation()"><button class="product-action-btn" onclick="addToCart(${p.id});event.stopPropagation()" title="Add to Cart"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></button></div></div>
-                    <div class="product-info"><p class="product-category">${p.category}</p><h3 class="product-name">${p.title}</h3><div class="product-price">₹${p.price.toLocaleString('en-IN')}${p.originalPrice?`<span class="original-price">₹${p.originalPrice.toLocaleString('en-IN')}</span>`:''}</div></div>
-                </div>
-            `).join('');
+        function renderProducts(cat = 'all') {
+            const g = document.getElementById('productGrid'), nr = document.getElementById('noResults');
+            const f = cat === 'all' ? products : products.filter(p => p.category === cat);
+            if (f.length === 0) { g.innerHTML = ''; nr.style.display = 'block'; return; }
+            nr.style.display = 'none';
+            g.innerHTML = f.map(p => `<div class="product-card" onclick="openProductModal(${p.id})"><div class="product-image"><img src="${p.image}" alt="${p.title}" loading="lazy">${p.badge?`<span class="product-badge">${p.badge}</span>`:''}<div class="product-actions" onclick="event.stopPropagation()"><button class="product-action-btn" onclick="addToCart(${p.id});event.stopPropagation()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></button></div></div><div class="product-info"><p class="product-category">${p.category}</p><h3 class="product-name">${p.title}</h3><div class="product-price">₹${p.price.toLocaleString('en-IN')}${p.originalPrice?`<span class="original-price">₹${p.originalPrice.toLocaleString('en-IN')}</span>`:''}</div></div></div>`).join('');
         }
-
-        function openProductModal(productId) {
-            const p = products.find(pr => pr.id === productId); if (!p) return;
+        function openProductModal(pid) {
+            const p = products.find(x => x.id === pid); if (!p) return;
             document.getElementById('modalGallery').innerHTML = `<img src="${p.image}" alt="${p.title}">`;
-            document.getElementById('modalDetails').innerHTML = `
-                <p class="product-category">${p.category}</p><h2>${p.title}</h2><div class="product-price">₹${p.price.toLocaleString('en-IN')}</div><p class="product-description">${p.description}</p>
-                <div class="product-specs">${Object.entries(p.specs).map(([k,v])=>`<div class="spec-item"><span class="spec-label">${k}</span><span class="spec-value">${v}</span></div>`).join('')}</div>
-                <p style="margin-bottom:0.8rem;"><strong>In Stock:</strong> ${p.inventory} units</p>
-                <div class="quantity-selector"><button class="qty-btn" id="modalQtyMinus">−</button><input type="number" class="qty-input" id="modalQty" value="1" min="1" max="${p.inventory}" readonly><button class="qty-btn" id="modalQtyPlus">+</button></div>
-                <button class="btn btn-primary btn-block" id="modalAddToCart">Add to Cart</button>
-            `;
+            document.getElementById('modalDetails').innerHTML = `<p class="product-category">${p.category}</p><h2>${p.title}</h2><div class="product-price" style="font-size:1.6rem;color:var(--color-gold-accent);">₹${p.price.toLocaleString('en-IN')}</div><p>${p.description}</p><div class="product-specs">${Object.entries(p.specs).map(([k,v])=>`<div><small style="color:var(--color-medium-gray)">${k}</small><br><strong>${v}</strong></div>`).join('')}</div><p><strong>Stock:</strong> ${p.inventory}</p><div class="quantity-selector"><button class="qty-btn" id="mqm">−</button><input class="qty-input" id="mqv" value="1" readonly><button class="qty-btn" id="mqp">+</button></div><button class="btn btn-primary btn-block" id="matc">Add to Cart</button>`;
             document.getElementById('productModal').classList.add('active');
-            let qty=1;
-            document.getElementById('modalQtyMinus').onclick=()=>{if(qty>1){qty--;document.getElementById('modalQty').value=qty;}};
-            document.getElementById('modalQtyPlus').onclick=()=>{if(qty<p.inventory){qty++;document.getElementById('modalQty').value=qty;}};
-            document.getElementById('modalAddToCart').onclick=()=>{addToCart(productId,qty);document.getElementById('productModal').classList.remove('active');};
+            let q = 1;
+            document.getElementById('mqm').onclick = () => { if (q > 1) { q--; document.getElementById('mqv').value = q; } };
+            document.getElementById('mqp').onclick = () => { if (q < p.inventory) { q++; document.getElementById('mqv').value = q; } };
+            document.getElementById('matc').onclick = () => { addToCart(pid, q); document.getElementById('productModal').classList.remove('active'); };
         }
-
-        function showToast(message) {
-            const toast = document.createElement('div'); toast.className='toast'; toast.textContent=message;
-            document.body.appendChild(toast); setTimeout(()=>toast.remove(),4000);
-        }
-
-        // Payment
-        function openPaymentModal() {
-            if(cart.length===0){showToast('Your cart is empty! 🛒');return;}
-            document.getElementById('paymentTotal').textContent='₹'+getCartTotal().toLocaleString('en-IN');
-            document.getElementById('paymentModal').classList.add('active');
-            document.getElementById('cartPanel').classList.remove('active');
-            document.getElementById('cartOverlay').classList.remove('active');
-        }
-        function processUPIPayment() {
-            const upiId=document.getElementById('upiIdInput').value.trim();
-            if(!upiId){showToast('Please enter your UPI ID');return;}
-            if(!upiId.includes('@')){showToast('Please enter a valid UPI ID');return;}
-            document.getElementById('paymentModal').classList.remove('active');
-            showToast(`Payment of ₹${getCartTotal().toLocaleString('en-IN')} successful via UPI! 🎉`);
-            cart=[];saveCart();
-        }
-        function processCardPayment() {
-            document.getElementById('paymentModal').classList.remove('active');
-            showToast(`Payment of ₹${getCartTotal().toLocaleString('en-IN')} processing... ✅`);
-            cart=[];saveCart();
-        }
+        function showToast(msg) { const t = document.createElement('div'); t.className = 'toast'; t.textContent = msg; document.body.appendChild(t); setTimeout(() => t.remove(), 4000); }
+        function openPaymentModal() { if (cart.length === 0) { showToast('Cart is empty!'); return; } document.getElementById('paymentTotal').textContent = '₹' + getCartTotal().toLocaleString('en-IN'); document.getElementById('paymentModal').classList.add('active'); document.getElementById('cartPanel').classList.remove('active'); document.getElementById('cartOverlay').classList.remove('active'); }
+        function processUPIPayment() { const id = document.getElementById('upiIdInput').value.trim(); if (!id) { showToast('Enter UPI ID'); return; } if (!id.includes('@')) { showToast('Invalid UPI ID'); return; } document.getElementById('paymentModal').classList.remove('active'); showToast('Payment successful! 🎉'); cart = []; saveCart(); }
+        function processCardPayment() { document.getElementById('paymentModal').classList.remove('active'); showToast('Payment processing... ✅'); cart = []; saveCart(); }
 
         // ============================================
-        // EMAIL SUBSCRIPTION WITH EMAILJS
+        // EMAIL SUBSCRIPTION - FIXED WITH EMAILJS
         // ============================================
+        // IMPORTANT SETUP INSTRUCTIONS:
+        // 1. Go to https://www.emailjs.com/ and create a free account
+        // 2. Create an Email Service (connect your Gmail)
+        // 3. Create an Email Template with these variables:
+        //    - {{to_email}} - recipient's email
+        //    - {{to_name}} - recipient's name  
+        //    - {{subject}} - email subject
+        //    - {{message}} - the HTML message content
+        // 4. Replace the placeholders below with your actual IDs
+        
+        (function() {
+            // Replace 'YOUR_PUBLIC_KEY' with your actual EmailJS Public Key
+            emailjs.init('YOUR_PUBLIC_KEY');
+        })();
+
         async function handleNewsletterSubmit(email) {
-            // Show sending state
-            showToast('Sending your welcome email... 📧');
+            const userName = email.split('@')[0];
             
-            // Prepare the beautiful welcome message
+            // Create the beautiful HTML email message
+            const htmlMessage = `
+                <!DOCTYPE html>
+                <html>
+                <head><meta charset="utf-8"></head>
+                <body style="margin:0;padding:0;background:#FAF8F5;">
+                    <table width="100%" cellpadding="0" cellspacing="0" style="background:#FAF8F5;padding:40px 20px;">
+                        <tr><td align="center">
+                            <table width="600" cellpadding="0" cellspacing="0" style="background:#FFFFFF;border-radius:12px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,0.06);">
+                                <!-- Header -->
+                                <tr><td style="background:#2C2925;padding:40px 30px;text-align:center;">
+                                    <h1 style="font-family:Georgia,serif;color:#FAF8F5;font-size:28px;margin:0;">Hayee Interior</h1>
+                                    <div style="width:50px;height:2px;background:#C9A96E;margin:15px auto;"></div>
+                                    <p style="color:#C9A96E;font-style:italic;font-size:16px;margin:0;">Where Luxury Meets Timeless Design</p>
+                                </td></tr>
+                                <!-- Body -->
+                                <tr><td style="padding:30px;">
+                                    <h2 style="font-family:Georgia,serif;color:#2C2925;font-size:22px;">Dear ${userName},</h2>
+                                    <p style="color:#3D3A35;font-size:15px;line-height:1.8;">
+                                        Thank you for subscribing to the <strong>Hayee Interior</strong> newsletter. We are absolutely delighted to welcome you into our world of timeless design and exquisite craftsmanship.
+                                    </p>
+                                    <table width="100%" cellpadding="20" style="background:#F5F0EB;border-radius:8px;margin:20px 0;">
+                                        <tr><td>
+                                            <h3 style="font-family:Georgia,serif;color:#2C2925;font-size:16px;margin:0 0 12px 0;">✨ As a subscriber, you'll receive:</h3>
+                                            <table cellpadding="5">
+                                                <tr><td style="color:#3D3A35;font-size:14px;">🆕</td><td style="color:#3D3A35;font-size:14px;">Early access to new collection launches</td></tr>
+                                                <tr><td style="color:#3D3A35;font-size:14px;">💎</td><td style="color:#3D3A35;font-size:14px;">Exclusive member-only offers & discounts</td></tr>
+                                                <tr><td style="color:#3D3A35;font-size:14px;">📐</td><td style="color:#3D3A35;font-size:14px;">Design inspiration & expert tips</td></tr>
+                                                <tr><td style="color:#3D3A35;font-size:14px;">🎉</td><td style="color:#3D3A35;font-size:14px;">Invitations to private events at our Thanjavur studio</td></tr>
+                                                <tr><td style="color:#3D3A35;font-size:14px;">📖</td><td style="color:#3D3A35;font-size:14px;">Our seasonal lookbook delivered to your inbox</td></tr>
+                                            </table>
+                                        </td></tr>
+                                    </table>
+                                    <p style="color:#3D3A35;font-size:15px;line-height:1.8;">
+                                        We invite you to visit our studio <strong>opposite Anu Hospital, Thanjavur</strong>, to experience our curated collection of premium furniture and bespoke design services in person.
+                                    </p>
+                                    <div style="text-align:center;margin:25px 0;">
+                                        <a href="#" style="display:inline-block;background:#C9A96E;color:#FFFFFF;padding:12px 30px;text-decoration:none;border-radius:4px;font-weight:600;text-transform:uppercase;letter-spacing:1px;font-size:13px;">Explore Our Collection</a>
+                                    </div>
+                                </td></tr>
+                                <!-- Footer -->
+                                <tr><td style="background:#F5F0EB;padding:20px 30px;text-align:center;">
+                                    <p style="color:#8B7355;font-size:12px;margin:0;"><strong>Hayee Interior</strong> | Opposite Anu Hospital, Thanjavur, Tamil Nadu - 613001</p>
+                                    <p style="color:#8B7355;font-size:12px;margin:5px 0;">📞 +91 98765 43210 | ✉️ hello@hayeeinterior.com</p>
+                                    <p style="color:#B8B2A6;font-size:11px;margin:15px 0 0 0;">© 2025 Hayee Interior. All rights reserved.</p>
+                                </td></tr>
+                            </table>
+                        </td></tr>
+                    </table>
+                </body>
+                </html>
+            `;
+
             const templateParams = {
                 to_email: email,
-                to_name: email.split('@')[0],
+                to_name: userName,
                 subject: '✨ Welcome to Hayee Interior - Your Design Journey Begins!',
-                message_html: `
-                    <div style="font-family:Georgia,serif;max-width:600px;margin:0 auto;padding:40px 20px;background:#FAF8F5;">
-                        <div style="text-align:center;margin-bottom:30px;">
-                            <h1 style="font-family:'Playfair Display',Georgia,serif;color:#2C2925;font-size:28px;margin-bottom:10px;">Hayee Interior</h1>
-                            <div style="width:50px;height:2px;background:#C9A96E;margin:15px auto;"></div>
-                            <p style="color:#C9A96E;font-style:italic;font-size:16px;">Where Luxury Meets Timeless Design</p>
-                        </div>
-                        <div style="background:#FFFFFF;padding:30px;border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,0.06);">
-                            <h2 style="color:#2C2925;font-size:22px;margin-bottom:15px;">Dear Design Enthusiast,</h2>
-                            <p style="color:#3D3A35;font-size:15px;line-height:1.8;margin-bottom:20px;">
-                                Thank you for subscribing to the <strong>Hayee Interior</strong> newsletter. We are absolutely delighted to welcome you into our world of timeless design and exquisite craftsmanship.
-                            </p>
-                            <div style="background:#F5F0EB;padding:20px;border-radius:8px;margin-bottom:20px;">
-                                <h3 style="color:#2C2925;font-size:16px;margin-bottom:12px;">✨ As a subscriber, you'll receive:</h3>
-                                <ul style="color:#3D3A35;font-size:14px;line-height:2;list-style:none;padding:0;">
-                                    <li>🆕 Early access to new collection launches</li>
-                                    <li>💎 Exclusive member-only offers & discounts</li>
-                                    <li>📐 Design inspiration & expert tips</li>
-                                    <li>🎉 Invitations to private events at our Thanjavur studio</li>
-                                    <li>📖 Our seasonal lookbook delivered to your inbox</li>
-                                </ul>
-                            </div>
-                            <p style="color:#3D3A35;font-size:15px;line-height:1.8;margin-bottom:20px;">
-                                We invite you to visit our studio <strong>opposite Anu Hospital, Thanjavur</strong>, to experience our curated collection of premium furniture and bespoke design services in person.
-                            </p>
-                            <div style="text-align:center;margin:25px 0;">
-                                <a href="#" style="display:inline-block;background:#C9A96E;color:#FFFFFF;padding:12px 30px;text-decoration:none;border-radius:4px;font-weight:600;text-transform:uppercase;letter-spacing:1px;font-size:13px;">Explore Our Collection</a>
-                            </div>
-                        </div>
-                        <div style="text-align:center;margin-top:30px;color:#B8B2A6;font-size:12px;">
-                            <p style="margin-bottom:5px;"><strong>Hayee Interior</strong> | Opposite Anu Hospital, Thanjavur, Tamil Nadu - 613001</p>
-                            <p style="margin-bottom:5px;">📞 +91 98765 43210 | ✉️ hello@hayeeinterior.com</p>
-                            <p style="margin-top:15px;">© 2025 Hayee Interior. All rights reserved.</p>
-                            <p style="margin-top:10px;font-size:11px;">If you wish to unsubscribe, <a href="#" style="color:#C9A96E;">click here</a>.</p>
-                        </div>
-                    </div>
-                `
+                message: htmlMessage
             };
 
             try {
-                // Send email via EmailJS
-                // IMPORTANT: You need to:
-                // 1. Create a free account at https://www.emailjs.com/
-                // 2. Create an Email Service (e.g., Gmail)
-                // 3. Create an Email Template with these variables: {{to_email}}, {{to_name}}, {{subject}}, {{message_html}}
-                // 4. Replace the placeholders below with your actual IDs
-                
+                // Send via EmailJS
+                // REPLACE THESE WITH YOUR ACTUAL EMAILJS IDs:
                 const response = await emailjs.send(
-                    'service_2bp28db',     // <-- Replace with your EmailJS Service ID
-                    'template_iwveg1r',    // <-- Replace with your EmailJS Template ID
-                    templateParams,
-                    '4PqovkDyLmhDMdgSA'      // <-- Replace with your EmailJS Public Key
+                    'YOUR_SERVICE_ID',    // Replace with your Service ID
+                    'YOUR_TEMPLATE_ID',   // Replace with your Template ID
+                    templateParams
                 );
-                
-                console.log('✅ Email sent successfully!', response.status, response.text);
+                console.log('✅ Email sent!', response.status);
                 showToast('✨ Welcome aboard! Check your inbox for a beautiful welcome message! 💌');
             } catch (error) {
-                console.error('❌ Email send failed:', error);
-                // Fallback: Show the message in console and toast
-                console.log('📧 Welcome Email Content (fallback):');
-                console.log('To:', email);
-                console.log(templateParams.message_html.replace(/<[^>]*>/g, ''));
-                showToast('✨ Welcome aboard! (EmailJS setup needed - check console for message preview) 💌');
+                console.error('EmailJS Error:', error);
+                // Fallback: Display the message preview
+                console.log('📧 Email Preview (To: ' + email + '):');
+                console.log(htmlMessage.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim());
+                showToast('⚠️ EmailJS setup needed. Check console for message preview. Your email: ' + email);
             }
         }
 
@@ -723,42 +580,25 @@
         // ============================================
         document.addEventListener('DOMContentLoaded', () => {
             renderProducts(); updateCartUI();
-            
-            document.getElementById('cartToggle').addEventListener('click',()=>{document.getElementById('cartPanel').classList.toggle('active');document.getElementById('cartOverlay').classList.toggle('active');});
-            document.getElementById('cartClose').addEventListener('click',()=>{document.getElementById('cartPanel').classList.remove('active');document.getElementById('cartOverlay').classList.remove('active');});
-            document.getElementById('cartOverlay').addEventListener('click',()=>{document.getElementById('cartPanel').classList.remove('active');document.getElementById('cartOverlay').classList.remove('active');});
-            
-            document.getElementById('mobileMenuToggle').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.add('active');document.getElementById('mobileMenuOverlay').classList.add('active');});
-            document.getElementById('mobileMenuClose').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.remove('active');document.getElementById('mobileMenuOverlay').classList.remove('active');});
-            document.getElementById('mobileMenuOverlay').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.remove('active');document.getElementById('mobileMenuOverlay').classList.remove('active');});
-            
-            document.querySelectorAll('.filter-btn').forEach(btn=>{btn.addEventListener('click',function(){document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));this.classList.add('active');renderProducts(this.dataset.category);});});
-            
-            document.getElementById('modalClose').addEventListener('click',()=>document.getElementById('productModal').classList.remove('active'));
-            document.getElementById('productModal').addEventListener('click',function(e){if(e.target===this)this.classList.remove('active');});
-            
-            document.getElementById('checkoutBtn').addEventListener('click',openPaymentModal);
-            document.getElementById('paymentClose').addEventListener('click',()=>document.getElementById('paymentModal').classList.remove('active'));
-            document.getElementById('paymentModal').addEventListener('click',function(e){if(e.target===this)this.classList.remove('active');});
-            
-            document.querySelectorAll('.upi-option').forEach(opt=>{opt.addEventListener('click',function(){document.querySelectorAll('.upi-option').forEach(o=>o.classList.remove('selected'));this.classList.add('selected');});});
-            
-            document.getElementById('contactForm').addEventListener('submit',function(e){e.preventDefault();showToast('Thank you for your message! We will get back soon. 💫');this.reset();});
-            
-            document.getElementById('newsletterForm').addEventListener('submit',function(e){
-                e.preventDefault();
-                const email=document.getElementById('newsletterEmail').value;
-                handleNewsletterSubmit(email);
-                this.reset();
-            });
-            
-            window.addEventListener('scroll',()=>{document.getElementById('siteHeader').classList.toggle('scrolled',window.scrollY>50);});
-            
-            document.querySelectorAll('a[href^="#"]').forEach(anchor=>{anchor.addEventListener('click',function(e){e.preventDefault();const target=document.querySelector(this.getAttribute('href'));if(target){target.scrollIntoView({behavior:'smooth',block:'start'});}document.getElementById('mobileMenu').classList.remove('active');document.getElementById('mobileMenuOverlay').classList.remove('active');});});
-            
-            document.addEventListener('keydown',(e)=>{if(e.key==='Escape'){document.getElementById('productModal').classList.remove('active');document.getElementById('cartPanel').classList.remove('active');document.getElementById('cartOverlay').classList.remove('active');document.getElementById('paymentModal').classList.remove('active');}});
-            
-            setTimeout(()=>{const overlay=document.getElementById('welcomeOverlay');if(overlay)overlay.style.display='none';},3300);
+            document.getElementById('cartToggle').onclick = () => { document.getElementById('cartPanel').classList.toggle('active'); document.getElementById('cartOverlay').classList.toggle('active'); };
+            document.getElementById('cartClose').onclick = () => { document.getElementById('cartPanel').classList.remove('active'); document.getElementById('cartOverlay').classList.remove('active'); };
+            document.getElementById('cartOverlay').onclick = () => { document.getElementById('cartPanel').classList.remove('active'); document.getElementById('cartOverlay').classList.remove('active'); };
+            document.getElementById('mobileMenuToggle').onclick = () => { document.getElementById('mobileMenu').classList.add('active'); document.getElementById('mobileMenuOverlay').classList.add('active'); };
+            document.getElementById('mobileMenuClose').onclick = () => { document.getElementById('mobileMenu').classList.remove('active'); document.getElementById('mobileMenuOverlay').classList.remove('active'); };
+            document.getElementById('mobileMenuOverlay').onclick = () => { document.getElementById('mobileMenu').classList.remove('active'); document.getElementById('mobileMenuOverlay').classList.remove('active'); };
+            document.querySelectorAll('.filter-btn').forEach(b => b.onclick = function() { document.querySelectorAll('.filter-btn').forEach(x => x.classList.remove('active')); this.classList.add('active'); renderProducts(this.dataset.category); });
+            document.getElementById('modalClose').onclick = () => document.getElementById('productModal').classList.remove('active');
+            document.getElementById('productModal').onclick = function(e) { if (e.target === this) this.classList.remove('active'); };
+            document.getElementById('checkoutBtn').onclick = openPaymentModal;
+            document.getElementById('paymentClose').onclick = () => document.getElementById('paymentModal').classList.remove('active');
+            document.getElementById('paymentModal').onclick = function(e) { if (e.target === this) this.classList.remove('active'); };
+            document.querySelectorAll('.upi-option').forEach(o => o.onclick = function() { document.querySelectorAll('.upi-option').forEach(x => x.classList.remove('selected')); this.classList.add('selected'); });
+            document.getElementById('contactForm').onsubmit = function(e) { e.preventDefault(); showToast('Message sent! 💫'); this.reset(); };
+            document.getElementById('newsletterForm').onsubmit = function(e) { e.preventDefault(); const em = document.getElementById('newsletterEmail').value; handleNewsletterSubmit(em); this.reset(); };
+            window.onscroll = () => document.getElementById('siteHeader').classList.toggle('scrolled', window.scrollY > 50);
+            document.querySelectorAll('a[href^="#"]').forEach(a => a.onclick = function(e) { e.preventDefault(); const t = document.querySelector(this.getAttribute('href')); if (t) t.scrollIntoView({ behavior: 'smooth' }); document.getElementById('mobileMenu').classList.remove('active'); document.getElementById('mobileMenuOverlay').classList.remove('active'); });
+            document.onkeydown = e => { if (e.key === 'Escape') { document.getElementById('productModal').classList.remove('active'); document.getElementById('cartPanel').classList.remove('active'); document.getElementById('cartOverlay').classList.remove('active'); document.getElementById('paymentModal').classList.remove('active'); } };
+            setTimeout(() => { const o = document.getElementById('welcomeOverlay'); if (o) o.style.display = 'none'; }, 3300);
         });
     </script>
 </body>
