@@ -236,12 +236,13 @@
         .footer-social { display: flex; gap: var(--space-md); }
         .footer-social a { width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--color-warm-white); text-decoration: none; transition: all var(--transition-fast); }
         .footer-social a:hover { background: var(--color-gold-accent); transform: translateY(-2px); }
+        .footer-social a svg { width: 18px; height: 18px; fill: currentColor; }
         .footer-column h4 { color: var(--color-warm-white); margin-bottom: var(--space-lg); font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; }
         .footer-column ul { list-style: none; }
         .footer-column ul li { margin-bottom: var(--space-sm); }
         .footer-column ul li a { color: var(--color-medium-gray); text-decoration: none; transition: color var(--transition-fast); font-size: 0.9rem; }
         .footer-column ul li a:hover { color: var(--color-gold-accent); }
-        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: var(--space-lg); display: flex; justify-content: space-between; font-size: 0.85rem; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: var(--space-lg); display: flex; justify-content: space-between; font-size: 0.85rem; flex-wrap: wrap; gap: var(--space-sm); }
 
         /* WhatsApp Float */
         .whatsapp-float { position: fixed; bottom: 30px; right: 30px; z-index: 5000; width: 60px; height: 60px; background: var(--color-whatsapp); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.4); cursor: pointer; transition: all var(--transition-smooth); animation: whatsappPulse 2s infinite; text-decoration: none; }
@@ -254,23 +255,86 @@
         @keyframes toastIn { from { transform: translateX(-50%) translateY(100%); opacity: 0; } to { transform: translateX(-50%) translateY(0); opacity: 1; } }
         @keyframes toastOut { from { transform: translateX(-50%) translateY(0); opacity: 1; } to { transform: translateX(-50%) translateY(100%); opacity: 0; } }
 
-        /* Responsive */
-        @media (max-width: 1200px) { .services-grid { grid-template-columns: repeat(2,1fr); } .testimonials-grid { grid-template-columns: repeat(2,1fr); } .footer-grid { grid-template-columns: 1fr 1fr; } }
-        @media (max-width: 768px) {
-            .main-nav { display: none; } .mobile-menu-toggle { display: block; } .header-container { height: 70px; }
-            .hero { background-attachment: scroll; min-height: 600px; } .hero-title { font-size: 2.5rem; }
-            .services-grid, .testimonials-grid { grid-template-columns: 1fr; } .about-grid, .contact-grid { grid-template-columns: 1fr; }
-            .about-image-wrapper { height: 400px; } .footer-grid { grid-template-columns: 1fr; }
-            .modal { grid-template-columns: 1fr; } .modal-gallery { min-height: 300px; }
-            .newsletter-form { flex-direction: column; } .hero-buttons { flex-direction: column; } .btn { width: 100%; text-align: center; }
-            .product-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
-            .whatsapp-float { bottom: 20px; right: 20px; width: 55px; height: 55px; }
+        /* ============================================
+           RESPONSIVE DESIGN - FULLY FIXED FOR MOBILE
+           ============================================ */
+        @media (max-width: 1200px) { 
+            .services-grid { grid-template-columns: repeat(2,1fr); } 
+            .testimonials-grid { grid-template-columns: repeat(2,1fr); } 
+            .footer-grid { grid-template-columns: 1fr 1fr; } 
         }
+        
+        @media (max-width: 992px) {
+            .about-image-wrapper { height: 450px; }
+            .product-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+        }
+        
+        @media (max-width: 768px) {
+            .main-nav { display: none; } 
+            .mobile-menu-toggle { display: block; } 
+            .header-container { height: 70px; }
+            .brand-logo { font-size: 1.5rem; }
+            
+            .hero { background-attachment: scroll; min-height: 600px; } 
+            .hero-title { font-size: 2.5rem; }
+            .hero-content { padding: var(--space-2xl) var(--space-lg); }
+            
+            .services-grid, .testimonials-grid { grid-template-columns: 1fr; } 
+            .about-grid, .contact-grid { grid-template-columns: 1fr; }
+            .about-image-wrapper { height: 350px; } 
+            .footer-grid { grid-template-columns: 1fr; gap: var(--space-xl); }
+            
+            .modal { grid-template-columns: 1fr; } 
+            .modal-gallery { min-height: 250px; }
+            .modal-details { padding: var(--space-lg); }
+            .modal-details h2 { font-size: 1.5rem; }
+            
+            .newsletter-form { flex-direction: column; } 
+            .hero-buttons { flex-direction: column; } 
+            .btn { width: 100%; text-align: center; padding: 0.9rem 1.5rem; font-size: 0.8rem; }
+            
+            .product-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: var(--space-md); }
+            .product-image { height: 280px; }
+            .product-info { padding: var(--space-md); }
+            
+            .whatsapp-float { bottom: 20px; right: 20px; width: 55px; height: 55px; }
+            .whatsapp-float svg { width: 28px; height: 28px; }
+            
+            .section { padding: var(--space-2xl) 0; }
+            .section-header { margin-bottom: var(--space-xl); }
+            .filters { gap: var(--space-xs); }
+            .filter-btn { padding: 0.5rem 1.2rem; font-size: 0.75rem; }
+            
+            .contact-form { padding: var(--space-md); }
+            .footer-bottom { flex-direction: column; text-align: center; }
+        }
+        
         @media (max-width: 480px) {
-            .container { padding: 0 var(--space-md); } .section { padding: var(--space-2xl) 0; }
-            .filter-btn { padding: 0.5rem 1rem; font-size: 0.75rem; } .hero { min-height: 500px; }
+            .container { padding: 0 var(--space-md); } 
+            .section { padding: var(--space-xl) 0; }
+            .filter-btn { padding: 0.4rem 0.8rem; font-size: 0.7rem; letter-spacing: 0.5px; } 
+            .hero { min-height: 500px; }
+            .hero-title { font-size: 2rem; }
+            .hero-description { font-size: 0.95rem; }
+            
             .whatsapp-float { bottom: 15px; right: 15px; width: 50px; height: 50px; }
             .whatsapp-float svg { width: 26px; height: 26px; }
+            
+            .product-grid { grid-template-columns: 1fr; }
+            .product-image { height: 250px; }
+            .product-name { font-size: 1.1rem; }
+            
+            .footer-social { justify-content: center; }
+            .footer-brand-name { font-size: 1.5rem; }
+            
+            .toast { bottom: 80px; padding: 0.8rem 1.5rem; font-size: 0.85rem; }
+        }
+        
+        @media (max-width: 360px) {
+            .brand-logo { font-size: 1.3rem; }
+            .hero-title { font-size: 1.7rem; }
+            .hero-subtitle-top { font-size: 0.7rem; letter-spacing: 2px; }
+            .btn { padding: 0.8rem 1.2rem; font-size: 0.75rem; letter-spacing: 1px; }
         }
     </style>
 </head>
@@ -320,7 +384,7 @@
             <li><a href="#contact">Contact</a></li>
         </ul>
         <a href="https://wa.me/917299030406?text=Hello%20Hayee%20Interior%2C%20I%20would%20like%20to%20inquire%20about%20your%20products." class="btn btn-whatsapp" style="margin-top:2rem;width:100%;justify-content:center;" target="_blank" rel="noopener">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
             Inquire via WhatsApp
         </a>
     </div>
@@ -435,7 +499,28 @@
     <footer class="site-footer">
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-column"><div class="footer-brand-name">Hayee Interior</div><p class="footer-description">Premium interior design studio in Thanjavur, crafting timeless spaces since 2015. Located opposite Anu Hospital.</p><div class="footer-social"><a href="#" aria-label="Instagram">📷</a><a href="#" aria-label="Facebook">📘</a><a href="#" aria-label="Pinterest">📌</a><a href="https://wa.me/917299030406" aria-label="WhatsApp" target="_blank" rel="noopener">💬</a></div></div>
+                <div class="footer-column">
+                    <div class="footer-brand-name">Hayee Interior</div>
+                    <p class="footer-description">Premium interior design studio in Thanjavur, crafting timeless spaces since 2015. Located opposite Anu Hospital.</p>
+                    <div class="footer-social">
+                        <!-- Instagram -->
+                        <a href="#" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg>
+                        </a>
+                        <!-- Facebook -->
+                        <a href="#" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <!-- Pinterest -->
+                        <a href="#" aria-label="Pinterest">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/></svg>
+                        </a>
+                        <!-- WhatsApp -->
+                        <a href="https://wa.me/917299030406" aria-label="WhatsApp" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+                        </a>
+                    </div>
+                </div>
                 <div class="footer-column"><h4>Quick Links</h4><ul><li><a href="#home">Home</a></li><li><a href="#shop">Collection</a></li><li><a href="#about">About Us</a></li><li><a href="#services">Services</a></li><li><a href="#contact">Contact</a></li></ul></div>
                 <div class="footer-column"><h4>Categories</h4><ul><li><a href="#shop">Seating</a></li><li><a href="#shop">Tables</a></li><li><a href="#shop">Lighting</a></li><li><a href="#shop">Decor</a></li><li><a href="#shop">Storage</a></li></ul></div>
                 <div class="footer-column"><h4>Contact Info</h4><ul><li>📍 Opposite Anu Hospital</li><li>📞 +91 7299030406</li><li>✉️ hello@hayeeinterior.com</li><li>🕐 Mon-Sat: 10 AM - 8 PM</li></ul></div>
@@ -455,7 +540,7 @@
 
     <!-- WhatsApp Floating Button -->
     <a href="https://wa.me/917299030406?text=Hello%20Hayee%20Interior%2C%20I%20would%20like%20to%20inquire%20about%20your%20products." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
     </a>
 
     <script>
@@ -474,33 +559,31 @@
         // PRODUCT DATABASE (NO PRICES)
         // ============================================
         const products = [
-            { id: 1, title: "Serena Velvet Armchair", category: "seating", description: "Handcrafted armchair upholstered in Italian velvet with solid oak legs. The perfect blend of comfort and sophistication for your living space.", specs: { "Material": "Velvet & Solid Oak", "Dimensions": "85cm W x 90cm D x 95cm H", "Weight": "18 kg", "Color": "Sage Green" }, image: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=400&auto=format&fit=crop", badge: "Bestseller" },
-            { id: 2, title: "Minimalist Marble Coffee Table", category: "tables", description: "Elegant coffee table featuring a Carrara marble top with a brushed brass base. A statement piece for contemporary interiors.", specs: { "Material": "Carrara Marble & Brass", "Dimensions": "120cm L x 70cm W x 40cm H", "Weight": "35 kg", "Color": "White & Gold" }, image: "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?w=400&auto=format&fit=crop", badge: null },
-            { id: 3, title: "Artisan Pendant Light", category: "lighting", description: "Hand-blown glass pendant light with antique brass fittings. Creates a warm, ambient glow perfect for dining areas.", specs: { "Material": "Blown Glass & Brass", "Dimensions": "30cm Diameter x 40cm H", "Weight": "4 kg", "Color": "Amber" }, image: "https://images.unsplash.com/photo-1524484485831-a92ffc0de03f?w=400&auto=format&fit=crop", badge: "Limited Edition" },
-            { id: 4, title: "Sculptural Ceramic Vase", category: "decor", description: "Handcrafted ceramic vase with a unique sculptural form. Each piece is individually made by artisans in Tamil Nadu.", specs: { "Material": "Terracotta & Glaze", "Dimensions": "25cm W x 45cm H", "Weight": "3 kg", "Color": "Matte White" }, image: "https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=400&auto=format&fit=crop", badge: "Handmade" },
-            { id: 5, title: "Chesterfield Leather Sofa", category: "seating", description: "Classic Chesterfield sofa in full-grain leather with deep button tufting. A timeless piece that ages beautifully.", specs: { "Material": "Full-Grain Leather", "Dimensions": "220cm L x 95cm D x 80cm H", "Weight": "65 kg", "Color": "Cognac Brown" }, image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&auto=format&fit=crop", badge: "Premium" },
-            { id: 6, title: "Walnut Dining Table", category: "tables", description: "Solid American walnut dining table seating 8-10. Features a live edge detail and hand-rubbed oil finish.", specs: { "Material": "Solid Walnut", "Dimensions": "240cm L x 100cm W x 76cm H", "Weight": "80 kg", "Color": "Dark Walnut" }, image: "https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?w=400&auto=format&fit=crop", badge: null },
-            { id: 7, title: "Crystal Chandelier", category: "lighting", description: "Magnificent crystal chandelier with 24 lights. Hand-cut crystals catch and refract light beautifully.", specs: { "Material": "Crystal & Gold-Plated Metal", "Dimensions": "100cm Diameter x 120cm H", "Weight": "45 kg", "Color": "Clear & Gold" }, image: "https://images.unsplash.com/photo-1540932239986-30128078f3c5?w=400&auto=format&fit=crop", badge: "Luxury" },
-            { id: 8, title: "Linen Throw Pillow Set", category: "textiles", description: "Set of 4 hand-stitched linen throw pillows with feather inserts.", specs: { "Material": "100% Linen", "Dimensions": "50cm x 50cm each", "Weight": "2 kg", "Color": "Assorted Neutrals" }, image: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=400&auto=format&fit=crop", badge: null },
-            { id: 9, title: "Teak Wood Bookcase", category: "storage", description: "Floor-to-ceiling modular bookcase in reclaimed teak wood.", specs: { "Material": "Reclaimed Teak", "Dimensions": "180cm W x 40cm D x 240cm H", "Weight": "120 kg", "Color": "Natural Teak" }, image: "https://images.unsplash.com/photo-1594620302200-9a762244a156?w=400&auto=format&fit=crop", badge: "Sustainable" },
-            { id: 10, title: "Brass Floor Lamp", category: "lighting", description: "Sculptural floor lamp in solid brass with a linen shade.", specs: { "Material": "Solid Brass & Linen", "Dimensions": "40cm W x 40cm D x 160cm H", "Weight": "12 kg", "Color": "Antique Brass" }, image: "https://images.unsplash.com/photo-1507473885765-e6ed057ab6fe?w=400&auto=format&fit=crop", badge: null },
-            { id: 11, title: "Velvet Ottoman", category: "seating", description: "Plush velvet ottoman with hidden storage and elegant tufted detailing.", specs: { "Material": "Cotton Velvet", "Dimensions": "80cm Diameter x 45cm H", "Weight": "10 kg", "Color": "Blush Pink" }, image: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=400&auto=format&fit=crop", badge: "New" },
-            { id: 12, title: "Marble Console Table", category: "tables", description: "Sleek console table with a Nero Marquina marble top and geometric black metal base.", specs: { "Material": "Nero Marquina Marble & Steel", "Dimensions": "140cm L x 40cm D x 85cm H", "Weight": "40 kg", "Color": "Black & Gold" }, image: "https://images.unsplash.com/photo-1486946255434-2466348c2166?w=400&auto=format&fit=crop", badge: "Exclusive" },
+            { id: 1, title: "Serena Velvet Armchair", category: "seating", description: "Handcrafted armchair upholstered in Italian velvet with solid oak legs.", specs: { "Material": "Velvet & Solid Oak", "Dimensions": "85cm W x 90cm D x 95cm H", "Weight": "18 kg", "Color": "Sage Green" }, image: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=400&auto=format&fit=crop", badge: "Bestseller" },
+            { id: 2, title: "Minimalist Marble Coffee Table", category: "tables", description: "Elegant coffee table featuring a Carrara marble top with a brushed brass base.", specs: { "Material": "Carrara Marble & Brass", "Dimensions": "120cm L x 70cm W x 40cm H", "Weight": "35 kg", "Color": "White & Gold" }, image: "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?w=400&auto=format&fit=crop", badge: null },
+            { id: 3, title: "Artisan Pendant Light", category: "lighting", description: "Hand-blown glass pendant light with antique brass fittings.", specs: { "Material": "Blown Glass & Brass", "Dimensions": "30cm Diameter x 40cm H", "Weight": "4 kg", "Color": "Amber" }, image: "https://images.unsplash.com/photo-1524484485831-a92ffc0de03f?w=400&auto=format&fit=crop", badge: "Limited Edition" },
+            { id: 4, title: "Sculptural Ceramic Vase", category: "decor", description: "Handcrafted ceramic vase by Tamil Nadu artisans.", specs: { "Material": "Terracotta & Glaze", "Dimensions": "25cm W x 45cm H", "Weight": "3 kg", "Color": "Matte White" }, image: "https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=400&auto=format&fit=crop", badge: "Handmade" },
+            { id: 5, title: "Chesterfield Leather Sofa", category: "seating", description: "Classic Chesterfield sofa in full-grain leather.", specs: { "Material": "Full-Grain Leather", "Dimensions": "220cm L x 95cm D x 80cm H", "Weight": "65 kg", "Color": "Cognac Brown" }, image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&auto=format&fit=crop", badge: "Premium" },
+            { id: 6, title: "Walnut Dining Table", category: "tables", description: "Solid American walnut dining table seating 8-10.", specs: { "Material": "Solid Walnut", "Dimensions": "240cm L x 100cm W x 76cm H", "Weight": "80 kg", "Color": "Dark Walnut" }, image: "https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?w=400&auto=format&fit=crop", badge: null },
+            { id: 7, title: "Crystal Chandelier", category: "lighting", description: "Magnificent crystal chandelier with 24 lights.", specs: { "Material": "Crystal & Gold-Plated Metal", "Dimensions": "100cm Diameter x 120cm H", "Weight": "45 kg", "Color": "Clear & Gold" }, image: "https://images.unsplash.com/photo-1540932239986-30128078f3c5?w=400&auto=format&fit=crop", badge: "Luxury" },
+            { id: 8, title: "Linen Throw Pillow Set", category: "textiles", description: "Set of 4 hand-stitched linen throw pillows.", specs: { "Material": "100% Linen", "Dimensions": "50cm x 50cm each", "Weight": "2 kg", "Color": "Assorted Neutrals" }, image: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=400&auto=format&fit=crop", badge: null },
+            { id: 9, title: "Teak Wood Bookcase", category: "storage", description: "Floor-to-ceiling modular bookcase in reclaimed teak.", specs: { "Material": "Reclaimed Teak", "Dimensions": "180cm W x 40cm D x 240cm H", "Weight": "120 kg", "Color": "Natural Teak" }, image: "https://images.unsplash.com/photo-1594620302200-9a762244a156?w=400&auto=format&fit=crop", badge: "Sustainable" },
+            { id: 10, title: "Brass Floor Lamp", category: "lighting", description: "Sculptural floor lamp in solid brass with linen shade.", specs: { "Material": "Solid Brass & Linen", "Dimensions": "40cm W x 40cm D x 160cm H", "Weight": "12 kg", "Color": "Antique Brass" }, image: "https://images.unsplash.com/photo-1507473885765-e6ed057ab6fe?w=400&auto=format&fit=crop", badge: null },
+            { id: 11, title: "Velvet Ottoman", category: "seating", description: "Plush velvet ottoman with hidden storage.", specs: { "Material": "Cotton Velvet", "Dimensions": "80cm Diameter x 45cm H", "Weight": "10 kg", "Color": "Blush Pink" }, image: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=400&auto=format&fit=crop", badge: "New" },
+            { id: 12, title: "Marble Console Table", category: "tables", description: "Sleek console table with Nero Marquina marble top.", specs: { "Material": "Nero Marquina Marble & Steel", "Dimensions": "140cm L x 40cm D x 85cm H", "Weight": "40 kg", "Color": "Black & Gold" }, image: "https://images.unsplash.com/photo-1486946255434-2466348c2166?w=400&auto=format&fit=crop", badge: "Exclusive" },
             { id: 13, title: "Bamboo Pendant Light", category: "lighting", description: "Eco-friendly handwoven bamboo pendant light.", specs: { "Material": "Natural Bamboo", "Dimensions": "45cm Diameter x 55cm H", "Weight": "2.5 kg", "Color": "Natural" }, image: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=400&auto=format&fit=crop", badge: "Eco-Friendly" },
-            { id: 14, title: "Mid-Century Sideboard", category: "storage", description: "Iconic mid-century sideboard in American walnut with brass handles.", specs: { "Material": "American Walnut & Brass", "Dimensions": "180cm L x 45cm D x 75cm H", "Weight": "55 kg", "Color": "Walnut" }, image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=400&auto=format&fit=crop", badge: "Iconic" },
-            { id: 15, title: "Cashmere Throw Blanket", category: "textiles", description: "Ultra-soft pure cashmere throw in a sophisticated heathered charcoal.", specs: { "Material": "100% Cashmere", "Dimensions": "140cm x 200cm", "Weight": "0.8 kg", "Color": "Heathered Charcoal" }, image: "https://images.unsplash.com/photo-1580301762395-21ceb8804b4f?w=400&auto=format&fit=crop", badge: null },
-            { id: 16, title: "Wingback Dining Chairs (Set of 2)", category: "seating", description: "Elegant wingback chairs upholstered in performance linen.", specs: { "Material": "Performance Linen & Oak", "Dimensions": "55cm W x 60cm D x 85cm H each", "Weight": "8 kg each", "Color": "Ivory" }, image: "https://images.unsplash.com/photo-1503602642458-232111445657?w=400&auto=format&fit=crop", badge: "Set of 2" }
+            { id: 14, title: "Mid-Century Sideboard", category: "storage", description: "Iconic mid-century sideboard in American walnut.", specs: { "Material": "American Walnut & Brass", "Dimensions": "180cm L x 45cm D x 75cm H", "Weight": "55 kg", "Color": "Walnut" }, image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=400&auto=format&fit=crop", badge: "Iconic" },
+            { id: 15, title: "Cashmere Throw Blanket", category: "textiles", description: "Ultra-soft pure cashmere throw.", specs: { "Material": "100% Cashmere", "Dimensions": "140cm x 200cm", "Weight": "0.8 kg", "Color": "Heathered Charcoal" }, image: "https://images.unsplash.com/photo-1580301762395-21ceb8804b4f?w=400&auto=format&fit=crop", badge: null },
+            { id: 16, title: "Wingback Dining Chairs", category: "seating", description: "Set of 2 elegant wingback chairs in performance linen.", specs: { "Material": "Performance Linen & Oak", "Dimensions": "55cm W x 60cm D x 85cm H each", "Weight": "8 kg each", "Color": "Ivory" }, image: "https://images.unsplash.com/photo-1503602642458-232111445657?w=400&auto=format&fit=crop", badge: "Set of 2" }
         ];
 
-        // WhatsApp Inquiry
         function sendWhatsAppInquiry(productTitle = '') {
             let message = productTitle 
-                ? `Hello Hayee Interior,%0A%0AI am interested in the *${productTitle}*.%0A%0APlease share more details about this product.%0A%0AThank you!`
-                : `Hello Hayee Interior,%0A%0AI would like to inquire about your products and services.%0A%0AThank you!`;
+                ? `Hello Hayee Interior,%0A%0AI am interested in the *${productTitle}*.%0A%0APlease share more details.%0A%0AThank you!`
+                : `Hello Hayee Interior,%0A%0AI would like to inquire about your products.%0A%0AThank you!`;
             window.open(`https://wa.me/91${OWNER_WHATSAPP}?text=${message}`, '_blank', 'noopener');
         }
 
-        // Render Products
         function renderProducts(category = 'all') {
             const grid = document.getElementById('productGrid');
             const noResults = document.getElementById('noResults');
@@ -522,7 +605,6 @@
             `).join('');
         }
 
-        // Product Modal
         function openProductModal(productId) {
             const product = products.find(p => p.id === productId);
             if (!product) return;
@@ -544,7 +626,6 @@
             document.body.appendChild(toast); setTimeout(() => toast.remove(), 4000);
         }
 
-        // Newsletter with EmailJS
         async function handleNewsletterSubmit(email) {
             const userName = email.split('@')[0];
             const htmlMessage = `
@@ -554,33 +635,26 @@
                         <tr><td align="center">
                             <table width="600" cellpadding="0" cellspacing="0" style="background:#FFF;border-radius:12px;overflow:hidden;">
                                 <tr><td style="background:#2C2925;padding:40px 30px;text-align:center;">
-                                    <h1 style="font-family:Georgia,serif;color:#FAF8F5;font-size:28px;margin:0;">Hayee Interior</h1>
+                                    <h1 style="font-family:Georgia,serif;color:#FAF8F5;font-size:28px;">Hayee Interior</h1>
                                     <div style="width:50px;height:2px;background:#C9A96E;margin:15px auto;"></div>
-                                    <p style="color:#C9A96E;font-style:italic;font-size:16px;">Where Luxury Meets Timeless Design</p>
+                                    <p style="color:#C9A96E;font-style:italic;">Where Luxury Meets Timeless Design</p>
                                 </td></tr>
                                 <tr><td style="padding:30px;">
                                     <h2 style="font-family:Georgia,serif;color:#2C2925;">Dear ${userName},</h2>
-                                    <p style="color:#3D3A35;font-size:15px;line-height:1.8;">Thank you for subscribing to <strong>Hayee Interior</strong>!</p>
+                                    <p style="color:#3D3A35;font-size:15px;">Thank you for subscribing to <strong>Hayee Interior</strong>!</p>
                                     <table width="100%" cellpadding="20" style="background:#F5F0EB;border-radius:8px;margin:20px 0;">
-                                        <tr><td><h3 style="font-family:Georgia,serif;color:#2C2925;">✨ As a subscriber, you'll receive:</h3>
-                                            <p style="color:#3D3A35;font-size:14px;">🆕 Early access to new collections</p>
-                                            <p style="color:#3D3A35;font-size:14px;">💎 Exclusive offers</p>
-                                            <p style="color:#3D3A35;font-size:14px;">📐 Design inspiration & tips</p>
-                                            <p style="color:#3D3A35;font-size:14px;">🎉 Event invitations</p>
+                                        <tr><td><h3 style="font-family:Georgia,serif;color:#2C2925;">✨ As a subscriber:</h3>
+                                            <p style="color:#3D3A35;">🆕 Early access to new collections</p>
+                                            <p style="color:#3D3A35;">💎 Exclusive offers</p>
+                                            <p style="color:#3D3A35;">📐 Design inspiration</p>
                                         </td></tr>
                                     </table>
-                                    <p style="color:#3D3A35;font-size:15px;">Visit us at <strong>Opposite Anu Hospital, Thanjavur</strong>.</p>
-                                    <div style="text-align:center;margin:25px 0;"><a href="#" style="display:inline-block;background:#C9A96E;color:#FFF;padding:12px 30px;text-decoration:none;border-radius:4px;font-weight:600;">Explore Collection</a></div>
-                                </td></tr>
-                                <tr><td style="background:#F5F0EB;padding:20px 30px;text-align:center;color:#8B7355;font-size:12px;">
-                                    <p style="margin:0;"><strong>Hayee Interior</strong> | Thanjavur, Tamil Nadu</p>
-                                    <p style="margin:5px 0;">📞 +91 7299030406 | ✉️ hello@hayeeinterior.com</p>
+                                    <p style="color:#3D3A35;">Visit us at <strong>Opposite Anu Hospital, Thanjavur</strong>.</p>
                                 </td></tr>
                             </table>
                         </td></tr>
                     </table>
                 </body></html>`;
-
             try {
                 await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
                     to_email: email,
@@ -591,11 +665,10 @@
                 showToast('✨ Welcome aboard! Check your inbox! 💌');
             } catch (error) {
                 console.error('EmailJS Error:', error);
-                showToast('⚠️ Subscription noted! (Email service config needed)');
+                showToast('⚠️ Subscription noted!');
             }
         }
 
-        // Event Listeners
         document.addEventListener('DOMContentLoaded', () => {
             renderProducts();
             
@@ -629,8 +702,8 @@
                 const phone = document.getElementById('phone').value;
                 const service = document.getElementById('service').value;
                 const message = document.getElementById('message').value;
-                const whatsappMessage = `Hello Hayee Interior,%0A%0A*New Inquiry*%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Phone:* ${phone}%0A*Service:* ${service}%0A*Message:* ${message}%0A%0APlease get back to me. Thank you!`;
-                window.open(`https://wa.me/91${OWNER_WHATSAPP}?text=${whatsappMessage}`, '_blank', 'noopener');
+                const wmsg = `Hello Hayee Interior,%0A%0A*New Inquiry*%0A*Name:* ${name}%0A*Email:* ${email}%0A*Phone:* ${phone}%0A*Service:* ${service}%0A*Message:* ${message}`;
+                window.open(`https://wa.me/91${OWNER_WHATSAPP}?text=${wmsg}`, '_blank', 'noopener');
                 showToast('Opening WhatsApp... 💬'); this.reset();
             });
             
