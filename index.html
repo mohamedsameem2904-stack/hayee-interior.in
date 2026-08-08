@@ -1,0 +1,2611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hayee Interior - Premium luxury interior design studio in Thanjavur, opposite Anu Hospital. Curated collections of timeless furniture and bespoke design services.">
+    <meta name="keywords" content="luxury interior design, Thanjavur, furniture, home decor, Hayee Interior, premium furniture">
+    <title>Hayee Interior | Luxury Interior Design Studio - Thanjavur</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@200;300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ============================================
+           CSS CUSTOM PROPERTIES (DESIGN TOKENS)
+           ============================================ */
+        :root {
+            /* Color Palette - Sophisticated Neutrals */
+            --color-cream: #F5F0EB;
+            --color-warm-white: #FAF8F5;
+            --color-soft-gray: #E8E4DF;
+            --color-medium-gray: #B8B2A6;
+            --color-charcoal: #3D3A35;
+            --color-dark-charcoal: #2C2925;
+            --color-richer-charcoal: #1F1D1A;
+            --color-gold-accent: #C9A96E;
+            --color-gold-light: #DFC89D;
+            --color-gold-dark: #A8854A;
+            --color-bronze: #8B7355;
+            
+            /* Typography */
+            --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-accent: 'Cormorant Garamond', Georgia, serif;
+            
+            /* Spacing Scale */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-2xl: 4rem;
+            --space-3xl: 6rem;
+            --space-4xl: 8rem;
+            
+            /* Shadows */
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+            --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.16);
+            
+            /* Transitions */
+            --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-elegant: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            
+            /* Border Radius */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 20px;
+        }
+
+        /* ============================================
+           CSS RESET & BASE STYLES
+           ============================================ */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-warm-white);
+            color: var(--color-charcoal);
+            line-height: 1.7;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Selection Styling */
+        ::selection {
+            background-color: var(--color-gold-accent);
+            color: var(--color-warm-white);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--color-cream);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--color-medium-gray);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--color-charcoal);
+        }
+
+        /* ============================================
+           TYPOGRAPHY
+           ============================================ */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-display);
+            font-weight: 500;
+            line-height: 1.2;
+            color: var(--color-dark-charcoal);
+        }
+
+        h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); }
+        h2 { font-size: clamp(2rem, 4vw, 3.5rem); }
+        h3 { font-size: clamp(1.5rem, 3vw, 2.5rem); }
+        h4 { font-size: clamp(1.25rem, 2vw, 1.75rem); }
+
+        /* ============================================
+           CONTAINER & LAYOUT UTILITIES
+           ============================================ */
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+        }
+
+        .container-narrow {
+            max-width: 1100px;
+        }
+
+        .container-wide {
+            max-width: 1600px;
+        }
+
+        /* ============================================
+           HEADER & NAVIGATION
+           ============================================ */
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(250, 248, 245, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all var(--transition-smooth);
+        }
+
+        .site-header.scrolled {
+            box-shadow: var(--shadow-md);
+            background: rgba(250, 248, 245, 0.98);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .brand-logo {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--color-dark-charcoal);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+            transition: color var(--transition-fast);
+        }
+
+        .brand-logo:hover {
+            color: var(--color-gold-accent);
+        }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: var(--space-xl);
+            align-items: center;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: var(--color-charcoal);
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color var(--transition-fast);
+        }
+
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1.5px;
+            background: var(--color-gold-accent);
+            transition: width var(--transition-smooth);
+        }
+
+        .main-nav a:hover,
+        .main-nav a.active {
+            color: var(--color-gold-accent);
+        }
+
+        .main-nav a:hover::after,
+        .main-nav a.active::after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+
+        /* Cart & Mobile Menu Buttons */
+        .cart-toggle,
+        .mobile-menu-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            padding: 0.5rem;
+            color: var(--color-charcoal);
+            transition: color var(--transition-fast);
+        }
+
+        .cart-toggle:hover,
+        .mobile-menu-toggle:hover {
+            color: var(--color-gold-accent);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: var(--color-gold-accent);
+            color: white;
+            font-size: 0.7rem;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 400px;
+            height: 100vh;
+            background: var(--color-warm-white);
+            z-index: 2000;
+            padding: var(--space-2xl);
+            transition: right var(--transition-elegant);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1999;
+        }
+
+        .mobile-menu-overlay.active {
+            display: block;
+        }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: var(--space-lg);
+            right: var(--space-lg);
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--color-charcoal);
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            margin-top: var(--space-3xl);
+        }
+
+        .mobile-menu li {
+            margin-bottom: var(--space-lg);
+        }
+
+        .mobile-menu a {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            text-decoration: none;
+            color: var(--color-dark-charcoal);
+            transition: color var(--transition-fast);
+        }
+
+        .mobile-menu a:hover {
+            color: var(--color-gold-accent);
+        }
+
+        /* ============================================
+           HERO SECTION
+           ============================================ */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            margin-top: 0;
+            background: var(--color-dark-charcoal);
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, 
+                rgba(44, 41, 37, 0.95) 0%, 
+                rgba(31, 29, 26, 0.9) 50%,
+                rgba(44, 41, 37, 0.95) 100%);
+            z-index: 1;
+        }
+
+        .hero-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(201, 169, 110, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(201, 169, 110, 0.05) 0%, transparent 50%);
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 800px;
+            padding: var(--space-4xl) var(--space-lg);
+        }
+
+        .hero-subtitle-top {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--color-gold-accent);
+            margin-bottom: var(--space-md);
+            font-weight: 500;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 7vw, 6rem);
+            font-weight: 700;
+            color: var(--color-warm-white);
+            line-height: 1.1;
+            margin-bottom: var(--space-lg);
+            letter-spacing: -1px;
+        }
+
+        .hero-title em {
+            font-style: italic;
+            color: var(--color-gold-accent);
+            font-weight: 400;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--color-medium-gray);
+            margin-bottom: var(--space-xl);
+            max-width: 500px;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: var(--space-md);
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: var(--color-gold-accent);
+            color: var(--color-warm-white);
+            border: 2px solid var(--color-gold-accent);
+        }
+
+        .btn-primary:hover {
+            background: var(--color-gold-dark);
+            border-color: var(--color-gold-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(201, 169, 110, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--color-warm-white);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--color-gold-accent);
+            color: var(--color-gold-accent);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline-dark {
+            background: transparent;
+            color: var(--color-charcoal);
+            border: 2px solid var(--color-charcoal);
+        }
+
+        .btn-outline-dark:hover {
+            background: var(--color-charcoal);
+            color: var(--color-warm-white);
+        }
+
+        .hero-scroll-indicator {
+            position: absolute;
+            bottom: var(--space-xl);
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-xs);
+            color: var(--color-medium-gray);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        /* ============================================
+           SECTION STYLES
+           ============================================ */
+        .section {
+            padding: var(--space-4xl) 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--space-3xl);
+        }
+
+        .section-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--color-gold-accent);
+            margin-bottom: var(--space-sm);
+            font-weight: 600;
+        }
+
+        .section-title {
+            margin-bottom: var(--space-md);
+            color: var(--color-dark-charcoal);
+        }
+
+        .section-description {
+            color: var(--color-charcoal);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        /* ============================================
+           FEATURED COLLECTIONS GRID
+           ============================================ */
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-lg);
+        }
+
+        .featured-item {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            border-radius: var(--radius-lg);
+            background: var(--color-cream);
+            transition: all var(--transition-elegant);
+        }
+
+        .featured-item:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .featured-item-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, var(--color-charcoal), var(--color-dark-charcoal));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-elegant);
+        }
+
+        .featured-item:hover .featured-item-image img {
+            transform: scale(1.05);
+        }
+
+        .featured-item-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity var(--transition-elegant);
+        }
+
+        .featured-item:hover .featured-item-overlay {
+            opacity: 1;
+        }
+
+        .featured-item-content {
+            padding: var(--space-lg);
+            background: var(--color-warm-white);
+        }
+
+        .featured-item-category {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--color-gold-accent);
+            margin-bottom: var(--space-xs);
+        }
+
+        .featured-item-title {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            margin-bottom: var(--space-xs);
+        }
+
+        .featured-item-price {
+            font-weight: 600;
+            color: var(--color-charcoal);
+        }
+
+        /* ============================================
+           ABOUT SECTION
+           ============================================ */
+        .about-section {
+            background: var(--color-cream);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-3xl);
+            align-items: center;
+        }
+
+        .about-image-wrapper {
+            position: relative;
+            height: 600px;
+            background: var(--color-charcoal);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+
+        .about-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-content h2 {
+            margin-bottom: var(--space-lg);
+        }
+
+        .about-content p {
+            margin-bottom: var(--space-md);
+            color: var(--color-charcoal);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-lg);
+            margin-top: var(--space-xl);
+            padding-top: var(--space-xl);
+            border-top: 1px solid var(--color-soft-gray);
+        }
+
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--color-gold-accent);
+            margin-bottom: var(--space-xs);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--color-charcoal);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ============================================
+           SERVICES SECTION
+           ============================================ */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-lg);
+        }
+
+        .service-card {
+            padding: var(--space-xl);
+            background: var(--color-warm-white);
+            border: 1px solid var(--color-soft-gray);
+            border-radius: var(--radius-lg);
+            transition: all var(--transition-smooth);
+            text-align: center;
+        }
+
+        .service-card:hover {
+            border-color: var(--color-gold-accent);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto var(--space-lg);
+            background: var(--color-cream);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--color-gold-accent);
+            transition: all var(--transition-smooth);
+        }
+
+        .service-card:hover .service-icon {
+            background: var(--color-gold-accent);
+            color: var(--color-warm-white);
+        }
+
+        .service-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: var(--space-sm);
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            color: var(--color-charcoal);
+            line-height: 1.6;
+        }
+
+        /* ============================================
+           SHOP PAGE STYLES
+           ============================================ */
+        .shop-page {
+            padding-top: 120px;
+        }
+
+        .shop-header {
+            text-align: center;
+            margin-bottom: var(--space-3xl);
+        }
+
+        .page-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: var(--space-sm);
+        }
+
+        .page-subtitle {
+            color: var(--color-charcoal);
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+
+        /* Filters */
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-3xl);
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.7rem 1.8rem;
+            background: transparent;
+            border: 1.5px solid var(--color-soft-gray);
+            border-radius: 50px;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--color-charcoal);
+            cursor: pointer;
+            transition: all var(--transition-smooth);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--color-charcoal);
+            color: var(--color-warm-white);
+            border-color: var(--color-charcoal);
+        }
+
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--space-xl);
+        }
+
+        .product-card {
+            background: var(--color-warm-white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all var(--transition-elegant);
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--color-soft-gray);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 350px;
+            background: var(--color-cream);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-elegant);
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: var(--space-sm);
+            left: var(--space-sm);
+            background: var(--color-gold-accent);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .product-actions {
+            position: absolute;
+            top: var(--space-sm);
+            right: var(--space-sm);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-xs);
+            opacity: 0;
+            transform: translateX(10px);
+            transition: all var(--transition-smooth);
+        }
+
+        .product-card:hover .product-actions {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .product-action-btn {
+            width: 40px;
+            height: 40px;
+            background: var(--color-warm-white);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-fast);
+            color: var(--color-charcoal);
+        }
+
+        .product-action-btn:hover {
+            background: var(--color-gold-accent);
+            color: white;
+        }
+
+        .product-info {
+            padding: var(--space-lg);
+        }
+
+        .product-category {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--color-gold-accent);
+            margin-bottom: var(--space-xs);
+            font-weight: 600;
+        }
+
+        .product-name {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            margin-bottom: var(--space-xs);
+            font-weight: 600;
+        }
+
+        .product-price {
+            font-weight: 600;
+            color: var(--color-charcoal);
+            font-size: 1.1rem;
+        }
+
+        .product-price .original-price {
+            text-decoration: line-through;
+            color: var(--color-medium-gray);
+            margin-left: var(--space-xs);
+            font-weight: 400;
+            font-size: 0.9rem;
+        }
+
+        /* ============================================
+           PRODUCT DETAIL MODAL
+           ============================================ */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 3000;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: var(--color-warm-white);
+            border-radius: var(--radius-xl);
+            max-width: 1000px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            animation: modalSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: var(--space-md);
+            right: var(--space-md);
+            background: var(--color-warm-white);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-fast);
+        }
+
+        .modal-close:hover {
+            background: var(--color-charcoal);
+            color: white;
+        }
+
+        .modal-gallery {
+            background: var(--color-cream);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-xl);
+            min-height: 500px;
+        }
+
+        .modal-gallery img {
+            max-width: 100%;
+            max-height: 500px;
+            object-fit: contain;
+        }
+
+        .modal-details {
+            padding: var(--space-2xl);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .modal-details .product-category {
+            margin-bottom: var(--space-sm);
+        }
+
+        .modal-details h2 {
+            margin-bottom: var(--space-md);
+        }
+
+        .modal-details .product-price {
+            font-size: 1.8rem;
+            margin-bottom: var(--space-lg);
+            color: var(--color-gold-accent);
+        }
+
+        .modal-details .product-description {
+            color: var(--color-charcoal);
+            line-height: 1.8;
+            margin-bottom: var(--space-xl);
+        }
+
+        .modal-details .product-specs {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-md);
+            margin-bottom: var(--space-xl);
+            padding: var(--space-lg);
+            background: var(--color-cream);
+            border-radius: var(--radius-md);
+        }
+
+        .spec-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .spec-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--color-medium-gray);
+            margin-bottom: var(--space-xs);
+        }
+
+        .spec-value {
+            font-weight: 600;
+            color: var(--color-dark-charcoal);
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+        }
+
+        .qty-btn {
+            width: 40px;
+            height: 40px;
+            background: var(--color-cream);
+            border: 1px solid var(--color-soft-gray);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all var(--transition-fast);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qty-btn:hover {
+            background: var(--color-charcoal);
+            color: white;
+            border-color: var(--color-charcoal);
+        }
+
+        .qty-input {
+            width: 60px;
+            height: 40px;
+            text-align: center;
+            border: 1px solid var(--color-soft-gray);
+            border-radius: var(--radius-sm);
+            font-size: 1rem;
+            font-family: var(--font-body);
+        }
+
+        /* ============================================
+           CART PANEL
+           ============================================ */
+        .cart-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+        }
+
+        .cart-overlay.active {
+            display: block;
+        }
+
+        .cart-panel {
+            position: fixed;
+            top: 0;
+            right: -500px;
+            width: 450px;
+            max-width: 90vw;
+            height: 100vh;
+            background: var(--color-warm-white);
+            z-index: 2001;
+            display: flex;
+            flex-direction: column;
+            transition: right var(--transition-elegant);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .cart-panel.active {
+            right: 0;
+        }
+
+        .cart-panel-header {
+            padding: var(--space-lg);
+            border-bottom: 1px solid var(--color-soft-gray);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-panel-header h3 {
+            margin: 0;
+        }
+
+        .cart-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--color-charcoal);
+            transition: color var(--transition-fast);
+        }
+
+        .cart-close:hover {
+            color: var(--color-gold-accent);
+        }
+
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            padding: var(--space-lg);
+        }
+
+        .cart-item {
+            display: flex;
+            gap: var(--space-md);
+            padding: var(--space-md) 0;
+            border-bottom: 1px solid var(--color-soft-gray);
+        }
+
+        .cart-item-image {
+            width: 80px;
+            height: 80px;
+            background: var(--color-cream);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .cart-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-name {
+            font-weight: 600;
+            margin-bottom: var(--space-xs);
+        }
+
+        .cart-item-price {
+            color: var(--color-gold-accent);
+            font-weight: 600;
+        }
+
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            margin-top: var(--space-xs);
+        }
+
+        .cart-item-remove {
+            background: none;
+            border: none;
+            color: #999;
+            cursor: pointer;
+            font-size: 0.8rem;
+            text-decoration: underline;
+            margin-top: var(--space-xs);
+        }
+
+        .cart-item-remove:hover {
+            color: #c0392b;
+        }
+
+        .cart-footer {
+            padding: var(--space-lg);
+            border-top: 1px solid var(--color-soft-gray);
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-lg);
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .cart-total span:last-child {
+            color: var(--color-gold-accent);
+            font-size: 1.5rem;
+        }
+
+        .btn-block {
+            width: 100%;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        /* ============================================
+           TESTIMONIALS SECTION
+           ============================================ */
+        .testimonials-section {
+            background: var(--color-dark-charcoal);
+            color: var(--color-warm-white);
+        }
+
+        .testimonials-section .section-title,
+        .testimonials-section .section-description {
+            color: var(--color-warm-white);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-xl);
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            transition: all var(--transition-smooth);
+        }
+
+        .testimonial-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            transform: translateY(-4px);
+        }
+
+        .testimonial-stars {
+            color: var(--color-gold-accent);
+            margin-bottom: var(--space-md);
+            font-size: 1.2rem;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: var(--space-lg);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+
+        .testimonial-author-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--color-gold-accent);
+        }
+
+        .testimonial-author-name {
+            font-weight: 600;
+        }
+
+        .testimonial-author-role {
+            font-size: 0.85rem;
+            color: var(--color-medium-gray);
+        }
+
+        /* ============================================
+           CONTACT & LOCATION SECTION
+           ============================================ */
+        .contact-section {
+            background: var(--color-cream);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-3xl);
+        }
+
+        .contact-info h2 {
+            margin-bottom: var(--space-lg);
+        }
+
+        .contact-details {
+            margin-bottom: var(--space-xl);
+        }
+
+        .contact-item {
+            display: flex;
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+            align-items: flex-start;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--color-warm-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: var(--color-gold-accent);
+            font-size: 1.2rem;
+        }
+
+        .contact-text h4 {
+            margin-bottom: var(--space-xs);
+            font-size: 1rem;
+        }
+
+        .contact-text p {
+            color: var(--color-charcoal);
+            line-height: 1.6;
+        }
+
+        .contact-form {
+            background: var(--color-warm-white);
+            padding: var(--space-xl);
+            border-radius: var(--radius-lg);
+        }
+
+        .form-group {
+            margin-bottom: var(--space-md);
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: var(--space-xs);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1.5px solid var(--color-soft-gray);
+            border-radius: var(--radius-md);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            transition: all var(--transition-fast);
+            background: var(--color-warm-white);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--color-gold-accent);
+            box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.1);
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .site-footer {
+            background: var(--color-richer-charcoal);
+            color: var(--color-medium-gray);
+            padding: var(--space-3xl) 0 var(--space-lg);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: var(--space-2xl);
+            margin-bottom: var(--space-3xl);
+        }
+
+        .footer-brand-name {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            color: var(--color-warm-white);
+            margin-bottom: var(--space-md);
+        }
+
+        .footer-description {
+            line-height: 1.8;
+            margin-bottom: var(--space-lg);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: var(--space-md);
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-warm-white);
+            text-decoration: none;
+            transition: all var(--transition-fast);
+        }
+
+        .footer-social a:hover {
+            background: var(--color-gold-accent);
+            transform: translateY(-2px);
+        }
+
+        .footer-column h4 {
+            color: var(--color-warm-white);
+            margin-bottom: var(--space-lg);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: var(--space-sm);
+        }
+
+        .footer-column ul li a {
+            color: var(--color-medium-gray);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+            font-size: 0.9rem;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--color-gold-accent);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: var(--space-lg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+        }
+
+        /* ============================================
+           NEWSLETTER SECTION
+           ============================================ */
+        .newsletter-section {
+            background: var(--color-gold-accent);
+            padding: var(--space-3xl) 0;
+        }
+
+        .newsletter-content {
+            text-align: center;
+            color: var(--color-warm-white);
+        }
+
+        .newsletter-content h2 {
+            color: var(--color-warm-white);
+            margin-bottom: var(--space-sm);
+        }
+
+        .newsletter-content p {
+            margin-bottom: var(--space-xl);
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: var(--space-sm);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 0.95rem;
+            font-family: var(--font-body);
+        }
+
+        .newsletter-form input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .newsletter-form input:focus {
+            outline: none;
+            border-color: white;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .newsletter-form button {
+            padding: 1rem 2rem;
+            background: var(--color-warm-white);
+            color: var(--color-gold-accent);
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all var(--transition-smooth);
+            font-family: var(--font-body);
+        }
+
+        .newsletter-form button:hover {
+            background: var(--color-dark-charcoal);
+            color: var(--color-warm-white);
+        }
+
+        /* ============================================
+           TOAST NOTIFICATIONS
+           ============================================ */
+        .toast {
+            position: fixed;
+            bottom: var(--space-xl);
+            right: var(--space-xl);
+            background: var(--color-dark-charcoal);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg);
+            z-index: 5000;
+            animation: toastIn 0.3s ease, toastOut 0.3s ease 2.7s forwards;
+            font-weight: 500;
+        }
+
+        @keyframes toastIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes toastOut {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN
+           ============================================ */
+        @media (max-width: 1200px) {
+            .featured-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-nav {
+                display: none;
+            }
+            .mobile-menu-toggle {
+                display: block;
+            }
+            .header-container {
+                height: 70px;
+            }
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .featured-grid,
+            .services-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .about-image-wrapper {
+                height: 400px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .modal {
+                grid-template-columns: 1fr;
+            }
+            .modal-gallery {
+                min-height: 300px;
+            }
+            .newsletter-form {
+                flex-direction: column;
+            }
+            .hero-buttons {
+                flex-direction: column;
+            }
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 var(--space-md);
+            }
+            .section {
+                padding: var(--space-2xl) 0;
+            }
+            .filters {
+                gap: var(--space-xs);
+            }
+            .filter-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.75rem;
+            }
+            .cart-panel {
+                width: 100%;
+            }
+        }
+
+        /* Loading Skeleton Animation */
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        .skeleton {
+            background: linear-gradient(90deg, var(--color-cream) 25%, var(--color-soft-gray) 50%, var(--color-cream) 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- ============================================
+    HEADER & NAVIGATION
+    ============================================ -->
+    <header class="site-header" id="siteHeader">
+        <div class="container header-container">
+            <a href="#home" class="brand-logo">Hayee Interior</a>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#shop">Shop</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#testimonials">Reviews</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button class="cart-toggle" id="cartToggle" aria-label="Shopping cart">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"/>
+                        <circle cx="20" cy="21" r="1"/>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                    </svg>
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"/>
+                        <line x1="3" y1="6" x2="21" y2="6"/>
+                        <line x1="3" y1="18" x2="21" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#shop">Shop</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#testimonials">Reviews</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- ============================================
+    HERO SECTION
+    ============================================ -->
+    <section class="hero" id="home">
+        <div class="hero-background"></div>
+        <div class="hero-pattern"></div>
+        <div class="container">
+            <div class="hero-content">
+                <p class="hero-subtitle-top">Established 2015 • Thanjavur</p>
+                <h1 class="hero-title">
+                    Crafting <em>Timeless</em><br>
+                    Interior Spaces
+                </h1>
+                <p class="hero-description">
+                    Where luxury meets functionality. Discover our curated collection of premium furniture and bespoke design services, right in the heart of Thanjavur.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#shop" class="btn btn-primary">Explore Collection</a>
+                    <a href="#about" class="btn btn-outline">Our Story</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <span>Scroll</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- ============================================
+    FEATURED COLLECTIONS / SHOP SECTION
+    ============================================ -->
+    <section class="section shop-page" id="shop">
+        <div class="container">
+            <div class="shop-header">
+                <p class="section-label">Our Collection</p>
+                <h2 class="section-title">Curated Pieces</h2>
+                <p class="section-description">Every item meticulously selected for its craftsmanship, beauty, and enduring quality</p>
+            </div>
+
+            <!-- Filters -->
+            <div class="filters" id="productFilters">
+                <button class="filter-btn active" data-category="all">All</button>
+                <button class="filter-btn" data-category="seating">Seating</button>
+                <button class="filter-btn" data-category="tables">Tables</button>
+                <button class="filter-btn" data-category="lighting">Lighting</button>
+                <button class="filter-btn" data-category="decor">Decor</button>
+                <button class="filter-btn" data-category="storage">Storage</button>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="product-grid" id="productGrid">
+                <!-- Products will be dynamically inserted here -->
+            </div>
+            <div id="noResults" style="display: none; text-align: center; padding: 3rem; color: var(--color-medium-gray);">
+                <p>No products found in this category.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+    ABOUT SECTION
+    ============================================ -->
+    <section class="section about-section" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image-wrapper">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600' viewBox='0 0 600 600'%3E%3Crect fill='%233D3A35' width='600' height='600'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23B8B2A6' font-family='serif' font-size='24'%3ELuxury Interior%3C/text%3E%3C/svg%3E" alt="Hayee Interior Studio" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div class="about-content">
+                    <p class="section-label">Our Story</p>
+                    <h2>A Legacy of<br>Design Excellence</h2>
+                    <p>
+                        Founded in 2015, Hayee Interior has been at the forefront of luxury interior design in Thanjavur. Located opposite Anu Hospital, our studio has become a destination for discerning homeowners and designers seeking exceptional quality and timeless aesthetics.
+                    </p>
+                    <p>
+                        We believe that every space tells a story. Our approach combines classical design principles with contemporary sensibilities, creating interiors that are both beautiful and functional.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">Projects Completed</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">8+</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Client Satisfaction</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+    SERVICES SECTION
+    ============================================ -->
+    <section class="section" id="services">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">What We Offer</p>
+                <h2 class="section-title">Our Services</h2>
+                <p class="section-description">Comprehensive design solutions tailored to your unique vision</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3>Interior Design</h3>
+                    <p>Full-scale interior design services from concept to completion, creating harmonious living spaces.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🪑</div>
+                    <h3>Furniture Curation</h3>
+                    <p>Handpicked premium furniture pieces from renowned craftsmen and exclusive brands worldwide.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💡</div>
+                    <h3>Lighting Design</h3>
+                    <p>Custom lighting solutions that enhance ambiance and highlight architectural features beautifully.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏠</div>
+                    <h3>Space Planning</h3>
+                    <p>Optimized layouts that maximize flow, functionality, and aesthetic appeal of every room.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+    TESTIMONIALS SECTION
+    ============================================ -->
+    <section class="section testimonials-section" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">Client Love</p>
+                <h2 class="section-title">What Our Clients Say</h2>
+                <p class="section-description">Real stories from homeowners who trusted us with their spaces</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">
+                        "Hayee Interior transformed our home into a masterpiece. Their attention to detail and understanding of our vision was exceptional. Every guest who visits is in awe."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-author-image"></div>
+                        <div>
+                            <div class="testimonial-author-name">Priya & Rajesh Kumar</div>
+                            <div class="testimonial-author-role">Residential Project, Thanjavur</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">
+                        "Working with Hayee Interior was a seamless experience. They delivered our dream living room within budget and timeline. The quality of furniture is outstanding."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-author-image"></div>
+                        <div>
+                            <div class="testimonial-author-name">Dr. Senthil Nathan</div>
+                            <div class="testimonial-author-role">Anu Hospital, Thanjavur</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">
+                        "From consultation to installation, the team showed incredible professionalism. They understood our minimalist aesthetic and created spaces that feel both luxurious and livable."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-author-image"></div>
+                        <div>
+                            <div class="testimonial-author-name">Ananya & Vikram Iyer</div>
+                            <div class="testimonial-author-role">Villa Project, Thanjavur</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+    NEWSLETTER SECTION
+    ============================================ -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Stay Inspired</h2>
+                <p>Subscribe to receive design insights, new arrivals, and exclusive offers</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+    CONTACT & LOCATION SECTION
+    ============================================ -->
+    <section class="section contact-section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">Get In Touch</p>
+                <h2 class="section-title">Visit Our Studio</h2>
+                <p class="section-description">We'd love to discuss your next project</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div class="contact-text">
+                                <h4>Our Location</h4>
+                                <p>Opposite Anu Hospital,<br>Thanjavur, Tamil Nadu - 613001</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <div class="contact-text">
+                                <h4>Phone</h4>
+                                <p>+91 98765 43210<br>+91 87654 32109</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">✉️</div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <p>hello@hayeeinterior.com<br>design@hayeeinterior.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">🕐</div>
+                            <div class="contact-text">
+                                <h4>Working Hours</h4>
+                                <p>Monday - Saturday: 10 AM - 8 PM<br>Sunday: By Appointment Only</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3 style="margin-bottom: 1.5rem;">Send Us a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" required placeholder="Enter your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" required placeholder="Enter your email">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" placeholder="Enter your phone number">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Interested In</label>
+                            <select id="service">
+                                <option value="">Select a service</option>
+                                <option value="interior-design">Interior Design</option>
+                                <option value="furniture">Furniture Purchase</option>
+                                <option value="consultation">Design Consultation</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message *</label>
+                            <textarea id="message" required placeholder="Tell us about your project..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width:100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+    FOOTER
+    ============================================ -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <div class="footer-brand-name">Hayee Interior</div>
+                    <p class="footer-description">
+                        Premium interior design studio in Thanjavur, crafting timeless spaces since 2015. Located opposite Anu Hospital.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Pinterest">📌</a>
+                        <a href="#" aria-label="WhatsApp">💬</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#shop">Shop</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="#shop">Seating</a></li>
+                        <li><a href="#shop">Tables</a></li>
+                        <li><a href="#shop">Lighting</a></li>
+                        <li><a href="#shop">Decor</a></li>
+                        <li><a href="#shop">Storage</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li>📍 Opposite Anu Hospital</li>
+                        <li>📞 +91 98765 43210</li>
+                        <li>✉️ hello@hayeeinterior.com</li>
+                        <li>🕐 Mon-Sat: 10 AM - 8 PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Hayee Interior. All rights reserved.</p>
+                <p>Made with ❤️ in Thanjavur</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================
+    PRODUCT DETAIL MODAL
+    ============================================ -->
+    <div class="modal-overlay" id="productModal">
+        <div class="modal">
+            <button class="modal-close" id="modalClose">✕</button>
+            <div class="modal-gallery" id="modalGallery">
+                <img src="" alt="Product Image" id="modalImage">
+            </div>
+            <div class="modal-details" id="modalDetails">
+                <!-- Filled dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+    CART PANEL
+    ============================================ -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <aside class="cart-panel" id="cartPanel">
+        <div class="cart-panel-header">
+            <h3>Shopping Cart</h3>
+            <button class="cart-close" id="cartClose">✕</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p style="text-align:center;color:var(--color-medium-gray);padding:2rem;">Your cart is empty</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Subtotal</span>
+                <span id="cartTotal">₹0</span>
+            </div>
+            <button class="btn btn-primary btn-block" id="checkoutBtn">Proceed to Checkout</button>
+        </div>
+    </aside>
+
+    <!-- ============================================
+    JAVASCRIPT - MOCK DATABASE & APPLICATION LOGIC
+    ============================================ -->
+    <script>
+        // ============================================
+        // MOCK PRODUCT DATABASE
+        // ============================================
+        const products = [
+            {
+                id: 1,
+                title: "Serena Velvet Armchair",
+                category: "seating",
+                price: 85000,
+                originalPrice: 95000,
+                description: "Handcrafted armchair upholstered in Italian velvet with solid oak legs. The perfect blend of comfort and sophistication for your living space.",
+                specs: {
+                    "Material": "Velvet & Solid Oak",
+                    "Dimensions": "85cm W x 90cm D x 95cm H",
+                    "Weight": "18 kg",
+                    "Color": "Sage Green"
+                },
+                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect fill='%238B7355' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23F5F0EB' font-family='serif' font-size='20'%3ESerena Armchair%3C/text%3E%3C/svg%3E",
+                badge: "Bestseller",
+                inventory: 12
+            },
+            {
+                id: 2,
+                title: "Minimalist Marble Coffee Table",
+                category: "tables",
+                price: 120000,
+                originalPrice: null,
+                description: "Elegant coffee table featuring a Carrara marble top with a brushed brass base. A statement piece for contemporary interiors.",
+                specs: {
+                    "Material": "Carrara Marble & Brass",
+                    "Dimensions": "120cm L x 70cm W x 40cm H",
+                    "Weight": "35 kg",
+                    "Color": "White & Gold"
+                },
+                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect fill='%23E8E4DF' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%233D3A35' font-family='serif' font-size='20'%3EMarble Table%3C/text%3E%3C/svg%3E",
+                badge: null,
+                inventory: 5
+            },
+            {
+                id: 3,
+                title: "Artisan Pendant Light",
+                category: "lighting",
+                price: 45000,
+                originalPrice: 52000,
+                description: "Hand-blown glass pendant light with antique brass fittings. Creates a warm, ambient glow perfect for dining areas.",
+                specs: {
+                    "Material": "Blown Glass & Brass",
+                    "Dimensions": "30cm Diameter x 40cm H",
+                    "Weight": "4 kg",
+                    "Color": "Amber"
+                },
+                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect fill='%23C9A96E' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23FAF8F5' font-family='serif' font-size='20'%3EPendant Light%3C/text%3E%3C/svg%3E",
+                badge: "Limited Edition",
+                inventory: 3
+            },
+            {
+                id: 4,
+                title: "Sculptural Ceramic Vase",
+                category: "decor",
+                price: 18000,
+                originalPrice: null,
+                description: "Handcrafted ceramic vase with a unique sculptural form. Each piece is individually made by artisans in Tamil Nadu.",
+                specs: {
+                    "Material": "Terracotta & Glaze",
+                    "Dimensions": "25cm W x 45cm H",
+                    "Weight": "3 kg",
+                    "Color": "Matte White"
+                },
+                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect fill='%23B8B2A6' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23FAF8F5' font-family='serif' font-size='20'%3ECeramic Vase%3C/text%3E%3C/svg%3E",
+                badge: "Handmade",
+                inventory: 20
+            },
+            {
+                id: 5,
+                title: "Chesterfield Leather Sofa",
+                category: "seating",
+                price: 245000,
+                originalPrice: 280000,
+                description: "Classic Chesterfield sofa in full-grain leather with deep button tufting. A timeless piece that ages beautifully.",
+                specs: {
+                    "Material": "Full-Grain Leather",
+                    "Dimensions": "220cm L x 95cm D x 80cm H",
+                    "Weight": "65 kg",
+                    "Color": "Cognac Brown"
+                },
+                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect fill='%233D3A35' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23C9A96E' font-family='serif' font-size='20'%3ELeather Sofa%3C/text%3E%3C/svg%3E",
+                badge: "Premium",
+                inventory: 2
+            },
+            {
+                id: 6,
+                title: "Walnut Dining Table",
+                category: "tables",
+                price: 165000,
+                originalPrice: null,
+                description: "Solid American walnut dining table seating 8-10. Features a live edge detail and hand-rubbed oil finish.",
+                specs: {
+                    "Material": "Solid Walnut",
+                    "Dimensions": "240cm L x 100cm W x 76cm H",
+                    "Weight": "80 kg",
+                    "Color": "Dark Walnut"
+                },
+                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect fill='%232C2925' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23DFC89D' font-family='serif' font-size='20'%3EWalnut Table%3C/text%3E%3C/svg%3E",
+                badge: null,
+                inventory: 4
+            },
+            {
+                id: 7,
+                title: "Crystal Chandelier",
+                category: "lighting",
+                price: 320000,
+                originalPrice: 380000,
+                description: "Magnificent crystal chandelier with 24 lights. Hand-cut crystals catch and refract light beautifully throughout any grand space.",
+                specs: {
+                    "Material": "Crystal & Gold-Plated Metal",
+                    "Dimensions": "100cm Diameter x 120cm H",
+                    "Weight": "45 kg",
+                    "Color": "Clear & Gold"
+                },
+                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect fill='%231F1D1A' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23C9A96E' font-family='serif' font-size='18'%3ECrystal Chandelier%3C/text%3E%3C/svg%3E",
+                badge: "Luxury",
+                inventory: 1
+            },
+            {
+                id: 8,
+                title: "Linen Throw Pillow Set",
+                category: "decor",
+                price: 6500,
+                originalPrice: 8000,
+                description: "Set of 4 hand-stitched linen throw pillows with feather inserts. Available in a palette of sophisticated neutrals.",
+                specs: {
+                    "Material": "100% Linen",
+                    "Dimensions": "50cm x 50cm each",
+                    "Weight": "2 kg total",
+                    "Color": "Assorted Neutrals"
+                },
+                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect fill='%23F5F0EB' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%238B7355' font-family='serif' font-size='18'%3ELinen Pillows%3C/text%3E%3C/svg%3E",
+                badge: null,
+                inventory: 50
+            },
+            {
+                id: 9,
+                title: "Teak Wood Bookcase",
+                category: "storage",
+                price: 95000,
+                originalPrice: null,
+                description: "Floor-to-ceiling modular bookcase in reclaimed teak wood. Adjustable shelves accommodate books and display pieces.",
+                specs: {
+                    "Material": "Reclaimed Teak",
+                    "Dimensions": "180cm W x 40cm D x 240cm H",
+                    "Weight": "120 kg",
+                    "Color": "Natural Teak"
+                },
+                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect fill='%238B7355' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23FAF8F5' font-family='serif' font-size='20'%3ETeak Bookcase%3C/text%3E%3C/svg%3E",
+                badge: "Sustainable",
+                inventory: 3
+            },
+            {
+                id: 10,
+                title: "Brass Floor Lamp",
+                category: "lighting",
+                price: 55000,
+                originalPrice: 62000,
+                description: "Sculptural floor lamp in solid brass with a linen shade. Adds a warm, sophisticated glow to reading nooks.",
+                specs: {
+                    "Material": "Solid Brass & Linen",
+                    "Dimensions": "40cm W x 40cm D x 160cm H",
+                    "Weight": "12 kg",
+                    "Color": "Antique Brass"
+                },
+                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect fill='%23DFC89D' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%232C2925' font-family='serif' font-size='18'%3EBrass Lamp%3C/text%3E%3C/svg%3E",
+                badge: null,
+                inventory: 7
+            },
+            {
+                id: 11,
+                title: "Velvet Ottoman",
+                category: "seating",
+                price: 35000,
+                originalPrice: null,
+                description: "Plush velvet ottoman with hidden storage. Doubles as extra seating or a footrest with elegant tufted detailing.",
+                specs: {
+                    "Material": "Cotton Velvet",
+                    "Dimensions": "80cm Diameter x 45cm H",
+                    "Weight": "10 kg",
+                    "Color": "Blush Pink"
+                },
+                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect fill='%23C9A96E' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23FAF8F5' font-family='serif' font-size='20'%3EVelvet Ottoman%3C/text%3E%3C/svg%3E",
+                badge: "New",
+                inventory: 15
+            },
+            {
+                id: 12,
+                title: "Marble Console Table",
+                category: "tables",
+                price: 140000,
+                originalPrice: 160000,
+                description: "Sleek console table with a Nero Marquina marble top and geometric black metal base. Perfect for entryways.",
+                specs: {
+                    "Material": "Nero Marquina Marble & Steel",
+                    "Dimensions": "140cm L x 40cm D x 85cm H",
+                    "Weight": "40 kg",
+                    "Color": "Black & Gold"
+                },
+                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect fill='%231F1D1A' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23DFC89D' font-family='serif' font-size='18'%3EMarble Console%3C/text%3E%3C/svg%3E",
+                badge: "Exclusive",
+                inventory: 2
+            }
+        ];
+
+        // ============================================
+        // CART STATE MANAGEMENT
+        // ============================================
+        let cart = JSON.parse(localStorage.getItem('hayeeCart')) || [];
+
+        function saveCart() {
+            localStorage.setItem('hayeeCart', JSON.stringify(cart));
+            updateCartUI();
+        }
+
+        function addToCart(productId, quantity = 1) {
+            const existing = cart.find(item => item.productId === productId);
+            if (existing) {
+                existing.quantity += quantity;
+            } else {
+                cart.push({ productId, quantity });
+            }
+            saveCart();
+            showToast('Added to cart successfully!');
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.productId !== productId);
+            saveCart();
+            showToast('Removed from cart');
+        }
+
+        function updateQuantity(productId, newQuantity) {
+            const item = cart.find(item => item.productId === productId);
+            if (item) {
+                item.quantity = Math.max(1, newQuantity);
+                saveCart();
+            }
+        }
+
+        function getCartTotal() {
+            return cart.reduce((total, item) => {
+                const product = products.find(p => p.id === item.productId);
+                return total + (product ? product.price * item.quantity : 0);
+            }, 0);
+        }
+
+        function getCartCount() {
+            return cart.reduce((count, item) => count + item.quantity, 0);
+        }
+
+        // ============================================
+        // UI UPDATE FUNCTIONS
+        // ============================================
+        function updateCartUI() {
+            const count = getCartCount();
+            document.getElementById('cartCount').textContent = count;
+            document.getElementById('cartTotal').textContent = '₹' + getCartTotal().toLocaleString('en-IN');
+            
+            const cartItemsContainer = document.getElementById('cartItems');
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p style="text-align:center;color:var(--color-medium-gray);padding:2rem;">Your cart is empty</p>';
+            } else {
+                cartItemsContainer.innerHTML = cart.map(item => {
+                    const product = products.find(p => p.id === item.productId);
+                    if (!product) return '';
+                    return `
+                        <div class="cart-item">
+                            <div class="cart-item-image">
+                                <img src="${product.image}" alt="${product.title}">
+                            </div>
+                            <div class="cart-item-details">
+                                <div class="cart-item-name">${product.title}</div>
+                                <div class="cart-item-price">₹${product.price.toLocaleString('en-IN')}</div>
+                                <div class="cart-item-quantity">
+                                    <button class="qty-btn" onclick="updateQuantity(${product.id}, ${item.quantity - 1})">−</button>
+                                    <input type="number" class="qty-input" value="${item.quantity}" min="1" readonly>
+                                    <button class="qty-btn" onclick="updateQuantity(${product.id}, ${item.quantity + 1})">+</button>
+                                </div>
+                                <button class="cart-item-remove" onclick="removeFromCart(${product.id})">Remove</button>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            }
+            document.getElementById('cartTotal').textContent = '₹' + getCartTotal().toLocaleString('en-IN');
+        }
+
+        function renderProducts(category = 'all') {
+            const grid = document.getElementById('productGrid');
+            const noResults = document.getElementById('noResults');
+            const filtered = category === 'all' ? products : products.filter(p => p.category === category);
+            
+            if (filtered.length === 0) {
+                grid.innerHTML = '';
+                noResults.style.display = 'block';
+                return;
+            }
+            
+            noResults.style.display = 'none';
+            grid.innerHTML = filtered.map(product => `
+                <div class="product-card" onclick="openProductModal(${product.id})">
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.title}" loading="lazy">
+                        ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ''}
+                        <div class="product-actions" onclick="event.stopPropagation()">
+                            <button class="product-action-btn" onclick="addToCart(${product.id}); event.stopPropagation();" title="Add to Cart">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+                                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">${product.category}</p>
+                        <h3 class="product-name">${product.title}</h3>
+                        <div class="product-price">
+                            ₹${product.price.toLocaleString('en-IN')}
+                            ${product.originalPrice ? `<span class="original-price">₹${product.originalPrice.toLocaleString('en-IN')}</span>` : ''}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function openProductModal(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+            
+            document.getElementById('modalImage').src = product.image;
+            document.getElementById('modalGallery').innerHTML = `<img src="${product.image}" alt="${product.title}" style="max-width:100%;max-height:500px;object-fit:contain;">`;
+            
+            document.getElementById('modalDetails').innerHTML = `
+                <p class="product-category">${product.category}</p>
+                <h2>${product.title}</h2>
+                <div class="product-price">₹${product.price.toLocaleString('en-IN')}</div>
+                <p class="product-description">${product.description}</p>
+                <div class="product-specs">
+                    ${Object.entries(product.specs).map(([key, value]) => `
+                        <div class="spec-item">
+                            <span class="spec-label">${key}</span>
+                            <span class="spec-value">${value}</span>
+                        </div>
+                    `).join('')}
+                </div>
+                <p style="margin-bottom:1rem;"><strong>In Stock:</strong> ${product.inventory} units</p>
+                <div class="quantity-selector">
+                    <button class="qty-btn" id="modalQtyMinus">−</button>
+                    <input type="number" class="qty-input" id="modalQty" value="1" min="1" max="${product.inventory}" readonly>
+                    <button class="qty-btn" id="modalQtyPlus">+</button>
+                </div>
+                <button class="btn btn-primary" id="modalAddToCart" style="width:100%;">Add to Cart</button>
+            `;
+            
+            document.getElementById('productModal').classList.add('active');
+            
+            // Quantity selectors
+            let qty = 1;
+            document.getElementById('modalQtyMinus').onclick = () => {
+                if (qty > 1) { qty--; document.getElementById('modalQty').value = qty; }
+            };
+            document.getElementById('modalQtyPlus').onclick = () => {
+                if (qty < product.inventory) { qty++; document.getElementById('modalQty').value = qty; }
+            };
+            document.getElementById('modalAddToCart').onclick = () => {
+                addToCart(productId, qty);
+                document.getElementById('productModal').classList.remove('active');
+            };
+        }
+
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        }
+
+        // ============================================
+        // EVENT LISTENERS
+        // ============================================
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initial render
+            renderProducts();
+            updateCartUI();
+            
+            // Cart toggle
+            document.getElementById('cartToggle').addEventListener('click', () => {
+                document.getElementById('cartPanel').classList.toggle('active');
+                document.getElementById('cartOverlay').classList.toggle('active');
+            });
+            document.getElementById('cartClose').addEventListener('click', () => {
+                document.getElementById('cartPanel').classList.remove('active');
+                document.getElementById('cartOverlay').classList.remove('active');
+            });
+            document.getElementById('cartOverlay').addEventListener('click', () => {
+                document.getElementById('cartPanel').classList.remove('active');
+                document.getElementById('cartOverlay').classList.remove('active');
+            });
+            
+            // Mobile menu
+            document.getElementById('mobileMenuToggle').addEventListener('click', () => {
+                document.getElementById('mobileMenu').classList.add('active');
+                document.getElementById('mobileMenuOverlay').classList.add('active');
+            });
+            document.getElementById('mobileMenuClose').addEventListener('click', () => {
+                document.getElementById('mobileMenu').classList.remove('active');
+                document.getElementById('mobileMenuOverlay').classList.remove('active');
+            });
+            document.getElementById('mobileMenuOverlay').addEventListener('click', () => {
+                document.getElementById('mobileMenu').classList.remove('active');
+                document.getElementById('mobileMenuOverlay').classList.remove('active');
+            });
+            
+            // Product filters
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    renderProducts(this.dataset.category);
+                });
+            });
+            
+            // Modal close
+            document.getElementById('modalClose').addEventListener('click', () => {
+                document.getElementById('productModal').classList.remove('active');
+            });
+            document.getElementById('productModal').addEventListener('click', function(e) {
+                if (e.target === this) this.classList.remove('active');
+            });
+            
+            // Checkout button
+            document.getElementById('checkoutBtn').addEventListener('click', () => {
+                if (cart.length === 0) {
+                    showToast('Your cart is empty!');
+                } else {
+                    showToast('Checkout feature coming soon!');
+                }
+            });
+            
+            // Forms
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                showToast('Thank you for your message! We will get back to you soon.');
+                this.reset();
+            });
+            
+            document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                showToast('Thank you for subscribing!');
+                this.reset();
+            });
+            
+            // Header scroll effect
+            window.addEventListener('scroll', () => {
+                const header = document.getElementById('siteHeader');
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+            
+            // Smooth scroll for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        // Close mobile menu if open
+                        document.getElementById('mobileMenu').classList.remove('active');
+                        document.getElementById('mobileMenuOverlay').classList.remove('active');
+                    }
+                });
+            });
+
+            // Keyboard shortcut to close modal
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    document.getElementById('productModal').classList.remove('active');
+                    document.getElementById('cartPanel').classList.remove('active');
+                    document.getElementById('cartOverlay').classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
