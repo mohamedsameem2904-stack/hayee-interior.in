@@ -60,21 +60,20 @@
 
         /* Hamburger */
         .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 2001; padding: 10px; background: none; border: none; }
-        .hamburger span { display: block; width: 26px; height: 2.5px; background: var(--color-dark-charcoal); border-radius: 3px; transition: all 0.3s ease; }
+        .hamburger span { display: block; width: 24px; height: 2px; background: var(--color-dark-charcoal); border-radius: 2px; transition: all 0.3s ease; }
         .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
         .hamburger.active span:nth-child(2) { opacity: 0; }
         .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
-        /* Mobile Menu */
-        .mobile-menu { position: fixed; top: 0; right: -100%; width: 85%; max-width: 380px; height: 100vh; height: 100dvh; background: var(--color-warm-white); z-index: 2000; padding: 100px var(--space-xl) var(--space-xl); transition: right 0.4s cubic-bezier(0.4,0,0.2,1); box-shadow: -10px 0 40px rgba(0,0,0,0.15); overflow-y: auto; }
+        /* Mobile Menu - Smaller & Cleaner */
+        .mobile-menu { position: fixed; top: 0; right: -100%; width: 75%; max-width: 300px; height: 100vh; height: 100dvh; background: var(--color-warm-white); z-index: 2000; padding: 80px var(--space-lg) var(--space-lg); transition: right 0.4s cubic-bezier(0.4,0,0.2,1); box-shadow: -10px 0 40px rgba(0,0,0,0.15); overflow-y: auto; }
         .mobile-menu.active { right: 0; }
         .mobile-menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1999; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
         .mobile-menu-overlay.active { opacity: 1; visibility: visible; }
         .mobile-menu ul { list-style: none; }
-        .mobile-menu li { margin-bottom: var(--space-lg); border-bottom: 1px solid var(--color-soft-gray); padding-bottom: var(--space-sm); }
-        .mobile-menu a { font-family: var(--font-display); font-size: 1.4rem; text-decoration: none; color: var(--color-dark-charcoal); display: block; }
+        .mobile-menu li { margin-bottom: var(--space-md); padding-bottom: var(--space-xs); border-bottom: 1px solid var(--color-soft-gray); }
+        .mobile-menu a { font-family: var(--font-body); font-size: 1rem; text-decoration: none; color: var(--color-dark-charcoal); display: block; font-weight: 500; }
         .mobile-menu a:hover { color: var(--color-gold-accent); }
-        .mobile-whatsapp { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: var(--space-xl); padding: 0.8rem 1.8rem; background: var(--color-whatsapp); color: #fff; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 0.85rem; }
 
         /* Hero */
         .hero { position: relative; height: 100vh; height: 100dvh; min-height: 600px; display: flex; align-items: center; overflow: hidden; background: url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=2000&auto=format&fit=crop') center/cover no-repeat; background-attachment: fixed; }
@@ -128,7 +127,6 @@
         .modal-gallery img { max-width: 100%; max-height: 400px; object-fit: contain; border-radius: var(--radius-md); }
         .modal-details { padding: var(--space-xl); }
         .modal-details h2 { font-size: 1.6rem; margin-bottom: 0.5rem; }
-        .modal-details .product-cat { margin-bottom: 0.5rem; }
         .modal-desc { color: var(--color-charcoal); line-height: 1.7; margin-bottom: var(--space-lg); font-size: 0.95rem; }
         .modal-specs { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-bottom: var(--space-lg); padding: var(--space-md); background: var(--color-cream); border-radius: var(--radius-md); }
         .spec-item { display: flex; flex-direction: column; }
@@ -198,10 +196,6 @@
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: var(--space-xl); margin-bottom: var(--space-xl); }
         .footer-brand { font-family: var(--font-display); font-size: 1.5rem; color: #fff; margin-bottom: var(--space-sm); }
         .footer-desc { line-height: 1.7; margin-bottom: var(--space-md); font-size: 0.85rem; }
-        .footer-social { display: flex; gap: var(--space-sm); }
-        .footer-social a { width: 36px; height: 36px; background: rgba(255,255,255,0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; transition: all var(--transition-fast); }
-        .footer-social a:hover { background: var(--color-gold-accent); transform: translateY(-2px); }
-        .footer-social a svg { width: 16px; height: 16px; }
         .footer-col h4 { color: #fff; margin-bottom: var(--space-md); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; }
         .footer-col ul { list-style: none; }
         .footer-col li { margin-bottom: 0.5rem; }
@@ -220,7 +214,7 @@
         @keyframes toastIn { from { transform: translateX(-50%) translateY(100%); opacity: 0; } to { transform: translateX(-50%) translateY(0); opacity: 1; } }
         @keyframes toastOut { from { transform: translateX(-50%) translateY(0); opacity: 1; } to { transform: translateX(-50%) translateY(100%); opacity: 0; } }
 
-        /* ============ MOBILE FIRST IMPROVEMENTS ============ */
+        /* ============ RESPONSIVE ============ */
         @media (max-width: 1024px) {
             .services-grid { grid-template-columns: repeat(2,1fr); }
             .testimonials-grid { grid-template-columns: repeat(2,1fr); }
@@ -263,8 +257,6 @@
             .services-grid { grid-template-columns: 1fr 1fr; gap: var(--space-sm); }
             .service-card { padding: var(--space-md); }
             .service-icon { width: 50px; height: 50px; font-size: 1.3rem; }
-            .service-card h3 { font-size: 0.95rem; }
-            .service-card p { font-size: 0.8rem; }
 
             .testimonials-grid { grid-template-columns: 1fr; }
             .testimonial-card { padding: var(--space-md); }
@@ -281,7 +273,6 @@
             .contact-form { padding: var(--space-md); }
             .footer-grid { grid-template-columns: 1fr; gap: var(--space-lg); }
             .footer-bottom { flex-direction: column; text-align: center; }
-            .footer-social { justify-content: center; }
 
             .wa-float { bottom: 18px; right: 18px; width: 50px; height: 50px; }
             .wa-float svg { width: 24px; height: 24px; }
@@ -295,20 +286,17 @@
             .hero-subtitle { font-size: 0.7rem; letter-spacing: 3px; }
             .hero-desc { font-size: 0.85rem; }
             .hero-btns .btn { min-width: 140px; padding: 0.75rem 1.5rem; font-size: 0.7rem; letter-spacing: 1px; }
-
             .product-grid { grid-template-columns: 1fr 1fr; gap: 0.6rem; }
             .product-img { height: 180px; }
             .product-name { font-size: 0.85rem; }
             .product-cat { font-size: 0.6rem; }
             .inquire-btn { padding: 0.35rem 0.8rem; font-size: 0.6rem; }
             .inquire-btn svg { width: 11px; height: 11px; }
-
             .filter-btn { padding: 0.4rem 0.8rem; font-size: 0.65rem; }
             .about-img { height: 250px; }
             .stat-num { font-size: 1.5rem; }
             .stat-label { font-size: 0.7rem; }
             .services-grid { grid-template-columns: 1fr; }
-
             .wa-float { bottom: 15px; right: 15px; width: 46px; height: 46px; }
             .wa-float svg { width: 22px; height: 22px; }
         }
@@ -346,7 +334,7 @@
         </div>
     </header>
 
-    <!-- Mobile Menu -->
+    <!-- Mobile Menu - Clean, No WhatsApp Button -->
     <div class="mobile-menu-overlay" id="mobileOverlay"></div>
     <div class="mobile-menu" id="mobileMenu">
         <ul>
@@ -357,10 +345,6 @@
             <li><a href="#reviews">Reviews</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
-        <a href="https://wa.me/917299030406?text=Hello%20Hayee%20Interior%2C%20I%20would%20like%20to%20inquire%20about%20your%20products." class="mobile-whatsapp" target="_blank" rel="noopener">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
-            Inquire via WhatsApp
-        </a>
     </div>
 
     <!-- Hero -->
@@ -401,8 +385,8 @@
             <div class="about-img"><img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600&auto=format&fit=crop" alt="Studio" style="width:100%;height:100%;object-fit:cover;"></div>
             <div class="about-content">
                 <p class="section-label">Our Story</p><h2>A Legacy of<br>Design Excellence</h2>
-                <p>Founded in 2015, Hayee Interior has been at the forefront of luxury interior design in Thanjavur. Located opposite Anu Hospital, our studio has become a destination for discerning homeowners and designers seeking exceptional quality and timeless aesthetics.</p>
-                <p>We believe that every space tells a story. Our approach combines classical design principles with contemporary sensibilities, creating interiors that are both beautiful and functional.</p>
+                <p>Founded in 2015, Hayee Interior has been at the forefront of luxury interior design in Thanjavur. Located opposite Anu Hospital, our studio has become a destination for discerning homeowners and designers.</p>
+                <p>We believe that every space tells a story. Our approach combines classical design principles with contemporary sensibilities.</p>
                 <div class="about-stats"><div><div class="stat-num">500+</div><div class="stat-label">Projects</div></div><div><div class="stat-num">8+</div><div class="stat-label">Years</div></div><div><div class="stat-num">100%</div><div class="stat-label">Satisfaction</div></div></div>
             </div>
         </div></div>
@@ -424,9 +408,9 @@
     <section class="section testimonials-section" id="reviews">
         <div class="container"><div class="section-header"><p class="section-label">Client Love</p><h2 class="section-title">What Our Clients Say</h2></div>
             <div class="testimonials-grid">
-                <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Hayee Interior transformed our home into a masterpiece. Their attention to detail was exceptional."</p><div class="testimonial-author"><div class="testimonial-avatar"></div><div><div class="testimonial-name">Priya & Rajesh Kumar</div><div class="testimonial-role">Residential Project, Thanjavur</div></div></div></div>
-                <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Seamless experience. They delivered our dream living room within budget and timeline."</p><div class="testimonial-author"><div class="testimonial-avatar"></div><div><div class="testimonial-name">Dr. Senthil Nathan</div><div class="testimonial-role">Anu Hospital, Thanjavur</div></div></div></div>
-                <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Incredible professionalism. They understood our minimalist aesthetic perfectly."</p><div class="testimonial-author"><div class="testimonial-avatar"></div><div><div class="testimonial-name">Ananya & Vikram Iyer</div><div class="testimonial-role">Villa Project, Thanjavur</div></div></div></div>
+                <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Hayee Interior transformed our home into a masterpiece."</p><div class="testimonial-author"><div class="testimonial-avatar"></div><div><div class="testimonial-name">Priya & Rajesh Kumar</div><div class="testimonial-role">Residential Project, Thanjavur</div></div></div></div>
+                <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Seamless experience. They delivered our dream living room."</p><div class="testimonial-author"><div class="testimonial-avatar"></div><div><div class="testimonial-name">Dr. Senthil Nathan</div><div class="testimonial-role">Anu Hospital, Thanjavur</div></div></div></div>
+                <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Incredible professionalism and minimalist aesthetic."</p><div class="testimonial-author"><div class="testimonial-avatar"></div><div><div class="testimonial-name">Ananya & Vikram Iyer</div><div class="testimonial-role">Villa Project, Thanjavur</div></div></div></div>
             </div>
         </div>
     </section>
@@ -468,19 +452,13 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer - NO Social Media Icons -->
     <footer class="site-footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
                     <div class="footer-brand">Hayee Interior</div>
                     <p class="footer-desc">Premium interior design studio in Thanjavur, crafting timeless spaces since 2015. Located opposite Anu Hospital.</p>
-                    <div class="footer-social">
-                        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg></a>
-                        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-                        <a href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.17-2.914 1.023 0 1.518.769 1.518 1.69 0 1.03-.655 2.568-.994 3.995-.284 1.194.6 2.167 1.777 2.167 2.13 0 3.77-2.245 3.77-5.49 0-2.864-2.063-4.873-5.01-4.873-3.413 0-5.413 2.563-5.413 5.203 0 1.033.395 2.144.89 2.742.1.12.113.225.085.346-.09.375-.293 1.2-.334 1.364-.053.225-.173.271-.402.165-1.496-.691-2.434-2.88-2.434-4.649 0-3.78 2.75-7.258 7.925-7.258 4.16 0 7.397 2.969 7.397 6.928 0 4.139-2.609 7.468-6.237 7.468-1.215 0-2.356-.63-2.76-1.38l-.75 2.85c-.27 1.045-1.005 2.353-1.5 3.148C14.293 23.65 16.105 24 18 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg></a>
-                        <a href="https://wa.me/917299030406" aria-label="WhatsApp" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg></a>
-                    </div>
                 </div>
                 <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="#home">Home</a></li><li><a href="#shop">Collection</a></li><li><a href="#about">About Us</a></li><li><a href="#services">Services</a></li><li><a href="#contact">Contact</a></li></ul></div>
                 <div class="footer-col"><h4>Categories</h4><ul><li><a href="#shop">Seating</a></li><li><a href="#shop">Tables</a></li><li><a href="#shop">Lighting</a></li><li><a href="#shop">Decor</a></li><li><a href="#shop">Storage</a></li></ul></div>
@@ -505,284 +483,66 @@
     </a>
 
     <script>
-        // ============================================
-        // EMAILJS & WHATSAPP CONFIGURATION
-        // ============================================
-        (function() {
-            // Initialize EmailJS with Public Key (API Key)
-            emailjs.init('4PqovkDyLmhDMdgSA');
-            console.log('✅ EmailJS Initialized Successfully');
-        })();
+        // EmailJS Config
+        (function(){emailjs.init('4PqovkDyLmhDMdgSA');})();
+        const SERVICE_ID='service_2bp28db', TEMPLATE_ID='template_iwveg1r', WA='7299030406';
 
-        // EmailJS Credentials
-        const EMAILJS_SERVICE_ID = 'service_2bp28db';      // EmailJS Service ID
-        const EMAILJS_TEMPLATE_ID = 'template_iwveg1r';    // EmailJS Template ID
-        const OWNER_WHATSAPP = '7299030406';               // Owner WhatsApp Number
-
-        console.log('📋 Configuration Loaded:');
-        console.log('   - WhatsApp:', OWNER_WHATSAPP);
-        console.log('   - EmailJS Service:', EMAILJS_SERVICE_ID);
-        console.log('   - EmailJS Template:', EMAILJS_TEMPLATE_ID);
-
-        // ============================================
-        // PRODUCT DATABASE
-        // ============================================
-        const products = [
-            { id: 1, title: "Serena Velvet Armchair", category: "seating", description: "Handcrafted armchair in Italian velvet with solid oak legs.", specs: { "Material": "Velvet & Solid Oak", "Dimensions": "85x90x95cm", "Color": "Sage Green" }, image: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=400&auto=format&fit=crop", badge: "Bestseller" },
-            { id: 2, title: "Minimalist Marble Coffee Table", category: "tables", description: "Carrara marble top with brushed brass base.", specs: { "Material": "Carrara Marble & Brass", "Dimensions": "120x70x40cm", "Color": "White & Gold" }, image: "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?w=400&auto=format&fit=crop", badge: null },
-            { id: 3, title: "Artisan Pendant Light", category: "lighting", description: "Hand-blown glass with antique brass fittings.", specs: { "Material": "Blown Glass & Brass", "Dimensions": "30x40cm", "Color": "Amber" }, image: "https://images.unsplash.com/photo-1524484485831-a92ffc0de03f?w=400&auto=format&fit=crop", badge: "Limited" },
-            { id: 4, title: "Sculptural Ceramic Vase", category: "decor", description: "Handcrafted by Tamil Nadu artisans.", specs: { "Material": "Terracotta & Glaze", "Dimensions": "25x45cm", "Color": "Matte White" }, image: "https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=400&auto=format&fit=crop", badge: "Handmade" },
-            { id: 5, title: "Chesterfield Leather Sofa", category: "seating", description: "Full-grain leather with deep button tufting.", specs: { "Material": "Full-Grain Leather", "Dimensions": "220x95x80cm", "Color": "Cognac" }, image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&auto=format&fit=crop", badge: "Premium" },
-            { id: 6, title: "Walnut Dining Table", category: "tables", description: "Solid American walnut, seats 8-10.", specs: { "Material": "Solid Walnut", "Dimensions": "240x100x76cm", "Color": "Dark Walnut" }, image: "https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?w=400&auto=format&fit=crop", badge: null },
-            { id: 7, title: "Crystal Chandelier", category: "lighting", description: "24 lights with hand-cut crystals.", specs: { "Material": "Crystal & Gold", "Dimensions": "100x120cm", "Color": "Clear & Gold" }, image: "https://images.unsplash.com/photo-1540932239986-30128078f3c5?w=400&auto=format&fit=crop", badge: "Luxury" },
-            { id: 8, title: "Gold Leaf Wall Mirror", category: "mirrors", description: "Oversized mirror with hand-applied gold leaf frame.", specs: { "Material": "Glass & Gold Leaf", "Dimensions": "90x120cm", "Color": "Gold" }, image: "https://images.unsplash.com/photo-1618220252344-8ec99ec625b5?w=400&auto=format&fit=crop", badge: "Statement" },
-            { id: 9, title: "Teak Wood Bookcase", category: "storage", description: "Modular bookcase in reclaimed teak.", specs: { "Material": "Reclaimed Teak", "Dimensions": "180x40x240cm", "Color": "Natural" }, image: "https://images.unsplash.com/photo-1594620302200-9a762244a156?w=400&auto=format&fit=crop", badge: "Sustainable" },
-            { id: 10, title: "Brass Floor Lamp", category: "lighting", description: "Solid brass with linen shade.", specs: { "Material": "Brass & Linen", "Dimensions": "40x160cm", "Color": "Antique Brass" }, image: "https://images.unsplash.com/photo-1507473885765-e6ed057ab6fe?w=400&auto=format&fit=crop", badge: null },
-            { id: 11, title: "Velvet Ottoman", category: "seating", description: "Plush velvet with hidden storage.", specs: { "Material": "Cotton Velvet", "Dimensions": "80x45cm", "Color": "Blush" }, image: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=400&auto=format&fit=crop", badge: "New" },
-            { id: 12, title: "Marble Console Table", category: "tables", description: "Nero Marquina marble with metal base.", specs: { "Material": "Marble & Steel", "Dimensions": "140x40x85cm", "Color": "Black & Gold" }, image: "https://images.unsplash.com/photo-1486946255434-2466348c2166?w=400&auto=format&fit=crop", badge: "Exclusive" },
-            { id: 13, title: "Bamboo Pendant Light", category: "lighting", description: "Eco-friendly handwoven bamboo.", specs: { "Material": "Bamboo", "Dimensions": "45x55cm", "Color": "Natural" }, image: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=400&auto=format&fit=crop", badge: "Eco" },
-            { id: 14, title: "Mid-Century Sideboard", category: "storage", description: "American walnut with brass handles.", specs: { "Material": "Walnut & Brass", "Dimensions": "180x45x75cm", "Color": "Walnut" }, image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=400&auto=format&fit=crop", badge: "Iconic" },
-            { id: 15, title: "Arched Floor Mirror", category: "mirrors", description: "Full-length arched mirror with thin black metal frame.", specs: { "Material": "Glass & Metal", "Dimensions": "70x180cm", "Color": "Black" }, image: "https://images.unsplash.com/photo-1618220252344-8ec99ec625b5?w=400&auto=format&fit=crop", badge: "Trending" },
-            { id: 16, title: "Wingback Dining Chairs", category: "seating", description: "Set of 2 in performance linen.", specs: { "Material": "Linen & Oak", "Dimensions": "55x60x85cm", "Color": "Ivory" }, image: "https://images.unsplash.com/photo-1503602642458-232111445657?w=400&auto=format&fit=crop", badge: "Set of 2" }
+        // Products
+        const products=[
+            {id:1,title:"Serena Velvet Armchair",category:"seating",description:"Handcrafted armchair in Italian velvet with solid oak legs.",specs:{"Material":"Velvet & Solid Oak","Dimensions":"85x90x95cm","Color":"Sage Green"},image:"https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=400&auto=format&fit=crop",badge:"Bestseller"},
+            {id:2,title:"Minimalist Marble Coffee Table",category:"tables",description:"Carrara marble top with brushed brass base.",specs:{"Material":"Carrara Marble & Brass","Dimensions":"120x70x40cm","Color":"White & Gold"},image:"https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?w=400&auto=format&fit=crop",badge:null},
+            {id:3,title:"Artisan Pendant Light",category:"lighting",description:"Hand-blown glass with antique brass fittings.",specs:{"Material":"Blown Glass & Brass","Dimensions":"30x40cm","Color":"Amber"},image:"https://images.unsplash.com/photo-1524484485831-a92ffc0de03f?w=400&auto=format&fit=crop",badge:"Limited"},
+            {id:4,title:"Sculptural Ceramic Vase",category:"decor",description:"Handcrafted by Tamil Nadu artisans.",specs:{"Material":"Terracotta & Glaze","Dimensions":"25x45cm","Color":"Matte White"},image:"https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=400&auto=format&fit=crop",badge:"Handmade"},
+            {id:5,title:"Chesterfield Leather Sofa",category:"seating",description:"Full-grain leather with deep button tufting.",specs:{"Material":"Full-Grain Leather","Dimensions":"220x95x80cm","Color":"Cognac"},image:"https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&auto=format&fit=crop",badge:"Premium"},
+            {id:6,title:"Walnut Dining Table",category:"tables",description:"Solid American walnut, seats 8-10.",specs:{"Material":"Solid Walnut","Dimensions":"240x100x76cm","Color":"Dark Walnut"},image:"https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?w=400&auto=format&fit=crop",badge:null},
+            {id:7,title:"Crystal Chandelier",category:"lighting",description:"24 lights with hand-cut crystals.",specs:{"Material":"Crystal & Gold","Dimensions":"100x120cm","Color":"Clear & Gold"},image:"https://images.unsplash.com/photo-1540932239986-30128078f3c5?w=400&auto=format&fit=crop",badge:"Luxury"},
+            {id:8,title:"Gold Leaf Wall Mirror",category:"mirrors",description:"Oversized mirror with hand-applied gold leaf frame.",specs:{"Material":"Glass & Gold Leaf","Dimensions":"90x120cm","Color":"Gold"},image:"https://images.unsplash.com/photo-1618220252344-8ec99ec625b5?w=400&auto=format&fit=crop",badge:"Statement"},
+            {id:9,title:"Teak Wood Bookcase",category:"storage",description:"Modular bookcase in reclaimed teak.",specs:{"Material":"Reclaimed Teak","Dimensions":"180x40x240cm","Color":"Natural"},image:"https://images.unsplash.com/photo-1594620302200-9a762244a156?w=400&auto=format&fit=crop",badge:"Sustainable"},
+            {id:10,title:"Brass Floor Lamp",category:"lighting",description:"Solid brass with linen shade.",specs:{"Material":"Brass & Linen","Dimensions":"40x160cm","Color":"Antique Brass"},image:"https://images.unsplash.com/photo-1507473885765-e6ed057ab6fe?w=400&auto=format&fit=crop",badge:null},
+            {id:11,title:"Velvet Ottoman",category:"seating",description:"Plush velvet with hidden storage.",specs:{"Material":"Cotton Velvet","Dimensions":"80x45cm","Color":"Blush"},image:"https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=400&auto=format&fit=crop",badge:"New"},
+            {id:12,title:"Marble Console Table",category:"tables",description:"Nero Marquina marble with metal base.",specs:{"Material":"Marble & Steel","Dimensions":"140x40x85cm","Color":"Black & Gold"},image:"https://images.unsplash.com/photo-1486946255434-2466348c2166?w=400&auto=format&fit=crop",badge:"Exclusive"},
+            {id:13,title:"Bamboo Pendant Light",category:"lighting",description:"Eco-friendly handwoven bamboo.",specs:{"Material":"Bamboo","Dimensions":"45x55cm","Color":"Natural"},image:"https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=400&auto=format&fit=crop",badge:"Eco"},
+            {id:14,title:"Mid-Century Sideboard",category:"storage",description:"American walnut with brass handles.",specs:{"Material":"Walnut & Brass","Dimensions":"180x45x75cm","Color":"Walnut"},image:"https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=400&auto=format&fit=crop",badge:"Iconic"},
+            {id:15,title:"Arched Floor Mirror",category:"mirrors",description:"Full-length arched mirror with thin black metal frame.",specs:{"Material":"Glass & Metal","Dimensions":"70x180cm","Color":"Black"},image:"https://images.unsplash.com/photo-1618220252344-8ec99ec625b5?w=400&auto=format&fit=crop",badge:"Trending"},
+            {id:16,title:"Wingback Dining Chairs",category:"seating",description:"Set of 2 in performance linen.",specs:{"Material":"Linen & Oak","Dimensions":"55x60x85cm","Color":"Ivory"},image:"https://images.unsplash.com/photo-1503602642458-232111445657?w=400&auto=format&fit=crop",badge:"Set of 2"}
         ];
 
-        // ============================================
-        // WHATSAPP INQUIRY FUNCTION
-        // ============================================
-        function sendWhatsAppInquiry(productTitle = '') {
-            let message = productTitle 
-                ? `Hello Hayee Interior,%0A%0AI am interested in the *${productTitle}*.%0A%0APlease share more details about pricing and availability.%0A%0AThank you!`
-                : `Hello Hayee Interior,%0A%0AI would like to inquire about your products and services.%0A%0APlease share more information.%0A%0AThank you!`;
-            
-            const whatsappURL = `https://wa.me/91${OWNER_WHATSAPP}?text=${message}`;
-            console.log('📱 Opening WhatsApp for:', productTitle || 'General Inquiry');
-            window.open(whatsappURL, '_blank', 'noopener');
-        }
+        function sendWA(title=''){window.open(`https://wa.me/91${WA}?text=${title?`Hello Hayee Interior,%0A%0AI am interested in *${title}*.%0A%0APlease share more details.%0A%0AThank you!`:`Hello Hayee Interior,%0A%0AI would like to inquire about your products.%0A%0AThank you!`}`,'_blank','noopener');}
+        function renderProducts(cat='all'){const g=document.getElementById('productGrid'),nr=document.getElementById('noResults'),f=cat==='all'?products:products.filter(p=>p.category===cat);if(!f.length){g.innerHTML='';nr.style.display='block';return;}nr.style.display='none';g.innerHTML=f.map(p=>`<div class="product-card" onclick="openModal(${p.id})"><div class="product-img"><img src="${p.image}" alt="${p.title}" loading="lazy">${p.badge?`<span class="product-badge">${p.badge}</span>`:''}</div><div class="product-info"><p class="product-cat">${p.category}</p><h3 class="product-name">${p.title}</h3><button class="inquire-btn" onclick="event.stopPropagation();sendWA('${p.title.replace(/'/g,"\\'")}')"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>Inquire</button></div></div>`).join('');}
+        function openModal(pid){const p=products.find(x=>x.id===pid);if(!p)return;document.getElementById('modalGallery').innerHTML=`<img src="${p.image}" alt="${p.title}">`;document.getElementById('modalDetails').innerHTML=`<p class="product-cat">${p.category}</p><h2>${p.title}</h2><p class="modal-desc">${p.description}</p><div class="modal-specs">${Object.entries(p.specs).map(([k,v])=>`<div class="spec-item"><span class="spec-label">${k}</span><span class="spec-value">${v}</span></div>`).join('')}</div><button class="modal-inquire" onclick="sendWA('${p.title.replace(/'/g,"\\'")}')"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>Inquire via WhatsApp</button>`;document.getElementById('productModal').classList.add('active');}
+        function toast(msg){const t=document.createElement('div');t.className='toast';t.textContent=msg;document.body.appendChild(t);setTimeout(()=>t.remove(),3800);}
 
-        // ============================================
-        // RENDER PRODUCTS
-        // ============================================
-        function renderProducts(category = 'all') {
-            const grid = document.getElementById('productGrid');
-            const noResults = document.getElementById('noResults');
-            const filtered = category === 'all' ? products : products.filter(p => p.category === category);
-            
-            if (filtered.length === 0) {
-                grid.innerHTML = '';
-                noResults.style.display = 'block';
-                return;
-            }
-            
-            noResults.style.display = 'none';
-            grid.innerHTML = filtered.map(product => `
-                <div class="product-card" onclick="openProductModal(${product.id})">
-                    <div class="product-img">
-                        <img src="${product.image}" alt="${product.title}" loading="lazy">
-                        ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ''}
-                    </div>
-                    <div class="product-info">
-                        <p class="product-cat">${product.category}</p>
-                        <h3 class="product-name">${product.title}</h3>
-                        <button class="inquire-btn" onclick="event.stopPropagation(); sendWhatsAppInquiry('${product.title.replace(/'/g, "\\'")}')">
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
-                            Inquire
-                        </button>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        // ============================================
-        // PRODUCT MODAL
-        // ============================================
-        function openProductModal(productId) {
-            const product = products.find(p => p.id === productId);
-            if (!product) return;
-            
-            document.getElementById('modalGallery').innerHTML = `<img src="${product.image}" alt="${product.title}" style="max-width:100%;max-height:500px;object-fit:contain;">`;
-            
-            document.getElementById('modalDetails').innerHTML = `
-                <p class="product-cat">${product.category}</p>
-                <h2>${product.title}</h2>
-                <p class="modal-desc">${product.description}</p>
-                <div class="modal-specs">
-                    ${Object.entries(product.specs).map(([key, value]) => `
-                        <div class="spec-item">
-                            <span class="spec-label">${key}</span>
-                            <span class="spec-value">${value}</span>
-                        </div>
-                    `).join('')}
-                </div>
-                <button class="modal-inquire" onclick="sendWhatsAppInquiry('${product.title.replace(/'/g, "\\'")}')">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
-                    Inquire via WhatsApp
-                </button>
-            `;
-            
-            document.getElementById('productModal').classList.add('active');
-        }
-
-        // ============================================
-        // TOAST NOTIFICATION
-        // ============================================
-        function showToast(message) {
-            const toast = document.createElement('div');
-            toast.className = 'toast';
-            toast.textContent = message;
-            document.body.appendChild(toast);
-            setTimeout(() => toast.remove(), 3800);
-        }
-
-        // ============================================
-        // NEWSLETTER SUBSCRIPTION WITH EMAILJS
-        // ============================================
+        // SIMPLIFIED EMAIL FUNCTION
         async function handleNewsletterSubmit(email) {
             const userName = email.split('@')[0];
-            
-            console.log('📧 Preparing welcome email for:', email);
-            
-            // Plain text version for email clients
-            const plainText = `Dear ${userName},\n\nThank you for subscribing to Hayee Interior!\n\n✨ As a subscriber, you'll receive:\n• Early access to new collections\n• Exclusive offers & discounts\n• Design inspiration & tips\n• Invitations to studio events\n\nVisit us at: Opposite Anu Hospital, Thanjavur\nContact: +91 7299030406\n\nWith love,\nThe Hayee Interior Team`;
-            
-            // HTML version for rich email clients
-            const htmlMessage = `<!DOCTYPE html><html><head><meta charset="utf-8"></head><body style="margin:0;padding:0;background:#FAF8F5;font-family:Georgia,serif;"><table width="100%" cellpadding="0" cellspacing="0" style="padding:30px 15px;"><tr><td align="center"><table width="550" cellpadding="0" cellspacing="0" style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.08);"><tr><td style="background:#2C2925;padding:35px 25px;text-align:center;"><h1 style="color:#FAF8F5;font-size:26px;margin:0;font-weight:700;">Hayee Interior</h1><div style="width:40px;height:2px;background:#C9A96E;margin:12px auto 0;"></div></td></tr><tr><td style="padding:30px 25px;"><h2 style="color:#2C2925;font-size:20px;margin:0 0 15px;">Dear ${userName},</h2><p style="color:#3D3A35;font-size:15px;line-height:1.7;margin:0 0 20px;">Thank you for subscribing to <strong>Hayee Interior</strong>! We're delighted to welcome you to our design community.</p><table width="100%" cellpadding="18" style="background:#F5F0EB;border-radius:8px;margin:0 0 20px;"><tr><td><h3 style="color:#2C2925;font-size:16px;margin:0 0 10px;">✨ What you'll receive:</h3><p style="color:#3D3A35;font-size:14px;margin:4px 0;">🆕 Early access to new collections</p><p style="color:#3D3A35;font-size:14px;margin:4px 0;">💎 Exclusive member offers</p><p style="color:#3D3A35;font-size:14px;margin:4px 0;">📐 Design inspiration & tips</p><p style="color:#3D3A35;font-size:14px;margin:4px 0;">🎉 Studio event invitations</p></td></tr></table><p style="color:#3D3A35;font-size:15px;margin:0 0 20px;">Visit our studio at <strong>Opposite Anu Hospital, Thanjavur</strong> to experience our curated collection in person.</p><div style="text-align:center;margin:20px 0;"><a href="#" style="display:inline-block;background:#C9A96E;color:#fff;padding:11px 28px;text-decoration:none;border-radius:4px;font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:1px;">Explore Collection</a></div></td></tr><tr><td style="background:#F5F0EB;padding:20px 25px;text-align:center;"><p style="color:#8B7355;font-size:12px;margin:0 0 4px;"><strong>Hayee Interior</strong> | Opposite Anu Hospital, Thanjavur</p><p style="color:#8B7355;font-size:12px;margin:0;">📞 +91 7299030406 | ✉️ hello@hayeeinterior.com</p></td></tr></table></td></tr></table></body></html>`;
-
+            const simpleMessage = `<h2>Dear ${userName},</h2><p>Thank you for subscribing to <strong>Hayee Interior</strong>!</p><p>We're delighted to welcome you to our design community.</p><hr><p><strong>Visit us:</strong> Opposite Anu Hospital, Thanjavur</p><p><strong>Contact:</strong> +91 7299030406</p>`;
             try {
-                console.log('🚀 Sending email via EmailJS...');
-                const response = await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-                    to_email: email,
-                    to_name: userName,
-                    subject: '✨ Welcome to Hayee Interior - Your Design Journey Begins!',
-                    message: htmlMessage,
-                    text_message: plainText
-                });
-                
-                console.log('✅ Email sent successfully!', response.status, response.text);
-                showToast('✨ Welcome aboard! Check your inbox for a beautiful welcome message! 💌');
+                const response = await emailjs.send(SERVICE_ID, TEMPLATE_ID, {to_email: email, to_name: userName, subject: 'Welcome to Hayee Interior!', message: simpleMessage});
+                console.log('✅ Email sent!', response.status);
+                toast('✨ Welcome! Check your inbox! 💌');
             } catch (error) {
-                console.error('❌ EmailJS Error:', error);
-                console.log('📧 Fallback - Email Content Preview:');
-                console.log(plainText);
-                showToast('⚠️ Subscribed! (Email service may need configuration - check console)');
+                console.error('❌ Error:', error);
+                toast('⚠️ Error sending email. Check console.');
             }
         }
 
-        // ============================================
-        // EVENT LISTENERS
-        // ============================================
-        document.addEventListener('DOMContentLoaded', () => {
-            console.log('🏠 Hayee Interior Website Loaded');
-            console.log('📱 Owner WhatsApp:', OWNER_WHATSAPP);
-            
-            // Initial render
+        document.addEventListener('DOMContentLoaded',()=>{
             renderProducts();
-            
-            // Hamburger menu
-            const hamburger = document.getElementById('hamburger');
-            const mobileMenu = document.getElementById('mobileMenu');
-            const mobileOverlay = document.getElementById('mobileOverlay');
-
-            function openMenu() {
-                hamburger.classList.add('active');
-                mobileMenu.classList.add('active');
-                mobileOverlay.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }
-            
-            function closeMenu() {
-                hamburger.classList.remove('active');
-                mobileMenu.classList.remove('active');
-                mobileOverlay.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-
-            hamburger.addEventListener('click', () => {
-                hamburger.classList.contains('active') ? closeMenu() : openMenu();
-            });
-            
-            mobileOverlay.addEventListener('click', closeMenu);
-            
-            document.querySelectorAll('.mobile-menu a').forEach(a => {
-                a.addEventListener('click', closeMenu);
-            });
-            
-            // Product filters
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-                    renderProducts(this.dataset.category);
-                });
-            });
-            
-            // Modal close
-            document.getElementById('modalClose').addEventListener('click', () => {
-                document.getElementById('productModal').classList.remove('active');
-            });
-            
-            document.getElementById('productModal').addEventListener('click', function(e) {
-                if (e.target === this) this.classList.remove('active');
-            });
-            
-            // Contact form - sends to WhatsApp
-            document.getElementById('contactForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                const name = document.getElementById('cName').value;
-                const email = document.getElementById('cEmail').value;
-                const phone = document.getElementById('cPhone').value;
-                const service = document.getElementById('cService').value;
-                const message = document.getElementById('cMessage').value;
-                
-                const whatsappMessage = `Hello Hayee Interior,%0A%0A*New Inquiry*%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Phone:* ${phone}%0A*Service:* ${service}%0A*Message:* ${message}%0A%0APlease get back to me. Thank you!`;
-                
-                const whatsappURL = `https://wa.me/91${OWNER_WHATSAPP}?text=${whatsappMessage}`;
-                console.log('📱 Opening WhatsApp for contact form inquiry');
-                window.open(whatsappURL, '_blank', 'noopener');
-                showToast('Opening WhatsApp to send your inquiry... 💬');
-                this.reset();
-            });
-            
-            // Newsletter form
-            document.getElementById('newsletterForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                const email = document.getElementById('newsletterEmail').value;
-                if (email) {
-                    handleNewsletterSubmit(email);
-                    this.reset();
-                }
-            });
-            
-            // Header scroll effect
-            window.addEventListener('scroll', () => {
-                document.getElementById('siteHeader').classList.toggle('scrolled', window.scrollY > 50);
-            });
-            
-            // Smooth scroll for navigation links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                });
-            });
-
-            // Keyboard shortcut
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') {
-                    document.getElementById('productModal').classList.remove('active');
-                    closeMenu();
-                }
-            });
-
-            // Hide welcome overlay after animation
-            setTimeout(() => {
-                const overlay = document.getElementById('welcomeOverlay');
-                if (overlay) overlay.style.display = 'none';
-            }, 3300);
-            
-            console.log('✅ All event listeners initialized');
+            const hamburger=document.getElementById('hamburger'),mobileMenu=document.getElementById('mobileMenu'),mobileOverlay=document.getElementById('mobileOverlay');
+            function openMenu(){hamburger.classList.add('active');mobileMenu.classList.add('active');mobileOverlay.classList.add('active');document.body.style.overflow='hidden';}
+            function closeMenu(){hamburger.classList.remove('active');mobileMenu.classList.remove('active');mobileOverlay.classList.remove('active');document.body.style.overflow='';}
+            hamburger.addEventListener('click',()=>{hamburger.classList.contains('active')?closeMenu():openMenu();});
+            mobileOverlay.addEventListener('click',closeMenu);
+            document.querySelectorAll('.mobile-menu a').forEach(a=>a.addEventListener('click',closeMenu));
+            document.querySelectorAll('.filter-btn').forEach(b=>b.addEventListener('click',function(){document.querySelectorAll('.filter-btn').forEach(x=>x.classList.remove('active'));this.classList.add('active');renderProducts(this.dataset.category);}));
+            document.getElementById('modalClose').addEventListener('click',()=>document.getElementById('productModal').classList.remove('active'));
+            document.getElementById('productModal').addEventListener('click',function(e){if(e.target===this)this.classList.remove('active');});
+            document.getElementById('contactForm').addEventListener('submit',function(e){e.preventDefault();const n=document.getElementById('cName').value,em=document.getElementById('cEmail').value,ph=document.getElementById('cPhone').value,sv=document.getElementById('cService').value,msg=document.getElementById('cMessage').value;window.open(`https://wa.me/91${WA}?text=Hello%20Hayee%20Interior,%0A%0A*New%20Inquiry*%0A*Name:*%20${n}%0A*Email:*%20${em}%0A*Phone:*%20${ph}%0A*Service:*%20${sv}%0A*Message:*%20${msg}`,'_blank','noopener');toast('Opening WhatsApp... 💬');this.reset();});
+            document.getElementById('newsletterForm').addEventListener('submit',function(e){e.preventDefault();const em=document.getElementById('newsletterEmail').value;if(em){handleNewsletterSubmit(em);this.reset();}});
+            window.addEventListener('scroll',()=>{document.getElementById('siteHeader').classList.toggle('scrolled',window.scrollY>50);});
+            document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',function(e){e.preventDefault();const t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'});}));
+            document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.getElementById('productModal').classList.remove('active');closeMenu();}});
+            setTimeout(()=>{const o=document.getElementById('welcomeOverlay');if(o)o.style.display='none';},3300);
         });
     </script>
 </body>
