@@ -471,105 +471,82 @@
     </a>
 
     <script>
-        // ============================================
-        // EMAILJS & WHATSAPP CONFIGURATION
-        // ============================================
-        (function() {
-            emailjs.init('4PqovkDyLmhDMdgSA');
-            console.log('✅ EmailJS Initialized');
-        })();
-
-        const SERVICE_ID = 'service_2bp28db';
-        const TEMPLATE_ID = 'template_iwveg1r';
-        const WA = '7299030406';
+        // EmailJS Config
+        (function(){emailjs.init('4PqovkDyLmhDMdgSA');console.log('✅ EmailJS Initialized');})();
+        const SERVICE_ID='service_2bp28db',TEMPLATE_ID='template_iwveg1r',WA='7299030406';
 
         // ============================================
-        // PRODUCT DATABASE
+        // 32 PRODUCTS - MORE IN EVERY CATEGORY
         // ============================================
-        const products = [
-            { id: 1, title: "Serena Velvet Armchair", category: "seating", description: "Handcrafted armchair in Italian velvet with solid oak legs.", specs: { "Material": "Velvet & Solid Oak", "Dimensions": "85x90x95cm", "Color": "Sage Green" }, image: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=400&auto=format&fit=crop", badge: "Bestseller" },
-            { id: 2, title: "Minimalist Marble Coffee Table", category: "tables", description: "Carrara marble top with brushed brass base.", specs: { "Material": "Carrara Marble & Brass", "Dimensions": "120x70x40cm", "Color": "White & Gold" }, image: "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?w=400&auto=format&fit=crop", badge: null },
-            { id: 3, title: "Artisan Pendant Light", category: "lighting", description: "Hand-blown glass with antique brass fittings.", specs: { "Material": "Blown Glass & Brass", "Dimensions": "30x40cm", "Color": "Amber" }, image: "https://images.unsplash.com/photo-1524484485831-a92ffc0de03f?w=400&auto=format&fit=crop", badge: "Limited" },
-            { id: 4, title: "Sculptural Ceramic Vase", category: "decor", description: "Handcrafted by Tamil Nadu artisans.", specs: { "Material": "Terracotta & Glaze", "Dimensions": "25x45cm", "Color": "Matte White" }, image: "https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=400&auto=format&fit=crop", badge: "Handmade" },
-            { id: 5, title: "Chesterfield Leather Sofa", category: "seating", description: "Full-grain leather with deep button tufting.", specs: { "Material": "Full-Grain Leather", "Dimensions": "220x95x80cm", "Color": "Cognac" }, image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&auto=format&fit=crop", badge: "Premium" },
-            { id: 6, title: "Walnut Dining Table", category: "tables", description: "Solid American walnut, seats 8-10.", specs: { "Material": "Solid Walnut", "Dimensions": "240x100x76cm", "Color": "Dark Walnut" }, image: "https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?w=400&auto=format&fit=crop", badge: null },
-            { id: 7, title: "Crystal Chandelier", category: "lighting", description: "24 lights with hand-cut crystals.", specs: { "Material": "Crystal & Gold", "Dimensions": "100x120cm", "Color": "Clear & Gold" }, image: "https://images.unsplash.com/photo-1540932239986-30128078f3c5?w=400&auto=format&fit=crop", badge: "Luxury" },
-            { id: 8, title: "Gold Leaf Wall Mirror", category: "mirrors", description: "Oversized mirror with hand-applied gold leaf frame.", specs: { "Material": "Glass & Gold Leaf", "Dimensions": "90x120cm", "Color": "Gold" }, image: "https://images.unsplash.com/photo-1618220252344-8ec99ec625b5?w=400&auto=format&fit=crop", badge: "Statement" },
-            { id: 9, title: "Teak Wood Bookcase", category: "storage", description: "Modular bookcase in reclaimed teak.", specs: { "Material": "Reclaimed Teak", "Dimensions": "180x40x240cm", "Color": "Natural" }, image: "https://images.unsplash.com/photo-1594620302200-9a762244a156?w=400&auto=format&fit=crop", badge: "Sustainable" },
-            { id: 10, title: "Brass Floor Lamp", category: "lighting", description: "Solid brass with linen shade.", specs: { "Material": "Brass & Linen", "Dimensions": "40x160cm", "Color": "Antique Brass" }, image: "https://images.unsplash.com/photo-1507473885765-e6ed057ab6fe?w=400&auto=format&fit=crop", badge: null },
-            { id: 11, title: "Velvet Ottoman", category: "seating", description: "Plush velvet with hidden storage.", specs: { "Material": "Cotton Velvet", "Dimensions": "80x45cm", "Color": "Blush" }, image: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=400&auto=format&fit=crop", badge: "New" },
-            { id: 12, title: "Marble Console Table", category: "tables", description: "Nero Marquina marble with metal base.", specs: { "Material": "Marble & Steel", "Dimensions": "140x40x85cm", "Color": "Black & Gold" }, image: "https://images.unsplash.com/photo-1486946255434-2466348c2166?w=400&auto=format&fit=crop", badge: "Exclusive" },
-            { id: 13, title: "Bamboo Pendant Light", category: "lighting", description: "Eco-friendly handwoven bamboo.", specs: { "Material": "Bamboo", "Dimensions": "45x55cm", "Color": "Natural" }, image: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=400&auto=format&fit=crop", badge: "Eco" },
-            { id: 14, title: "Mid-Century Sideboard", category: "storage", description: "American walnut with brass handles.", specs: { "Material": "Walnut & Brass", "Dimensions": "180x45x75cm", "Color": "Walnut" }, image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=400&auto=format&fit=crop", badge: "Iconic" },
-            { id: 15, title: "Arched Floor Mirror", category: "mirrors", description: "Full-length arched mirror with thin black metal frame.", specs: { "Material": "Glass & Metal", "Dimensions": "70x180cm", "Color": "Black" }, image: "https://images.unsplash.com/photo-1618220252344-8ec99ec625b5?w=400&auto=format&fit=crop", badge: "Trending" },
-            { id: 16, title: "Wingback Dining Chairs", category: "seating", description: "Set of 2 in performance linen.", specs: { "Material": "Linen & Oak", "Dimensions": "55x60x85cm", "Color": "Ivory" }, image: "https://images.unsplash.com/photo-1503602642458-232111445657?w=400&auto=format&fit=crop", badge: "Set of 2" }
+        const products=[
+            // SEATING (7 products)
+            {id:1,title:"Serena Velvet Armchair",category:"seating",description:"Handcrafted armchair in Italian velvet with solid oak legs.",specs:{"Material":"Velvet & Solid Oak","Dimensions":"85x90x95cm","Color":"Sage Green"},image:"https://tse3.mm.bing.net/th/id/OIP.bgzwziBTkM9hhIQBvMd-vAHaE_?r=0&rs=1&pid=ImgDetMain&o=7&rm=3fit=crop",badge:"Bestseller"},
+            {id:2,title:"Chesterfield Leather Sofa",category:"seating",description:"Full-grain leather with deep button tufting. A timeless classic.",specs:{"Material":"Full-Grain Leather","Dimensions":"220x95x80cm","Color":"Cognac"},image:"https://tse1.mm.bing.net/th/id/OIP.9vKGggMxO1mZYTq8_RY52QHaE7?r=0&rs=1&pid=ImgDetMain&o=7&rm=3fit=crop",badge:"Premium"},
+            {id:3,title:"Velvet Ottoman",category:"seating",description:"Plush velvet ottoman with hidden storage.",specs:{"Material":"Cotton Velvet","Dimensions":"80x45cm","Color":"Blush"},image:"https://tse4.mm.bing.net/th/id/OIP.nJ8G4vU5eYPwUFqTRkxJ_QHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3fit=crop",badge:"New"},
+            {id:4,title:"Wingback Dining Chairs",category:"seating",description:"Set of 2 elegant chairs in performance linen.",specs:{"Material":"Linen & Oak","Dimensions":"55x60x85cm","Color":"Ivory"},image:"https://i5.walmartimages.com/seo/Velvet-Upholstered-Dining-Chairs-Set-2-Wingback-Room-Ring-Pull-Nailhead-Trim-Tufted-Button-Back-Luxury-Living-Kitchen-Beige_9508d765-2fd1-4ac4-bfa4-7c1d777b1a46.07aa565ca6a0b2f059b8cf282aa46de7.jpegfit=crop",badge:"Set of 2"},
+            {id:17,title:"Boucle Accent Chair",category:"seating",description:"Trendy boucle fabric with a swivel base.",specs:{"Material":"Boucle & Metal","Dimensions":"75x80x85cm","Color":"Cream"},image:"https://tse1.explicit.bing.net/th/id/OIP.d3y-7bxJuuE7kTmShVZH3AHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3fit=crop",badge:"Trending"},
+            {id:18,title:"Scandinavian Lounge Chair",category:"seating",description:"Minimalist design in natural oak and wool blend.",specs:{"Material":"Oak & Wool","Dimensions":"70x75x80cm","Color":"Natural"},image:"https://tse4.mm.bing.net/th/id/OIP.CykQOyHo9n9NTWecql9j6gHaE8?r=0&rs=1&pid=ImgDetMain&o=7&rm=3fit=crop",badge:null},
+
+            // TABLES (7 products)
+            {id:5,title:"Minimalist Marble Coffee Table",category:"tables",description:"Carrara marble top with brushed brass base.",specs:{"Material":"Carrara Marble & Brass","Dimensions":"120x70x40cm","Color":"White & Gold"},image:"https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?w=400&auto=format&fit=crop",badge:null},
+            {id:6,title:"Walnut Dining Table",category:"tables",description:"Solid American walnut, seats 8-10.",specs:{"Material":"Solid Walnut","Dimensions":"240x100x76cm","Color":"Dark Walnut"},image:"https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?w=400&auto=format&fit=crop",badge:null},
+            {id:7,title:"Marble Console Table",category:"tables",description:"Nero Marquina marble with metal base.",specs:{"Material":"Marble & Steel","Dimensions":"140x40x85cm","Color":"Black & Gold"},image:"https://images.unsplash.com/photo-1486946255434-2466348c2166?w=400&auto=format&fit=crop",badge:"Exclusive"},
+            {id:20,title:"Round Pedestal Table",category:"tables",description:"Classic white oak with sculptural base.",specs:{"Material":"White Oak","Dimensions":"120cm Diameter","Color":"Natural"},image:"https://images.unsplash.com/photo-1530018607912-eff2daa1bac4?w=400&auto=format&fit=crop",badge:null},
+            {id:21,title:"Nesting Side Tables",category:"tables",description:"Set of 3 with brass frames and smoked glass.",specs:{"Material":"Brass & Glass","Dimensions":"Various","Color":"Brass & Grey"},image:"https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&auto=format&fit=crop",badge:"Set of 3"},
+            {id:22,title:"Acrylic Console Table",category:"tables",description:"Modern ghost console in clear acrylic.",specs:{"Material":"Clear Acrylic","Dimensions":"130x40x80cm","Color":"Clear"},image:"https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?w=400&auto=format&fit=crop",badge:"Modern"},
+            {id:23,title:"Extendable Dining Table",category:"tables",description:"Ceramic top with extendable mechanism, seats 6-10.",specs:{"Material":"Ceramic & Metal","Dimensions":"160-220x90cm","Color":"Matte White"},image:"https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?w=400&auto=format&fit=crop",badge:"Versatile"},
+
+            // LIGHTING (7 products)
+            {id:8,title:"Artisan Pendant Light",category:"lighting",description:"Hand-blown glass with antique brass fittings.",specs:{"Material":"Blown Glass & Brass","Dimensions":"30x40cm","Color":"Amber"},image:"https://images.unsplash.com/photo-1524484485831-a92ffc0de03f?w=400&auto=format&fit=crop",badge:"Limited"},
+            {id:9,title:"Crystal Chandelier",category:"lighting",description:"24 lights with hand-cut crystals.",specs:{"Material":"Crystal & Gold","Dimensions":"100x120cm","Color":"Clear & Gold"},image:"https://images.unsplash.com/photo-1540932239986-30128078f3c5?w=400&auto=format&fit=crop",badge:"Luxury"},
+            {id:10,title:"Brass Floor Lamp",category:"lighting",description:"Solid brass with linen shade.",specs:{"Material":"Brass & Linen","Dimensions":"40x160cm","Color":"Antique Brass"},image:"https://images.unsplash.com/photo-1507473885765-e6ed057ab6fe?w=400&auto=format&fit=crop",badge:null},
+            {id:11,title:"Bamboo Pendant Light",category:"lighting",description:"Eco-friendly handwoven bamboo.",specs:{"Material":"Bamboo","Dimensions":"45x55cm","Color":"Natural"},image:"https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=400&auto=format&fit=crop",badge:"Eco"},
+            {id:24,title:"Ceramic Table Lamp",category:"lighting",description:"Hand-thrown ceramic base with raw linen shade.",specs:{"Material":"Ceramic & Linen","Dimensions":"35x60cm","Color":"Ivory"},image:"https://images.unsplash.com/photo-1507473885765-e6ed057ab6fe?w=400&auto=format&fit=crop",badge:null},
+            {id:25,title:"Wall Sconce Pair",category:"lighting",description:"Elegant brass wall sconces with opal glass.",specs:{"Material":"Brass & Opal Glass","Dimensions":"15x25cm","Color":"Brass & White"},image:"https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=400&auto=format&fit=crop",badge:"Pair"},
+            {id:26,title:"LED Track Light System",category:"lighting",description:"Modern 4-light track system in matte black.",specs:{"Material":"Aluminum","Dimensions":"200cm track","Color":"Matte Black"},image:"https://images.unsplash.com/photo-1524484485831-a92ffc0de03f?w=400&auto=format&fit=crop",badge:"Modern"},
+
+            // DECOR (5 products - expanded from 1)
+            {id:12,title:"Sculptural Ceramic Vase",category:"decor",description:"Handcrafted by Tamil Nadu artisans.",specs:{"Material":"Terracotta & Glaze","Dimensions":"25x45cm","Color":"Matte White"},image:"https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=400&auto=format&fit=crop",badge:"Handmade"},
+            {id:27,title:"Scented Candle Collection",category:"decor",description:"Set of 3 luxury soy wax candles.",specs:{"Material":"Soy Wax","Dimensions":"8x10cm each","Color":"Matte Black"},image:"https://images.unsplash.com/photo-1603006905003-be475563bc59?w=400&auto=format&fit=crop",badge:"New"},
+            {id:28,title:"Macrame Wall Hanging",category:"decor",description:"Large hand-knotted cotton macrame art.",specs:{"Material":"Cotton Rope","Dimensions":"90x150cm","Color":"Natural Cream"},image:"https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=400&auto=format&fit=crop",badge:"Artisan"},
+            {id:29,title:"Marble & Wood Tray",category:"decor",description:"Elegant serving tray with brass inlay.",specs:{"Material":"Marble & Mango Wood","Dimensions":"50x30cm","Color":"White & Brown"},image:"https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=400&auto=format&fit=crop",badge:null},
+            {id:30,title:"Abstract Metal Sculpture",category:"decor",description:"Modern abstract sculpture in polished brass.",specs:{"Material":"Polished Brass","Dimensions":"30x50cm","Color":"Gold"},image:"https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=400&auto=format&fit=crop",badge:"Statement"},
+
+            // STORAGE (3 products)
+            {id:13,title:"Teak Wood Bookcase",category:"storage",description:"Modular bookcase in reclaimed teak.",specs:{"Material":"Reclaimed Teak","Dimensions":"180x40x240cm","Color":"Natural"},image:"https://images.unsplash.com/photo-1594620302200-9a762244a156?w=400&auto=format&fit=crop",badge:"Sustainable"},
+            {id:14,title:"Mid-Century Sideboard",category:"storage",description:"American walnut with brass handles.",specs:{"Material":"Walnut & Brass","Dimensions":"180x45x75cm","Color":"Walnut"},image:"https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=400&auto=format&fit=crop",badge:"Iconic"},
+            {id:31,title:"Bar Cabinet",category:"storage",description:"Art Deco inspired with mirrored interior.",specs:{"Material":"Macassar Ebony","Dimensions":"100x45x140cm","Color":"Dark Ebony"},image:"https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=400&auto=format&fit=crop",badge:"Statement"},
+
+            // MIRRORS (3 products)
+            {id:15,title:"Gold Leaf Wall Mirror",category:"mirrors",description:"Oversized mirror with hand-applied gold leaf frame.",specs:{"Material":"Glass & Gold Leaf","Dimensions":"90x120cm","Color":"Gold"},image:"https://images.unsplash.com/photo-1618220252344-8ec99ec625b5?w=400&auto=format&fit=crop",badge:"Statement"},
+            {id:16,title:"Arched Floor Mirror",category:"mirrors",description:"Full-length arched mirror with thin black metal frame.",specs:{"Material":"Glass & Metal","Dimensions":"70x180cm","Color":"Black"},image:"https://images.unsplash.com/photo-1618220252344-8ec99ec625b5?w=400&auto=format&fit=crop",badge:"Trending"},
+            {id:32,title:"Round Wooden Mirror",category:"mirrors",description:"Minimalist round mirror with oak frame.",specs:{"Material":"Glass & Oak","Dimensions":"80cm Diameter","Color":"Natural Oak"},image:"https://images.unsplash.com/photo-1618220252344-8ec99ec625b5?w=400&auto=format&fit=crop",badge:null}
         ];
 
-        function sendWA(title = '') {
-            window.open(`https://wa.me/91${WA}?text=${title ? `Hello Hayee Interior,%0A%0AI am interested in *${title}*.%0A%0APlease share more details.%0A%0AThank you!` : `Hello Hayee Interior,%0A%0AI would like to inquire about your products.%0A%0AThank you!`}`, '_blank', 'noopener');
-        }
+        function sendWA(title=''){window.open(`https://wa.me/91${WA}?text=${title?`Hello Hayee Interior,%0A%0AI am interested in *${title}*.%0A%0APlease share more details.%0A%0AThank you!`:`Hello Hayee Interior,%0A%0AI would like to inquire about your products.%0A%0AThank you!`}`,'_blank','noopener');}
+        function renderProducts(cat='all'){const g=document.getElementById('productGrid'),nr=document.getElementById('noResults'),f=cat==='all'?products:products.filter(p=>p.category===cat);if(!f.length){g.innerHTML='';nr.style.display='block';return;}nr.style.display='none';g.innerHTML=f.map(p=>`<div class="product-card" onclick="openModal(${p.id})"><div class="product-img"><img src="${p.image}" alt="${p.title}" loading="lazy">${p.badge?`<span class="product-badge">${p.badge}</span>`:''}</div><div class="product-info"><p class="product-cat">${p.category}</p><h3 class="product-name">${p.title}</h3><button class="inquire-btn" onclick="event.stopPropagation();sendWA('${p.title.replace(/'/g,"\\'")}')"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>Inquire</button></div></div>`).join('');}
+        function openModal(pid){const p=products.find(x=>x.id===pid);if(!p)return;document.getElementById('modalGallery').innerHTML=`<img src="${p.image}" alt="${p.title}">`;document.getElementById('modalDetails').innerHTML=`<p class="product-cat">${p.category}</p><h2>${p.title}</h2><p class="modal-desc">${p.description}</p><div class="modal-specs">${Object.entries(p.specs).map(([k,v])=>`<div class="spec-item"><span class="spec-label">${k}</span><span class="spec-value">${v}</span></div>`).join('')}</div><button class="modal-inquire" onclick="sendWA('${p.title.replace(/'/g,"\\'")}')"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>Inquire via WhatsApp</button>`;document.getElementById('productModal').classList.add('active');}
+        function toast(msg){const t=document.createElement('div');t.className='toast';t.textContent=msg;document.body.appendChild(t);setTimeout(()=>t.remove(),3800);}
 
-        function renderProducts(cat = 'all') {
-            const g = document.getElementById('productGrid'), nr = document.getElementById('noResults');
-            const f = cat === 'all' ? products : products.filter(p => p.category === cat);
-            if (!f.length) { g.innerHTML = ''; nr.style.display = 'block'; return; }
-            nr.style.display = 'none';
-            g.innerHTML = f.map(p => `<div class="product-card" onclick="openModal(${p.id})"><div class="product-img"><img src="${p.image}" alt="${p.title}" loading="lazy">${p.badge ? `<span class="product-badge">${p.badge}</span>` : ''}</div><div class="product-info"><p class="product-cat">${p.category}</p><h3 class="product-name">${p.title}</h3><button class="inquire-btn" onclick="event.stopPropagation();sendWA('${p.title.replace(/'/g, "\\'")}')"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>Inquire</button></div></div>`).join('');
-        }
+        async function handleNewsletterSubmit(email){const userName=email.split('@')[0];try{const response=await emailjs.send(SERVICE_ID,TEMPLATE_ID,{to_email:email,to_name:userName,subject:'Welcome to Hayee Interior!',message:`Thank you for subscribing to Hayee Interior! We are delighted to welcome you to our design community.\n\nVisit us: Opposite Anu Hospital, Thanjavur\nContact: +91 7299030406`});console.log('✅ Email sent!',response.status);toast('✨ Welcome! Check your inbox! 💌');}catch(error){console.error('❌ Error:',error);toast('⚠️ Error sending email. Check console.');}}
 
-        function openModal(pid) {
-            const p = products.find(x => x.id === pid);
-            if (!p) return;
-            document.getElementById('modalGallery').innerHTML = `<img src="${p.image}" alt="${p.title}">`;
-            document.getElementById('modalDetails').innerHTML = `<p class="product-cat">${p.category}</p><h2>${p.title}</h2><p class="modal-desc">${p.description}</p><div class="modal-specs">${Object.entries(p.specs).map(([k, v]) => `<div class="spec-item"><span class="spec-label">${k}</span><span class="spec-value">${v}</span></div>`).join('')}</div><button class="modal-inquire" onclick="sendWA('${p.title.replace(/'/g, "\\'")}')"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>Inquire via WhatsApp</button>`;
-            document.getElementById('productModal').classList.add('active');
-        }
-
-        function toast(msg) {
-            const t = document.createElement('div'); t.className = 'toast'; t.textContent = msg;
-            document.body.appendChild(t); setTimeout(() => t.remove(), 3800);
-        }
-
-        // ============================================
-        // NEWSLETTER SUBSCRIPTION - REPLACED
-        // ============================================
-        async function handleNewsletterSubmit(email) {
-            const userName = email.split('@')[0];
-            try {
-                const response = await emailjs.send(SERVICE_ID, TEMPLATE_ID, {
-                    to_email: email,
-                    to_name: userName,
-                    subject: 'Welcome to Hayee Interior!',
-                    message: `Thank you for subscribing to Hayee Interior! We are delighted to welcome you to our design community.\n\nVisit us: Opposite Anu Hospital, Thanjavur\nContact: +91 7299030406`
-                });
-                console.log('✅ Email sent!', response.status);
-                toast('✨ Welcome! Check your inbox! 💌');
-            } catch (error) {
-                console.error('❌ Error:', error);
-                toast('⚠️ Error sending email. Check console.');
-            }
-        }
-
-        // ============================================
-        // EVENT LISTENERS
-        // ============================================
-        document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded',()=>{
             renderProducts();
-            const hamburger = document.getElementById('hamburger'), mobileMenu = document.getElementById('mobileMenu'), mobileOverlay = document.getElementById('mobileOverlay');
-            function openMenu() { hamburger.classList.add('active'); mobileMenu.classList.add('active'); mobileOverlay.classList.add('active'); document.body.style.overflow = 'hidden'; }
-            function closeMenu() { hamburger.classList.remove('active'); mobileMenu.classList.remove('active'); mobileOverlay.classList.remove('active'); document.body.style.overflow = ''; }
-            hamburger.addEventListener('click', () => { hamburger.classList.contains('active') ? closeMenu() : openMenu(); });
-            mobileOverlay.addEventListener('click', closeMenu);
-            document.querySelectorAll('.mobile-menu a').forEach(a => a.addEventListener('click', closeMenu));
-            document.querySelectorAll('.filter-btn').forEach(b => b.addEventListener('click', function() { document.querySelectorAll('.filter-btn').forEach(x => x.classList.remove('active')); this.classList.add('active'); renderProducts(this.dataset.category); }));
-            document.getElementById('modalClose').addEventListener('click', () => document.getElementById('productModal').classList.remove('active'));
-            document.getElementById('productModal').addEventListener('click', function(e) { if (e.target === this) this.classList.remove('active'); });
-            document.getElementById('contactForm').addEventListener('submit', function(e) { e.preventDefault(); const n = document.getElementById('cName').value, em = document.getElementById('cEmail').value, ph = document.getElementById('cPhone').value, sv = document.getElementById('cService').value, msg = document.getElementById('cMessage').value; window.open(`https://wa.me/91${WA}?text=Hello%20Hayee%20Interior,%0A%0A*New%20Inquiry*%0A*Name:*%20${n}%0A*Email:*%20${em}%0A*Phone:*%20${ph}%0A*Service:*%20${sv}%0A*Message:*%20${msg}`, '_blank', 'noopener'); toast('Opening WhatsApp... 💬'); this.reset(); });
-            document.getElementById('newsletterForm').addEventListener('submit', function(e) { e.preventDefault(); const em = document.getElementById('newsletterEmail').value; if (em) { handleNewsletterSubmit(em); this.reset(); } });
-            window.addEventListener('scroll', () => { document.getElementById('siteHeader').classList.toggle('scrolled', window.scrollY > 50); });
-            document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', function(e) { e.preventDefault(); const t = document.querySelector(this.getAttribute('href')); if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }));
-            document.addEventListener('keydown', e => { if (e.key === 'Escape') { document.getElementById('productModal').classList.remove('active'); closeMenu(); } });
-            setTimeout(() => { const o = document.getElementById('welcomeOverlay'); if (o) o.style.display = 'none'; }, 3300);
+            const hamburger=document.getElementById('hamburger'),mobileMenu=document.getElementById('mobileMenu'),mobileOverlay=document.getElementById('mobileOverlay');
+            function openMenu(){hamburger.classList.add('active');mobileMenu.classList.add('active');mobileOverlay.classList.add('active');document.body.style.overflow='hidden';}
+            function closeMenu(){hamburger.classList.remove('active');mobileMenu.classList.remove('active');mobileOverlay.classList.remove('active');document.body.style.overflow='';}
+            hamburger.addEventListener('click',()=>{hamburger.classList.contains('active')?closeMenu():openMenu();});
+            mobileOverlay.addEventListener('click',closeMenu);
+            document.querySelectorAll('.mobile-menu a').forEach(a=>a.addEventListener('click',closeMenu));
+            document.querySelectorAll('.filter-btn').forEach(b=>b.addEventListener('click',function(){document.querySelectorAll('.filter-btn').forEach(x=>x.classList.remove('active'));this.classList.add('active');renderProducts(this.dataset.category);}));
+            document.getElementById('modalClose').addEventListener('click',()=>document.getElementById('productModal').classList.remove('active'));
+            document.getElementById('productModal').addEventListener('click',function(e){if(e.target===this)this.classList.remove('active');});
+            document.getElementById('contactForm').addEventListener('submit',function(e){e.preventDefault();const n=document.getElementById('cName').value,em=document.getElementById('cEmail').value,ph=document.getElementById('cPhone').value,sv=document.getElementById('cService').value,msg=document.getElementById('cMessage').value;window.open(`https://wa.me/91${WA}?text=Hello%20Hayee%20Interior,%0A%0A*New%20Inquiry*%0A*Name:*%20${n}%0A*Email:*%20${em}%0A*Phone:*%20${ph}%0A*Service:*%20${sv}%0A*Message:*%20${msg}`,'_blank','noopener');toast('Opening WhatsApp... 💬');this.reset();});
+            document.getElementById('newsletterForm').addEventListener('submit',function(e){e.preventDefault();const em=document.getElementById('newsletterEmail').value;if(em){handleNewsletterSubmit(em);this.reset();}});
+            window.addEventListener('scroll',()=>{document.getElementById('siteHeader').classList.toggle('scrolled',window.scrollY>50);});
+            document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',function(e){e.preventDefault();const t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'});}));
+            document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.getElementById('productModal').classList.remove('active');closeMenu();}});
+            setTimeout(()=>{const o=document.getElementById('welcomeOverlay');if(o)o.style.display='none';},3300);
         });
     </script>
 </body>
