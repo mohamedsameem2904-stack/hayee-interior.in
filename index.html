@@ -65,7 +65,7 @@
         .hamburger.active span:nth-child(2) { opacity: 0; }
         .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
-        /* Mobile Menu - Smaller & Cleaner */
+        /* Mobile Menu */
         .mobile-menu { position: fixed; top: 0; right: -100%; width: 75%; max-width: 300px; height: 100vh; height: 100dvh; background: var(--color-warm-white); z-index: 2000; padding: 80px var(--space-lg) var(--space-lg); transition: right 0.4s cubic-bezier(0.4,0,0.2,1); box-shadow: -10px 0 40px rgba(0,0,0,0.15); overflow-y: auto; }
         .mobile-menu.active { right: 0; }
         .mobile-menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1999; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
@@ -221,25 +221,21 @@
             .footer-grid { grid-template-columns: 1fr 1fr; }
             .about-img { height: 400px; }
         }
-
         @media (max-width: 768px) {
             .main-nav { display: none; }
             .hamburger { display: flex; }
             .header-container { height: 65px; }
             .brand-logo { font-size: 1.4rem; }
-
             .hero { background-attachment: scroll; min-height: 100dvh; }
             .hero-content { padding: var(--space-xl) var(--space-md); text-align: center; }
             .hero-title { font-size: 2.6rem; }
             .hero-desc { font-size: 0.95rem; margin: 0 auto var(--space-xl); }
             .hero-btns { justify-content: center; }
             .hero-btns .btn { width: auto; min-width: 160px; padding: 0.85rem 1.8rem; font-size: 0.75rem; }
-
             .section { padding: var(--space-2xl) 0; }
             .section-header { margin-bottom: var(--space-xl); }
             .section-title { font-size: 1.8rem; }
             .section-desc { font-size: 0.9rem; }
-
             .shop-page { padding-top: var(--space-2xl); }
             .filters { gap: 0.4rem; }
             .filter-btn { padding: 0.5rem 1rem; font-size: 0.7rem; letter-spacing: 0.5px; }
@@ -248,37 +244,29 @@
             .product-info { padding: var(--space-sm); }
             .product-name { font-size: 0.95rem; }
             .inquire-btn { padding: 0.4rem 0.9rem; font-size: 0.65rem; }
-
             .about-grid, .contact-grid { grid-template-columns: 1fr; }
             .about-img { height: 320px; }
             .about-stats { grid-template-columns: repeat(3,1fr); gap: var(--space-sm); }
             .stat-num { font-size: 1.8rem; }
-
             .services-grid { grid-template-columns: 1fr 1fr; gap: var(--space-sm); }
             .service-card { padding: var(--space-md); }
             .service-icon { width: 50px; height: 50px; font-size: 1.3rem; }
-
             .testimonials-grid { grid-template-columns: 1fr; }
             .testimonial-card { padding: var(--space-md); }
-
             .modal { grid-template-columns: 1fr; }
             .modal-gallery { min-height: 220px; padding: var(--space-md); }
             .modal-details { padding: var(--space-md); }
             .modal-details h2 { font-size: 1.3rem; }
             .modal-specs { grid-template-columns: 1fr; }
-
             .newsletter-form { flex-direction: column; padding: 0 var(--space-md); }
             .newsletter-form button { width: 100%; }
-
             .contact-form { padding: var(--space-md); }
             .footer-grid { grid-template-columns: 1fr; gap: var(--space-lg); }
             .footer-bottom { flex-direction: column; text-align: center; }
-
             .wa-float { bottom: 18px; right: 18px; width: 50px; height: 50px; }
             .wa-float svg { width: 24px; height: 24px; }
             .toast { bottom: 80px; font-size: 0.8rem; padding: 0.7rem 1.5rem; }
         }
-
         @media (max-width: 480px) {
             .container { padding: 0 var(--space-sm); }
             .brand-logo { font-size: 1.25rem; }
@@ -334,7 +322,7 @@
         </div>
     </header>
 
-    <!-- Mobile Menu - Clean, No WhatsApp Button -->
+    <!-- Mobile Menu -->
     <div class="mobile-menu-overlay" id="mobileOverlay"></div>
     <div class="mobile-menu" id="mobileMenu">
         <ul>
@@ -452,7 +440,7 @@
         </div>
     </section>
 
-    <!-- Footer - NO Social Media Icons -->
+    <!-- Footer -->
     <footer class="site-footer">
         <div class="container">
             <div class="footer-grid">
@@ -483,41 +471,77 @@
     </a>
 
     <script>
-        // EmailJS Config
-        (function(){emailjs.init('4PqovkDyLmhDMdgSA');})();
-        const SERVICE_ID='service_2bp28db', TEMPLATE_ID='template_iwveg1r', WA='7299030406';
+        // ============================================
+        // EMAILJS & WHATSAPP CONFIGURATION
+        // ============================================
+        (function() {
+            emailjs.init('4PqovkDyLmhDMdgSA');
+            console.log('✅ EmailJS Initialized');
+        })();
 
-        // Products
-        const products=[
-            {id:1,title:"Serena Velvet Armchair",category:"seating",description:"Handcrafted armchair in Italian velvet with solid oak legs.",specs:{"Material":"Velvet & Solid Oak","Dimensions":"85x90x95cm","Color":"Sage Green"},image:"https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=400&auto=format&fit=crop",badge:"Bestseller"},
-            {id:2,title:"Minimalist Marble Coffee Table",category:"tables",description:"Carrara marble top with brushed brass base.",specs:{"Material":"Carrara Marble & Brass","Dimensions":"120x70x40cm","Color":"White & Gold"},image:"https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?w=400&auto=format&fit=crop",badge:null},
-            {id:3,title:"Artisan Pendant Light",category:"lighting",description:"Hand-blown glass with antique brass fittings.",specs:{"Material":"Blown Glass & Brass","Dimensions":"30x40cm","Color":"Amber"},image:"https://images.unsplash.com/photo-1524484485831-a92ffc0de03f?w=400&auto=format&fit=crop",badge:"Limited"},
-            {id:4,title:"Sculptural Ceramic Vase",category:"decor",description:"Handcrafted by Tamil Nadu artisans.",specs:{"Material":"Terracotta & Glaze","Dimensions":"25x45cm","Color":"Matte White"},image:"https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=400&auto=format&fit=crop",badge:"Handmade"},
-            {id:5,title:"Chesterfield Leather Sofa",category:"seating",description:"Full-grain leather with deep button tufting.",specs:{"Material":"Full-Grain Leather","Dimensions":"220x95x80cm","Color":"Cognac"},image:"https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&auto=format&fit=crop",badge:"Premium"},
-            {id:6,title:"Walnut Dining Table",category:"tables",description:"Solid American walnut, seats 8-10.",specs:{"Material":"Solid Walnut","Dimensions":"240x100x76cm","Color":"Dark Walnut"},image:"https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?w=400&auto=format&fit=crop",badge:null},
-            {id:7,title:"Crystal Chandelier",category:"lighting",description:"24 lights with hand-cut crystals.",specs:{"Material":"Crystal & Gold","Dimensions":"100x120cm","Color":"Clear & Gold"},image:"https://images.unsplash.com/photo-1540932239986-30128078f3c5?w=400&auto=format&fit=crop",badge:"Luxury"},
-            {id:8,title:"Gold Leaf Wall Mirror",category:"mirrors",description:"Oversized mirror with hand-applied gold leaf frame.",specs:{"Material":"Glass & Gold Leaf","Dimensions":"90x120cm","Color":"Gold"},image:"https://images.unsplash.com/photo-1618220252344-8ec99ec625b5?w=400&auto=format&fit=crop",badge:"Statement"},
-            {id:9,title:"Teak Wood Bookcase",category:"storage",description:"Modular bookcase in reclaimed teak.",specs:{"Material":"Reclaimed Teak","Dimensions":"180x40x240cm","Color":"Natural"},image:"https://images.unsplash.com/photo-1594620302200-9a762244a156?w=400&auto=format&fit=crop",badge:"Sustainable"},
-            {id:10,title:"Brass Floor Lamp",category:"lighting",description:"Solid brass with linen shade.",specs:{"Material":"Brass & Linen","Dimensions":"40x160cm","Color":"Antique Brass"},image:"https://images.unsplash.com/photo-1507473885765-e6ed057ab6fe?w=400&auto=format&fit=crop",badge:null},
-            {id:11,title:"Velvet Ottoman",category:"seating",description:"Plush velvet with hidden storage.",specs:{"Material":"Cotton Velvet","Dimensions":"80x45cm","Color":"Blush"},image:"https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=400&auto=format&fit=crop",badge:"New"},
-            {id:12,title:"Marble Console Table",category:"tables",description:"Nero Marquina marble with metal base.",specs:{"Material":"Marble & Steel","Dimensions":"140x40x85cm","Color":"Black & Gold"},image:"https://images.unsplash.com/photo-1486946255434-2466348c2166?w=400&auto=format&fit=crop",badge:"Exclusive"},
-            {id:13,title:"Bamboo Pendant Light",category:"lighting",description:"Eco-friendly handwoven bamboo.",specs:{"Material":"Bamboo","Dimensions":"45x55cm","Color":"Natural"},image:"https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=400&auto=format&fit=crop",badge:"Eco"},
-            {id:14,title:"Mid-Century Sideboard",category:"storage",description:"American walnut with brass handles.",specs:{"Material":"Walnut & Brass","Dimensions":"180x45x75cm","Color":"Walnut"},image:"https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=400&auto=format&fit=crop",badge:"Iconic"},
-            {id:15,title:"Arched Floor Mirror",category:"mirrors",description:"Full-length arched mirror with thin black metal frame.",specs:{"Material":"Glass & Metal","Dimensions":"70x180cm","Color":"Black"},image:"https://images.unsplash.com/photo-1618220252344-8ec99ec625b5?w=400&auto=format&fit=crop",badge:"Trending"},
-            {id:16,title:"Wingback Dining Chairs",category:"seating",description:"Set of 2 in performance linen.",specs:{"Material":"Linen & Oak","Dimensions":"55x60x85cm","Color":"Ivory"},image:"https://images.unsplash.com/photo-1503602642458-232111445657?w=400&auto=format&fit=crop",badge:"Set of 2"}
+        const SERVICE_ID = 'service_2bp28db';
+        const TEMPLATE_ID = 'template_iwveg1r';
+        const WA = '7299030406';
+
+        // ============================================
+        // PRODUCT DATABASE
+        // ============================================
+        const products = [
+            { id: 1, title: "Serena Velvet Armchair", category: "seating", description: "Handcrafted armchair in Italian velvet with solid oak legs.", specs: { "Material": "Velvet & Solid Oak", "Dimensions": "85x90x95cm", "Color": "Sage Green" }, image: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=400&auto=format&fit=crop", badge: "Bestseller" },
+            { id: 2, title: "Minimalist Marble Coffee Table", category: "tables", description: "Carrara marble top with brushed brass base.", specs: { "Material": "Carrara Marble & Brass", "Dimensions": "120x70x40cm", "Color": "White & Gold" }, image: "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?w=400&auto=format&fit=crop", badge: null },
+            { id: 3, title: "Artisan Pendant Light", category: "lighting", description: "Hand-blown glass with antique brass fittings.", specs: { "Material": "Blown Glass & Brass", "Dimensions": "30x40cm", "Color": "Amber" }, image: "https://images.unsplash.com/photo-1524484485831-a92ffc0de03f?w=400&auto=format&fit=crop", badge: "Limited" },
+            { id: 4, title: "Sculptural Ceramic Vase", category: "decor", description: "Handcrafted by Tamil Nadu artisans.", specs: { "Material": "Terracotta & Glaze", "Dimensions": "25x45cm", "Color": "Matte White" }, image: "https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=400&auto=format&fit=crop", badge: "Handmade" },
+            { id: 5, title: "Chesterfield Leather Sofa", category: "seating", description: "Full-grain leather with deep button tufting.", specs: { "Material": "Full-Grain Leather", "Dimensions": "220x95x80cm", "Color": "Cognac" }, image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&auto=format&fit=crop", badge: "Premium" },
+            { id: 6, title: "Walnut Dining Table", category: "tables", description: "Solid American walnut, seats 8-10.", specs: { "Material": "Solid Walnut", "Dimensions": "240x100x76cm", "Color": "Dark Walnut" }, image: "https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?w=400&auto=format&fit=crop", badge: null },
+            { id: 7, title: "Crystal Chandelier", category: "lighting", description: "24 lights with hand-cut crystals.", specs: { "Material": "Crystal & Gold", "Dimensions": "100x120cm", "Color": "Clear & Gold" }, image: "https://images.unsplash.com/photo-1540932239986-30128078f3c5?w=400&auto=format&fit=crop", badge: "Luxury" },
+            { id: 8, title: "Gold Leaf Wall Mirror", category: "mirrors", description: "Oversized mirror with hand-applied gold leaf frame.", specs: { "Material": "Glass & Gold Leaf", "Dimensions": "90x120cm", "Color": "Gold" }, image: "https://images.unsplash.com/photo-1618220252344-8ec99ec625b5?w=400&auto=format&fit=crop", badge: "Statement" },
+            { id: 9, title: "Teak Wood Bookcase", category: "storage", description: "Modular bookcase in reclaimed teak.", specs: { "Material": "Reclaimed Teak", "Dimensions": "180x40x240cm", "Color": "Natural" }, image: "https://images.unsplash.com/photo-1594620302200-9a762244a156?w=400&auto=format&fit=crop", badge: "Sustainable" },
+            { id: 10, title: "Brass Floor Lamp", category: "lighting", description: "Solid brass with linen shade.", specs: { "Material": "Brass & Linen", "Dimensions": "40x160cm", "Color": "Antique Brass" }, image: "https://images.unsplash.com/photo-1507473885765-e6ed057ab6fe?w=400&auto=format&fit=crop", badge: null },
+            { id: 11, title: "Velvet Ottoman", category: "seating", description: "Plush velvet with hidden storage.", specs: { "Material": "Cotton Velvet", "Dimensions": "80x45cm", "Color": "Blush" }, image: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=400&auto=format&fit=crop", badge: "New" },
+            { id: 12, title: "Marble Console Table", category: "tables", description: "Nero Marquina marble with metal base.", specs: { "Material": "Marble & Steel", "Dimensions": "140x40x85cm", "Color": "Black & Gold" }, image: "https://images.unsplash.com/photo-1486946255434-2466348c2166?w=400&auto=format&fit=crop", badge: "Exclusive" },
+            { id: 13, title: "Bamboo Pendant Light", category: "lighting", description: "Eco-friendly handwoven bamboo.", specs: { "Material": "Bamboo", "Dimensions": "45x55cm", "Color": "Natural" }, image: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=400&auto=format&fit=crop", badge: "Eco" },
+            { id: 14, title: "Mid-Century Sideboard", category: "storage", description: "American walnut with brass handles.", specs: { "Material": "Walnut & Brass", "Dimensions": "180x45x75cm", "Color": "Walnut" }, image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=400&auto=format&fit=crop", badge: "Iconic" },
+            { id: 15, title: "Arched Floor Mirror", category: "mirrors", description: "Full-length arched mirror with thin black metal frame.", specs: { "Material": "Glass & Metal", "Dimensions": "70x180cm", "Color": "Black" }, image: "https://images.unsplash.com/photo-1618220252344-8ec99ec625b5?w=400&auto=format&fit=crop", badge: "Trending" },
+            { id: 16, title: "Wingback Dining Chairs", category: "seating", description: "Set of 2 in performance linen.", specs: { "Material": "Linen & Oak", "Dimensions": "55x60x85cm", "Color": "Ivory" }, image: "https://images.unsplash.com/photo-1503602642458-232111445657?w=400&auto=format&fit=crop", badge: "Set of 2" }
         ];
 
-        function sendWA(title=''){window.open(`https://wa.me/91${WA}?text=${title?`Hello Hayee Interior,%0A%0AI am interested in *${title}*.%0A%0APlease share more details.%0A%0AThank you!`:`Hello Hayee Interior,%0A%0AI would like to inquire about your products.%0A%0AThank you!`}`,'_blank','noopener');}
-        function renderProducts(cat='all'){const g=document.getElementById('productGrid'),nr=document.getElementById('noResults'),f=cat==='all'?products:products.filter(p=>p.category===cat);if(!f.length){g.innerHTML='';nr.style.display='block';return;}nr.style.display='none';g.innerHTML=f.map(p=>`<div class="product-card" onclick="openModal(${p.id})"><div class="product-img"><img src="${p.image}" alt="${p.title}" loading="lazy">${p.badge?`<span class="product-badge">${p.badge}</span>`:''}</div><div class="product-info"><p class="product-cat">${p.category}</p><h3 class="product-name">${p.title}</h3><button class="inquire-btn" onclick="event.stopPropagation();sendWA('${p.title.replace(/'/g,"\\'")}')"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>Inquire</button></div></div>`).join('');}
-        function openModal(pid){const p=products.find(x=>x.id===pid);if(!p)return;document.getElementById('modalGallery').innerHTML=`<img src="${p.image}" alt="${p.title}">`;document.getElementById('modalDetails').innerHTML=`<p class="product-cat">${p.category}</p><h2>${p.title}</h2><p class="modal-desc">${p.description}</p><div class="modal-specs">${Object.entries(p.specs).map(([k,v])=>`<div class="spec-item"><span class="spec-label">${k}</span><span class="spec-value">${v}</span></div>`).join('')}</div><button class="modal-inquire" onclick="sendWA('${p.title.replace(/'/g,"\\'")}')"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>Inquire via WhatsApp</button>`;document.getElementById('productModal').classList.add('active');}
-        function toast(msg){const t=document.createElement('div');t.className='toast';t.textContent=msg;document.body.appendChild(t);setTimeout(()=>t.remove(),3800);}
+        function sendWA(title = '') {
+            window.open(`https://wa.me/91${WA}?text=${title ? `Hello Hayee Interior,%0A%0AI am interested in *${title}*.%0A%0APlease share more details.%0A%0AThank you!` : `Hello Hayee Interior,%0A%0AI would like to inquire about your products.%0A%0AThank you!`}`, '_blank', 'noopener');
+        }
 
-        // SIMPLIFIED EMAIL FUNCTION
+        function renderProducts(cat = 'all') {
+            const g = document.getElementById('productGrid'), nr = document.getElementById('noResults');
+            const f = cat === 'all' ? products : products.filter(p => p.category === cat);
+            if (!f.length) { g.innerHTML = ''; nr.style.display = 'block'; return; }
+            nr.style.display = 'none';
+            g.innerHTML = f.map(p => `<div class="product-card" onclick="openModal(${p.id})"><div class="product-img"><img src="${p.image}" alt="${p.title}" loading="lazy">${p.badge ? `<span class="product-badge">${p.badge}</span>` : ''}</div><div class="product-info"><p class="product-cat">${p.category}</p><h3 class="product-name">${p.title}</h3><button class="inquire-btn" onclick="event.stopPropagation();sendWA('${p.title.replace(/'/g, "\\'")}')"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>Inquire</button></div></div>`).join('');
+        }
+
+        function openModal(pid) {
+            const p = products.find(x => x.id === pid);
+            if (!p) return;
+            document.getElementById('modalGallery').innerHTML = `<img src="${p.image}" alt="${p.title}">`;
+            document.getElementById('modalDetails').innerHTML = `<p class="product-cat">${p.category}</p><h2>${p.title}</h2><p class="modal-desc">${p.description}</p><div class="modal-specs">${Object.entries(p.specs).map(([k, v]) => `<div class="spec-item"><span class="spec-label">${k}</span><span class="spec-value">${v}</span></div>`).join('')}</div><button class="modal-inquire" onclick="sendWA('${p.title.replace(/'/g, "\\'")}')"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>Inquire via WhatsApp</button>`;
+            document.getElementById('productModal').classList.add('active');
+        }
+
+        function toast(msg) {
+            const t = document.createElement('div'); t.className = 'toast'; t.textContent = msg;
+            document.body.appendChild(t); setTimeout(() => t.remove(), 3800);
+        }
+
+        // ============================================
+        // NEWSLETTER SUBSCRIPTION - REPLACED
+        // ============================================
         async function handleNewsletterSubmit(email) {
             const userName = email.split('@')[0];
-            const simpleMessage = `<h2>Dear ${userName},</h2><p>Thank you for subscribing to <strong>Hayee Interior</strong>!</p><p>We're delighted to welcome you to our design community.</p><hr><p><strong>Visit us:</strong> Opposite Anu Hospital, Thanjavur</p><p><strong>Contact:</strong> +91 7299030406</p>`;
             try {
-                const response = await emailjs.send(SERVICE_ID, TEMPLATE_ID, {to_email: email, to_name: userName, subject: 'Welcome to Hayee Interior!', message: simpleMessage});
+                const response = await emailjs.send(SERVICE_ID, TEMPLATE_ID, {
+                    to_email: email,
+                    to_name: userName,
+                    subject: 'Welcome to Hayee Interior!',
+                    message: `Thank you for subscribing to Hayee Interior! We are delighted to welcome you to our design community.\n\nVisit us: Opposite Anu Hospital, Thanjavur\nContact: +91 7299030406`
+                });
                 console.log('✅ Email sent!', response.status);
                 toast('✨ Welcome! Check your inbox! 💌');
             } catch (error) {
@@ -526,23 +550,26 @@
             }
         }
 
-        document.addEventListener('DOMContentLoaded',()=>{
+        // ============================================
+        // EVENT LISTENERS
+        // ============================================
+        document.addEventListener('DOMContentLoaded', () => {
             renderProducts();
-            const hamburger=document.getElementById('hamburger'),mobileMenu=document.getElementById('mobileMenu'),mobileOverlay=document.getElementById('mobileOverlay');
-            function openMenu(){hamburger.classList.add('active');mobileMenu.classList.add('active');mobileOverlay.classList.add('active');document.body.style.overflow='hidden';}
-            function closeMenu(){hamburger.classList.remove('active');mobileMenu.classList.remove('active');mobileOverlay.classList.remove('active');document.body.style.overflow='';}
-            hamburger.addEventListener('click',()=>{hamburger.classList.contains('active')?closeMenu():openMenu();});
-            mobileOverlay.addEventListener('click',closeMenu);
-            document.querySelectorAll('.mobile-menu a').forEach(a=>a.addEventListener('click',closeMenu));
-            document.querySelectorAll('.filter-btn').forEach(b=>b.addEventListener('click',function(){document.querySelectorAll('.filter-btn').forEach(x=>x.classList.remove('active'));this.classList.add('active');renderProducts(this.dataset.category);}));
-            document.getElementById('modalClose').addEventListener('click',()=>document.getElementById('productModal').classList.remove('active'));
-            document.getElementById('productModal').addEventListener('click',function(e){if(e.target===this)this.classList.remove('active');});
-            document.getElementById('contactForm').addEventListener('submit',function(e){e.preventDefault();const n=document.getElementById('cName').value,em=document.getElementById('cEmail').value,ph=document.getElementById('cPhone').value,sv=document.getElementById('cService').value,msg=document.getElementById('cMessage').value;window.open(`https://wa.me/91${WA}?text=Hello%20Hayee%20Interior,%0A%0A*New%20Inquiry*%0A*Name:*%20${n}%0A*Email:*%20${em}%0A*Phone:*%20${ph}%0A*Service:*%20${sv}%0A*Message:*%20${msg}`,'_blank','noopener');toast('Opening WhatsApp... 💬');this.reset();});
-            document.getElementById('newsletterForm').addEventListener('submit',function(e){e.preventDefault();const em=document.getElementById('newsletterEmail').value;if(em){handleNewsletterSubmit(em);this.reset();}});
-            window.addEventListener('scroll',()=>{document.getElementById('siteHeader').classList.toggle('scrolled',window.scrollY>50);});
-            document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',function(e){e.preventDefault();const t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'});}));
-            document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.getElementById('productModal').classList.remove('active');closeMenu();}});
-            setTimeout(()=>{const o=document.getElementById('welcomeOverlay');if(o)o.style.display='none';},3300);
+            const hamburger = document.getElementById('hamburger'), mobileMenu = document.getElementById('mobileMenu'), mobileOverlay = document.getElementById('mobileOverlay');
+            function openMenu() { hamburger.classList.add('active'); mobileMenu.classList.add('active'); mobileOverlay.classList.add('active'); document.body.style.overflow = 'hidden'; }
+            function closeMenu() { hamburger.classList.remove('active'); mobileMenu.classList.remove('active'); mobileOverlay.classList.remove('active'); document.body.style.overflow = ''; }
+            hamburger.addEventListener('click', () => { hamburger.classList.contains('active') ? closeMenu() : openMenu(); });
+            mobileOverlay.addEventListener('click', closeMenu);
+            document.querySelectorAll('.mobile-menu a').forEach(a => a.addEventListener('click', closeMenu));
+            document.querySelectorAll('.filter-btn').forEach(b => b.addEventListener('click', function() { document.querySelectorAll('.filter-btn').forEach(x => x.classList.remove('active')); this.classList.add('active'); renderProducts(this.dataset.category); }));
+            document.getElementById('modalClose').addEventListener('click', () => document.getElementById('productModal').classList.remove('active'));
+            document.getElementById('productModal').addEventListener('click', function(e) { if (e.target === this) this.classList.remove('active'); });
+            document.getElementById('contactForm').addEventListener('submit', function(e) { e.preventDefault(); const n = document.getElementById('cName').value, em = document.getElementById('cEmail').value, ph = document.getElementById('cPhone').value, sv = document.getElementById('cService').value, msg = document.getElementById('cMessage').value; window.open(`https://wa.me/91${WA}?text=Hello%20Hayee%20Interior,%0A%0A*New%20Inquiry*%0A*Name:*%20${n}%0A*Email:*%20${em}%0A*Phone:*%20${ph}%0A*Service:*%20${sv}%0A*Message:*%20${msg}`, '_blank', 'noopener'); toast('Opening WhatsApp... 💬'); this.reset(); });
+            document.getElementById('newsletterForm').addEventListener('submit', function(e) { e.preventDefault(); const em = document.getElementById('newsletterEmail').value; if (em) { handleNewsletterSubmit(em); this.reset(); } });
+            window.addEventListener('scroll', () => { document.getElementById('siteHeader').classList.toggle('scrolled', window.scrollY > 50); });
+            document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', function(e) { e.preventDefault(); const t = document.querySelector(this.getAttribute('href')); if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }));
+            document.addEventListener('keydown', e => { if (e.key === 'Escape') { document.getElementById('productModal').classList.remove('active'); closeMenu(); } });
+            setTimeout(() => { const o = document.getElementById('welcomeOverlay'); if (o) o.style.display = 'none'; }, 3300);
         });
     </script>
 </body>
